@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lNL-Uf-FQb">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--Me-->
+        <scene sceneID="i38-bS-eq1">
+            <objects>
+                <viewController id="wyk-4E-9QS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qvD-RF-KX2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Me" image="ios7-person-outline" id="pcP-tf-Vmf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="arD-Kd-IZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1271" y="637"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="hXv-aM-vz3">
+            <objects>
+                <viewController id="Nzu-td-Yf5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hc7-LE-6xI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="ios7-star" id="gYc-Z4-YMN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="saB-u5-gxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="845" y="1161"/>
+        </scene>
+        <!--Companies-->
+        <scene sceneID="qPw-RN-t6g">
+            <objects>
+                <collectionViewController id="1V3-Zo-Tlq" customClass="CompanyViewController" customModule="Megaphone" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="xCb-UX-7ni">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TqD-1e-HfL">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CompanyCell" id="fm9-Qh-5zo" customClass="CompanyCell" customModule="Megaphone" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="KOR-R4-ItW">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="imageView" destination="KOR-R4-ItW" id="6XP-pt-BN7"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="1V3-Zo-Tlq" id="PBV-Qc-56J"/>
+                            <outlet property="delegate" destination="1V3-Zo-Tlq" id="5i0-gu-3hb"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" tag="1" title="Companies" image="ios7-briefcase" id="bFA-uR-4Mc"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yjr-sU-ysC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="-635"/>
+        </scene>
+        <!--Recents-->
+        <scene sceneID="VNb-3i-SpH">
+            <objects>
+                <viewController id="ygS-5w-MVs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dGz-Lz-h5d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Recents" image="ios7-clock" id="RiI-Rq-arc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7m8-zT-1M4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1271" y="-13"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="JX6-7m-z34">
+            <objects>
+                <tabBarController id="lNL-Uf-FQb" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="GGb-uA-YMY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="1V3-Zo-Tlq" kind="relationship" relationship="viewControllers" id="AuQ-F9-nyG"/>
+                        <segue destination="Nzu-td-Yf5" kind="relationship" relationship="viewControllers" id="GF6-Ns-X5e"/>
+                        <segue destination="ygS-5w-MVs" kind="relationship" relationship="viewControllers" id="asc-jb-wD3"/>
+                        <segue destination="wyk-4E-9QS" kind="relationship" relationship="viewControllers" id="cKd-yp-cAN"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IGa-7t-Jta" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633.06666666666661" y="330.38666666666666"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ios7-briefcase" width="32" height="32"/>
+        <image name="ios7-clock" width="32" height="32"/>
+        <image name="ios7-person-outline" width="32" height="32"/>
+        <image name="ios7-star" width="32" height="32"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

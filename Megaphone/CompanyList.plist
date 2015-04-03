@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Name</key>
+		<string>Dropbox</string>
+		<key>Picture</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Facebook</string>
+		<key>Picture</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Apple</string>
+		<key>Picture</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Amazon</string>
+		<key>Picture</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Google</string>
+		<key>Picture</key>
+		<string></string>
+	</dict>
+</array>
+</plist>
