@@ -7,54 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F30C1CDE1ACBC1CF00593355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C1CDD1ACBC1CF00593355 /* AppDelegate.swift */; };
-		F30C1CE01ACBC1CF00593355 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C1CDF1ACBC1CF00593355 /* ViewController.swift */; };
-		F30C1CE31ACBC1CF00593355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30C1CE11ACBC1CF00593355 /* Main.storyboard */; };
-		F30C1CE51ACBC1CF00593355 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30C1CE41ACBC1CF00593355 /* Images.xcassets */; };
-		F30C1CE81ACBC1CF00593355 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30C1CE61ACBC1CF00593355 /* LaunchScreen.xib */; };
-		F30C1CF41ACBC1CF00593355 /* MegaphoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C1CF31ACBC1CF00593355 /* MegaphoneTests.swift */; };
-		F3B951E91ACE5DEA00CF7081 /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B951E81ACE5DEA00CF7081 /* CompanyViewController.swift */; };
-		F3B951EB1ACE5F5700CF7081 /* CompanyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3B951EA1ACE5F5700CF7081 /* CompanyList.plist */; };
-		F3B951ED1ACE621E00CF7081 /* CompanyLogos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3B951EC1ACE621E00CF7081 /* CompanyLogos.xcassets */; };
-		F3B951F11ACE6EE200CF7081 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B951F01ACE6EE200CF7081 /* CompanyCell.swift */; };
+		F30587731AD1F2AC0058E103 /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30587721AD1F2AC0058E103 /* CompanyViewController.m */; };
+		F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30587751AD1F3D40058E103 /* CompanyCell.m */; };
+		F3A6B3061AD1EDE400955521 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B3051AD1EDE400955521 /* main.m */; };
+		F3A6B3091AD1EDE400955521 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B3081AD1EDE400955521 /* AppDelegate.m */; };
+		F3A6B30C1AD1EDE400955521 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B30B1AD1EDE400955521 /* ViewController.m */; };
+		F3A6B30F1AD1EDE400955521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B30D1AD1EDE400955521 /* Main.storyboard */; };
+		F3A6B3111AD1EDE400955521 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3101AD1EDE400955521 /* Images.xcassets */; };
+		F3A6B3141AD1EDE400955521 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3121AD1EDE400955521 /* LaunchScreen.xib */; };
+		F3A6B3201AD1EDE400955521 /* MegaphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */; };
+		F3A6B32A1AD1EE6200955521 /* CompanyLogos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3291AD1EE6200955521 /* CompanyLogos.xcassets */; };
+		F3FF79181AD202B100C21BFD /* CompanyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3FF79171AD202B100C21BFD /* CompanyList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F30C1CEE1ACBC1CF00593355 /* PBXContainerItemProxy */ = {
+		F3A6B31A1AD1EDE400955521 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F30C1CD01ACBC1CF00593355 /* Project object */;
+			containerPortal = F3A6B2F81AD1EDE400955521 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F30C1CD71ACBC1CF00593355;
+			remoteGlobalIDString = F3A6B2FF1AD1EDE400955521;
 			remoteInfo = Megaphone;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F30C1CD81ACBC1CF00593355 /* Megaphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Megaphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F30C1CDC1ACBC1CF00593355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F30C1CDD1ACBC1CF00593355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F30C1CDF1ACBC1CF00593355 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F30C1CE21ACBC1CF00593355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F30C1CE41ACBC1CF00593355 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F30C1CE71ACBC1CF00593355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F30C1CED1ACBC1CF00593355 /* MegaphoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MegaphoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F30C1CF21ACBC1CF00593355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F30C1CF31ACBC1CF00593355 /* MegaphoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MegaphoneTests.swift; sourceTree = "<group>"; };
-		F3B951E81ACE5DEA00CF7081 /* CompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyViewController.swift; sourceTree = "<group>"; };
-		F3B951EA1ACE5F5700CF7081 /* CompanyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CompanyList.plist; sourceTree = "<group>"; };
-		F3B951EC1ACE621E00CF7081 /* CompanyLogos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CompanyLogos.xcassets; sourceTree = "<group>"; };
-		F3B951F01ACE6EE200CF7081 /* CompanyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
+		F30587711AD1F2AC0058E103 /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
+		F30587721AD1F2AC0058E103 /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
+		F30587741AD1F3D40058E103 /* CompanyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCell.h; sourceTree = "<group>"; };
+		F30587751AD1F3D40058E103 /* CompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCell.m; sourceTree = "<group>"; };
+		F3A6B3001AD1EDE400955521 /* Megaphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Megaphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3A6B3041AD1EDE400955521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3A6B3051AD1EDE400955521 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F3A6B3071AD1EDE400955521 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F3A6B3081AD1EDE400955521 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F3A6B30A1AD1EDE400955521 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F3A6B30B1AD1EDE400955521 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F3A6B30E1AD1EDE400955521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F3A6B3101AD1EDE400955521 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F3A6B3131AD1EDE400955521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F3A6B3191AD1EDE400955521 /* MegaphoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MegaphoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3A6B31E1AD1EDE400955521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MegaphoneTests.m; sourceTree = "<group>"; };
+		F3A6B3291AD1EE6200955521 /* CompanyLogos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CompanyLogos.xcassets; sourceTree = "<group>"; };
+		F3FF79171AD202B100C21BFD /* CompanyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CompanyList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F30C1CD51ACBC1CF00593355 /* Frameworks */ = {
+		F3A6B2FD1AD1EDE400955521 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F30C1CEA1ACBC1CF00593355 /* Frameworks */ = {
+		F3A6B3161AD1EDE400955521 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64,62 +70,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F30C1CCF1ACBC1CF00593355 = {
+		F3A6B2F71AD1EDE400955521 = {
 			isa = PBXGroup;
 			children = (
-				F30C1CDA1ACBC1CF00593355 /* Megaphone */,
-				F30C1CF01ACBC1CF00593355 /* MegaphoneTests */,
-				F30C1CD91ACBC1CF00593355 /* Products */,
+				F3A6B3021AD1EDE400955521 /* Megaphone */,
+				F3A6B31C1AD1EDE400955521 /* MegaphoneTests */,
+				F3A6B3011AD1EDE400955521 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F30C1CD91ACBC1CF00593355 /* Products */ = {
+		F3A6B3011AD1EDE400955521 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F30C1CD81ACBC1CF00593355 /* Megaphone.app */,
-				F30C1CED1ACBC1CF00593355 /* MegaphoneTests.xctest */,
+				F3A6B3001AD1EDE400955521 /* Megaphone.app */,
+				F3A6B3191AD1EDE400955521 /* MegaphoneTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F30C1CDA1ACBC1CF00593355 /* Megaphone */ = {
+		F3A6B3021AD1EDE400955521 /* Megaphone */ = {
 			isa = PBXGroup;
 			children = (
-				F30C1CDD1ACBC1CF00593355 /* AppDelegate.swift */,
-				F30C1CDF1ACBC1CF00593355 /* ViewController.swift */,
-				F30C1CE11ACBC1CF00593355 /* Main.storyboard */,
-				F3B951F01ACE6EE200CF7081 /* CompanyCell.swift */,
-				F3B951EA1ACE5F5700CF7081 /* CompanyList.plist */,
-				F3B951E81ACE5DEA00CF7081 /* CompanyViewController.swift */,
-				F30C1CE41ACBC1CF00593355 /* Images.xcassets */,
-				F3B951EC1ACE621E00CF7081 /* CompanyLogos.xcassets */,
-				F30C1CE61ACBC1CF00593355 /* LaunchScreen.xib */,
-				F30C1CDB1ACBC1CF00593355 /* Supporting Files */,
+				F3FF79171AD202B100C21BFD /* CompanyList.plist */,
+				F3A6B3071AD1EDE400955521 /* AppDelegate.h */,
+				F3A6B3081AD1EDE400955521 /* AppDelegate.m */,
+				F3A6B30A1AD1EDE400955521 /* ViewController.h */,
+				F3A6B30B1AD1EDE400955521 /* ViewController.m */,
+				F3A6B30D1AD1EDE400955521 /* Main.storyboard */,
+				F30587711AD1F2AC0058E103 /* CompanyViewController.h */,
+				F30587721AD1F2AC0058E103 /* CompanyViewController.m */,
+				F30587741AD1F3D40058E103 /* CompanyCell.h */,
+				F30587751AD1F3D40058E103 /* CompanyCell.m */,
+				F3A6B3101AD1EDE400955521 /* Images.xcassets */,
+				F3A6B3291AD1EE6200955521 /* CompanyLogos.xcassets */,
+				F3A6B3121AD1EDE400955521 /* LaunchScreen.xib */,
+				F3A6B3031AD1EDE400955521 /* Supporting Files */,
 			);
 			path = Megaphone;
 			sourceTree = "<group>";
 		};
-		F30C1CDB1ACBC1CF00593355 /* Supporting Files */ = {
+		F3A6B3031AD1EDE400955521 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F30C1CDC1ACBC1CF00593355 /* Info.plist */,
+				F3A6B3041AD1EDE400955521 /* Info.plist */,
+				F3A6B3051AD1EDE400955521 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F30C1CF01ACBC1CF00593355 /* MegaphoneTests */ = {
+		F3A6B31C1AD1EDE400955521 /* MegaphoneTests */ = {
 			isa = PBXGroup;
 			children = (
-				F30C1CF31ACBC1CF00593355 /* MegaphoneTests.swift */,
-				F30C1CF11ACBC1CF00593355 /* Supporting Files */,
+				F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */,
+				F3A6B31D1AD1EDE400955521 /* Supporting Files */,
 			);
 			path = MegaphoneTests;
 			sourceTree = "<group>";
 		};
-		F30C1CF11ACBC1CF00593355 /* Supporting Files */ = {
+		F3A6B31D1AD1EDE400955521 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F30C1CF21ACBC1CF00593355 /* Info.plist */,
+				F3A6B31E1AD1EDE400955521 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -127,13 +138,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F30C1CD71ACBC1CF00593355 /* Megaphone */ = {
+		F3A6B2FF1AD1EDE400955521 /* Megaphone */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F30C1CF71ACBC1CF00593355 /* Build configuration list for PBXNativeTarget "Megaphone" */;
+			buildConfigurationList = F3A6B3231AD1EDE400955521 /* Build configuration list for PBXNativeTarget "Megaphone" */;
 			buildPhases = (
-				F30C1CD41ACBC1CF00593355 /* Sources */,
-				F30C1CD51ACBC1CF00593355 /* Frameworks */,
-				F30C1CD61ACBC1CF00593355 /* Resources */,
+				F3A6B2FC1AD1EDE400955521 /* Sources */,
+				F3A6B2FD1AD1EDE400955521 /* Frameworks */,
+				F3A6B2FE1AD1EDE400955521 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -141,46 +152,46 @@
 			);
 			name = Megaphone;
 			productName = Megaphone;
-			productReference = F30C1CD81ACBC1CF00593355 /* Megaphone.app */;
+			productReference = F3A6B3001AD1EDE400955521 /* Megaphone.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F30C1CEC1ACBC1CF00593355 /* MegaphoneTests */ = {
+		F3A6B3181AD1EDE400955521 /* MegaphoneTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F30C1CFA1ACBC1CF00593355 /* Build configuration list for PBXNativeTarget "MegaphoneTests" */;
+			buildConfigurationList = F3A6B3261AD1EDE400955521 /* Build configuration list for PBXNativeTarget "MegaphoneTests" */;
 			buildPhases = (
-				F30C1CE91ACBC1CF00593355 /* Sources */,
-				F30C1CEA1ACBC1CF00593355 /* Frameworks */,
-				F30C1CEB1ACBC1CF00593355 /* Resources */,
+				F3A6B3151AD1EDE400955521 /* Sources */,
+				F3A6B3161AD1EDE400955521 /* Frameworks */,
+				F3A6B3171AD1EDE400955521 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F30C1CEF1ACBC1CF00593355 /* PBXTargetDependency */,
+				F3A6B31B1AD1EDE400955521 /* PBXTargetDependency */,
 			);
 			name = MegaphoneTests;
 			productName = MegaphoneTests;
-			productReference = F30C1CED1ACBC1CF00593355 /* MegaphoneTests.xctest */;
+			productReference = F3A6B3191AD1EDE400955521 /* MegaphoneTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F30C1CD01ACBC1CF00593355 /* Project object */ = {
+		F3A6B2F81AD1EDE400955521 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = Dropbox;
 				TargetAttributes = {
-					F30C1CD71ACBC1CF00593355 = {
+					F3A6B2FF1AD1EDE400955521 = {
 						CreatedOnToolsVersion = 6.2;
 					};
-					F30C1CEC1ACBC1CF00593355 = {
+					F3A6B3181AD1EDE400955521 = {
 						CreatedOnToolsVersion = 6.2;
-						TestTargetID = F30C1CD71ACBC1CF00593355;
+						TestTargetID = F3A6B2FF1AD1EDE400955521;
 					};
 				};
 			};
-			buildConfigurationList = F30C1CD31ACBC1CF00593355 /* Build configuration list for PBXProject "Megaphone" */;
+			buildConfigurationList = F3A6B2FB1AD1EDE400955521 /* Build configuration list for PBXProject "Megaphone" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -188,31 +199,31 @@
 				en,
 				Base,
 			);
-			mainGroup = F30C1CCF1ACBC1CF00593355;
-			productRefGroup = F30C1CD91ACBC1CF00593355 /* Products */;
+			mainGroup = F3A6B2F71AD1EDE400955521;
+			productRefGroup = F3A6B3011AD1EDE400955521 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F30C1CD71ACBC1CF00593355 /* Megaphone */,
-				F30C1CEC1ACBC1CF00593355 /* MegaphoneTests */,
+				F3A6B2FF1AD1EDE400955521 /* Megaphone */,
+				F3A6B3181AD1EDE400955521 /* MegaphoneTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F30C1CD61ACBC1CF00593355 /* Resources */ = {
+		F3A6B2FE1AD1EDE400955521 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F30C1CE31ACBC1CF00593355 /* Main.storyboard in Resources */,
-				F3B951ED1ACE621E00CF7081 /* CompanyLogos.xcassets in Resources */,
-				F30C1CE81ACBC1CF00593355 /* LaunchScreen.xib in Resources */,
-				F3B951EB1ACE5F5700CF7081 /* CompanyList.plist in Resources */,
-				F30C1CE51ACBC1CF00593355 /* Images.xcassets in Resources */,
+				F3A6B32A1AD1EE6200955521 /* CompanyLogos.xcassets in Resources */,
+				F3A6B30F1AD1EDE400955521 /* Main.storyboard in Resources */,
+				F3A6B3141AD1EDE400955521 /* LaunchScreen.xib in Resources */,
+				F3A6B3111AD1EDE400955521 /* Images.xcassets in Resources */,
+				F3FF79181AD202B100C21BFD /* CompanyList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F30C1CEB1ACBC1CF00593355 /* Resources */ = {
+		F3A6B3171AD1EDE400955521 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -222,48 +233,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F30C1CD41ACBC1CF00593355 /* Sources */ = {
+		F3A6B2FC1AD1EDE400955521 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F30C1CE01ACBC1CF00593355 /* ViewController.swift in Sources */,
-				F30C1CDE1ACBC1CF00593355 /* AppDelegate.swift in Sources */,
-				F3B951E91ACE5DEA00CF7081 /* CompanyViewController.swift in Sources */,
-				F3B951F11ACE6EE200CF7081 /* CompanyCell.swift in Sources */,
+				F30587731AD1F2AC0058E103 /* CompanyViewController.m in Sources */,
+				F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */,
+				F3A6B30C1AD1EDE400955521 /* ViewController.m in Sources */,
+				F3A6B3091AD1EDE400955521 /* AppDelegate.m in Sources */,
+				F3A6B3061AD1EDE400955521 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F30C1CE91ACBC1CF00593355 /* Sources */ = {
+		F3A6B3151AD1EDE400955521 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F30C1CF41ACBC1CF00593355 /* MegaphoneTests.swift in Sources */,
+				F3A6B3201AD1EDE400955521 /* MegaphoneTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F30C1CEF1ACBC1CF00593355 /* PBXTargetDependency */ = {
+		F3A6B31B1AD1EDE400955521 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F30C1CD71ACBC1CF00593355 /* Megaphone */;
-			targetProxy = F30C1CEE1ACBC1CF00593355 /* PBXContainerItemProxy */;
+			target = F3A6B2FF1AD1EDE400955521 /* Megaphone */;
+			targetProxy = F3A6B31A1AD1EDE400955521 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F30C1CE11ACBC1CF00593355 /* Main.storyboard */ = {
+		F3A6B30D1AD1EDE400955521 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F30C1CE21ACBC1CF00593355 /* Base */,
+				F3A6B30E1AD1EDE400955521 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		F30C1CE61ACBC1CF00593355 /* LaunchScreen.xib */ = {
+		F3A6B3121AD1EDE400955521 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F30C1CE71ACBC1CF00593355 /* Base */,
+				F3A6B3131AD1EDE400955521 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -271,7 +283,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F30C1CF51ACBC1CF00593355 /* Debug */ = {
+		F3A6B3211AD1EDE400955521 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -309,11 +321,10 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		F30C1CF61ACBC1CF00593355 /* Release */ = {
+		F3A6B3221AD1EDE400955521 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -348,7 +359,7 @@
 			};
 			name = Release;
 		};
-		F30C1CF81ACBC1CF00593355 /* Debug */ = {
+		F3A6B3241AD1EDE400955521 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -358,7 +369,7 @@
 			};
 			name = Debug;
 		};
-		F30C1CF91ACBC1CF00593355 /* Release */ = {
+		F3A6B3251AD1EDE400955521 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -368,7 +379,7 @@
 			};
 			name = Release;
 		};
-		F30C1CFB1ACBC1CF00593355 /* Debug */ = {
+		F3A6B3271AD1EDE400955521 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -387,7 +398,7 @@
 			};
 			name = Debug;
 		};
-		F30C1CFC1ACBC1CF00593355 /* Release */ = {
+		F3A6B3281AD1EDE400955521 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -405,34 +416,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F30C1CD31ACBC1CF00593355 /* Build configuration list for PBXProject "Megaphone" */ = {
+		F3A6B2FB1AD1EDE400955521 /* Build configuration list for PBXProject "Megaphone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F30C1CF51ACBC1CF00593355 /* Debug */,
-				F30C1CF61ACBC1CF00593355 /* Release */,
+				F3A6B3211AD1EDE400955521 /* Debug */,
+				F3A6B3221AD1EDE400955521 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F30C1CF71ACBC1CF00593355 /* Build configuration list for PBXNativeTarget "Megaphone" */ = {
+		F3A6B3231AD1EDE400955521 /* Build configuration list for PBXNativeTarget "Megaphone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F30C1CF81ACBC1CF00593355 /* Debug */,
-				F30C1CF91ACBC1CF00593355 /* Release */,
+				F3A6B3241AD1EDE400955521 /* Debug */,
+				F3A6B3251AD1EDE400955521 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F30C1CFA1ACBC1CF00593355 /* Build configuration list for PBXNativeTarget "MegaphoneTests" */ = {
+		F3A6B3261AD1EDE400955521 /* Build configuration list for PBXNativeTarget "MegaphoneTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F30C1CFB1ACBC1CF00593355 /* Debug */,
-				F30C1CFC1ACBC1CF00593355 /* Release */,
+				F3A6B3271AD1EDE400955521 /* Debug */,
+				F3A6B3281AD1EDE400955521 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F30C1CD01ACBC1CF00593355 /* Project object */;
+	rootObject = F3A6B2F81AD1EDE400955521 /* Project object */;
 }

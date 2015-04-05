@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,47 +11,53 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="  Copyright (c) 2015 Dropbox. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="184" y="455" width="334" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MegaphoneWhite" translatesAutoresizingMaskIntoConstraints="NO" id="56E-cX-D3m">
-                    <rect key="frame" x="120" y="224" width="240" height="128"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Let Your Voice Be Heard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8h-Vf-hSm">
+                    <rect key="frame" x="146" y="111" width="187" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="128" id="U4r-L1-K2D"/>
-                        <constraint firstAttribute="width" constant="240" id="tSe-Sq-TL4"/>
+                        <constraint firstAttribute="height" constant="21" id="khi-6w-KrN"/>
                     </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let Your Voice Be Heard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sa3-LF-QmD">
-                    <rect key="frame" x="147" y="112" width="187" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Megaphone" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="4" y="39" width="473" height="65"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Megaphone" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Xi5-jB-Qq9">
+                    <rect key="frame" x="4" y="38" width="473" height="65"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="65" id="kJ0-Zg-dlY"/>
+                        <constraint firstAttribute="height" constant="65" id="HCv-HK-2dm"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Dropbox. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="GiV-9a-vIc">
+                    <rect key="frame" x="227" y="438" width="253" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="LeZ-0y-X5u"/>
+                        <constraint firstAttribute="width" constant="253" id="W9l-N2-VsN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MegaphoneWhite" translatesAutoresizingMaskIntoConstraints="NO" id="a1t-Aq-ZCH">
+                    <rect key="frame" x="120" y="176" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="uyw-0O-Vzh"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.16421590656752033" blue="0.34418402777777779" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.16421590659999999" blue="0.34418402780000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Sa3-LF-QmD" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="8" symbolic="YES" id="2uY-yy-ADq"/>
-                <constraint firstItem="Sa3-LF-QmD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8Ge-3v-ZjF"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="KMH-G6-Pf0"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstItem="56E-cX-D3m" firstAttribute="centerX" secondItem="Sa3-LF-QmD" secondAttribute="centerX" id="TyE-mt-AaQ"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstItem="56E-cX-D3m" firstAttribute="top" secondItem="Sa3-LF-QmD" secondAttribute="bottom" constant="91" id="hdm-W5-Vf9"/>
-                <constraint firstItem="Sa3-LF-QmD" firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="qO9-NX-m8S"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="39" id="uUt-Ko-kLj"/>
+                <constraint firstItem="G8h-Vf-hSm" firstAttribute="top" secondItem="Xi5-jB-Qq9" secondAttribute="bottom" constant="8" symbolic="YES" id="50z-yU-9Cf"/>
+                <constraint firstAttribute="trailing" secondItem="GiV-9a-vIc" secondAttribute="trailing" id="8Od-9V-vDl"/>
+                <constraint firstItem="G8h-Vf-hSm" firstAttribute="centerX" secondItem="Xi5-jB-Qq9" secondAttribute="centerX" id="Dgn-jK-i9r"/>
+                <constraint firstItem="a1t-Aq-ZCH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="GLs-0o-Sf2"/>
+                <constraint firstItem="Xi5-jB-Qq9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="QAc-GC-lMb"/>
+                <constraint firstItem="a1t-Aq-ZCH" firstAttribute="top" secondItem="G8h-Vf-hSm" secondAttribute="bottom" constant="44" id="Ts2-KE-5AZ"/>
+                <constraint firstItem="a1t-Aq-ZCH" firstAttribute="centerX" secondItem="Xi5-jB-Qq9" secondAttribute="centerX" id="cOe-FM-GLc"/>
+                <constraint firstItem="a1t-Aq-ZCH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dSK-WA-lIw"/>
+                <constraint firstItem="GiV-9a-vIc" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="noX-gb-Gxy"/>
+                <constraint firstItem="Xi5-jB-Qq9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="38" id="zxF-nL-4bF"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
