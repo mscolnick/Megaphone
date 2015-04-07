@@ -7,17 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F30587731AD1F2AC0058E103 /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30587721AD1F2AC0058E103 /* CompanyViewController.m */; };
+		A3A311531AD371DE00EF2A51 /* CompanyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A311521AD371DE00EF2A51 /* CompanyCollectionViewController.m */; };
 		F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30587751AD1F3D40058E103 /* CompanyCell.m */; };
 		F3A6B3061AD1EDE400955521 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B3051AD1EDE400955521 /* main.m */; };
 		F3A6B3091AD1EDE400955521 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B3081AD1EDE400955521 /* AppDelegate.m */; };
-		F3A6B30C1AD1EDE400955521 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B30B1AD1EDE400955521 /* ViewController.m */; };
 		F3A6B30F1AD1EDE400955521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B30D1AD1EDE400955521 /* Main.storyboard */; };
 		F3A6B3111AD1EDE400955521 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3101AD1EDE400955521 /* Images.xcassets */; };
 		F3A6B3141AD1EDE400955521 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3121AD1EDE400955521 /* LaunchScreen.xib */; };
 		F3A6B3201AD1EDE400955521 /* MegaphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */; };
 		F3A6B32A1AD1EE6200955521 /* CompanyLogos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3291AD1EE6200955521 /* CompanyLogos.xcassets */; };
-		F3FF79181AD202B100C21BFD /* CompanyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3FF79171AD202B100C21BFD /* CompanyList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F30587711AD1F2AC0058E103 /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
-		F30587721AD1F2AC0058E103 /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
+		A3A311511AD371DE00EF2A51 /* CompanyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCollectionViewController.h; sourceTree = "<group>"; };
+		A3A311521AD371DE00EF2A51 /* CompanyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCollectionViewController.m; sourceTree = "<group>"; };
 		F30587741AD1F3D40058E103 /* CompanyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCell.h; sourceTree = "<group>"; };
 		F30587751AD1F3D40058E103 /* CompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCell.m; sourceTree = "<group>"; };
 		F3A6B3001AD1EDE400955521 /* Megaphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Megaphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,8 +38,6 @@
 		F3A6B3051AD1EDE400955521 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F3A6B3071AD1EDE400955521 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F3A6B3081AD1EDE400955521 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F3A6B30A1AD1EDE400955521 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F3A6B30B1AD1EDE400955521 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F3A6B30E1AD1EDE400955521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3A6B3101AD1EDE400955521 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F3A6B3131AD1EDE400955521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -49,7 +45,6 @@
 		F3A6B31E1AD1EDE400955521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MegaphoneTests.m; sourceTree = "<group>"; };
 		F3A6B3291AD1EE6200955521 /* CompanyLogos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CompanyLogos.xcassets; sourceTree = "<group>"; };
-		F3FF79171AD202B100C21BFD /* CompanyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CompanyList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A3A311501AD36DE000EF2A51 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A3A311511AD371DE00EF2A51 /* CompanyCollectionViewController.h */,
+				A3A311521AD371DE00EF2A51 /* CompanyCollectionViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		F3A6B2F71AD1EDE400955521 = {
 			isa = PBXGroup;
 			children = (
@@ -91,14 +95,10 @@
 		F3A6B3021AD1EDE400955521 /* Megaphone */ = {
 			isa = PBXGroup;
 			children = (
-				F3FF79171AD202B100C21BFD /* CompanyList.plist */,
 				F3A6B3071AD1EDE400955521 /* AppDelegate.h */,
 				F3A6B3081AD1EDE400955521 /* AppDelegate.m */,
-				F3A6B30A1AD1EDE400955521 /* ViewController.h */,
-				F3A6B30B1AD1EDE400955521 /* ViewController.m */,
 				F3A6B30D1AD1EDE400955521 /* Main.storyboard */,
-				F30587711AD1F2AC0058E103 /* CompanyViewController.h */,
-				F30587721AD1F2AC0058E103 /* CompanyViewController.m */,
+				A3A311501AD36DE000EF2A51 /* View Controllers */,
 				F30587741AD1F3D40058E103 /* CompanyCell.h */,
 				F30587751AD1F3D40058E103 /* CompanyCell.m */,
 				F3A6B3101AD1EDE400955521 /* Images.xcassets */,
@@ -219,7 +219,6 @@
 				F3A6B30F1AD1EDE400955521 /* Main.storyboard in Resources */,
 				F3A6B3141AD1EDE400955521 /* LaunchScreen.xib in Resources */,
 				F3A6B3111AD1EDE400955521 /* Images.xcassets in Resources */,
-				F3FF79181AD202B100C21BFD /* CompanyList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,9 +236,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F30587731AD1F2AC0058E103 /* CompanyViewController.m in Sources */,
+				A3A311531AD371DE00EF2A51 /* CompanyCollectionViewController.m in Sources */,
 				F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */,
-				F3A6B30C1AD1EDE400955521 /* ViewController.m in Sources */,
 				F3A6B3091AD1EDE400955521 /* AppDelegate.m in Sources */,
 				F3A6B3061AD1EDE400955521 /* main.m in Sources */,
 			);
