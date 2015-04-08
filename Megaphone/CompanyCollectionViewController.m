@@ -7,6 +7,7 @@
 //
 
 #import "CompanyCollectionViewController.h"
+#import "PostsTableViewController.h"
 
 @interface CompanyCollectionViewController ()
 
@@ -23,10 +24,10 @@ static NSString * const reuseIdentifier = @"Cell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[CompanyCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
-    _companyPhotos = [NSMutableArray arrayWithObjects:@"amazon-1.png",@"Apple-Logo-rainbow.png",@"glyph@2x-vflJ1vxbq.png",@"F_icon.svg.png",@"google-logo.png", nil];
+    _companyPhotos = [NSMutableArray arrayWithObjects:@"amazon.png",@"apple.png",@"dropbox.png",@"facebook.png",@"google.png", nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,26 +57,17 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"Cell";
     
-    CompanyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    CompanyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
-    recipeImageView.image = [UIImage imageNamed:[_companyPhotos objectAtIndex:indexPath.row]];
+//    UIImageView *imgView = (UIImageView *)[cell viewWithTag:100];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,100,100)];
+    imgView.clipsToBounds = YES;
+    imgView.image = [UIImage imageNamed:[_companyPhotos objectAtIndex:indexPath.row]];
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
+    [cell addSubview:imgView];
     
     return cell;
-//    CompanyCell *myCell = [collectionView
-//                                    dequeueReusableCellWithReuseIdentifier:@"Cell"
-//                                    forIndexPath:indexPath];
-//    
-//    UIImage *image;
-//    long row = [indexPath row];
-//    
-//    myCell.companyImage.image = [UIImage imageNamed:_companyPhotos[row]];
-//    
-    //myCell.companyImage.image = image;
-    
-    //return myCell;
 }
 
 #pragma mark <UICollectionViewDelegate>
@@ -108,5 +100,11 @@ static NSString * const reuseIdentifier = @"Cell";
 	
 }
 */
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Clicked %@", [_companyPhotos objectAtIndex:indexPath.row]);
+    [self performSegueWithIdentifier:@"companyToPosts" sender:self];
+}
+
 
 @end

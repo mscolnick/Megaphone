@@ -10,6 +10,4 @@
 
 @interface CompanyCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *companyImage;
-
 @end

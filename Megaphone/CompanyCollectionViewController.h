@@ -11,7 +11,6 @@
 
 @interface CompanyCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
-//@property (weak, nonatomic) IBOutlet UIImageView *companyImageOutlet;
 @property (strong, nonatomic) NSMutableArray *companyPhotos;
 
 @end
