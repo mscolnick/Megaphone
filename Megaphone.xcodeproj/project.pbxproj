@@ -18,7 +18,6 @@
 		A35550E81AD887E1002D2663 /* FBAudienceNetwork.README.txt in Resources */ = {isa = PBXBuildFile; fileRef = A35550E31AD887E0002D2663 /* FBAudienceNetwork.README.txt */; };
 		A35550E91AD887E1002D2663 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A35550E41AD887E0002D2663 /* LICENSE */; };
 		A376DF8A1AD868FC008757E8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A376DF891AD868FC008757E8 /* LoginViewController.m */; };
-		A376E0781AD8833D008757E8 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A376E05B1AD8833D008757E8 /* FBUserSettingsViewResources.bundle */; };
 		A376E07C1AD8833D008757E8 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A376E05F1AD8833D008757E8 /* libicucore.dylib */; };
 		A376E07D1AD8833D008757E8 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A376E0601AD8833D008757E8 /* libc++.dylib */; };
 		A376E07E1AD8833D008757E8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A376E0611AD8833D008757E8 /* CFNetwork.framework */; };
@@ -53,6 +52,7 @@
 		F3A6B3111AD1EDE400955521 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3101AD1EDE400955521 /* Images.xcassets */; };
 		F3A6B3141AD1EDE400955521 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3121AD1EDE400955521 /* LaunchScreen.xib */; };
 		F3A6B3201AD1EDE400955521 /* MegaphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */; };
+		F3C353A21AD88E7400455F72 /* NewPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C353A11AD88E7400455F72 /* NewPostViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +78,6 @@
 		A35550E41AD887E0002D2663 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A376DF881AD868FC008757E8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A376DF891AD868FC008757E8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		A376E05B1AD8833D008757E8 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBUserSettingsViewResources.bundle; path = ../../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
 		A376E05F1AD8833D008757E8 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		A376E0601AD8833D008757E8 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		A376E0611AD8833D008757E8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -130,6 +129,8 @@
 		F3A6B3191AD1EDE400955521 /* MegaphoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MegaphoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A6B31E1AD1EDE400955521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MegaphoneTests.m; sourceTree = "<group>"; };
+		F3C353A01AD88E7400455F72 /* NewPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPostViewController.h; sourceTree = "<group>"; };
+		F3C353A11AD88E7400455F72 /* NewPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +190,6 @@
 				A376E08C1AD886DB008757E8 /* Parse.framework */,
 				A376E08D1AD886DB008757E8 /* ParseFacebookUtils.framework */,
 				A376E0891AD8839B008757E8 /* libsqlite3.dylib */,
-				A376E05B1AD8833D008757E8 /* FBUserSettingsViewResources.bundle */,
 				A376E05F1AD8833D008757E8 /* libicucore.dylib */,
 				A376E0601AD8833D008757E8 /* libc++.dylib */,
 				A376E0611AD8833D008757E8 /* CFNetwork.framework */,
@@ -219,6 +219,8 @@
 		A3A311501AD36DE000EF2A51 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F3C353A01AD88E7400455F72 /* NewPostViewController.h */,
+				F3C353A11AD88E7400455F72 /* NewPostViewController.m */,
 				A376DF871AD868F2008757E8 /* Setup */,
 				F35559DA1AD39312001A0FCA /* Me */,
 				F35559D71AD38804001A0FCA /* MoreTableViewController.h */,
@@ -413,7 +415,6 @@
 			files = (
 				A35550E81AD887E1002D2663 /* FBAudienceNetwork.README.txt in Resources */,
 				F3A6B30F1AD1EDE400955521 /* Main.storyboard in Resources */,
-				A376E0781AD8833D008757E8 /* FBUserSettingsViewResources.bundle in Resources */,
 				A35550E91AD887E1002D2663 /* LICENSE in Resources */,
 				A35550DB1AD887D4002D2663 /* FacebookSDK.strings in Resources */,
 				F3A6B3141AD1EDE400955521 /* LaunchScreen.xib in Resources */,
@@ -436,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F35559E61AD3939B001A0FCA /* MyCommentsTableViewController.m in Sources */,
+				F3C353A21AD88E7400455F72 /* NewPostViewController.m in Sources */,
 				F35559F31AD39421001A0FCA /* MyCommentsCell.m in Sources */,
 				A3A311531AD371DE00EF2A51 /* CompanyCollectionViewController.m in Sources */,
 				F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */,
