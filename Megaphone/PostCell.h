@@ -1,5 +1,5 @@
 //
-//  MyUpvotesTableViewController.h
+//  MyUpvoteCell.h
 //  Megaphone
 //
 //  Created by Myles Scolnick on 4/6/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyUpvotesTableViewController : UITableViewController
+@interface PostCell : UITableViewCell
 
 @end

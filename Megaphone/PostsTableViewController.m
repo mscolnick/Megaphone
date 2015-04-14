@@ -23,11 +23,6 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = _companyObj[@"name"];
     _myPosts = [[NSMutableArray alloc] init];
     [self getPosts];
@@ -71,17 +66,14 @@ static NSString * const reuseIdentifier = @"Cell";
     // Configure the cell...
     PFObject *post = [_myPosts objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = post[@"title"]; // placeholder, need cell from list of posts
+    cell.textLabel.text = post[@"title"];
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%@", indexPath);
-    //selectedPost = [posts objectAtIndex:indexPath.row];
-    postObject = [_myPosts objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"viewPost" sender:self];
+
 }
 
 #pragma mark - Navigation
@@ -93,10 +85,11 @@ static NSString * const reuseIdentifier = @"Cell";
     if([segue.identifier isEqualToString:@"viewPost"]) {
         //sets correct post for the detail post to load
         PostViewController *postVC = [segue destinationViewController];
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        postObject = [_myPosts objectAtIndex:path.row];
         postVC.postObj = postObject;
     }
     if([segue.identifier isEqualToString:@"createPost"]) {
-        //sets correct post for the detail post to load
         NewPostViewController *postVC = [segue destinationViewController];
         postVC.companyObj = _companyObj;
     }

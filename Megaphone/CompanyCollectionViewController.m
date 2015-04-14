@@ -21,15 +21,11 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
+        
     // Register cell classes
     [self.collectionView registerClass:[CompanyCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
-    //_companyPhotos = [NSMutableArray arrayWithObjects:@"amazon.png",@"apple.png",@"dropbox.png",@"facebook.png",@"google.png", nil];
     _myCompanies = [[NSMutableArray alloc] init];
     [self getCompanies];
 }
@@ -63,7 +59,6 @@ static NSString * const reuseIdentifier = @"Cell";
     
     CompanyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-//    UIImageView *imgView = (UIImageView *)[cell viewWithTag:100];
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,100,100)];
     imgView.clipsToBounds = YES;
     
@@ -114,7 +109,6 @@ static NSString * const reuseIdentifier = @"Cell";
 */
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Clicked %@", [_myCompanies objectAtIndex:indexPath.row]);
     companyObject = [_myCompanies objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"companyToPosts" sender:self];
 }

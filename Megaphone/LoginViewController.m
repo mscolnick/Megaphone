@@ -59,7 +59,7 @@
             [alert show];
         } else {
             if (user.isNew) {
-                NSLog(@"User with facebook signed up and logged in!");
+                NSLog(@"User signed up and logged in with facebook!");
                 FBRequest *request = [FBRequest requestForMe];
                 [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                     if (!error) {
@@ -83,7 +83,7 @@
                 }];
                 
             } else {
-                NSLog(@"User with facebook logged in!");
+                NSLog(@"User logged in with facebook!");
             }
 
             UITabBarController *obj=[self.storyboard instantiateViewControllerWithIdentifier:@"tabBarControllerID"];

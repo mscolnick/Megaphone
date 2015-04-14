@@ -79,23 +79,21 @@
 
 -(void)uploadPostToParse
 {
-    NSLog(@"uploadQuestionToParse method");
+    NSLog(@"Uploading to parse...");
     PFObject *post = [PFObject objectWithClassName:@"Posts"];
     post[@"numLikes"] = [NSNumber numberWithInt:0];
     post[@"numReports"] = [NSNumber numberWithInt:0];
     post[@"title"] = _titleField.text;
     post[@"description"] = _descriptionField.text;
     post[@"company"] = _companyObj[@"name"];
-    [post setObject:[NSNumber numberWithBool:NO] forKey:@"reported"];
+    post[@"reported"] = [NSNumber numberWithBool:NO];
     post[@"type"] = postType;
     
     PFUser *currentUser = [PFUser currentUser];
     post[@"user"] = currentUser;
-    NSString *objID = [currentUser objectId];
-    post[@"usernameId"] = objID;
+    post[@"usernameId"] = currentUser.objectId;
     post[@"username"] = currentUser[@"username"];
-    PFUser *user = [post objectForKey:@"user"];
-    NSNumber *num = [user objectForKey:@"numPosts"];
+    NSNumber *num = currentUser[@"numPosts"];
     post[@"number"] = [NSNumber numberWithInt:[num intValue] + 1];
     [post saveInBackground];
     
@@ -125,19 +123,6 @@
 
 
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
-//    if (sender == self.cancelButton) return;
-//    else if (sender == self.saveButton){
-//        //TODO: send anything back if we need
-//    }
-
-}
-
 
 - (IBAction)cancelPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -39,13 +39,13 @@
 		F347561D1ADCA4B90053FF4C /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F347561C1ADCA4B90053FF4C /* PostViewController.m */; };
 		F35559D91AD38804001A0FCA /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559D81AD38804001A0FCA /* MoreTableViewController.m */; };
 		F35559DD1AD39349001A0FCA /* MyPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559DC1AD39349001A0FCA /* MyPostsTableViewController.m */; };
-		F35559E01AD3935A001A0FCA /* MyUpvotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559DF1AD3935A001A0FCA /* MyUpvotesTableViewController.m */; };
 		F35559E31AD39387001A0FCA /* FollowingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559E21AD39387001A0FCA /* FollowingTableViewController.m */; };
 		F35559E61AD3939B001A0FCA /* MyCommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559E51AD3939B001A0FCA /* MyCommentsTableViewController.m */; };
 		F35559EA1AD393EC001A0FCA /* MyPostsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559E91AD393EC001A0FCA /* MyPostsCell.m */; };
-		F35559ED1AD393FA001A0FCA /* MyUpvotesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559EC1AD393FA001A0FCA /* MyUpvotesCell.m */; };
+		F35559ED1AD393FA001A0FCA /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559EC1AD393FA001A0FCA /* PostCell.m */; };
 		F35559F01AD39412001A0FCA /* FollowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559EF1AD39412001A0FCA /* FollowingCell.m */; };
 		F35559F31AD39421001A0FCA /* MyCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559F21AD39421001A0FCA /* MyCommentsCell.m */; };
+		F36328611ADCD54F00226397 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36328601ADCD54F00226397 /* ProfileTableViewController.m */; };
 		F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3642BE41AD50B71007C5034 /* PostsTableViewController.m */; };
 		F3A6B3061AD1EDE400955521 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B3051AD1EDE400955521 /* main.m */; };
 		F3A6B3091AD1EDE400955521 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B3081AD1EDE400955521 /* AppDelegate.m */; };
@@ -105,20 +105,20 @@
 		F35559D81AD38804001A0FCA /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		F35559DB1AD39349001A0FCA /* MyPostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostsTableViewController.h; sourceTree = "<group>"; };
 		F35559DC1AD39349001A0FCA /* MyPostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostsTableViewController.m; sourceTree = "<group>"; };
-		F35559DE1AD3935A001A0FCA /* MyUpvotesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUpvotesTableViewController.h; sourceTree = "<group>"; };
-		F35559DF1AD3935A001A0FCA /* MyUpvotesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUpvotesTableViewController.m; sourceTree = "<group>"; };
 		F35559E11AD39387001A0FCA /* FollowingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingTableViewController.h; sourceTree = "<group>"; };
 		F35559E21AD39387001A0FCA /* FollowingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingTableViewController.m; sourceTree = "<group>"; };
 		F35559E41AD3939B001A0FCA /* MyCommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommentsTableViewController.h; sourceTree = "<group>"; };
 		F35559E51AD3939B001A0FCA /* MyCommentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommentsTableViewController.m; sourceTree = "<group>"; };
 		F35559E81AD393EC001A0FCA /* MyPostsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostsCell.h; sourceTree = "<group>"; };
 		F35559E91AD393EC001A0FCA /* MyPostsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostsCell.m; sourceTree = "<group>"; };
-		F35559EB1AD393FA001A0FCA /* MyUpvotesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUpvotesCell.h; sourceTree = "<group>"; };
-		F35559EC1AD393FA001A0FCA /* MyUpvotesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUpvotesCell.m; sourceTree = "<group>"; };
+		F35559EB1AD393FA001A0FCA /* PostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		F35559EC1AD393FA001A0FCA /* PostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		F35559EE1AD39412001A0FCA /* FollowingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingCell.h; sourceTree = "<group>"; };
 		F35559EF1AD39412001A0FCA /* FollowingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingCell.m; sourceTree = "<group>"; };
 		F35559F11AD39421001A0FCA /* MyCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommentsCell.h; sourceTree = "<group>"; };
 		F35559F21AD39421001A0FCA /* MyCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommentsCell.m; sourceTree = "<group>"; };
+		F363285F1ADCD54F00226397 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
+		F36328601ADCD54F00226397 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 		F3642BE31AD50B71007C5034 /* PostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsTableViewController.h; sourceTree = "<group>"; };
 		F3642BE41AD50B71007C5034 /* PostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsTableViewController.m; sourceTree = "<group>"; };
 		F3A6B3001AD1EDE400955521 /* Megaphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Megaphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,14 +249,9 @@
 		F35559DA1AD39312001A0FCA /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				F35559DB1AD39349001A0FCA /* MyPostsTableViewController.h */,
-				F35559DC1AD39349001A0FCA /* MyPostsTableViewController.m */,
-				F35559DE1AD3935A001A0FCA /* MyUpvotesTableViewController.h */,
-				F35559DF1AD3935A001A0FCA /* MyUpvotesTableViewController.m */,
-				F35559E11AD39387001A0FCA /* FollowingTableViewController.h */,
-				F35559E21AD39387001A0FCA /* FollowingTableViewController.m */,
-				F35559E41AD3939B001A0FCA /* MyCommentsTableViewController.h */,
-				F35559E51AD3939B001A0FCA /* MyCommentsTableViewController.m */,
+				F363285F1ADCD54F00226397 /* ProfileTableViewController.h */,
+				F36328601ADCD54F00226397 /* ProfileTableViewController.m */,
+				F363285B1ADCD49200226397 /* Subviews */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -276,14 +271,27 @@
 			children = (
 				F35559E81AD393EC001A0FCA /* MyPostsCell.h */,
 				F35559E91AD393EC001A0FCA /* MyPostsCell.m */,
-				F35559EB1AD393FA001A0FCA /* MyUpvotesCell.h */,
-				F35559EC1AD393FA001A0FCA /* MyUpvotesCell.m */,
+				F35559EB1AD393FA001A0FCA /* PostCell.h */,
+				F35559EC1AD393FA001A0FCA /* PostCell.m */,
 				F35559EE1AD39412001A0FCA /* FollowingCell.h */,
 				F35559EF1AD39412001A0FCA /* FollowingCell.m */,
 				F35559F11AD39421001A0FCA /* MyCommentsCell.h */,
 				F35559F21AD39421001A0FCA /* MyCommentsCell.m */,
 			);
 			name = Me;
+			sourceTree = "<group>";
+		};
+		F363285B1ADCD49200226397 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				F35559DB1AD39349001A0FCA /* MyPostsTableViewController.h */,
+				F35559DC1AD39349001A0FCA /* MyPostsTableViewController.m */,
+				F35559E11AD39387001A0FCA /* FollowingTableViewController.h */,
+				F35559E21AD39387001A0FCA /* FollowingTableViewController.m */,
+				F35559E41AD3939B001A0FCA /* MyCommentsTableViewController.h */,
+				F35559E51AD3939B001A0FCA /* MyCommentsTableViewController.m */,
+			);
+			name = Subviews;
 			sourceTree = "<group>";
 		};
 		F3A6B2F71AD1EDE400955521 = {
@@ -456,12 +464,12 @@
 				F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */,
 				F35559E31AD39387001A0FCA /* FollowingTableViewController.m in Sources */,
 				A376DF8A1AD868FC008757E8 /* LoginViewController.m in Sources */,
-				F35559ED1AD393FA001A0FCA /* MyUpvotesCell.m in Sources */,
+				F35559ED1AD393FA001A0FCA /* PostCell.m in Sources */,
 				F35559EA1AD393EC001A0FCA /* MyPostsCell.m in Sources */,
 				F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */,
 				F35559D91AD38804001A0FCA /* MoreTableViewController.m in Sources */,
+				F36328611ADCD54F00226397 /* ProfileTableViewController.m in Sources */,
 				F35559F01AD39412001A0FCA /* FollowingCell.m in Sources */,
-				F35559E01AD3935A001A0FCA /* MyUpvotesTableViewController.m in Sources */,
 				F3A6B3091AD1EDE400955521 /* AppDelegate.m in Sources */,
 				F3A6B3061AD1EDE400955521 /* main.m in Sources */,
 				F35559DD1AD39349001A0FCA /* MyPostsTableViewController.m in Sources */,

@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Dropbox. All rights reserved.
 //
 
-#import "MyUpvotesCell.h"
+#import "PostCell.h"
 
-@implementation MyUpvotesCell
+@implementation PostCell
 
 - (void)awakeFromNib {
     // Initialization code
