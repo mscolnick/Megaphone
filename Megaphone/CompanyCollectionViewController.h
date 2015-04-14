@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CompanyCell.h"
+#import <Parse/Parse.h>
 
 @interface CompanyCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (strong, nonatomic) NSMutableArray *companyPhotos;
+@property (strong, nonatomic) NSMutableArray *myCompanies;
 
 @end

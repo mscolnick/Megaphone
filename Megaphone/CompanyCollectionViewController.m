@@ -9,7 +9,9 @@
 #import "CompanyCollectionViewController.h"
 #import "PostsTableViewController.h"
 
-@interface CompanyCollectionViewController ()
+@interface CompanyCollectionViewController () {
+    PFObject *postObject;
+}
 
 @end
 
@@ -27,23 +29,24 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[CompanyCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
-    _companyPhotos = [NSMutableArray arrayWithObjects:@"amazon.png",@"apple.png",@"dropbox.png",@"facebook.png",@"google.png", nil];
+    //_companyPhotos = [NSMutableArray arrayWithObjects:@"amazon.png",@"apple.png",@"dropbox.png",@"facebook.png",@"google.png", nil];
+    _myCompanies = [[NSMutableArray alloc] init];
+    [self getCompanies];
 }
+
+-(void)getCompanies
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Company"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 30;
+    _myCompanies = [query findObjects];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -53,7 +56,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [_companyPhotos count];
+    return [_myCompanies count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -63,8 +66,17 @@ static NSString * const reuseIdentifier = @"Cell";
 //    UIImageView *imgView = (UIImageView *)[cell viewWithTag:100];
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,100,100)];
     imgView.clipsToBounds = YES;
-    imgView.image = [UIImage imageNamed:[_companyPhotos objectAtIndex:indexPath.row]];
-    imgView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    PFObject *post = [_myCompanies objectAtIndex:indexPath.row];
+    [post fetchIfNeeded]; //maybe take out
+    PFFile *imageFile = post[@"image"];
+    [imageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            imgView.image = [UIImage imageWithData:imageData];
+            imgView.contentMode = UIViewContentModeScaleAspectFit;
+        }
+    }];
+
     [cell addSubview:imgView];
     
     return cell;
@@ -102,9 +114,25 @@ static NSString * const reuseIdentifier = @"Cell";
 */
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Clicked %@", [_companyPhotos objectAtIndex:indexPath.row]);
+    NSLog(@"Clicked %@", [_myCompanies objectAtIndex:indexPath.row]);
+    postObject = [_myCompanies objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"companyToPosts" sender:self];
 }
+
+
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     // Get the new view controller using [segue destinationViewController].
+     // Pass the selected object to the new view controller.
+     if([segue.identifier isEqualToString:@"companyToPosts"]) {
+         //sets correct post for the detail post to load
+         PostsTableViewController *postVC = [segue destinationViewController];
+         postVC.postObj = postObject;
+     }
+}
+ 
 
 
 @end

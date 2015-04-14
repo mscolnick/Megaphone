@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface PostsTableViewController : UITableViewController
+
+@property PFObject *postObj;
+@property (strong, nonatomic) NSArray *myPosts;
 
 @end

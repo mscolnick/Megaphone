@@ -8,14 +8,17 @@
 
 #import "NewPostViewController.h"
 
-@interface NewPostViewController ()
+@interface NewPostViewController () {
+    int selectedSegment;
+    NSString *postType;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *categoryField;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 
 @end
 
@@ -24,11 +27,93 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _titleField.delegate = self;
+    _descriptionField.delegate = self;
+    selectedSegment = 0;
+    _descriptionField.text = @"Enter description here...";
+    _descriptionField.textColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [_titleField resignFirstResponder];
+    return YES;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([_descriptionField.text isEqualToString:@"Enter description here..."]) {
+        _descriptionField.text = @"";
+        _descriptionField.textColor = [UIColor blackColor]; //optional
+    }
+    [textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([_descriptionField.text isEqualToString:@""]) {
+        _descriptionField.text = @"Enter description here...";
+       _descriptionField.textColor = [UIColor lightGrayColor]; //optional
+    }
+    [textView resignFirstResponder];
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    // Prevent crashing undo bug
+    if(range.length + range.location > textField.text.length)
+    {
+        return NO;
+    }
+    
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return newLength <= 30;
+}
+
+-(void)uploadPostToParse
+{
+    NSLog(@"uploadQuestionToParse method");
+    PFObject *post = [PFObject objectWithClassName:@"Posts"];
+    post[@"numLikes"] = [NSNumber numberWithInt:0];
+    post[@"numReports"] = [NSNumber numberWithInt:0];
+    post[@"title"] = _titleField.text;
+    post[@"description"] = _descriptionField.text;
+    //post[@"company"] = ;
+    [post setObject:[NSNumber numberWithBool:NO] forKey:@"reported"];
+    post[@"type"] = postType;
+    
+    PFUser *currentUser = [PFUser currentUser];
+    post[@"user"] = currentUser;
+    NSString *objID = [currentUser objectId];
+    post[@"usernameId"] = objID;
+    post[@"username"] = currentUser[@"username"];
+    PFUser *user = [post objectForKey:@"user"];
+    NSNumber *num = [user objectForKey:@"numQuestions"];
+    post[@"number"] = [NSNumber numberWithInt:[num intValue] + 1];
+    [post saveInBackground];
+    
+    [currentUser incrementKey:@"numQuestions"];
+    currentUser[@"karma"] = [NSNumber numberWithInt:([currentUser[@"karma"] intValue] + 2)];
+    [currentUser saveInBackground];
+    
+    [self resetAsk];
+}
+
+
+-(void)resetAsk
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post Sent"
+                                                    message:@"Your post has been successfully uploaded!"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    _titleField.text = @"";
+    _descriptionField.text = @"";
 }
 
 
@@ -39,10 +124,10 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    if (sender == self.cancelButton) return;
-    else if (sender == self.saveButton){
-        //TODO: send anything back if we need
-    }
+//    if (sender == self.cancelButton) return;
+//    else if (sender == self.saveButton){
+//        //TODO: send anything back if we need
+//    }
 
 }
 
@@ -54,8 +139,37 @@
 
 - (IBAction)savePressed:(id)sender {
     //TODO: Add the post to parse
-    [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"askButtonClicked");
+    if ([_titleField.text isEqual:@""] || [_descriptionField.text isEqual:@""] || [_descriptionField.text isEqual:@"Enter description here..." ]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing post or title"
+                                                        message:@"Please enter a title and description."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    } else {
+        NSLog(@"upload to parse called");
+        [self uploadPostToParse];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
+- (IBAction)segmentSwitch:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger segment = segmentedControl.selectedSegmentIndex;
+    if (segment == 0) {
+        selectedSegment = 0;
+        postType = @"feature";
+    } else if (segment == 1) {
+        selectedSegment = 1;
+        postType = @"bug";
+    } else if (segment == 2) {
+        selectedSegment = 2;
+        postType = @"idea";
+    } else if (segment == 3) {
+        selectedSegment = 3;
+        postType = @"other";
+    }
+}
 
 @end

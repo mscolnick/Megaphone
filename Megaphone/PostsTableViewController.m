@@ -7,8 +7,11 @@
 //
 
 #import "PostsTableViewController.h"
+#import "NewPostViewController.h"
 
-@interface PostsTableViewController ()
+@interface PostsTableViewController () {
+    PFObject *postObject;
+}
 
 @end
 
@@ -24,6 +27,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.title = _postObj[@"name"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,7 +44,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 10;
+    return _postObj[@"numPosts"];
 }
 
 
@@ -53,54 +57,31 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Configure the cell...
     
-    cell.textLabel.text = @"Sample Text";
+    cell.textLabel.text = _postObj[@"title"];
     
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%@", indexPath);
+    //selectedPost = [posts objectAtIndex:indexPath.row];
+    postObject = [_myPosts objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"viewPost" sender:self];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"viewPost"]) {
+        //sets correct post for the detail post to load
+        NewPostViewController *postVC = [segue destinationViewController];
+        postVC.postObj = postObject;
+    }
 }
-*/
+
 
 @end

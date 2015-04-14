@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface NewPostViewController : UIViewController
+@interface NewPostViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
+
+@property PFObject *postObj;
 
 @end
