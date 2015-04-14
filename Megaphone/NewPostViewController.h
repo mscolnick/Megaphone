@@ -11,6 +11,6 @@
 
 @interface NewPostViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 
-@property PFObject *postObj;
+@property (strong, nonatomic) PFObject *companyObj;
 
 @end

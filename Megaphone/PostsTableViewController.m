@@ -8,6 +8,7 @@
 
 #import "PostsTableViewController.h"
 #import "NewPostViewController.h"
+#import "PostViewController.h"
 
 @interface PostsTableViewController () {
     PFObject *postObject;
@@ -27,7 +28,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationItem.title = _postObj[@"name"];
+    self.navigationItem.title = _companyObj[@"name"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +45,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return _postObj[@"numPosts"];
+    return _companyObj[@"numPosts"];
 }
 
 
@@ -57,7 +58,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Configure the cell...
     
-    cell.textLabel.text = _postObj[@"title"];
+    cell.textLabel.text = _companyObj[@"name"]; // placeholder, need cell from list of posts
     
     return cell;
 }
@@ -78,8 +79,13 @@ static NSString * const reuseIdentifier = @"Cell";
     // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString:@"viewPost"]) {
         //sets correct post for the detail post to load
-        NewPostViewController *postVC = [segue destinationViewController];
+        PostViewController *postVC = [segue destinationViewController];
         postVC.postObj = postObject;
+    }
+    if([segue.identifier isEqualToString:@"createPost"]) {
+        //sets correct post for the detail post to load
+        NewPostViewController *postVC = [segue destinationViewController];
+        postVC.companyObj = _companyObj;
     }
 }
 

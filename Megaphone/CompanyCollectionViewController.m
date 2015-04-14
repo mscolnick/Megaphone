@@ -10,7 +10,7 @@
 #import "PostsTableViewController.h"
 
 @interface CompanyCollectionViewController () {
-    PFObject *postObject;
+    PFObject *companyObject;
 }
 
 @end
@@ -115,7 +115,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Clicked %@", [_myCompanies objectAtIndex:indexPath.row]);
-    postObject = [_myCompanies objectAtIndex:indexPath.row];
+    companyObject = [_myCompanies objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"companyToPosts" sender:self];
 }
 
@@ -129,7 +129,8 @@ static NSString * const reuseIdentifier = @"Cell";
      if([segue.identifier isEqualToString:@"companyToPosts"]) {
          //sets correct post for the detail post to load
          PostsTableViewController *postVC = [segue destinationViewController];
-         postVC.postObj = postObject;
+         postVC.companyObj = companyObject;
+         
      }
 }
  

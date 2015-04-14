@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -219,7 +219,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KXT-N8-5ci">
-                                <rect key="frame" x="16" y="89" width="568" height="30"/>
+                                <rect key="frame" x="16" y="124" width="568" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="223" id="Bjd-s3-eUs"/>
                                 </constraints>
@@ -232,7 +232,7 @@
                                 </variation>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysQ-oN-GLH">
-                                <rect key="frame" x="16" y="201" width="568" height="157"/>
+                                <rect key="frame" x="16" y="236" width="568" height="122"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Cal-rv-pZY"/>
@@ -246,7 +246,7 @@
                                 </variation>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HS-GI-D36">
-                                <rect key="frame" x="16" y="172" width="88" height="21"/>
+                                <rect key="frame" x="16" y="207" width="88" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -268,6 +268,12 @@
                                     <action selector="segmentSwitch:" destination="A1m-4L-KTa" eventType="valueChanged" id="J1W-OE-q2V"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmT-qY-bO6">
+                                <rect key="frame" x="16" y="72" width="172" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -281,7 +287,7 @@
                             <constraint firstItem="zCw-RG-5l4" firstAttribute="top" secondItem="89e-A4-V5A" secondAttribute="bottom" constant="84" id="YIO-3b-vAK"/>
                             <constraint firstItem="ysQ-oN-GLH" firstAttribute="leading" secondItem="KXT-N8-5ci" secondAttribute="leading" id="adf-YW-Kyr"/>
                             <constraint firstItem="ysQ-oN-GLH" firstAttribute="top" secondItem="5HS-GI-D36" secondAttribute="bottom" constant="8" symbolic="YES" id="dg1-xq-LnN"/>
-                            <constraint firstItem="KXT-N8-5ci" firstAttribute="top" secondItem="bPy-CZ-PMl" secondAttribute="bottom" constant="25" id="ev7-mx-MKE"/>
+                            <constraint firstItem="KXT-N8-5ci" firstAttribute="top" secondItem="bPy-CZ-PMl" secondAttribute="bottom" constant="60" id="ev7-mx-MKE"/>
                             <constraint firstItem="89e-A4-V5A" firstAttribute="centerX" secondItem="ysQ-oN-GLH" secondAttribute="centerX" id="oLv-cm-6Ct"/>
                         </constraints>
                         <variation key="default">
@@ -299,6 +305,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="categoryField" destination="89e-A4-V5A" id="SGn-E4-WXj"/>
+                        <outlet property="companyLabel" destination="gmT-qY-bO6" id="OJe-f8-qKJ"/>
                         <outlet property="descriptionField" destination="ysQ-oN-GLH" id="nyo-tV-hBQ"/>
                         <outlet property="saveButton" destination="ux2-f6-iG3" id="ndv-N2-CfS"/>
                         <outlet property="titleField" destination="KXT-N8-5ci" id="U99-d8-Xug"/>
@@ -335,7 +342,7 @@
                     <navigationItem key="navigationItem" id="Mbl-ks-KJx">
                         <barButtonItem key="rightBarButtonItem" image="ios7-compose-outline" id="41X-vG-c9l">
                             <connections>
-                                <segue destination="A1m-4L-KTa" kind="push" identifier="addPost" id="5X1-iU-36W"/>
+                                <segue destination="A1m-4L-KTa" kind="push" identifier="createPost" id="5X1-iU-36W"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -344,10 +351,10 @@
             </objects>
             <point key="canvasLocation" x="3909" y="-380"/>
         </scene>
-        <!--View Controller-->
+        <!--Post View Controller-->
         <scene sceneID="MKd-eC-BLo">
             <objects>
-                <viewController id="lhx-Zh-b8U" sceneMemberID="viewController">
+                <viewController id="lhx-Zh-b8U" customClass="PostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N3Y-Ji-2Le"/>
                         <viewControllerLayoutGuide type="bottom" id="ftu-kY-0V8"/>

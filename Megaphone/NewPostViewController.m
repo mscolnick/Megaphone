@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *categoryField;
+@property (weak, nonatomic) IBOutlet UILabel *companyLabel;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 //@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
@@ -32,6 +33,7 @@
     selectedSegment = 0;
     _descriptionField.text = @"Enter description here...";
     _descriptionField.textColor = [UIColor whiteColor];
+    _companyLabel.text = _companyObj[@"name"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,7 +84,7 @@
     post[@"numReports"] = [NSNumber numberWithInt:0];
     post[@"title"] = _titleField.text;
     post[@"description"] = _descriptionField.text;
-    //post[@"company"] = ;
+    post[@"company"] = _companyObj[@"name"];
     [post setObject:[NSNumber numberWithBool:NO] forKey:@"reported"];
     post[@"type"] = postType;
     

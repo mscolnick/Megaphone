@@ -11,7 +11,7 @@
 
 @interface PostsTableViewController : UITableViewController
 
-@property PFObject *postObj;
+@property PFObject *companyObj;
 @property (strong, nonatomic) NSArray *myPosts;
 
 @end

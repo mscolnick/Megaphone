@@ -36,6 +36,7 @@
 		A376E0901AD886DB008757E8 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A376E08D1AD886DB008757E8 /* ParseFacebookUtils.framework */; };
 		A3A311531AD371DE00EF2A51 /* CompanyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A311521AD371DE00EF2A51 /* CompanyCollectionViewController.m */; };
 		F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30587751AD1F3D40058E103 /* CompanyCell.m */; };
+		F347561D1ADCA4B90053FF4C /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F347561C1ADCA4B90053FF4C /* PostViewController.m */; };
 		F35559D91AD38804001A0FCA /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559D81AD38804001A0FCA /* MoreTableViewController.m */; };
 		F35559DD1AD39349001A0FCA /* MyPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559DC1AD39349001A0FCA /* MyPostsTableViewController.m */; };
 		F35559E01AD3935A001A0FCA /* MyUpvotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559DF1AD3935A001A0FCA /* MyUpvotesTableViewController.m */; };
@@ -98,6 +99,8 @@
 		A3A311521AD371DE00EF2A51 /* CompanyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCollectionViewController.m; sourceTree = "<group>"; };
 		F30587741AD1F3D40058E103 /* CompanyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCell.h; sourceTree = "<group>"; };
 		F30587751AD1F3D40058E103 /* CompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCell.m; sourceTree = "<group>"; };
+		F347561B1ADCA4B90053FF4C /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
+		F347561C1ADCA4B90053FF4C /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		F35559D71AD38804001A0FCA /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		F35559D81AD38804001A0FCA /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		F35559DB1AD39349001A0FCA /* MyPostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostsTableViewController.h; sourceTree = "<group>"; };
@@ -219,18 +222,28 @@
 		A3A311501AD36DE000EF2A51 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F3C353A01AD88E7400455F72 /* NewPostViewController.h */,
-				F3C353A11AD88E7400455F72 /* NewPostViewController.m */,
+				F347561E1ADCA4BD0053FF4C /* Company */,
 				A376DF871AD868F2008757E8 /* Setup */,
 				F35559DA1AD39312001A0FCA /* Me */,
 				F35559D71AD38804001A0FCA /* MoreTableViewController.h */,
 				F35559D81AD38804001A0FCA /* MoreTableViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F347561E1ADCA4BD0053FF4C /* Company */ = {
+			isa = PBXGroup;
+			children = (
+				F3C353A01AD88E7400455F72 /* NewPostViewController.h */,
+				F3C353A11AD88E7400455F72 /* NewPostViewController.m */,
 				F3642BE31AD50B71007C5034 /* PostsTableViewController.h */,
 				F3642BE41AD50B71007C5034 /* PostsTableViewController.m */,
 				A3A311511AD371DE00EF2A51 /* CompanyCollectionViewController.h */,
 				A3A311521AD371DE00EF2A51 /* CompanyCollectionViewController.m */,
+				F347561B1ADCA4B90053FF4C /* PostViewController.h */,
+				F347561C1ADCA4B90053FF4C /* PostViewController.m */,
 			);
-			name = "View Controllers";
+			name = Company;
 			sourceTree = "<group>";
 		};
 		F35559DA1AD39312001A0FCA /* Me */ = {
@@ -452,6 +465,7 @@
 				F3A6B3091AD1EDE400955521 /* AppDelegate.m in Sources */,
 				F3A6B3061AD1EDE400955521 /* main.m in Sources */,
 				F35559DD1AD39349001A0FCA /* MyPostsTableViewController.m in Sources */,
+				F347561D1ADCA4B90053FF4C /* PostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
