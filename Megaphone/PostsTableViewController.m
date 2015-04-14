@@ -29,6 +29,18 @@ static NSString * const reuseIdentifier = @"Cell";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = _companyObj[@"name"];
+    _myPosts = [[NSMutableArray alloc] init];
+    [self getPosts];
+}
+
+-(void)getPosts
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    [query orderByDescending:@"createdAt"];
+    NSString *companyName = _companyObj[@"name"];
+    [query whereKey:@"company" equalTo:companyName];
+    query.limit = 30;
+    _myPosts = [query findObjects];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +57,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return _companyObj[@"numPosts"];
+    return [_myPosts count];
 }
 
 
@@ -57,8 +69,9 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     
     // Configure the cell...
+    PFObject *post = [_myPosts objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = _companyObj[@"name"]; // placeholder, need cell from list of posts
+    cell.textLabel.text = post[@"title"]; // placeholder, need cell from list of posts
     
     return cell;
 }

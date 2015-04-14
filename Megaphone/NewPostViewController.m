@@ -31,6 +31,7 @@
     _titleField.delegate = self;
     _descriptionField.delegate = self;
     selectedSegment = 0;
+    postType = @"feature";
     _descriptionField.text = @"Enter description here...";
     _descriptionField.textColor = [UIColor whiteColor];
     _companyLabel.text = _companyObj[@"name"];
@@ -94,9 +95,13 @@
     post[@"usernameId"] = objID;
     post[@"username"] = currentUser[@"username"];
     PFUser *user = [post objectForKey:@"user"];
-    NSNumber *num = [user objectForKey:@"numQuestions"];
+    NSNumber *num = [user objectForKey:@"numPosts"];
     post[@"number"] = [NSNumber numberWithInt:[num intValue] + 1];
     [post saveInBackground];
+    
+    [_companyObj incrementKey:@"numPosts" byAmount:[NSNumber numberWithInt:1]];
+    [_companyObj addObject:post forKey:@"posts"];
+    [_companyObj saveInBackground];
     
     [currentUser incrementKey:@"numQuestions"];
     currentUser[@"karma"] = [NSNumber numberWithInt:([currentUser[@"karma"] intValue] + 2)];
