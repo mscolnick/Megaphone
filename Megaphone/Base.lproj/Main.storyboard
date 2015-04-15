@@ -367,7 +367,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Mbl-ks-KJx">
-                        <barButtonItem key="rightBarButtonItem" image="ios7-compose-outline" id="41X-vG-c9l">
+                        <barButtonItem key="rightBarButtonItem" image="ios7-plus" id="41X-vG-c9l">
                             <connections>
                                 <segue destination="A1m-4L-KTa" kind="push" identifier="createPost" id="5X1-iU-36W"/>
                             </connections>
@@ -390,12 +390,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF5-BV-DWR">
-                                <rect key="frame" x="16" y="72" width="568" height="93"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Description" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBJ-q8-VX2">
                                 <rect key="frame" x="16" y="188" width="568" height="160"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -459,6 +453,12 @@
                                     <action selector="downButtonPressed:" destination="lhx-Zh-b8U" eventType="touchUpInside" id="NFW-11-4Y5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF5-BV-DWR">
+                                <rect key="frame" x="16" y="72" width="568" height="93"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -493,7 +493,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="vP6-Ch-Zft"/>
+                    <navigationItem key="navigationItem" id="vP6-Ch-Zft">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="yIs-2Y-g78">
+                            <connections>
+                                <action selector="actionSheetPressed:" destination="lhx-Zh-b8U" id="iAr-4f-2Ym"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="authorLabel" destination="YHX-zf-K3J" id="5bP-2P-eDK"/>
                         <outlet property="companyLabel" destination="bQ9-9N-Kii" id="xK3-sf-pRU"/>
@@ -513,15 +519,29 @@
         <scene sceneID="ws9-n5-nHi">
             <objects>
                 <tableViewController id="0X7-xf-wKv" customClass="MyPostsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dxz-jF-gXL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="dxz-jF-gXL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="x6b-dV-oRW">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="vlh-YR-9ks" detailTextLabel="R3s-Jv-OLR" rowHeight="53" style="IBUITableViewCellStyleSubtitle" id="x6b-dV-oRW">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x6b-dV-oRW" id="Xgu-db-Tvn">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vlh-YR-9ks">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R3s-Jv-OLR">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="lhx-Zh-b8U" kind="push" identifier="viewPost" id="lQG-Xy-ZYB"/>
@@ -877,11 +897,11 @@
         <image name="ios7-arrow-down" width="32" height="32"/>
         <image name="ios7-arrow-up" width="32" height="32"/>
         <image name="ios7-briefcase" width="32" height="32"/>
-        <image name="ios7-compose-outline" width="32" height="32"/>
         <image name="ios7-more" width="32" height="32"/>
         <image name="ios7-person-outline" width="32" height="32"/>
+        <image name="ios7-plus" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fXc-jz-UUo"/>
+        <segue reference="lQG-Xy-ZYB"/>
     </inferredMetricsTieBreakers>
 </document>

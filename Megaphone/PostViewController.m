@@ -8,6 +8,8 @@
 
 #import "PostViewController.h"
 
+const int MAX_REPORTS = 5;
+
 @interface PostViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -78,5 +80,58 @@
     _countLabel.text = [_postObj[@"numLikes"] stringValue];
 }
 
+
+- (IBAction)actionSheetPressed:(id)sender {
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"What would you like to do?"
+                delegate:self
+                cancelButtonTitle:@"Cancel"
+                destructiveButtonTitle:@"Report"
+                otherButtonTitles:@"Follow", @"Share", nil];
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    switch (buttonIndex)
+    {
+        case 0:
+            NSLog(@"report");
+            [self reportPost];
+            break;
+        
+        case 1:
+            NSLog(@"follow");
+            [self followPost];
+            break;
+            
+        case 2:
+            NSLog(@"share");
+            [self sharePost];
+            break;
+            
+        case 3:
+            NSLog(@"cancel");
+            break;
+            
+        default:
+            break;
+            
+    }
+}
+
+- (void)reportPost{
+    [_postObj incrementKey:@"numReports" byAmount:[NSNumber numberWithInt:1]];
+    [_postObj save];
+    if ([_postObj[@"numLikes"] integerValue] >= MAX_REPORTS){
+        _postObj[@"reported"] = [NSNumber numberWithBool:YES];
+    }
+}
+- (void)followPost{
+    //TODO: add post to list of users follwing posts
+}
+- (void)sharePost{
+    //TODO: share
+}
 
 @end

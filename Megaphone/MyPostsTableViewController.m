@@ -52,13 +52,11 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [_myPosts count];
 }
@@ -67,13 +65,14 @@ static NSString * const reuseIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     }
     
     // Configure the cell...
     PFObject *post = [_myPosts objectAtIndex:indexPath.row];
     
     cell.textLabel.text = post[@"title"];
+    cell.detailTextLabel.text = post[@"company"];
     
     return cell;
 }

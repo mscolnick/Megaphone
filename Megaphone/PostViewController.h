@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface PostViewController : UIViewController
+@interface PostViewController : UIViewController <UIActionSheetDelegate>
 
 @property PFObject *postObj;
 
