@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface PostCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UILabel *numLikesLabel;
+@property (strong, nonatomic) PFObject *postObj;
 
 @end

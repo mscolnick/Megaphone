@@ -9,15 +9,14 @@
 #import "PostViewController.h"
 
 @interface PostViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *upButton;
 @property (weak, nonatomic) IBOutlet UIButton *downButton;
-
 @property (weak, nonatomic) IBOutlet UILabel *companyLabel;
 
 @end
@@ -59,17 +58,24 @@
 - (IBAction)upButtonPressed:(id)sender {
     //TODO: if user not equal to author and has not voted
     //then increase count and set up-button to green and set both buttons inactive
+    NSLog(@"up button");
     _upButton.enabled = NO;
-    _upButton.backgroundColor = [UIColor greenColor];
     _downButton.enabled = NO;
+    
+    [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
+    [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
+    _countLabel.text = [_postObj[@"numLikes"] stringValue];
 }
 - (IBAction)downButtonPressed:(id)sender {
     //TODO: if user not equal to author and has not voted
     //then decrease count and set down-button to red and set both buttons inactive
+    NSLog(@"down button");
     _upButton.enabled = NO;
     _downButton.enabled = NO;
-    _downButton.backgroundColor = [UIColor redColor];
-
+    
+    [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:-1]];
+    [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
+    _countLabel.text = [_postObj[@"numLikes"] stringValue];
 }
 
 

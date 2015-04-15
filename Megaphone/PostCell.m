@@ -20,4 +20,19 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)upButtonPressed:(id)sender {
+    NSLog(@"up button");
+    [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
+    [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
+    _numLikesLabel.text = [_postObj[@"numLikes"] stringValue];
+}
+
+
+- (IBAction)downButtonPressed:(id)sender {
+    NSLog(@"down button");
+    [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:-1]];
+    [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
+    _numLikesLabel.text = [_postObj[@"numLikes"] stringValue];
+}
+
 @end

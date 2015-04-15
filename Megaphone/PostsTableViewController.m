@@ -9,6 +9,7 @@
 #import "PostsTableViewController.h"
 #import "NewPostViewController.h"
 #import "PostViewController.h"
+#import "PostCell.h"
 
 @interface PostsTableViewController () {
     PFObject *postObject;
@@ -57,23 +58,25 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+        cell = [[PostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
     
     // Configure the cell...
     PFObject *post = [_myPosts objectAtIndex:indexPath.row];
     
     cell.textLabel.text = post[@"title"];
+    cell.numLikesLabel.text = [post[@"numLikes"] stringValue];
+    cell.postObj = post;
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
 }
 
 #pragma mark - Navigation

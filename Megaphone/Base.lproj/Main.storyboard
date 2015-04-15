@@ -307,17 +307,56 @@
         <scene sceneID="xJ6-Su-Y82">
             <objects>
                 <tableViewController id="JLm-wE-FP6" customClass="PostsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sbI-gU-F0e">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="22" sectionFooterHeight="22" id="sbI-gU-F0e">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="WKB-zn-f1g">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="59" id="WKB-zn-f1g" customClass="PostCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WKB-zn-f1g" id="pew-eC-J4k">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07I-SP-phw">
+                                            <rect key="frame" x="557" y="0.0" width="43" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="43" id="A2R-f6-9qb"/>
+                                            </constraints>
+                                            <state key="normal" image="ios7-arrow-up"/>
+                                            <connections>
+                                                <action selector="upButtonPressed:" destination="WKB-zn-f1g" eventType="touchUpInside" id="Dph-4X-heN"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoP-be-KSN">
+                                            <rect key="frame" x="557" y="26" width="43" height="32"/>
+                                            <state key="normal" image="ios7-arrow-down"/>
+                                            <connections>
+                                                <action selector="downButtonPressed:" destination="WKB-zn-f1g" eventType="touchUpInside" id="mZ8-FN-GEQ"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyd-7F-yQs">
+                                            <rect key="frame" x="486" y="13" width="63" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="63" id="TlS-yJ-9qJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="07I-SP-phw" firstAttribute="leading" secondItem="Qyd-7F-yQs" secondAttribute="trailing" constant="8" symbolic="YES" id="HNw-Xl-t2B"/>
+                                        <constraint firstItem="07I-SP-phw" firstAttribute="top" secondItem="pew-eC-J4k" secondAttribute="top" id="NzW-za-87U"/>
+                                        <constraint firstAttribute="trailing" secondItem="07I-SP-phw" secondAttribute="trailing" id="SLo-Zl-2sv"/>
+                                        <constraint firstItem="07I-SP-phw" firstAttribute="leading" secondItem="eoP-be-KSN" secondAttribute="leading" id="bWL-hS-v4r"/>
+                                        <constraint firstItem="eoP-be-KSN" firstAttribute="trailing" secondItem="07I-SP-phw" secondAttribute="trailing" id="cXH-YS-jvK"/>
+                                        <constraint firstAttribute="bottom" secondItem="eoP-be-KSN" secondAttribute="bottom" id="cek-JU-eOn"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Qyd-7F-yQs" secondAttribute="bottom" constant="6" id="nf9-d1-C7p"/>
+                                        <constraint firstItem="Qyd-7F-yQs" firstAttribute="top" secondItem="pew-eC-J4k" secondAttribute="topMargin" constant="5" id="qtj-Ov-oAb"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="numLikesLabel" destination="Qyd-7F-yQs" id="87H-eu-xf5"/>
                                     <segue destination="lhx-Zh-b8U" kind="push" identifier="viewPost" id="fXc-jz-UUo"/>
                                 </connections>
                             </tableViewCell>
@@ -384,7 +423,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="downButtonPressed:" destination="lhx-Zh-b8U" eventType="touchUpInside" id="cNj-nG-Htw"/>
                                     <action selector="upButtonPressed:" destination="lhx-Zh-b8U" eventType="touchUpInside" id="TfL-wB-fNc"/>
                                 </connections>
                             </button>
@@ -419,7 +457,6 @@
                                 </state>
                                 <connections>
                                     <action selector="downButtonPressed:" destination="lhx-Zh-b8U" eventType="touchUpInside" id="NFW-11-4Y5"/>
-                                    <action selector="upButtonPressed:" destination="lhx-Zh-b8U" eventType="touchUpInside" id="IdX-lm-6cW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -845,6 +882,6 @@
         <image name="ios7-person-outline" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lQG-Xy-ZYB"/>
+        <segue reference="fXc-jz-UUo"/>
     </inferredMetricsTieBreakers>
 </document>
