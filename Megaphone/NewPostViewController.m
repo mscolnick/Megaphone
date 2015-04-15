@@ -121,6 +121,11 @@
     _descriptionField.text = @"";
 }
 
+//To dismiss keyboard when touched outside
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
 
 #pragma mark - Navigation
 
