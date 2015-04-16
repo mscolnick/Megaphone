@@ -96,7 +96,9 @@
     NSNumber *num = currentUser[@"numPosts"];
     post[@"number"] = [NSNumber numberWithInt:[num intValue] + 1];
     [post saveInBackground];
-    
+    post[@"first_name"] = currentUser[@"first_name"];
+    post[@"last_name"] = currentUser[@"last_name"];
+
     [_companyObj incrementKey:@"numPosts" byAmount:[NSNumber numberWithInt:1]];
     [_companyObj addObject:post forKey:@"posts"];
     [_companyObj saveInBackground];

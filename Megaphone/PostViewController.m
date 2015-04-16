@@ -35,11 +35,7 @@ const int MAX_REPORTS = 5;
     _typeLabel.text = _postObj[@"type"];
     _countLabel.text = [_postObj[@"numLikes"] stringValue];
     _companyLabel.text = _postObj[@"company"];
-//    PFUser *user = [_postObj objectForKey:@"user"];
-    //TODO: Get user name
-//    NSString *username= [user objectForKey:@"name"];
-//    NSString *username = [NSString stringWithFormat:@"%@ %@", user[@"first_name"], [user[@"last_name"] substringToIndex:1]];
-//    _authorLabel.text = username;
+    _authorLabel.text = [NSString stringWithFormat:@"%@ %@", _postObj[@"first_name"], [_postObj[@"last_name"] substringToIndex:1]];
     //TODO: if user has already voted, then set buttons to inactive
 }
 

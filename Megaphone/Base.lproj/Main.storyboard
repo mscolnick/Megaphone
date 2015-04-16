@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -85,7 +85,7 @@
             </objects>
             <point key="canvasLocation" x="2388.75" y="348.5915492957746"/>
         </scene>
-        <!--Profile Table View Controller-->
+        <!--Me-->
         <scene sceneID="qxA-T1-nSQ">
             <objects>
                 <tableViewController id="hWu-qG-0Xk" customClass="ProfileTableViewController" sceneMemberID="viewController">
@@ -184,7 +184,7 @@
                             <outlet property="delegate" destination="hWu-qG-0Xk" id="E6V-Zp-7tl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="xIm-uN-f9T"/>
+                    <navigationItem key="navigationItem" title="Me" id="xIm-uN-f9T"/>
                     <connections>
                         <outlet property="nameLabel" destination="aRH-TA-xNS" id="xD7-sY-LOQ"/>
                         <outlet property="profileImageView" destination="P4O-ig-gJU" id="EGT-J1-rjc"/>
@@ -852,7 +852,7 @@
             </objects>
             <point key="canvasLocation" x="2388.75" y="-379.22535211267603"/>
         </scene>
-        <!--Company Collection View Controller-->
+        <!--Companies-->
         <scene sceneID="J8V-Cp-rfi">
             <objects>
                 <collectionViewController id="4c2-cN-aKl" customClass="CompanyCollectionViewController" sceneMemberID="viewController">
@@ -885,7 +885,7 @@
                             <outlet property="delegate" destination="4c2-cN-aKl" id="IdY-di-Wez"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="rjw-EL-oLR"/>
+                    <navigationItem key="navigationItem" title="Companies" id="rjw-EL-oLR"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yox-X5-RFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -902,6 +902,6 @@
         <image name="ios7-plus" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lQG-Xy-ZYB"/>
+        <segue reference="fXc-jz-UUo"/>
     </inferredMetricsTieBreakers>
 </document>
