@@ -6,30 +6,29 @@
 //  Copyright (c) 2015 Dropbox. All rights reserved.
 //
 
-#import "MyPostsTableViewController.h"
+#import "ProfilePostsTableViewController.h"
 #import "PostViewController.h"
 
-
-@interface MyPostsTableViewController (){
+@interface ProfilePostsTableViewController (){
     PFObject *postObject;
 }
 
 
 @end
 
-@implementation MyPostsTableViewController
+@implementation ProfilePostsTableViewController
 
 static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationItem.title = @"My Posts";
+    
+    self.navigationItem.title = tableTitles(_tableType);
     _myPosts = [[NSMutableArray alloc] init];
     [self getPosts];
 }
@@ -40,6 +39,22 @@ static NSString * const reuseIdentifier = @"Cell";
     [query orderByDescending:@"createdAt"];
     PFUser *currentUser = [PFUser currentUser];
     [query whereKey:@"user" equalTo:currentUser];
+    
+    switch(_tableType){
+        case MyPostsTable:
+            [query whereKey:@"user" equalTo:currentUser];
+            break;
+        case FollowingTable:
+            [query whereKey:@"followers" equalTo:currentUser];
+            break;
+        case MyCommentsTable:
+            // [query whereKey:@"commenters" equalTo:currentUser];
+            break;
+        default:
+            NSLog(@"default selected");
+            break;
+    }
+    
     query.limit = 30;
     _myPosts = [query findObjects];
 }

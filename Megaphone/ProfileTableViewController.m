@@ -7,6 +7,7 @@
 //
 
 #import "ProfileTableViewController.h"
+#import "ProfilePostsTableViewController.h"
 
 @interface ProfileTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -43,5 +44,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"toMyPosts"]) {
+        ProfilePostsTableViewController *postVC = [segue destinationViewController];
+        postVC.tableType = MyPostsTable;
+    }
+    if([segue.identifier isEqualToString:@"toFollowing"]) {
+        ProfilePostsTableViewController *postVC = [segue destinationViewController];
+        postVC.tableType = FollowingTable;
+    }
+}
 
 @end
