@@ -29,6 +29,11 @@ static NSString * const reuseIdentifier = @"Cell";
     [self getPosts];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 -(void)getPosts
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
@@ -71,12 +76,41 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.numLikesLabel.text = [post[@"numLikes"] stringValue];
     cell.postObj = post;
     
+    //Check if user likes the post
+    __block BOOL canSkip = NO;
+    [self containsUser:post relationType:@"likers" block:^(BOOL contains,NSError* error) {
+        if (contains){
+            NSLog(@"User in likers");
+            [cell changeToLiked];
+            canSkip = YES;
+        }
+    }];
+    if (canSkip) {
+        [self containsUser:post relationType:@"dislikers" block:^(BOOL contains,NSError* error) {
+            if (contains){
+                NSLog(@"User in dislikers");
+                [cell changeToDisliked];
+            }
+        }];
+    }
+    
+    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+
+-(void)containsUser:(PFObject *)myObject relationType:(NSString *)relationType block:(void (^)(BOOL, NSError *))completionBlock
+{
+    PFRelation *relation = [myObject relationForKey:relationType];
+    PFQuery *query = [relation query];
+    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+    [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+        completionBlock(count > 0, error);
+    }];
 }
 
 #pragma mark - Navigation

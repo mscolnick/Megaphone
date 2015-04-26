@@ -25,6 +25,7 @@ const int MAX_REPORTS = 5;
 
 @implementation PostViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -37,11 +38,40 @@ const int MAX_REPORTS = 5;
     _companyLabel.text = _postObj[@"company"];
     _authorLabel.text = [NSString stringWithFormat:@"%@ %@", _postObj[@"first_name"], [_postObj[@"last_name"] substringToIndex:1]];
     //TODO: if user has already voted, then set buttons to inactive
+    
+    //Check if user likes the post
+    __block BOOL canSkip = NO;
+    [self containsUser:_postObj relationType:@"likers" block:^(BOOL contains,NSError* error) {
+        if (contains){
+            NSLog(@"User in likers");
+            [self changeToLiked];
+            canSkip = YES;
+        }
+    }];
+    if (canSkip) {
+        [self containsUser:_postObj relationType:@"dislikers" block:^(BOOL contains,NSError* error) {
+            if (contains){
+                NSLog(@"User in dislikers");
+                [self changeToDisliked];
+            }
+        }];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)containsUser:(PFObject *)myObject relationType:(NSString *)relationType block:(void (^)(BOOL, NSError *))completionBlock
+{
+    PFRelation *relation = [myObject relationForKey:relationType];
+    PFQuery *query = [relation query];
+    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+    [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+        completionBlock(count > 0, error);
+    }];
 }
 
 /*
@@ -54,23 +84,15 @@ const int MAX_REPORTS = 5;
 }
 */
 - (IBAction)upButtonPressed:(id)sender {
-    //TODO: if user not equal to author and has not voted
-    //then increase count and set up-button to green and set both buttons inactive
     NSLog(@"up button");
-    _upButton.enabled = NO;
-    _downButton.enabled = NO;
-    
+    [self changeToLiked];
     [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
     [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
     _countLabel.text = [_postObj[@"numLikes"] stringValue];
 }
 - (IBAction)downButtonPressed:(id)sender {
-    //TODO: if user not equal to author and has not voted
-    //then decrease count and set down-button to red and set both buttons inactive
     NSLog(@"down button");
-    _upButton.enabled = NO;
-    _downButton.enabled = NO;
-    
+    [self changeToDisliked];
     [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:-1]];
     [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
     _countLabel.text = [_postObj[@"numLikes"] stringValue];
@@ -79,11 +101,16 @@ const int MAX_REPORTS = 5;
 
 - (IBAction)actionSheetPressed:(id)sender {
     
+    PFRelation *relation = [_postObj relationForKey:@"followers"];
+    PFQuery *query = [relation query];
+    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+    BOOL following = [query countObjects] > 0;
+     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"What would you like to do?"
                 delegate:self
                 cancelButtonTitle:@"Cancel"
                 destructiveButtonTitle:@"Report"
-                otherButtonTitles:@"Follow", @"Share", nil];
+                otherButtonTitles:(following ? @"Un-follow" : @"Follow"), @"Share", nil];
     [actionSheet showInView:self.view];
 }
 
@@ -124,10 +151,34 @@ const int MAX_REPORTS = 5;
     }
 }
 - (void)followPost{
-    //TODO: add post to list of users follwing posts
+    PFRelation *relation = [_postObj relationForKey:@"followers"];
+    PFQuery *query = [relation query];
+    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+    BOOL following = [query countObjects] > 0;
+    
+    if (following) {
+        [relation removeObject:[PFUser currentUser]];
+        [_postObj incrementKey:@"numFollowers" byAmount:[NSNumber numberWithInt:-1]];
+    }else{
+        [relation addObject:[PFUser currentUser]];
+        [_postObj incrementKey:@"numFollowers" byAmount:[NSNumber numberWithInt:1]];
+    }
+    [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
 }
 - (void)sharePost{
     //TODO: share
+}
+
+- (void) changeToLiked{
+    _upButton.userInteractionEnabled = NO;
+    _downButton.userInteractionEnabled = NO;
+    [_upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
+}
+
+- (void) changeToDisliked{
+    _upButton.userInteractionEnabled = NO;
+    _downButton.userInteractionEnabled = NO;
+    [_downButton setImage:[UIImage imageNamed:@"ios7-arrow-down-red"] forState:UIControlStateNormal];
 }
 
 @end

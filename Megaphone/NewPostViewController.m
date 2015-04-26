@@ -83,6 +83,7 @@
     PFObject *post = [PFObject objectWithClassName:@"Posts"];
     post[@"numLikes"] = [NSNumber numberWithInt:0];
     post[@"numReports"] = [NSNumber numberWithInt:0];
+    post[@"numFollowers"] = [NSNumber numberWithInt:0];
     post[@"title"] = _titleField.text;
     post[@"description"] = _descriptionField.text;
     post[@"company"] = _companyObj[@"name"];
