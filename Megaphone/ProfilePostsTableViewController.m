@@ -38,22 +38,7 @@ static NSString * const reuseIdentifier = @"Cell";
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     [query orderByDescending:@"createdAt"];
     PFUser *currentUser = [PFUser currentUser];
-    [query whereKey:@"user" equalTo:currentUser];
-    
-    switch(_tableType){
-        case MyPostsTable:
-            [query whereKey:@"user" equalTo:currentUser];
-            break;
-        case FollowingTable:
-            [query whereKey:@"followers" equalTo:currentUser];
-            break;
-        case MyCommentsTable:
-            // [query whereKey:@"commenters" equalTo:currentUser];
-            break;
-        default:
-            NSLog(@"default selected");
-            break;
-    }
+    [query whereKey:tableQuery(_tableType) equalTo:currentUser];
     
     query.limit = 30;
     _myPosts = [query findObjects];
@@ -87,7 +72,7 @@ static NSString * const reuseIdentifier = @"Cell";
     PFObject *post = [_myPosts objectAtIndex:indexPath.row];
     
     cell.textLabel.text = post[@"title"];
-    cell.detailTextLabel.text = post[@"company"];
+    cell.detailTextLabel.text = [post[@"company"] uppercaseString];
     
     return cell;
 }
@@ -99,12 +84,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString:@"viewPost"]) {
-        //sets correct post for the detail post to load
         PostViewController *postVC = [segue destinationViewController];
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
         postObject = [_myPosts objectAtIndex:path.row];

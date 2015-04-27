@@ -31,6 +31,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self getPosts]; //BUG: When making a new post, dequeue-ing old cell makes a new post be already voted.
     [self.tableView reloadData];
 }
 
@@ -80,15 +81,13 @@ static NSString * const reuseIdentifier = @"Cell";
     __block BOOL canSkip = NO;
     [self containsUser:post relationType:@"likers" block:^(BOOL contains,NSError* error) {
         if (contains){
-            NSLog(@"User in likers");
             [cell changeToLiked];
             canSkip = YES;
         }
     }];
-    if (canSkip) {
+    if (!canSkip) {
         [self containsUser:post relationType:@"dislikers" block:^(BOOL contains,NSError* error) {
             if (contains){
-                NSLog(@"User in dislikers");
                 [cell changeToDisliked];
             }
         }];
@@ -115,12 +114,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString:@"viewPost"]) {
-        //sets correct post for the detail post to load
         PostViewController *postVC = [segue destinationViewController];
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
         postObject = [_myPosts objectAtIndex:path.row];

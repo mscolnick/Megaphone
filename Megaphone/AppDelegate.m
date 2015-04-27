@@ -43,6 +43,12 @@
         [self.window makeKeyAndVisible];
     }
 
+    //System Wide configs
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                           NSFontAttributeName: [UIFont fontWithName:@"Copperplate" size:18.0f]}];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]]; // this will change the back button tint
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0 green:.494 blue:.898 alpha:1]]; // #007ee5
+
     return YES;
 }
 

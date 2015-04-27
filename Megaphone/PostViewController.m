@@ -20,6 +20,7 @@ const int MAX_REPORTS = 5;
 @property (weak, nonatomic) IBOutlet UIButton *upButton;
 @property (weak, nonatomic) IBOutlet UIButton *downButton;
 @property (weak, nonatomic) IBOutlet UILabel *companyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *followersCountLabel;
 
 @end
 
@@ -30,33 +31,34 @@ const int MAX_REPORTS = 5;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
     _titleLabel.text = _postObj[@"title"];
     _descriptionLabel.text = _postObj[@"description"];
-    _typeLabel.text = _postObj[@"type"];
-    _countLabel.text = [_postObj[@"numLikes"] stringValue];
-    _companyLabel.text = _postObj[@"company"];
+    _typeLabel.text = [_postObj[@"type"] uppercaseString];
+    _companyLabel.text = [_postObj[@"company"] uppercaseString];
     _authorLabel.text = [NSString stringWithFormat:@"%@ %@", _postObj[@"first_name"], [_postObj[@"last_name"] substringToIndex:1]];
-    //TODO: if user has already voted, then set buttons to inactive
-    
+
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _countLabel.text = [_postObj[@"numLikes"] stringValue];
+    _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
+
     //Check if user likes the post
     __block BOOL canSkip = NO;
     [self containsUser:_postObj relationType:@"likers" block:^(BOOL contains,NSError* error) {
         if (contains){
-            NSLog(@"User in likers");
             [self changeToLiked];
             canSkip = YES;
         }
     }];
-    if (canSkip) {
+    if (!canSkip) {
         [self containsUser:_postObj relationType:@"dislikers" block:^(BOOL contains,NSError* error) {
             if (contains){
-                NSLog(@"User in dislikers");
                 [self changeToDisliked];
             }
         }];
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,18 +76,11 @@ const int MAX_REPORTS = 5;
     }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (IBAction)upButtonPressed:(id)sender {
     NSLog(@"up button");
     [self changeToLiked];
+    PFRelation *relation = [_postObj relationForKey:@"likers"];
+    [relation addObject:[PFUser currentUser]];
     [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
     [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
     _countLabel.text = [_postObj[@"numLikes"] stringValue];
@@ -93,6 +88,8 @@ const int MAX_REPORTS = 5;
 - (IBAction)downButtonPressed:(id)sender {
     NSLog(@"down button");
     [self changeToDisliked];
+    PFRelation *relation = [_postObj relationForKey:@"dislikers"];
+    [relation addObject:[PFUser currentUser]];
     [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:-1]];
     [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
     _countLabel.text = [_postObj[@"numLikes"] stringValue];

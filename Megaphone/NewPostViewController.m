@@ -8,18 +8,19 @@
 
 #import "NewPostViewController.h"
 
+#define MAX_TITLE_LENGTH 30
+#define MAX_DESCRIPTION_LENGTH 150
+
+
 @interface NewPostViewController () {
     int selectedSegment;
     NSString *postType;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionField;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *categoryField;
 @property (weak, nonatomic) IBOutlet UILabel *companyLabel;
-
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
-//@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 
 @end
 
@@ -32,9 +33,10 @@
     _descriptionField.delegate = self;
     selectedSegment = 0;
     postType = @"feature";
-    _descriptionField.text = @"Enter description here...";
-    _descriptionField.textColor = [UIColor whiteColor];
-    _companyLabel.text = _companyObj[@"name"];
+    _companyLabel.text = [_companyObj[@"name"] uppercaseString];
+    CGRect frameRect = _descriptionField.frame;
+    frameRect.size.height = 53;
+    _descriptionField.frame = frameRect;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,23 +50,6 @@
     return YES;
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
-    if ([_descriptionField.text isEqualToString:@"Enter description here..."]) {
-        _descriptionField.text = @"";
-        _descriptionField.textColor = [UIColor blackColor]; //optional
-    }
-    [textView becomeFirstResponder];
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView
-{
-    if ([_descriptionField.text isEqualToString:@""]) {
-        _descriptionField.text = @"Enter description here...";
-       _descriptionField.textColor = [UIColor lightGrayColor]; //optional
-    }
-    [textView resignFirstResponder];
-}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     // Prevent crashing undo bug
@@ -74,14 +59,20 @@
     }
     
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    return newLength <= 30;
+    if ([textField.restorationIdentifier isEqualToString:@"titleTextField"]) {
+        return newLength <= MAX_TITLE_LENGTH;
+    }else if ([textField.restorationIdentifier isEqualToString:@"descriptionTextField"]) {
+        return newLength <= MAX_DESCRIPTION_LENGTH;
+    }else{
+        return YES;
+    }
 }
 
 -(void)uploadPostToParse
 {
     NSLog(@"Uploading to parse...");
     PFObject *post = [PFObject objectWithClassName:@"Posts"];
-    post[@"numLikes"] = [NSNumber numberWithInt:0];
+    post[@"numLikes"] = [NSNumber numberWithInt:1]; //current user already likes it
     post[@"numReports"] = [NSNumber numberWithInt:0];
     post[@"numFollowers"] = [NSNumber numberWithInt:0];
     post[@"title"] = _titleField.text;
@@ -96,10 +87,14 @@
     post[@"username"] = currentUser[@"username"];
     NSNumber *num = currentUser[@"numPosts"];
     post[@"number"] = [NSNumber numberWithInt:[num intValue] + 1];
-    [post saveInBackground];
     post[@"first_name"] = currentUser[@"first_name"];
     post[@"last_name"] = currentUser[@"last_name"];
 
+    //Current User automatically likes post
+    PFRelation *relation = [post relationForKey:@"likers"];
+    [relation addObject:currentUser];
+    [post saveInBackground];
+    
     [_companyObj incrementKey:@"numPosts" byAmount:[NSNumber numberWithInt:1]];
     [_companyObj addObject:post forKey:@"posts"];
     [_companyObj saveInBackground];
@@ -108,11 +103,11 @@
     currentUser[@"karma"] = [NSNumber numberWithInt:([currentUser[@"karma"] intValue] + 2)];
     [currentUser saveInBackground];
     
-    [self resetAsk];
+    [self resetFields];
 }
 
 
--(void)resetAsk
+-(void)resetFields
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post Sent"
                                                     message:@"Your post has been successfully uploaded!"
@@ -139,8 +134,8 @@
 
 - (IBAction)savePressed:(id)sender {
     //TODO: Add the post to parse
-    NSLog(@"askButtonClicked");
-    if ([_titleField.text isEqual:@""] || [_descriptionField.text isEqual:@""] || [_descriptionField.text isEqual:@"Enter description here..." ]) {
+    NSLog(@"Sumbite Button Clicked");
+    if ([_titleField.text isEqual:@""] || [_descriptionField.text isEqual:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing post or title"
                                                         message:@"Please enter a title and description."
                                                        delegate:nil
@@ -158,18 +153,15 @@
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger segment = segmentedControl.selectedSegmentIndex;
     if (segment == 0) {
-        selectedSegment = 0;
         postType = @"feature";
     } else if (segment == 1) {
-        selectedSegment = 1;
         postType = @"bug";
     } else if (segment == 2) {
-        selectedSegment = 2;
         postType = @"idea";
     } else if (segment == 3) {
-        selectedSegment = 3;
         postType = @"other";
     }
+    selectedSegment = (int) segment;
 }
 
 @end

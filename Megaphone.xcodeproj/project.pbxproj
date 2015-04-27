@@ -49,6 +49,12 @@
 		F3A6B3141AD1EDE400955521 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3121AD1EDE400955521 /* LaunchScreen.xib */; };
 		F3A6B3201AD1EDE400955521 /* MegaphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */; };
 		F3C353A21AD88E7400455F72 /* NewPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C353A11AD88E7400455F72 /* NewPostViewController.m */; };
+		F3E9519E1AEDA8C50071D28E /* Sarpanch-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E951981AEDA8C50071D28E /* Sarpanch-Black.ttf */; };
+		F3E9519F1AEDA8C50071D28E /* Sarpanch-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E951991AEDA8C50071D28E /* Sarpanch-Bold.ttf */; };
+		F3E951A01AEDA8C50071D28E /* Sarpanch-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E9519A1AEDA8C50071D28E /* Sarpanch-ExtraBold.ttf */; };
+		F3E951A11AEDA8C50071D28E /* Sarpanch-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E9519B1AEDA8C50071D28E /* Sarpanch-Medium.ttf */; };
+		F3E951A21AEDA8C50071D28E /* Sarpanch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E9519C1AEDA8C50071D28E /* Sarpanch-Regular.ttf */; };
+		F3E951A31AEDA8C50071D28E /* Sarpanch-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E9519D1AEDA8C50071D28E /* Sarpanch-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +125,12 @@
 		F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MegaphoneTests.m; sourceTree = "<group>"; };
 		F3C353A01AD88E7400455F72 /* NewPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPostViewController.h; sourceTree = "<group>"; };
 		F3C353A11AD88E7400455F72 /* NewPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostViewController.m; sourceTree = "<group>"; };
+		F3E951981AEDA8C50071D28E /* Sarpanch-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarpanch-Black.ttf"; sourceTree = "<group>"; };
+		F3E951991AEDA8C50071D28E /* Sarpanch-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarpanch-Bold.ttf"; sourceTree = "<group>"; };
+		F3E9519A1AEDA8C50071D28E /* Sarpanch-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarpanch-ExtraBold.ttf"; sourceTree = "<group>"; };
+		F3E9519B1AEDA8C50071D28E /* Sarpanch-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarpanch-Medium.ttf"; sourceTree = "<group>"; };
+		F3E9519C1AEDA8C50071D28E /* Sarpanch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarpanch-Regular.ttf"; sourceTree = "<group>"; };
+		F3E9519D1AEDA8C50071D28E /* Sarpanch-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarpanch-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +302,7 @@
 				A3A311501AD36DE000EF2A51 /* View Controllers */,
 				F3A6B3101AD1EDE400955521 /* Images.xcassets */,
 				F3A6B3121AD1EDE400955521 /* LaunchScreen.xib */,
+				F3E951971AEDA7CE0071D28E /* Fonts */,
 				F3A6B3031AD1EDE400955521 /* Supporting Files */,
 			);
 			path = Megaphone;
@@ -319,6 +332,19 @@
 				F3A6B31E1AD1EDE400955521 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F3E951971AEDA7CE0071D28E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F3E951981AEDA8C50071D28E /* Sarpanch-Black.ttf */,
+				F3E951991AEDA8C50071D28E /* Sarpanch-Bold.ttf */,
+				F3E9519A1AEDA8C50071D28E /* Sarpanch-ExtraBold.ttf */,
+				F3E9519B1AEDA8C50071D28E /* Sarpanch-Medium.ttf */,
+				F3E9519C1AEDA8C50071D28E /* Sarpanch-Regular.ttf */,
+				F3E9519D1AEDA8C50071D28E /* Sarpanch-SemiBold.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,11 +428,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A35550E81AD887E1002D2663 /* FBAudienceNetwork.README.txt in Resources */,
+				F3E951A31AEDA8C50071D28E /* Sarpanch-SemiBold.ttf in Resources */,
 				F3A6B30F1AD1EDE400955521 /* Main.storyboard in Resources */,
 				A35550E91AD887E1002D2663 /* LICENSE in Resources */,
+				F3E9519F1AEDA8C50071D28E /* Sarpanch-Bold.ttf in Resources */,
 				A35550DB1AD887D4002D2663 /* FacebookSDK.strings in Resources */,
+				F3E951A11AEDA8C50071D28E /* Sarpanch-Medium.ttf in Resources */,
 				F3A6B3141AD1EDE400955521 /* LaunchScreen.xib in Resources */,
 				F3A6B3111AD1EDE400955521 /* Images.xcassets in Resources */,
+				F3E951A01AEDA8C50071D28E /* Sarpanch-ExtraBold.ttf in Resources */,
+				F3E9519E1AEDA8C50071D28E /* Sarpanch-Black.ttf in Resources */,
+				F3E951A21AEDA8C50071D28E /* Sarpanch-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
