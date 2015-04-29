@@ -72,7 +72,7 @@
 {
     NSLog(@"Uploading to parse...");
     PFObject *post = [PFObject objectWithClassName:@"Posts"];
-    post[@"numLikes"] = [NSNumber numberWithInt:1]; //current user already likes it
+    post[@"numLikes"] = [NSNumber numberWithInt:0]; //current user already likes it //took this out
     post[@"numReports"] = [NSNumber numberWithInt:0];
     post[@"numFollowers"] = [NSNumber numberWithInt:0];
     post[@"title"] = _titleField.text;
@@ -91,8 +91,8 @@
     post[@"last_name"] = currentUser[@"last_name"];
 
     //Current User automatically likes post
-    PFRelation *relation = [post relationForKey:@"likers"];
-    [relation addObject:currentUser];
+//    PFRelation *relation = [post relationForKey:@"likers"]; //doesnt automatically like it
+//    [relation addObject:currentUser];
     [post saveInBackground];
     
     [_companyObj incrementKey:@"numPosts" byAmount:[NSNumber numberWithInt:1]];

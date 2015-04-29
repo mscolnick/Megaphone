@@ -31,7 +31,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self getPosts]; //BUG: When making a new post, dequeue-ing old cell makes a new post be already voted.
+    //[self getPosts]; //BUG: When making a new post, dequeue-ing old cell makes a new post be already voted.
     [self.tableView reloadData];
 }
 
@@ -59,6 +59,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
+    [self getPosts];
     return [_myPosts count];
 }
 

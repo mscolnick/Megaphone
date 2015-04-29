@@ -39,7 +39,13 @@
     [relation addObject:[PFUser currentUser]];
     
     [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:-1]];
-    [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
+    NSNumber *numLikes = _postObj[@"numLikes"];
+    if ([numLikes integerValue] <= -3) {
+        [_postObj deleteInBackground];
+    } else {
+        [_postObj save];
+    }
+    //[_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
     _numLikesLabel.text = [_postObj[@"numLikes"] stringValue];
 }
 

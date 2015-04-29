@@ -33,10 +33,10 @@ const int MAX_REPORTS = 5;
     
     _titleLabel.text = _postObj[@"title"];
     _descriptionLabel.text = _postObj[@"description"];
-    _typeLabel.text = [_postObj[@"type"] uppercaseString];
-    _companyLabel.text = [_postObj[@"company"] uppercaseString];
+    //_typeLabel.text = [_postObj[@"type"] uppercaseString];
+    //_companyLabel.text = [_postObj[@"company"] uppercaseString];
     _authorLabel.text = [NSString stringWithFormat:@"%@ %@", _postObj[@"first_name"], [_postObj[@"last_name"] substringToIndex:1]];
-
+    self.navigationItem.title = [NSString stringWithFormat:@"%@ %@ %@", [_postObj[@"type"] uppercaseString], @"For", [_postObj[@"company"] uppercaseString]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
