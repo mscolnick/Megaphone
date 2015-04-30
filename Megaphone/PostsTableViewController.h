@@ -13,5 +13,7 @@
 
 @property PFObject *companyObj;
 @property (strong, nonatomic) NSArray *myPosts;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segControlOutlet;
+- (IBAction)segmentSwitch:(id)sender;
 
 @end

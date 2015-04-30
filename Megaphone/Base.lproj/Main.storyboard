@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -394,12 +394,27 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Mbl-ks-KJx">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="5jR-TM-4bs">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Recent"/>
+                                <segment title="Trending"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentSwitch:" destination="JLm-wE-FP6" eventType="valueChanged" id="iUR-bg-qNf"/>
+                            </connections>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" image="ios7-plus-outline" id="41X-vG-c9l">
                             <connections>
                                 <segue destination="A1m-4L-KTa" kind="modal" identifier="createPost" id="5X1-iU-36W"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segControlOutlet" destination="5jR-TM-4bs" id="ZtS-iQ-D1o"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fsB-nF-Psq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -577,7 +592,23 @@
                             <outlet property="delegate" destination="0X7-xf-wKv" id="eXb-ny-9kh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Scb-Oq-JSk"/>
+                    <navigationItem key="navigationItem" id="Scb-Oq-JSk">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="3dI-kn-Jgs">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Recent"/>
+                                <segment title="Trending"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentSwitch:" destination="0X7-xf-wKv" eventType="valueChanged" id="lLu-yZ-Seg"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segControlOutlet" destination="3dI-kn-Jgs" id="Nwn-1J-lKc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Zz-2N-kPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -877,7 +908,7 @@
         <image name="ios7-star" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fXc-jz-UUo"/>
         <segue reference="kFV-8g-1nL"/>
+        <segue reference="lQG-Xy-ZYB"/>
     </inferredMetricsTieBreakers>
 </document>

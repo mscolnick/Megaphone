@@ -17,6 +17,7 @@
 
 @interface PostsTableViewController () <UISearchBarDelegate, UISearchResultsUpdating> {
     PFObject *postObject;
+    int selectedSegment;
 }
 
 @property (strong, nonatomic) UISearchController *searchController;
@@ -40,7 +41,8 @@ static NSString *const reuseIdentifier = @"Cell";
     
     self.navigationItem.title = _companyObj[@"name"];
     _myPosts = [[NSMutableArray alloc] init];
-    [self getPosts];
+    selectedSegment = 0;
+    //[self getPosts];
     
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
@@ -62,9 +64,13 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (void)getPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-    [query orderByDescending:@"createdAt"];
     NSString *companyName = _companyObj[@"name"];
     [query whereKey:@"company" equalTo:companyName];
+    if (selectedSegment == 0) {
+        [query orderByDescending:@"createdAt"];
+    } else if (selectedSegment == 1) {
+        [query orderByDescending:@"numLikes"];
+    }
     query.limit = 30;
     _myPosts = [query findObjects];
 }
@@ -83,7 +89,7 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    // [self getPosts]; // BUG: Buggy
+    [self getPosts]; // BUG: Buggy
     return [_myPosts count];
 }
 
@@ -101,21 +107,43 @@ static NSString *const reuseIdentifier = @"Cell";
     cell.postObj = post;
     
     //Check if user likes the post
-    __block BOOL canSkip = NO;
-    [self containsUser:post relationType:@"likers" block: ^(BOOL contains, NSError *error) {
-        if (contains) {
-            [cell changeToLiked];
-            canSkip = YES;
-        }
-    }];
-    if (!canSkip) {
-        [self containsUser:post relationType:@"dislikers" block: ^(BOOL contains, NSError *error) {
-            if (contains) {
-                [cell changeToDisliked];
-            }
-        }];
-    }
+//    __block BOOL canSkip = NO;
+//    [self containsUser:post relationType:@"likers" block: ^(BOOL contains, NSError *error) {
+//        if (contains) {
+//            [cell changeToLiked];
+//            canSkip = YES;
+//        }
+//    }];
+//    if (!canSkip) {
+//        [self containsUser:post relationType:@"dislikers" block: ^(BOOL contains, NSError *error) {
+//            if (contains) {
+//                [cell changeToDisliked];
+//            }
+//        }];
+//    }
+    //likes
+    PFUser *currentUser = [PFUser currentUser];
+    NSString *userId = [currentUser objectId];
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    NSString *objId = [post objectId];
+    [query whereKey:@"objectId" equalTo:objId];
+    [query whereKey:@"likers" equalTo:userId];
+    query.limit = 1;
+    NSArray *likersArray = [query findObjects];
     
+    PFQuery *disQuery = [PFQuery queryWithClassName:@"Posts"];
+    [disQuery whereKey:@"objectId" equalTo:objId];
+    [disQuery whereKey:@"dislikers" equalTo:userId];
+    disQuery.limit = 1;
+    NSArray *dislikersArray = [disQuery findObjects];
+    
+    NSLog(@"%lu",(unsigned long)[likersArray count]);
+    
+    if ([likersArray count] > 0) {
+        [cell changeToLiked];
+    } else if ([dislikersArray count] > 0) {
+        [cell changeToDisliked];
+    }
     
     return cell;
 }
@@ -171,4 +199,15 @@ static NSString *const reuseIdentifier = @"Cell";
     [self.tableView reloadData];
 }
 
+- (IBAction)segmentSwitch:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger segment = segmentedControl.selectedSegmentIndex;
+    if (segment == 0) {
+        selectedSegment = 0;
+        [self.tableView reloadData];
+    } else if (segment == 1) {
+        selectedSegment = 1;
+        [self.tableView reloadData];
+    }
+}
 @end

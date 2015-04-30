@@ -23,5 +23,7 @@ typedef enum {
 
 @property (strong, nonatomic) NSArray *myPosts;
 @property TableType tableType;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segControlOutlet;
+- (IBAction)segmentSwitch:(id)sender;
 
 @end

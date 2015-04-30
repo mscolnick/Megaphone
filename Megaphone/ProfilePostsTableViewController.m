@@ -13,6 +13,7 @@
 
 @interface ProfilePostsTableViewController () <UISearchBarDelegate, UISearchResultsUpdating> {
     PFObject *postObject;
+    int selectedSegment;
 }
 
 @property (strong, nonatomic) UISearchController *searchController;
@@ -33,7 +34,8 @@ static NSString *const reuseIdentifier = @"Cell";
     
     self.navigationItem.title = tableTitles(_tableType);
     _myPosts = [[NSMutableArray alloc] init];
-    [self getPosts];
+    selectedSegment = 0;
+    //[self getPosts];
     
     
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
@@ -50,7 +52,11 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (void)getPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-    [query orderByDescending:@"createdAt"];
+    if (selectedSegment == 0) {
+        [query orderByDescending:@"createdAt"];
+    } else if (selectedSegment == 1) {
+        [query orderByDescending:@"numLikes"];
+    }
     PFUser *currentUser = [PFUser currentUser];
     [query whereKey:tableQuery(_tableType) equalTo:currentUser];
     
@@ -72,6 +78,7 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
+    [self getPosts];
     return [_myPosts count];
 }
 
@@ -111,7 +118,11 @@ static NSString *const reuseIdentifier = @"Cell";
     NSString *searchString = searchController.searchBar.text;
     
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-    [query orderByDescending:@"createdAt"];
+    if (selectedSegment == 0) {
+        [query orderByDescending:@"createdAt"];
+    } else if (selectedSegment == 1) {
+        [query orderByDescending:@"numLikes"];
+    }
     PFUser *currentUser = [PFUser currentUser];
     [query whereKey:tableQuery(_tableType) equalTo:currentUser];
     long scopeType = searchController.searchBar.selectedScopeButtonIndex;
@@ -122,4 +133,15 @@ static NSString *const reuseIdentifier = @"Cell";
     [self.tableView reloadData];
 }
 
+- (IBAction)segmentSwitch:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger segment = segmentedControl.selectedSegmentIndex;
+    if (segment == 0) {
+        selectedSegment = 0;
+        [self.tableView reloadData];
+    } else if (segment == 1) {
+        selectedSegment = 1;
+        [self.tableView reloadData];
+    }
+}
 @end
