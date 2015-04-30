@@ -32,7 +32,9 @@ static NSString *const reuseIdentifier = @"Cell";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.navigationItem.title = tableTitles(_tableType);
+    self.navigationItem.prompt = tableTitles(_tableType);
+    self.navigationController.navigationBar.topItem.title = @"";
+
     _myPosts = [[NSMutableArray alloc] init];
     selectedSegment = 0;
     //[self getPosts];
@@ -48,6 +50,7 @@ static NSString *const reuseIdentifier = @"Cell";
 
     self.definesPresentationContext = YES;
     [self.searchController.searchBar sizeToFit];
+    [self getPosts];
 }
 
 - (void)getPosts {
@@ -78,7 +81,6 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    [self getPosts];
     return [_myPosts count];
 }
 
@@ -113,6 +115,11 @@ static NSString *const reuseIdentifier = @"Cell";
 
 #pragma mark - UISearchResultsUpdating
 
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+{
+    [self updateSearchResultsForSearchController:self.searchController];
+}
+
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
     NSString *searchString = searchController.searchBar.text;
@@ -135,13 +142,8 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (IBAction)segmentSwitch:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
-    NSInteger segment = segmentedControl.selectedSegmentIndex;
-    if (segment == 0) {
-        selectedSegment = 0;
-        [self.tableView reloadData];
-    } else if (segment == 1) {
-        selectedSegment = 1;
-        [self.tableView reloadData];
-    }
+    selectedSegment = (int) segmentedControl.selectedSegmentIndex;
+    [self getPosts];
+    [self.tableView reloadData];
 }
 @end

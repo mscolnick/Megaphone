@@ -15,20 +15,10 @@
 #define searchScopes(int) [@[@"all", @"feature", @"bug", @"idea",  @"other"] objectAtIndex: int]
 
 
-@interface PostsTableViewController () <UISearchBarDelegate, UISearchResultsUpdating> {
+@interface PostsTableViewController () {
     PFObject *postObject;
     int selectedSegment;
 }
-
-@property (strong, nonatomic) UISearchController *searchController;
-
-typedef NS_ENUM(NSInteger, PostsSearchScope)
-{
-    searchScopeAll = 0,
-    searchScopeBug = 1,
-    searchScopeFeature = 2,
-    searchScopeOther = 3,
-};
 
 @end
 
@@ -39,26 +29,16 @@ static NSString *const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = _companyObj[@"name"];
+    self.navigationItem.prompt = _companyObj[@"name"];
+    self.navigationController.navigationBar.topItem.title = @"";
+
     _myPosts = [[NSMutableArray alloc] init];
     selectedSegment = 0;
-    //[self getPosts];
-    
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    self.searchController.searchResultsUpdater = self;
-    self.searchController.dimsBackgroundDuringPresentation = NO;
-    
-    self.searchController.searchBar.scopeButtonTitles = @[@"All", @"Feature", @"Bug", @"Idea", @"Other"];
-    self.searchController.searchBar.delegate = self;
-    
-    self.tableView.tableHeaderView = self.searchController.searchBar;
-    self.definesPresentationContext = YES;
-    [self.searchController.searchBar sizeToFit];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self getPosts];
     [self.tableView reloadData];
 }
 
@@ -89,7 +69,6 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    [self getPosts]; // BUG: Buggy
     return [_myPosts count];
 }
 
@@ -107,42 +86,19 @@ static NSString *const reuseIdentifier = @"Cell";
     cell.postObj = post;
     
     //Check if user likes the post
-//    __block BOOL canSkip = NO;
-//    [self containsUser:post relationType:@"likers" block: ^(BOOL contains, NSError *error) {
-//        if (contains) {
-//            [cell changeToLiked];
-//            canSkip = YES;
-//        }
-//    }];
-//    if (!canSkip) {
-//        [self containsUser:post relationType:@"dislikers" block: ^(BOOL contains, NSError *error) {
-//            if (contains) {
-//                [cell changeToDisliked];
-//            }
-//        }];
-//    }
-    //likes
-    PFUser *currentUser = [PFUser currentUser];
-    NSString *userId = [currentUser objectId];
-    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-    NSString *objId = [post objectId];
-    [query whereKey:@"objectId" equalTo:objId];
-    [query whereKey:@"likers" equalTo:userId];
-    query.limit = 1;
-    NSArray *likersArray = [query findObjects];
-    
-    PFQuery *disQuery = [PFQuery queryWithClassName:@"Posts"];
-    [disQuery whereKey:@"objectId" equalTo:objId];
-    [disQuery whereKey:@"dislikers" equalTo:userId];
-    disQuery.limit = 1;
-    NSArray *dislikersArray = [disQuery findObjects];
-    
-    NSLog(@"%lu",(unsigned long)[likersArray count]);
-    
-    if ([likersArray count] > 0) {
-        [cell changeToLiked];
-    } else if ([dislikersArray count] > 0) {
-        [cell changeToDisliked];
+    __block BOOL canSkip = NO;
+    [self containsUser:post relationType:@"likers" block: ^(BOOL contains, NSError *error) {
+        if (contains) {
+            [cell changeToLiked];
+            canSkip = YES;
+        }
+    }];
+    if (!canSkip) {
+        [self containsUser:post relationType:@"dislikers" block: ^(BOOL contains, NSError *error) {
+            if (contains) {
+                [cell changeToDisliked];
+            }
+        }];
     }
     
     return cell;
@@ -175,39 +131,10 @@ static NSString *const reuseIdentifier = @"Cell";
     }
 }
 
-#pragma mark - UISearchResultsUpdating
-
-- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
-{
-    [self updateSearchResultsForSearchController:self.searchController];
-}
-
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
-{
-    NSString *searchString = searchController.searchBar.text;
-    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-    [query orderByDescending:@"createdAt"];
-    NSString *companyName = _companyObj[@"name"];
-    [query whereKey:@"company" equalTo:companyName];
-    [query whereKey:@"title" containsString:searchString];
-    long scopeType = searchController.searchBar.selectedScopeButtonIndex;
-    if(scopeType != 0){
-        [query whereKey:@"type" equalTo:searchScopes(scopeType)];
-    }
-    query.limit = 30;
-    _myPosts = [query findObjects];
-    [self.tableView reloadData];
-}
-
 - (IBAction)segmentSwitch:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
-    NSInteger segment = segmentedControl.selectedSegmentIndex;
-    if (segment == 0) {
-        selectedSegment = 0;
-        [self.tableView reloadData];
-    } else if (segment == 1) {
-        selectedSegment = 1;
-        [self.tableView reloadData];
-    }
+    selectedSegment = (int) segmentedControl.selectedSegmentIndex;
+    [self getPosts];
+    [self.tableView reloadData];
 }
 @end
