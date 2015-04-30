@@ -36,6 +36,8 @@
     _profileImageView.layer.cornerRadius = _profileImageView.frame.size.height / 2;
     _profileImageView.layer.masksToBounds = YES;
     _profileImageView.layer.borderWidth = 0;
+    [_profileImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [_profileImageView.layer setBorderWidth: 2.0];
     
     //Blurred Background
     //    UIGraphicsBeginImageContext(_profileBackgroundView.frame.size);
