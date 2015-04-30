@@ -19,7 +19,7 @@
 
 @implementation PostsTableViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString *const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,12 +31,10 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //[self getPosts]; //BUG: When making a new post, dequeue-ing old cell makes a new post be already voted.
     [self.tableView reloadData];
 }
 
--(void)getPosts
-{
+- (void)getPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     [query orderByDescending:@"createdAt"];
     NSString *companyName = _companyObj[@"name"];
@@ -63,11 +61,9 @@ static NSString * const reuseIdentifier = @"Cell";
     return [_myPosts count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (cell == nil)
-    {
+    if (cell == nil) {
         cell = [[PostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
     
@@ -80,15 +76,15 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //Check if user likes the post
     __block BOOL canSkip = NO;
-    [self containsUser:post relationType:@"likers" block:^(BOOL contains,NSError* error) {
-        if (contains){
+    [self containsUser:post relationType:@"likers" block: ^(BOOL contains, NSError *error) {
+        if (contains) {
             [cell changeToLiked];
             canSkip = YES;
         }
     }];
     if (!canSkip) {
-        [self containsUser:post relationType:@"dislikers" block:^(BOOL contains,NSError* error) {
-            if (contains){
+        [self containsUser:post relationType:@"dislikers" block: ^(BOOL contains, NSError *error) {
+            if (contains) {
                 [cell changeToDisliked];
             }
         }];
@@ -98,17 +94,14 @@ static NSString * const reuseIdentifier = @"Cell";
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
--(void)containsUser:(PFObject *)myObject relationType:(NSString *)relationType block:(void (^)(BOOL, NSError *))completionBlock
-{
+- (void)containsUser:(PFObject *)myObject relationType:(NSString *)relationType block:(void (^)(BOOL, NSError *))completionBlock {
     PFRelation *relation = [myObject relationForKey:relationType];
     PFQuery *query = [relation query];
     [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
-    [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+    [query countObjectsInBackgroundWithBlock: ^(int count, NSError *error) {
         completionBlock(count > 0, error);
     }];
 }
@@ -116,17 +109,16 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"viewPost"]) {
+    if ([segue.identifier isEqualToString:@"viewPost"]) {
         PostViewController *postVC = [segue destinationViewController];
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
         postObject = [_myPosts objectAtIndex:path.row];
         postVC.postObj = postObject;
     }
-    if([segue.identifier isEqualToString:@"createPost"]) {
+    if ([segue.identifier isEqualToString:@"createPost"]) {
         NewPostViewController *postVC = [segue destinationViewController];
         postVC.companyObj = _companyObj;
     }
 }
-
 
 @end

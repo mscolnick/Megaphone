@@ -15,8 +15,8 @@ typedef enum {
     MyCommentsTable
 } TableType;
 
-#define tableTitles(enum) [@[@"My Posts",@"Following",@"My Comments"] objectAtIndex:enum]
-#define tableQuery(enum) [@[@"user",@"followers",@"commenters"] objectAtIndex:enum]
+#define tableTitles(enum) [@[@"My Posts", @"Following", @"My Comments"] objectAtIndex: enum]
+#define tableQuery(enum) [@[@"user", @"followers", @"commenters"] objectAtIndex: enum]
 
 
 @interface ProfilePostsTableViewController : UITableViewController

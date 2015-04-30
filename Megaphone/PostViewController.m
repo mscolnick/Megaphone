@@ -8,7 +8,8 @@
 
 #import "PostViewController.h"
 
-const int MAX_REPORTS = 5;
+#define MIN_LIKES -3
+#define MAX_REPORTS 5
 
 @interface PostViewController ()
 
@@ -39,22 +40,22 @@ const int MAX_REPORTS = 5;
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %@ %@", [_postObj[@"type"] uppercaseString], @"For", [_postObj[@"company"] uppercaseString]];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _countLabel.text = [_postObj[@"numLikes"] stringValue];
     _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
-
+    
     //Check if user likes the post
     __block BOOL canSkip = NO;
-    [self containsUser:_postObj relationType:@"likers" block:^(BOOL contains,NSError* error) {
-        if (contains){
+    [self containsUser:_postObj relationType:@"likers" block: ^(BOOL contains, NSError *error) {
+        if (contains) {
             [self changeToLiked];
             canSkip = YES;
         }
     }];
     if (!canSkip) {
-        [self containsUser:_postObj relationType:@"dislikers" block:^(BOOL contains,NSError* error) {
-            if (contains){
+        [self containsUser:_postObj relationType:@"dislikers" block: ^(BOOL contains, NSError *error) {
+            if (contains) {
                 [self changeToDisliked];
             }
         }];
@@ -66,12 +67,11 @@ const int MAX_REPORTS = 5;
     // Dispose of any resources that can be recreated.
 }
 
--(void)containsUser:(PFObject *)myObject relationType:(NSString *)relationType block:(void (^)(BOOL, NSError *))completionBlock
-{
+- (void)containsUser:(PFObject *)myObject relationType:(NSString *)relationType block:(void (^)(BOOL, NSError *))completionBlock {
     PFRelation *relation = [myObject relationForKey:relationType];
     PFQuery *query = [relation query];
     [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
-    [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+    [query countObjectsInBackgroundWithBlock: ^(int count, NSError *error) {
         completionBlock(count > 0, error);
     }];
 }
@@ -82,44 +82,47 @@ const int MAX_REPORTS = 5;
     PFRelation *relation = [_postObj relationForKey:@"likers"];
     [relation addObject:[PFUser currentUser]];
     [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
-    [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
+    [_postObj save];
     _countLabel.text = [_postObj[@"numLikes"] stringValue];
 }
+
 - (IBAction)downButtonPressed:(id)sender {
     NSLog(@"down button");
     [self changeToDisliked];
     PFRelation *relation = [_postObj relationForKey:@"dislikers"];
     [relation addObject:[PFUser currentUser]];
     [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:-1]];
-    [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
+    NSNumber *numLikes = _postObj[@"numLikes"];
+    if ([numLikes integerValue] <= MIN_LIKES) {
+        [_postObj deleteInBackground];
+    }
+    else {
+        [_postObj save];
+    }
     _countLabel.text = [_postObj[@"numLikes"] stringValue];
 }
 
-
 - (IBAction)actionSheetPressed:(id)sender {
-    
     PFRelation *relation = [_postObj relationForKey:@"followers"];
     PFQuery *query = [relation query];
     [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
     BOOL following = [query countObjects] > 0;
-     
+    
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"What would you like to do?"
-                delegate:self
-                cancelButtonTitle:@"Cancel"
-                destructiveButtonTitle:@"Report"
-                otherButtonTitles:(following ? @"Un-follow" : @"Follow"), @"Share", nil];
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Report"
+                                                    otherButtonTitles:(following ? @"Un-follow" : @"Follow"), @"Share", nil];
     [actionSheet showInView:self.view];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    switch (buttonIndex)
-    {
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
         case 0:
             NSLog(@"report");
             [self reportPost];
             break;
-        
+            
         case 1:
             NSLog(@"follow");
             [self followPost];
@@ -136,18 +139,18 @@ const int MAX_REPORTS = 5;
             
         default:
             break;
-            
     }
 }
 
-- (void)reportPost{
+- (void)reportPost {
     [_postObj incrementKey:@"numReports" byAmount:[NSNumber numberWithInt:1]];
     [_postObj save];
-    if ([_postObj[@"numLikes"] integerValue] >= MAX_REPORTS){
+    if ([_postObj[@"numLikes"] integerValue] >= MAX_REPORTS) {
         _postObj[@"reported"] = [NSNumber numberWithBool:YES];
     }
 }
-- (void)followPost{
+
+- (void)followPost {
     PFRelation *relation = [_postObj relationForKey:@"followers"];
     PFQuery *query = [relation query];
     [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
@@ -156,23 +159,25 @@ const int MAX_REPORTS = 5;
     if (following) {
         [relation removeObject:[PFUser currentUser]];
         [_postObj incrementKey:@"numFollowers" byAmount:[NSNumber numberWithInt:-1]];
-    }else{
+    }
+    else {
         [relation addObject:[PFUser currentUser]];
         [_postObj incrementKey:@"numFollowers" byAmount:[NSNumber numberWithInt:1]];
     }
-    [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
+    [_postObj save];
 }
-- (void)sharePost{
+
+- (void)sharePost {
     //TODO: share
 }
 
-- (void) changeToLiked{
+- (void)changeToLiked {
     _upButton.userInteractionEnabled = NO;
     _downButton.userInteractionEnabled = NO;
     [_upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
 }
 
-- (void) changeToDisliked{
+- (void)changeToDisliked {
     _upButton.userInteractionEnabled = NO;
     _downButton.userInteractionEnabled = NO;
     [_downButton setImage:[UIImage imageNamed:@"ios7-arrow-down-red"] forState:UIControlStateNormal];

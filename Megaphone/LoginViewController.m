@@ -25,21 +25,21 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)facebookLogin:(id)sender {
     // Set permissions required from the facebook user account
     NSArray *permissionsArray = @[@"public_profile"];
     
     // Login PFUser using Facebook
-    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+    [PFFacebookUtils logInWithPermissions:permissionsArray block: ^(PFUser *user, NSError *error) {
         //[_activityIndicator stopAnimating]; // Hide loading indicator
         
         if (!user) {
@@ -47,7 +47,8 @@
             if (!error) {
                 NSLog(@"The user cancelled the Facebook login.");
                 errorMessage = @"Uh oh. The user cancelled the Facebook login.";
-            } else {
+            }
+            else {
                 NSLog(@"An error occurred: %@", error);
                 errorMessage = [error localizedDescription];
             }
@@ -57,11 +58,12 @@
                                                   cancelButtonTitle:nil
                                                   otherButtonTitles:@"Dismiss", nil];
             [alert show];
-        } else {
+        }
+        else {
             if (user.isNew) {
                 NSLog(@"User signed up and logged in with facebook!");
                 FBRequest *request = [FBRequest requestForMe];
-                [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                [request startWithCompletionHandler: ^(FBRequestConnection *connection, id result, NSError *error) {
                     if (!error) {
                         // result is a dictionary with the user's Facebook data
                         NSDictionary *userData = (NSDictionary *)result;
@@ -81,16 +83,16 @@
                         [currentUser saveInBackground];
                     }
                 }];
-                
-            } else {
+            }
+            else {
                 NSLog(@"User logged in with facebook!");
             }
-
-            UITabBarController *obj=[self.storyboard instantiateViewControllerWithIdentifier:@"tabBarControllerID"];
+            
+            UITabBarController *obj = [self.storyboard instantiateViewControllerWithIdentifier:@"tabBarControllerID"];
             //obj.selectedIndex = 1;
             [self presentModalViewController:obj animated:YES];
         }
     }];
-
 }
+
 @end

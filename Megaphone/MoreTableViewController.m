@@ -1,4 +1,4 @@
-    //
+//
 //  SettingsTableViewController.m
 //  Megaphone
 //
@@ -20,11 +20,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _links = @{
-            @"Rate": [NSURL URLWithString: @"https://itunes.com"],
-            @"Facebook": [NSURL URLWithString: @"https://facebook.com"],
-            @"Twitter": [NSURL URLWithString: @"https://twitter.com"],
-            @"Instagram": [NSURL URLWithString: @"https://instagram.com"]
-            };
+                   @"Rate": [NSURL URLWithString:@"https://itunes.com"],
+                   @"Facebook": [NSURL URLWithString:@"https://facebook.com"],
+                   @"Twitter": [NSURL URLWithString:@"https://twitter.com"],
+                   @"Instagram": [NSURL URLWithString:@"https://instagram.com"]
+                   };
     });
 }
 
@@ -33,33 +33,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = [[tableView cellForRowAtIndexPath:indexPath] reuseIdentifier];
     
-    if(identifier == nil){
+    if (identifier == nil) {
         NSLog(@"Error: No identifier");
     }
-    else if (_links[identifier]){
+    else if (_links[identifier]) {
         NSLog(@"Valid link");
-        [[UIApplication sharedApplication] openURL: _links[identifier]];
+        [[UIApplication sharedApplication] openURL:_links[identifier]];
     }
-    else if([identifier  isEqual: @"Share"]){
+    else if ([identifier isEqual:@"Share"]) {
         NSLog(@"Sharing");
         NSString *message = @"Checkout Megaphone! Download Here:";
-        NSURL *site = [NSURL URLWithString: @"https://www.google.com/search?q=megaphone"];
+        NSURL *site = [NSURL URLWithString:@"https://www.google.com/search?q=megaphone"];
         
         UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[message, site] applicationActivities:nil];
-        [self presentViewController: activityViewController animated:YES completion:nil];
+        [self presentViewController:activityViewController animated:YES completion:nil];
     }
-    else if([identifier  isEqual: @"Logout"]){
+    else if ([identifier isEqual:@"Logout"]) {
         NSLog(@"Logout");
         //TODO: Log out of facebook
     }
-    else if([identifier  isEqual: @"Policy"]){
+    else if ([identifier isEqual:@"Policy"]) {
         NSLog(@"Policy");
     }
-    else if([identifier  isEqual: @"Terms"]){
+    else if ([identifier isEqual:@"Terms"]) {
         NSLog(@"Terms");
     }
     

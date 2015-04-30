@@ -9,7 +9,7 @@
 #import "ProfilePostsTableViewController.h"
 #import "PostViewController.h"
 
-@interface ProfilePostsTableViewController (){
+@interface ProfilePostsTableViewController () {
     PFObject *postObject;
 }
 
@@ -18,7 +18,7 @@
 
 @implementation ProfilePostsTableViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString *const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,8 +33,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self getPosts];
 }
 
--(void)getPosts
-{
+- (void)getPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     [query orderByDescending:@"createdAt"];
     PFUser *currentUser = [PFUser currentUser];
@@ -63,8 +62,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (cell == nil)
-    {
+    if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     }
     
@@ -77,15 +75,13 @@ static NSString * const reuseIdentifier = @"Cell";
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"viewPost"]) {
+    if ([segue.identifier isEqualToString:@"viewPost"]) {
         PostViewController *postVC = [segue destinationViewController];
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
         postObject = [_myPosts objectAtIndex:path.row];

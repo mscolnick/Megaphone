@@ -44,35 +44,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [_titleField resignFirstResponder];
     return YES;
 }
 
-
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     // Prevent crashing undo bug
-    if(range.length + range.location > textField.text.length)
-    {
+    if (range.length + range.location > textField.text.length) {
         return NO;
     }
     
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     if ([textField.restorationIdentifier isEqualToString:@"titleTextField"]) {
         return newLength <= MAX_TITLE_LENGTH;
-    }else if ([textField.restorationIdentifier isEqualToString:@"descriptionTextField"]) {
+    }
+    else if ([textField.restorationIdentifier isEqualToString:@"descriptionTextField"]) {
         return newLength <= MAX_DESCRIPTION_LENGTH;
-    }else{
+    }
+    else {
         return YES;
     }
 }
 
--(void)uploadPostToParse
-{
+- (void)uploadPostToParse {
     NSLog(@"Uploading to parse...");
     PFObject *post = [PFObject objectWithClassName:@"Posts"];
-    post[@"numLikes"] = [NSNumber numberWithInt:0]; //current user already likes it //took this out
+    post[@"numLikes"] = [NSNumber numberWithInt:0];
     post[@"numReports"] = [NSNumber numberWithInt:0];
     post[@"numFollowers"] = [NSNumber numberWithInt:0];
     post[@"title"] = _titleField.text;
@@ -89,10 +87,7 @@
     post[@"number"] = [NSNumber numberWithInt:[num intValue] + 1];
     post[@"first_name"] = currentUser[@"first_name"];
     post[@"last_name"] = currentUser[@"last_name"];
-
-    //Current User automatically likes post
-//    PFRelation *relation = [post relationForKey:@"likers"]; //doesnt automatically like it
-//    [relation addObject:currentUser];
+    
     [post saveInBackground];
     
     [_companyObj incrementKey:@"numPosts" byAmount:[NSNumber numberWithInt:1]];
@@ -106,9 +101,7 @@
     [self resetFields];
 }
 
-
--(void)resetFields
-{
+- (void)resetFields {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post Sent"
                                                     message:@"Your post has been successfully uploaded!"
                                                    delegate:nil
@@ -124,13 +117,11 @@
     [self.view endEditing:YES];
 }
 
-
 #pragma mark - Navigation
 
 - (IBAction)cancelPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 - (IBAction)savePressed:(id)sender {
     //TODO: Add the post to parse
@@ -142,7 +133,8 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-    } else {
+    }
+    else {
         NSLog(@"upload to parse called");
         [self uploadPostToParse];
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -150,18 +142,21 @@
 }
 
 - (IBAction)segmentSwitch:(id)sender {
-    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     NSInteger segment = segmentedControl.selectedSegmentIndex;
     if (segment == 0) {
         postType = @"feature";
-    } else if (segment == 1) {
+    }
+    else if (segment == 1) {
         postType = @"bug";
-    } else if (segment == 2) {
+    }
+    else if (segment == 2) {
         postType = @"idea";
-    } else if (segment == 3) {
+    }
+    else if (segment == 3) {
         postType = @"other";
     }
-    selectedSegment = (int) segment;
+    selectedSegment = (int)segment;
 }
 
 @end

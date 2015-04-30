@@ -8,6 +8,8 @@
 
 #import "PostCell.h"
 
+#define MIN_LIKES -3
+
 @implementation PostCell
 
 - (void)awakeFromNib {
@@ -16,7 +18,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
@@ -27,10 +29,9 @@
     [relation addObject:[PFUser currentUser]];
     
     [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
-    [_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
+    [_postObj save];
     _numLikesLabel.text = [_postObj[@"numLikes"] stringValue];
 }
-
 
 - (IBAction)downButtonPressed:(id)sender {
     NSLog(@"down button");
@@ -40,23 +41,23 @@
     
     [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:-1]];
     NSNumber *numLikes = _postObj[@"numLikes"];
-    if ([numLikes integerValue] <= -3) {
+    if ([numLikes integerValue] <= MIN_LIKES) {
         [_postObj deleteInBackground];
-    } else {
+    }
+    else {
         [_postObj save];
     }
-    //[_postObj save]; // cannot use saveInBackground because want to make sure it is save before reloading
     _numLikesLabel.text = [_postObj[@"numLikes"] stringValue];
 }
 
-- (void) changeToLiked{
+- (void)changeToLiked {
     _upButton.userInteractionEnabled = NO;
     _downButton.userInteractionEnabled = NO;
     [_upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
     NSLog(@"change to liked");
 }
 
-- (void) changeToDisliked{
+- (void)changeToDisliked {
     _upButton.userInteractionEnabled = NO;
     _downButton.userInteractionEnabled = NO;
     [_downButton setImage:[UIImage imageNamed:@"ios7-arrow-down-red"] forState:UIControlStateNormal];

@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *upButton;
 @property (weak, nonatomic) IBOutlet UIButton *downButton;
 
-- (void) changeToLiked;
-- (void) changeToDisliked;
+- (void)changeToLiked;
+- (void)changeToDisliked;
 
 @end
