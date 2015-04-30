@@ -11,6 +11,7 @@
 #define MAX_TITLE_LENGTH 30
 #define MAX_DESCRIPTION_LENGTH 150
 
+#define postTypes(int) [@[@"feature", @"bug", @"idea",  @"other"] objectAtIndex: int]
 
 @interface NewPostViewController () {
     int selectedSegment;
@@ -32,7 +33,7 @@
     _titleField.delegate = self;
     _descriptionField.delegate = self;
     selectedSegment = 0;
-    postType = @"feature";
+    postType = postTypes(0); // feature
     _companyLabel.text = [_companyObj[@"name"] uppercaseString];
     CGRect frameRect = _descriptionField.frame;
     frameRect.size.height = 53;
@@ -144,18 +145,7 @@
 - (IBAction)segmentSwitch:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     NSInteger segment = segmentedControl.selectedSegmentIndex;
-    if (segment == 0) {
-        postType = @"feature";
-    }
-    else if (segment == 1) {
-        postType = @"bug";
-    }
-    else if (segment == 2) {
-        postType = @"idea";
-    }
-    else if (segment == 3) {
-        postType = @"other";
-    }
+    postType = postTypes(segment);
     selectedSegment = (int)segment;
 }
 

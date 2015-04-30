@@ -9,10 +9,13 @@
 #import "ProfilePostsTableViewController.h"
 #import "PostViewController.h"
 
-@interface ProfilePostsTableViewController () {
+#define searchScopes(int) [@[@"title", @"company"] objectAtIndex: int]
+
+@interface ProfilePostsTableViewController () <UISearchBarDelegate, UISearchResultsUpdating> {
     PFObject *postObject;
 }
 
+@property (strong, nonatomic) UISearchController *searchController;
 
 @end
 
@@ -31,6 +34,18 @@ static NSString *const reuseIdentifier = @"Cell";
     self.navigationItem.title = tableTitles(_tableType);
     _myPosts = [[NSMutableArray alloc] init];
     [self getPosts];
+    
+    
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.searchBar.scopeButtonTitles = @[@"Title", @"Company"];
+    self.searchController.searchBar.delegate = self;
+    
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+
+    self.definesPresentationContext = YES;
+    [self.searchController.searchBar sizeToFit];
 }
 
 - (void)getPosts {
@@ -87,6 +102,24 @@ static NSString *const reuseIdentifier = @"Cell";
         postObject = [_myPosts objectAtIndex:path.row];
         postVC.postObj = postObject;
     }
+}
+
+#pragma mark - UISearchResultsUpdating
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
+{
+    NSString *searchString = searchController.searchBar.text;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    [query orderByDescending:@"createdAt"];
+    PFUser *currentUser = [PFUser currentUser];
+    [query whereKey:tableQuery(_tableType) equalTo:currentUser];
+    long scopeType = searchController.searchBar.selectedScopeButtonIndex;
+    [query whereKey:searchScopes(scopeType) containsString:searchString];
+    
+    query.limit = 30;
+    _myPosts = [query findObjects];
+    [self.tableView reloadData];
 }
 
 @end
