@@ -38,6 +38,7 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
     [self getPosts];
     [self.tableView reloadData];
 }

@@ -9,8 +9,11 @@
 #import "CompanyCollectionViewController.h"
 #import "PostsTableViewController.h"
 
-@interface CompanyCollectionViewController () {
+#define searchScopes(int) [@[@"title", @"company"] objectAtIndex: int]
+
+@interface CompanyCollectionViewController (){
     PFObject *companyObject;
+    int selectedSegment;
 }
 
 @end
@@ -24,15 +27,26 @@ static NSString *const reuseIdentifier = @"Cell";
     
     // Register cell classes
     [self.collectionView registerClass:[CompanyCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    selectedSegment = 0;
     
     // Do any additional setup after loading the view.
     _myCompanies = [[NSMutableArray alloc] init];
+    
     [self getCompanies];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)getCompanies {
     PFQuery *query = [PFQuery queryWithClassName:@"Company"];
-    [query orderByDescending:@"createdAt"];
+    if (selectedSegment == 0) {
+        [query orderByDescending:@"numPosts"];
+    } else if (selectedSegment == 1) {
+        [query orderByAscending:@"name"];
+    }
     query.limit = 30;
     _myCompanies = [query findObjects];
 }
@@ -119,4 +133,10 @@ static NSString *const reuseIdentifier = @"Cell";
     }
 }
 
+- (IBAction)segmentSwitch:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    selectedSegment = (int) segmentedControl.selectedSegmentIndex;
+    [self getCompanies];
+    [self.collectionView reloadData];
+}
 @end

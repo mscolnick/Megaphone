@@ -14,4 +14,6 @@
 
 @property (strong, nonatomic) NSMutableArray *myCompanies;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segControlOutlet;
+- (IBAction)segmentSwitch:(id)sender;
 @end

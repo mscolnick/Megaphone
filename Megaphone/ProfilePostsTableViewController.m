@@ -53,6 +53,11 @@ static NSString *const reuseIdentifier = @"Cell";
     [self getPosts];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 - (void)getPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     if (selectedSegment == 0) {
