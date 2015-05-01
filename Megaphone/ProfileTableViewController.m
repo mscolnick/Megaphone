@@ -46,11 +46,6 @@
     //    UIGraphicsEndImageContext();
     _profileBackgroundView.backgroundColor = [UIColor colorWithRed:.6 green:.3 blue:.1 alpha:.5];
     
-    
-    UIToolbar *bgToolbar = [[UIToolbar alloc] initWithFrame:_profileBackgroundView.frame];
-    bgToolbar.barStyle = UIBarStyleDefault;
-    [_profileBackgroundView.superview insertSubview:bgToolbar belowSubview:_profileBackgroundView];
-    
     _nameLabel.text = user[@"name"];
 }
 

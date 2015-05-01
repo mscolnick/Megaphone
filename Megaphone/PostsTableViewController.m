@@ -29,7 +29,6 @@ static NSString *const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.prompt = _companyObj[@"name"];
     self.navigationController.navigationBar.topItem.title = @"";
 
     _myPosts = [[NSMutableArray alloc] init];
@@ -115,6 +114,11 @@ static NSString *const reuseIdentifier = @"Cell";
     [query countObjectsInBackgroundWithBlock: ^(int count, NSError *error) {
         completionBlock(count > 0, error);
     }];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return _companyObj[@"name"];
 }
 
 #pragma mark - Navigation
