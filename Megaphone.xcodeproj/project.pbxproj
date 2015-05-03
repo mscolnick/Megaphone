@@ -49,6 +49,7 @@
 		F3A6B3111AD1EDE400955521 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3101AD1EDE400955521 /* Images.xcassets */; };
 		F3A6B3141AD1EDE400955521 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3121AD1EDE400955521 /* LaunchScreen.xib */; };
 		F3A6B3201AD1EDE400955521 /* MegaphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */; };
+		F3B842F71AF47CBA0002BFD0 /* CommentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B842F61AF47CBA0002BFD0 /* CommentTableView.m */; };
 		F3C353A21AD88E7400455F72 /* NewPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C353A11AD88E7400455F72 /* NewPostViewController.m */; };
 		F3E9519E1AEDA8C50071D28E /* Sarpanch-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E951981AEDA8C50071D28E /* Sarpanch-Black.ttf */; };
 		F3E9519F1AEDA8C50071D28E /* Sarpanch-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E951991AEDA8C50071D28E /* Sarpanch-Bold.ttf */; };
@@ -126,6 +127,8 @@
 		F3A6B3191AD1EDE400955521 /* MegaphoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MegaphoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A6B31E1AD1EDE400955521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MegaphoneTests.m; sourceTree = "<group>"; };
+		F3B842F51AF47CBA0002BFD0 /* CommentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableView.h; sourceTree = "<group>"; };
+		F3B842F61AF47CBA0002BFD0 /* CommentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableView.m; sourceTree = "<group>"; };
 		F3C353A01AD88E7400455F72 /* NewPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPostViewController.h; sourceTree = "<group>"; };
 		F3C353A11AD88E7400455F72 /* NewPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostViewController.m; sourceTree = "<group>"; };
 		F3E951981AEDA8C50071D28E /* Sarpanch-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarpanch-Black.ttf"; sourceTree = "<group>"; };
@@ -303,6 +306,8 @@
 				F3A6B3071AD1EDE400955521 /* AppDelegate.h */,
 				F3A6B3081AD1EDE400955521 /* AppDelegate.m */,
 				F3A6B30D1AD1EDE400955521 /* Main.storyboard */,
+				F3B842F51AF47CBA0002BFD0 /* CommentTableView.h */,
+				F3B842F61AF47CBA0002BFD0 /* CommentTableView.m */,
 				F35559E71AD393C4001A0FCA /* CustomCells */,
 				A3A311501AD36DE000EF2A51 /* View Controllers */,
 				F3A6B3101AD1EDE400955521 /* Images.xcassets */,
@@ -462,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C353A21AD88E7400455F72 /* NewPostViewController.m in Sources */,
+				F3B842F71AF47CBA0002BFD0 /* CommentTableView.m in Sources */,
 				A3A311531AD371DE00EF2A51 /* CompanyCollectionViewController.m in Sources */,
 				F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */,
 				A31820611AF36E4A0008BE21 /* CommentTableViewCell.m in Sources */,

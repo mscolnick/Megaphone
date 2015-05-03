@@ -89,7 +89,7 @@
             }
             
             UITabBarController *obj = [self.storyboard instantiateViewControllerWithIdentifier:@"tabBarControllerID"];
-            //obj.selectedIndex = 1;
+            obj.selectedIndex = 0;
             [self presentModalViewController:obj animated:YES];
         }
     }];

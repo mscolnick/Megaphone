@@ -39,11 +39,6 @@
     [_profileImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [_profileImageView.layer setBorderWidth: 2.0];
     
-    //Blurred Background
-    //    UIGraphicsBeginImageContext(_profileBackgroundView.frame.size);
-    //    [profileImage drawInRect:self.view.bounds];
-    //    UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
-    //    UIGraphicsEndImageContext();
     _profileBackgroundView.backgroundColor = [UIColor colorWithRed:.6 green:.3 blue:.1 alpha:.5];
     
     _nameLabel.text = user[@"name"];

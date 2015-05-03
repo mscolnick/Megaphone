@@ -8,6 +8,7 @@
 
 #import "PostViewController.h"
 #import "PostCell.h"
+#import "CommentTableViewCell.h"
 
 #define MIN_LIKES -3
 #define MAX_REPORTS 5
@@ -18,18 +19,17 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UIButton *upButton;
 @property (weak, nonatomic) IBOutlet UIButton *downButton;
-@property (weak, nonatomic) IBOutlet UILabel *companyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followersCountLabel;
 @property (weak, nonatomic) IBOutlet UITableView *commentTableView;
 @property (weak, nonatomic) IBOutlet UIToolbar *postToolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *postButton;
 - (IBAction)postComment:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *commentTextField;
+@property (weak, nonatomic) IBOutlet UIImageView *authorImageView;
 
 @end
 
@@ -43,16 +43,28 @@ static NSString *const reuseIdentifier = @"Cell";
     
     _titleLabel.text = _postObj[@"title"];
     _descriptionLabel.text = _postObj[@"description"];
-    //_typeLabel.text = [_postObj[@"type"] uppercaseString];
-    //_companyLabel.text = [_postObj[@"company"] uppercaseString];
-    _authorLabel.text = [NSString stringWithFormat:@"%@ %@", _postObj[@"first_name"], [_postObj[@"last_name"] substringToIndex:1]];
-    self.navigationItem.title = [NSString stringWithFormat:@"%@ %@ %@", [_postObj[@"type"] uppercaseString], @"For", [_postObj[@"company"] uppercaseString]];
+    PFUser *author = _postObj[@"user"];
+    _authorLabel.text = author[@"name"];
+
+    // Circular Image
+    NSURL *profileLink = [NSURL URLWithString:author[@"imageLink"]];
+    UIImage *profileImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:profileLink]];
+    _authorImageView.image = profileImage;
+    _authorImageView.contentMode = UIViewContentModeScaleAspectFit;
+    _authorImageView.layer.cornerRadius = _authorImageView.frame.size.height / 2;
+    _authorImageView.layer.masksToBounds = YES;
+    _authorImageView.layer.borderWidth = 0;
+    [_authorImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [_authorImageView.layer setBorderWidth: 2.0];
     
+    self.navigationItem.title = [NSString stringWithFormat:@"%@ %@ %@", [_postObj[@"type"] uppercaseString], @"For", [_postObj[@"company"] uppercaseString]];
+
     _commentTableView.dataSource = self;
     _commentTableView.delegate = self;
     _commentTextField.delegate = self;
     _commentTextField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    comments = _postObj[@"comments"];
+//    comments = _postObj[@"comments"];
+    [self getComments];
     
     self.navigationController.navigationBar.topItem.title = @"";
 }
@@ -142,33 +154,32 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (cell == nil) {
-        cell = [[PostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+        cell = [[CommentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
     
     // Configure the cell...
     PFObject *comment = [comments objectAtIndex:indexPath.row];
     [comment fetchIfNeeded];
-    cell.textLabel.text = comment[@"comment"];
-    cell.numLikesLabel.text = [comment[@"numLikes"] stringValue];
     
-    //Check if user likes the post
-    __block BOOL canSkip = NO;
-    [self containsUser:comment relationType:@"likers" block: ^(BOOL contains, NSError *error) {
-        if (contains) {
-            [cell changeToLiked];
-            canSkip = YES;
-        }
-    }];
-    if (!canSkip) {
-        [self containsUser:comment relationType:@"dislikers" block: ^(BOOL contains, NSError *error) {
-            if (contains) {
-                [cell changeToDisliked];
-            }
-        }];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    PFUser *author = comment[@"user"];
+    
+    // Circular Image
+    NSURL *profileLink = [NSURL URLWithString:author[@"imageLink"]];
+    UIImage *profileImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:profileLink]];
+    cell.profileImageView.image = profileImage;
+    cell.profileImageView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.height / 2;
+    cell.profileImageView.layer.masksToBounds = YES;
+    cell.profileImageView.layer.borderWidth = 0;
+    [cell.profileImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [cell.profileImageView.layer setBorderWidth: 2.0];
+    
+    cell.nameLabel.text = author[@"name"];
+    cell.commentLabel.text = comment[@"comment"];
+    cell.timeLabel.text = comment[@"timeStamp"];
+    
     return cell;
 }
 
@@ -180,25 +191,25 @@ static NSString *const reuseIdentifier = @"Cell";
     comment[@"numReports"] = [NSNumber numberWithInt:0];
     comment[@"company"] = _postObj[@"company"];
     [comment setObject:[NSNumber numberWithBool:NO] forKey:@"reported"];
-    
     [comment setObject:[PFUser currentUser] forKey:@"user"];
-    [_postObj addObject:comment forKey:@"comments"];
-    
-    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
-    [dateformate setDateFormat:@"MM/dd/YYYY"];
-    NSString *date_String=[dateformate stringFromDate:[NSDate date]];
+    [comment setObject:_postObj forKey:@"post"];
+
+    NSDateFormatter *dateformater=[[NSDateFormatter alloc]init];
+    [dateformater setDateFormat:@"MM/dd/YYYY"];
+    NSString *date_String=[dateformater stringFromDate:[NSDate date]];
     comment[@"timeStamp"] = date_String;
     
     PFUser *currentUser = [PFUser currentUser];
     [currentUser fetchIfNeeded];
-    NSString *objID = [currentUser objectId];
-    comment[@"usernameId"] = objID;
+    comment[@"usernameId"] = currentUser.objectId;
     comment[@"username"] = currentUser[@"username"];
-    
-    [_postObj saveInBackground];
     [comment saveInBackground];
     
-    comments = _postObj[@"comments"];
+    [_postObj incrementKey:@"numComments" byAmount:[NSNumber numberWithInt:1]];
+    [_postObj saveInBackground];
+    
+//    comments = _postObj[@"comments"];
+    [self getComments];
     [self.commentTableView setNeedsDisplay];
     [_commentTableView reloadData];
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -222,7 +233,6 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (IBAction)upButtonPressed:(id)sender {
-    NSLog(@"up button");
     [self changeToLiked];
     PFRelation *relation = [_postObj relationForKey:@"likers"];
     [relation addObject:[PFUser currentUser]];
@@ -232,7 +242,6 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (IBAction)downButtonPressed:(id)sender {
-    NSLog(@"down button");
     [self changeToDisliked];
     PFRelation *relation = [_postObj relationForKey:@"dislikers"];
     [relation addObject:[PFUser currentUser]];
@@ -264,24 +273,16 @@ static NSString *const reuseIdentifier = @"Cell";
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
-            NSLog(@"report");
             [self reportPost];
             break;
-            
         case 1:
-            NSLog(@"follow");
             [self followPost];
             break;
-            
         case 2:
-            NSLog(@"share");
             [self sharePost];
             break;
-            
         case 3:
-            NSLog(@"cancel");
             break;
-            
         default:
             break;
     }
@@ -329,6 +330,7 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (IBAction)postComment:(id)sender {
+    
     if ([_commentTextField.text isEqual:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing comment"
                                                         message:@"Please enter a comment."
@@ -341,4 +343,13 @@ static NSString *const reuseIdentifier = @"Cell";
         [self uploadCommentToParse];
     }
 }
+
+- (void)getComments {
+    PFQuery *query = [PFQuery queryWithClassName:@"Comments"];
+    [query includeKey:@"user"];
+    [query whereKey:@"post" equalTo:_postObj];
+    query.limit = 30;
+    comments = [query findObjects];
+}
+
 @end

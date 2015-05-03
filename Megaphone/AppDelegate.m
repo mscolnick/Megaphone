@@ -33,7 +33,7 @@
     if ([PFUser currentUser]) {
         NSLog(@"Logged in");
         UITabBarController *viewController =[storyboard instantiateViewControllerWithIdentifier:@"tabBarControllerID"];
-        viewController.selectedIndex = 1;
+        viewController.selectedIndex = 0;
         self.window.rootViewController = viewController;
         [self.window makeKeyAndVisible];
     } else {

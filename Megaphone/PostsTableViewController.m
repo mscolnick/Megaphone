@@ -45,6 +45,7 @@ static NSString *const reuseIdentifier = @"Cell";
 - (void)getPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     NSString *companyName = _companyObj[@"name"];
+    [query includeKey:@"user"];
     [query whereKey:@"company" equalTo:companyName];
     if (selectedSegment == 0) {
         [query orderByDescending:@"createdAt"];
@@ -104,8 +105,6 @@ static NSString *const reuseIdentifier = @"Cell";
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-}
 
 - (void)containsUser:(PFObject *)myObject relationType:(NSString *)relationType block:(void (^)(BOOL, NSError *))completionBlock {
     PFRelation *relation = [myObject relationForKey:relationType];
