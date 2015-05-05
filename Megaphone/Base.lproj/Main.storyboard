@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -531,28 +531,50 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q4b-Yv-ezn" id="xuv-ZL-AkG">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Commenter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWW-Wb-kUX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Commenter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWW-Wb-kUX">
                                                     <rect key="frame" x="43" y="8" width="549" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="VMa-sO-uSr"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irx-by-OsX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irx-by-OsX">
                                                     <rect key="frame" x="43" y="24" width="549" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="wordWrap" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEt-T7-ml9">
-                                                    <rect key="frame" x="10" y="45" width="438" height="59"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEt-T7-ml9">
+                                                    <rect key="frame" x="10" y="45" width="582" height="59"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis dui libero. Cras quis laoreet felis. Suspendisse varius lobortis eleifend. Nam eleifend quis sapien a ullamcorper. Nullam diam urna, maximus in lacus ut, porta fermentum nibh. Sed at lorem nec lorem fermentum ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis eget neque pulvinar, bibendum lorem non, efficitur tellus.</string>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ijP-Tb-59s">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ijP-Tb-59s">
                                                     <rect key="frame" x="10" y="8" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="EL6-Bu-FpU"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kEt-T7-ml9" firstAttribute="top" secondItem="Irx-by-OsX" secondAttribute="bottom" id="02Y-xv-7lO"/>
+                                                <constraint firstItem="Irx-by-OsX" firstAttribute="leading" secondItem="jWW-Wb-kUX" secondAttribute="leading" id="Bij-AK-bGl"/>
+                                                <constraint firstItem="jWW-Wb-kUX" firstAttribute="top" secondItem="ijP-Tb-59s" secondAttribute="top" id="EOG-MD-8EO"/>
+                                                <constraint firstItem="Irx-by-OsX" firstAttribute="top" secondItem="xuv-ZL-AkG" secondAttribute="topMargin" constant="16" id="Eft-Ye-Nna"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="kEt-T7-ml9" secondAttribute="bottom" constant="-4" id="JRl-2d-FPB"/>
+                                                <constraint firstItem="Irx-by-OsX" firstAttribute="trailing" secondItem="kEt-T7-ml9" secondAttribute="trailing" id="JsC-cB-sqe"/>
+                                                <constraint firstItem="ijP-Tb-59s" firstAttribute="leading" secondItem="xuv-ZL-AkG" secondAttribute="leadingMargin" constant="-5" id="KcX-sR-VNH"/>
+                                                <constraint firstItem="jWW-Wb-kUX" firstAttribute="leading" secondItem="ijP-Tb-59s" secondAttribute="trailing" constant="8" symbolic="YES" id="LWU-gJ-dde"/>
+                                                <constraint firstItem="kEt-T7-ml9" firstAttribute="top" secondItem="jWW-Wb-kUX" secondAttribute="bottom" constant="16" id="VLO-Yh-82W"/>
+                                                <constraint firstItem="kEt-T7-ml9" firstAttribute="top" secondItem="ijP-Tb-59s" secondAttribute="bottom" constant="12" id="eyh-7g-e36"/>
+                                                <constraint firstItem="kEt-T7-ml9" firstAttribute="trailing" secondItem="xuv-ZL-AkG" secondAttribute="trailingMargin" id="f5r-kQ-fOW"/>
+                                                <constraint firstItem="jWW-Wb-kUX" firstAttribute="top" secondItem="xuv-ZL-AkG" secondAttribute="topMargin" id="hSI-ug-a2c"/>
+                                                <constraint firstItem="kEt-T7-ml9" firstAttribute="leading" secondItem="ijP-Tb-59s" secondAttribute="leading" id="lEX-cD-I7p"/>
+                                                <constraint firstItem="Irx-by-OsX" firstAttribute="trailing" secondItem="jWW-Wb-kUX" secondAttribute="trailing" id="wub-gP-4FK"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentLabel" destination="kEt-T7-ml9" id="ZMU-ka-syC"/>
