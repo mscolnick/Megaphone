@@ -342,27 +342,17 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WKB-zn-f1g" id="pew-eC-J4k">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07I-SP-phw">
-                                            <rect key="frame" x="557" y="0.0" width="43" height="32"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="43" id="A2R-f6-9qb"/>
-                                            </constraints>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07I-SP-phw">
+                                            <rect key="frame" x="553" y="0.0" width="47" height="25"/>
                                             <state key="normal" image="ios7-arrow-up"/>
                                             <connections>
                                                 <action selector="upButtonPressed:" destination="WKB-zn-f1g" eventType="touchUpInside" id="Dph-4X-heN"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoP-be-KSN">
-                                            <rect key="frame" x="557" y="26" width="43" height="32"/>
-                                            <state key="normal" image="ios7-arrow-down"/>
-                                            <connections>
-                                                <action selector="downButtonPressed:" destination="WKB-zn-f1g" eventType="touchUpInside" id="mZ8-FN-GEQ"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyd-7F-yQs">
-                                            <rect key="frame" x="486" y="13" width="63" height="31"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyd-7F-yQs">
+                                            <rect key="frame" x="561" y="23" width="31" height="27"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="63" id="TlS-yJ-9qJ"/>
+                                                <constraint firstAttribute="width" constant="31" id="g0Q-fI-xvc"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -370,18 +360,16 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="07I-SP-phw" firstAttribute="leading" secondItem="Qyd-7F-yQs" secondAttribute="trailing" constant="8" symbolic="YES" id="HNw-Xl-t2B"/>
-                                        <constraint firstItem="07I-SP-phw" firstAttribute="top" secondItem="pew-eC-J4k" secondAttribute="top" id="NzW-za-87U"/>
-                                        <constraint firstAttribute="trailing" secondItem="07I-SP-phw" secondAttribute="trailing" id="SLo-Zl-2sv"/>
-                                        <constraint firstItem="07I-SP-phw" firstAttribute="leading" secondItem="eoP-be-KSN" secondAttribute="leading" id="bWL-hS-v4r"/>
-                                        <constraint firstItem="eoP-be-KSN" firstAttribute="trailing" secondItem="07I-SP-phw" secondAttribute="trailing" id="cXH-YS-jvK"/>
-                                        <constraint firstAttribute="bottom" secondItem="eoP-be-KSN" secondAttribute="bottom" id="cek-JU-eOn"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Qyd-7F-yQs" secondAttribute="bottom" constant="6" id="nf9-d1-C7p"/>
-                                        <constraint firstItem="Qyd-7F-yQs" firstAttribute="top" secondItem="pew-eC-J4k" secondAttribute="topMargin" constant="5" id="qtj-Ov-oAb"/>
+                                        <constraint firstItem="Qyd-7F-yQs" firstAttribute="bottom" secondItem="pew-eC-J4k" secondAttribute="bottomMargin" id="5PI-2X-pfc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Qyd-7F-yQs" secondAttribute="trailing" constant="-7" id="ENW-Oi-VEO"/>
+                                        <constraint firstItem="07I-SP-phw" firstAttribute="top" secondItem="pew-eC-J4k" secondAttribute="top" id="M7i-aV-zDI"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="07I-SP-phw" secondAttribute="bottom" constant="25" id="SGH-hh-cR0"/>
+                                        <constraint firstAttribute="trailing" secondItem="07I-SP-phw" secondAttribute="trailing" id="aXC-op-Byv"/>
+                                        <constraint firstItem="07I-SP-phw" firstAttribute="centerX" secondItem="Qyd-7F-yQs" secondAttribute="centerX" id="dBo-vj-CNi"/>
+                                        <constraint firstItem="Qyd-7F-yQs" firstAttribute="top" secondItem="pew-eC-J4k" secondAttribute="topMargin" constant="15" id="wWJ-yD-IWp"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="downButton" destination="eoP-be-KSN" id="khz-B6-Wtb"/>
                                     <outlet property="numLikesLabel" destination="Qyd-7F-yQs" id="87H-eu-xf5"/>
                                     <outlet property="upButton" destination="07I-SP-phw" id="F9E-2e-OIT"/>
                                     <segue destination="lhx-Zh-b8U" kind="push" identifier="viewPost" id="fXc-jz-UUo"/>
@@ -496,9 +484,6 @@
                                 <state key="normal" image="ios7-arrow-down">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="downButtonPressed:" destination="lhx-Zh-b8U" eventType="touchUpInside" id="NFW-11-4Y5"/>
-                                </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GCR-Kg-4j0">
                                 <rect key="frame" x="0.0" y="507" width="600" height="44"/>
@@ -638,7 +623,6 @@
                         <outlet property="commentTextField" destination="TqO-jI-2jY" id="bDO-Vp-6eM"/>
                         <outlet property="countLabel" destination="szN-pD-tOT" id="Wed-WY-5Bz"/>
                         <outlet property="descriptionLabel" destination="NBJ-q8-VX2" id="TCM-GJ-vNA"/>
-                        <outlet property="downButton" destination="HNb-H5-4UQ" id="8ea-X8-vrc"/>
                         <outlet property="followersCountLabel" destination="cke-64-0fh" id="n5x-bd-wW7"/>
                         <outlet property="postButton" destination="ZT6-HH-xWO" id="eRx-hB-rMD"/>
                         <outlet property="postToolbar" destination="GCR-Kg-4j0" id="tGL-py-Wdb"/>
@@ -1024,6 +1008,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kFV-8g-1nL"/>
-        <segue reference="lQG-Xy-ZYB"/>
+        <segue reference="fXc-jz-UUo"/>
     </inferredMetricsTieBreakers>
 </document>

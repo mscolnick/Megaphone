@@ -79,17 +79,10 @@ static NSString *const reuseIdentifier = @"Cell";
     __block BOOL canSkip = NO;
     [self containsUser:_postObj relationType:@"likers" block: ^(BOOL contains, NSError *error) {
         if (contains) {
-            [self changeToLiked];
+            [_upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
             canSkip = YES;
         }
     }];
-    if (!canSkip) {
-        [self containsUser:_postObj relationType:@"dislikers" block: ^(BOOL contains, NSError *error) {
-            if (contains) {
-                [self changeToDisliked];
-            }
-        }];
-    }
     
     self.tabBarController.tabBar.hidden = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(liftMainViewWhenKeybordAppears:) name:UIKeyboardWillShowNotification object:nil];
@@ -234,27 +227,14 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (IBAction)upButtonPressed:(id)sender {
-    [self changeToLiked];
-    PFRelation *relation = [_postObj relationForKey:@"likers"];
-    [relation addObject:[PFUser currentUser]];
-    [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
-    [_postObj save];
-    _countLabel.text = [_postObj[@"numLikes"] stringValue];
-}
-
-- (IBAction)downButtonPressed:(id)sender {
-    [self changeToDisliked];
-    PFRelation *relation = [_postObj relationForKey:@"dislikers"];
-    [relation addObject:[PFUser currentUser]];
-    [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:-1]];
-    NSNumber *numLikes = _postObj[@"numLikes"];
-    if ([numLikes integerValue] <= MIN_LIKES) {
-        [_postObj deleteInBackground];
-    }
-    else {
-        [_postObj save];
-    }
-    _countLabel.text = [_postObj[@"numLikes"] stringValue];
+    
+    [self containsUser:_postObj relationType:@"likers" block: ^(BOOL contains, NSError *error) {
+        if (contains) {
+            [self changeToUnliked];
+        } else {
+            [self changeToLiked];
+        }
+    }];
 }
 
 - (IBAction)actionSheetPressed:(id)sender {
@@ -319,15 +299,25 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (void)changeToLiked {
-    _upButton.userInteractionEnabled = NO;
-    _downButton.userInteractionEnabled = NO;
     [_upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
+    PFRelation *relation = [_postObj relationForKey:@"likers"];
+    [relation addObject:[PFUser currentUser]];
+    
+    [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
+    [_postObj save];
+    _countLabel.text = [_postObj[@"numLikes"] stringValue];
+    NSLog(@"change to liked");
 }
 
-- (void)changeToDisliked {
-    _upButton.userInteractionEnabled = NO;
-    _downButton.userInteractionEnabled = NO;
-    [_downButton setImage:[UIImage imageNamed:@"ios7-arrow-down-red"] forState:UIControlStateNormal];
+- (void)changeToUnliked {
+    [_upButton setImage:[UIImage imageNamed:@"ios7-arrow-up"] forState:UIControlStateNormal];
+    PFRelation *relation = [_postObj relationForKey:@"likers"];
+    [relation removeObject:[PFUser currentUser]];
+    
+    [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:-1]];
+    [_postObj save];
+    _countLabel.text = [_postObj[@"numLikes"] stringValue];
+    NSLog(@"change to liked");
 }
 
 - (IBAction)postComment:(id)sender {

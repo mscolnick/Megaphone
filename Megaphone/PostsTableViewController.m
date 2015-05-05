@@ -90,17 +90,10 @@ static NSString *const reuseIdentifier = @"Cell";
     __block BOOL canSkip = NO;
     [self containsUser:post relationType:@"likers" block: ^(BOOL contains, NSError *error) {
         if (contains) {
-            [cell changeToLiked];
+            [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
             canSkip = YES;
         }
     }];
-    if (!canSkip) {
-        [self containsUser:post relationType:@"dislikers" block: ^(BOOL contains, NSError *error) {
-            if (contains) {
-                [cell changeToDisliked];
-            }
-        }];
-    }
     
     return cell;
 }
