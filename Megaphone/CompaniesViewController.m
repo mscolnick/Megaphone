@@ -11,10 +11,11 @@
 
 #define searchScopes(int) [@[@"title", @"company"] objectAtIndex: int]
 
-@interface CompaniesViewController (){
+@interface CompaniesViewController () <UISearchBarDelegate>{
     PFObject *companyObject;
     int selectedSegment;
 }
+@property (weak, nonatomic) IBOutlet UISearchBar *companySearchBar;
 
 @end
 
@@ -140,6 +141,20 @@ static NSString *const reuseIdentifier = @"Cell";
     selectedSegment = (int) segmentedControl.selectedSegmentIndex;
     [self getCompanies];
     [self.collectionView reloadData];
+}
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    BOOL atLeastOneChar = searchText.length > 0;
+    
+    if (atLeastOneChar) {
+        PFQuery *query = [PFQuery queryWithClassName:@"Company"];
+
+        [query whereKey:@"name" containsString:searchText];
+        query.limit = 30;
+        _myCompanies = [NSMutableArray arrayWithArray:[query findObjects]];
+        [self.collectionView reloadData];
+    }
 }
 
 @end

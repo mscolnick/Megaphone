@@ -961,6 +961,9 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="io5-ff-q4W">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uTq-rd-8wr" id="4sC-ZO-Ekd"/>
+                                </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fyP-Aw-lXS">
                                 <rect key="frame" x="0.0" y="108" width="600" height="448"/>
@@ -1014,6 +1017,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="fyP-Aw-lXS" id="sFI-Za-ghK"/>
+                        <outlet property="companySearchBar" destination="io5-ff-q4W" id="ZZd-P2-MyX"/>
                         <outlet property="segControlOutlet" destination="kEN-sU-RG5" id="5BV-86-F5a"/>
                     </connections>
                 </viewController>
