@@ -9,9 +9,7 @@
 #import "CompaniesViewController.h"
 #import "PostsTableViewController.h"
 
-#define searchScopes(int) [@[@"title", @"company"] objectAtIndex: int]
-
-@interface CompaniesViewController () <UISearchBarDelegate>{
+@interface CompaniesViewController () {
     PFObject *companyObject;
     int selectedSegment;
 }
@@ -50,6 +48,21 @@ static NSString *const reuseIdentifier = @"Cell";
     } else if (selectedSegment == 1) {
         [query orderByAscending:@"name"];
     }
+    query.limit = 30;
+    _myCompanies = [NSMutableArray arrayWithArray:[query findObjects]];
+}
+
+- (void)getCompaniesWithText:(NSString *)text {
+    PFQuery *query = [PFQuery queryWithClassName:@"Company"];
+    if (selectedSegment == 0) {
+        [query orderByDescending:@"numPosts"];
+    } else if (selectedSegment == 1) {
+        [query orderByAscending:@"name"];
+    }
+    
+    NSString *xx = [NSString stringWithFormat:@"^%@", text];
+    [query whereKey:@"name" matchesRegex:xx modifiers:@"i"];
+    
     query.limit = 30;
     _myCompanies = [NSMutableArray arrayWithArray:[query findObjects]];
 }
@@ -139,22 +152,23 @@ static NSString *const reuseIdentifier = @"Cell";
 - (IBAction)segmentSwitch:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     selectedSegment = (int) segmentedControl.selectedSegmentIndex;
-    [self getCompanies];
+    if (self.companySearchBar.text.length > 0){
+        [self getCompaniesWithText:self.companySearchBar.text];
+    }else{
+        [self getCompanies];
+    }
     [self.collectionView reloadData];
 }
 
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    BOOL atLeastOneChar = searchText.length > 0;
     
-    if (atLeastOneChar) {
-        PFQuery *query = [PFQuery queryWithClassName:@"Company"];
-
-        [query whereKey:@"name" containsString:searchText];
-        query.limit = 30;
-        _myCompanies = [NSMutableArray arrayWithArray:[query findObjects]];
-        [self.collectionView reloadData];
+    if (searchText.length > 0) {
+        [self getCompaniesWithText:searchText];
+    }else{
+        [self getCompanies];
     }
+    [self.collectionView reloadData];
 }
 
 @end

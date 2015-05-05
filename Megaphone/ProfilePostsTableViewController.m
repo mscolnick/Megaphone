@@ -138,7 +138,8 @@ static NSString *const reuseIdentifier = @"Cell";
     PFUser *currentUser = [PFUser currentUser];
     [query whereKey:tableQuery(_tableType) equalTo:currentUser];
     long scopeType = searchController.searchBar.selectedScopeButtonIndex;
-    [query whereKey:searchScopes(scopeType) containsString:searchString];
+    NSString *xx = [NSString stringWithFormat:@"^%@", searchString];
+    [query whereKey:searchScopes(scopeType) matchesRegex:xx modifiers:@"i"];
     
     query.limit = 30;
     _myPosts = [query findObjects];

@@ -10,7 +10,7 @@
 #import "CompanyCell.h"
 #import <Parse/Parse.h>
 
-@interface CompaniesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface CompaniesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) NSMutableArray *myCompanies;
 

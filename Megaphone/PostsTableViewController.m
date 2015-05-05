@@ -190,7 +190,8 @@ static NSString *const reuseIdentifier = @"Cell";
     
     NSString *companyName = _companyObj[@"name"];
     [query whereKey:@"company" equalTo:companyName];
-    [query whereKey:@"title" containsString:searchString];
+    NSString *xx = [NSString stringWithFormat:@"^%@", searchString];
+    [query whereKey:@"title" matchesRegex:xx modifiers:@"i"];
     long scopeType = searchController.searchBar.selectedScopeButtonIndex;
     if(scopeType != 0){
             [query whereKey:@"type" equalTo:searchScopes(scopeType)];
