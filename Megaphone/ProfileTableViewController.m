@@ -71,4 +71,12 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return (self.tableView.frame.size.height -
+            _profileBackgroundView.frame.size.height -
+            self.navigationController.navigationBar.frame.size.height -
+            self.tabBarController.tabBar.frame.size.height -
+            [UIApplication sharedApplication].statusBarFrame.size.height)/3;
+}
+
 @end
