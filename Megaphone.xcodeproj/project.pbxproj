@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A31820611AF36E4A0008BE21 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A31820601AF36E4A0008BE21 /* CommentTableViewCell.m */; };
+		A3318D581AF85FC900651A20 /* CompaniesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3318D571AF85FC900651A20 /* CompaniesViewController.m */; };
 		A35550DB1AD887D4002D2663 /* FacebookSDK.strings in Resources */ = {isa = PBXBuildFile; fileRef = A35550D61AD887D4002D2663 /* FacebookSDK.strings */; };
 		A35550DC1AD887D4002D2663 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A35550D71AD887D4002D2663 /* FBSDKCoreKit.framework */; };
 		A35550DD1AD887D4002D2663 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A35550D81AD887D4002D2663 /* FBSDKLoginKit.framework */; };
@@ -72,6 +73,8 @@
 /* Begin PBXFileReference section */
 		A318205F1AF36E4A0008BE21 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		A31820601AF36E4A0008BE21 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
+		A3318D561AF85FC900651A20 /* CompaniesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompaniesViewController.h; sourceTree = "<group>"; };
+		A3318D571AF85FC900651A20 /* CompaniesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompaniesViewController.m; sourceTree = "<group>"; };
 		A35550D61AD887D4002D2663 /* FacebookSDK.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = FacebookSDK.strings; sourceTree = "<group>"; };
 		A35550D71AD887D4002D2663 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A35550D81AD887D4002D2663 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -245,6 +248,8 @@
 				A3A311521AD371DE00EF2A51 /* CompanyCollectionViewController.m */,
 				F347561B1ADCA4B90053FF4C /* PostViewController.h */,
 				F347561C1ADCA4B90053FF4C /* PostViewController.m */,
+				A3318D561AF85FC900651A20 /* CompaniesViewController.h */,
+				A3318D571AF85FC900651A20 /* CompaniesViewController.m */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -473,6 +478,7 @@
 				A31820611AF36E4A0008BE21 /* CommentTableViewCell.m in Sources */,
 				A376DF8A1AD868FC008757E8 /* LoginViewController.m in Sources */,
 				F35559ED1AD393FA001A0FCA /* PostCell.m in Sources */,
+				A3318D581AF85FC900651A20 /* CompaniesViewController.m in Sources */,
 				F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */,
 				F35559D91AD38804001A0FCA /* MoreTableViewController.m in Sources */,
 				F36328611ADCD54F00226397 /* ProfileTableViewController.m in Sources */,

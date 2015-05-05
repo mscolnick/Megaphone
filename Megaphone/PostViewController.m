@@ -167,8 +167,6 @@ static NSString *const reuseIdentifier = @"Cell";
     cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.height / 2;
     cell.profileImageView.layer.masksToBounds = YES;
     cell.profileImageView.layer.borderWidth = 0;
-    [cell.profileImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [cell.profileImageView.layer setBorderWidth: 2.0];
     
     cell.nameLabel.text = author[@"name"];
     cell.commentLabel.text = comment[@"comment"];

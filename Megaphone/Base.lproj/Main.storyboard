@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -929,67 +929,87 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="4c2-cN-aKl" kind="relationship" relationship="rootViewController" id="fev-NL-wK2"/>
+                        <segue destination="uTq-rd-8wr" kind="relationship" relationship="rootViewController" id="ve1-A1-jrz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ru5-Gc-fCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2388.75" y="-379.22535211267603"/>
+            <point key="canvasLocation" x="2371" y="-380"/>
         </scene>
-        <!--Company Collection View Controller-->
-        <scene sceneID="J8V-Cp-rfi">
+        <!--Companies View Controller-->
+        <scene sceneID="SzJ-8n-SNC">
             <objects>
-                <collectionViewController id="4c2-cN-aKl" customClass="CompanyCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="mNB-Ec-nGR">
+                <viewController id="uTq-rd-8wr" customClass="CompaniesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jec-jY-vOS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Did-pg-h0I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0KT-t1-ShW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="io5-ff-q4W">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fyP-Aw-lXS">
+                                <rect key="frame" x="0.0" y="108" width="600" height="448"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1dB-ze-egZ">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ePL-pc-329" customClass="CompanyCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="JLm-wE-FP6" kind="push" identifier="companyToPosts" id="Q1Y-AW-K0M"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Tu-wm-Ine">
-                            <size key="itemSize" width="100" height="100"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="RDB-lg-zdc" customClass="CompanyCell">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <connections>
-                                    <segue destination="JLm-wE-FP6" kind="push" identifier="companyToPosts" id="RXa-sj-dfv"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="4c2-cN-aKl" id="fg7-Nn-gbJ"/>
-                            <outlet property="delegate" destination="4c2-cN-aKl" id="IdY-di-Wez"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="rjw-EL-oLR">
+                        <constraints>
+                            <constraint firstItem="io5-ff-q4W" firstAttribute="leading" secondItem="fyP-Aw-lXS" secondAttribute="leading" id="78u-q5-Mak"/>
+                            <constraint firstAttribute="trailing" secondItem="fyP-Aw-lXS" secondAttribute="trailing" id="8dS-QF-eX5"/>
+                            <constraint firstItem="io5-ff-q4W" firstAttribute="top" secondItem="Jec-jY-vOS" secondAttribute="bottom" id="EX6-Z4-ejG"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="fyP-Aw-lXS" secondAttribute="bottom" constant="44" id="Wfa-Jp-8F9"/>
+                            <constraint firstItem="fyP-Aw-lXS" firstAttribute="trailing" secondItem="io5-ff-q4W" secondAttribute="trailing" id="f8f-WQ-buJ"/>
+                            <constraint firstItem="fyP-Aw-lXS" firstAttribute="leading" secondItem="0KT-t1-ShW" secondAttribute="leading" id="igk-0M-JD1"/>
+                            <constraint firstItem="fyP-Aw-lXS" firstAttribute="top" secondItem="io5-ff-q4W" secondAttribute="bottom" id="m91-Uo-ksa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Q5B-V0-eq2">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="JV8-ac-8q0">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="kEN-sU-RG5">
                             <rect key="frame" x="180" y="7" width="240" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
+                                <segment title="Recent"/>
                                 <segment title="Trending"/>
-                                <segment title="Alphabetical"/>
                             </segments>
                             <connections>
-                                <action selector="segmentSwitch:" destination="4c2-cN-aKl" eventType="valueChanged" id="03q-S1-Bwi"/>
+                                <action selector="segmentSwitch:" destination="uTq-rd-8wr" eventType="valueChanged" id="957-JT-V9M"/>
                             </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
-                        <outlet property="segControlOutlet" destination="JV8-ac-8q0" id="ani-Bz-reb"/>
+                        <outlet property="collectionView" destination="fyP-Aw-lXS" id="sFI-Za-ghK"/>
+                        <outlet property="segControlOutlet" destination="kEN-sU-RG5" id="5BV-86-F5a"/>
                     </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yox-X5-RFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VOV-8S-EKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3142.5" y="-379.22535211267603"/>
+            <point key="canvasLocation" x="3188" y="-380"/>
         </scene>
     </scenes>
     <resources>
