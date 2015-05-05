@@ -54,6 +54,7 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self hideSearchBar];
     self.tabBarController.tabBar.hidden = NO;
 }
 
@@ -149,5 +150,13 @@ static NSString *const reuseIdentifier = @"Cell";
     selectedSegment = (int) segmentedControl.selectedSegmentIndex;
     [self getPosts];
     [self.tableView reloadData];
+}
+
+- (void) hideSearchBar{
+    CGRect newBounds = self.tableView.bounds;
+    if (self.tableView.bounds.origin.y < 44) {
+        newBounds.origin.y = newBounds.origin.y + self.searchController.searchBar.bounds.size.height;
+        self.tableView.bounds = newBounds;
+    }
 }
 @end

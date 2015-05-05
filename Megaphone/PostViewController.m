@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UIButton *upButton;
-@property (weak, nonatomic) IBOutlet UIButton *downButton;
 @property (weak, nonatomic) IBOutlet UILabel *followersCountLabel;
 @property (weak, nonatomic) IBOutlet UITableView *commentTableView;
 @property (weak, nonatomic) IBOutlet UIToolbar *postToolbar;
@@ -338,7 +337,7 @@ static NSString *const reuseIdentifier = @"Cell";
     [query includeKey:@"user"];
     [query whereKey:@"post" equalTo:_postObj];
     query.limit = 30;
-    comments = [query findObjects];
+    comments = [NSMutableArray arrayWithArray:[query findObjects]];
 }
 
 @end

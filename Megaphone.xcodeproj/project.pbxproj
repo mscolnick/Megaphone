@@ -609,13 +609,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/hridaykemburu/Documents/parse-library-1-3",
-					/Users/hridaykemburu/Documents/FacebookSDK,
-					"/Users/hridaykemburu/Downloads/parse-library-1-3",
-					"/Users/hridaykemburu/Downloads/parse-library-1",
-					"/Users/hridaykemburu/Documents/parse-library-1",
-					/Users/hridaykemburu/Documents,
-					"/Users/hridaykemburu/Downloads/parse-starter-project-1/ParseStarterProject",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Megaphone/Info.plist;
@@ -631,13 +624,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/hridaykemburu/Documents/parse-library-1-3",
-					/Users/hridaykemburu/Documents/FacebookSDK,
-					"/Users/hridaykemburu/Downloads/parse-library-1-3",
-					"/Users/hridaykemburu/Downloads/parse-library-1",
-					"/Users/hridaykemburu/Documents/parse-library-1",
-					/Users/hridaykemburu/Documents,
-					"/Users/hridaykemburu/Downloads/parse-starter-project-1/ParseStarterProject",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Megaphone/Info.plist;

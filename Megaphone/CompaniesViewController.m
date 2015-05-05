@@ -50,7 +50,7 @@ static NSString *const reuseIdentifier = @"Cell";
         [query orderByAscending:@"name"];
     }
     query.limit = 30;
-    _myCompanies = [query findObjects];
+    _myCompanies = [NSMutableArray arrayWithArray:[query findObjects]];
 }
 
 - (void)didReceiveMemoryWarning {

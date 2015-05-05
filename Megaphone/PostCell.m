@@ -42,7 +42,6 @@
     [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
     [_postObj save];
     _numLikesLabel.text = [_postObj[@"numLikes"] stringValue];
-    NSLog(@"change to liked");
 }
 
 - (void)changeToUnliked {
@@ -53,7 +52,6 @@
     [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:-1]];
     [_postObj save];
     _numLikesLabel.text = [_postObj[@"numLikes"] stringValue];
-    NSLog(@"change to liked");
 }
 
 - (void)containsUser:(PFObject *)myObject relationType:(NSString *)relationType block:(void (^)(BOOL, NSError *))completionBlock {

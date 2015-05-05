@@ -54,11 +54,12 @@ static NSString *const reuseIdentifier = @"Cell";
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
     [self.searchController.searchBar sizeToFit];
-}
+    }
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self hideSearchBar];
     self.tabBarController.tabBar.hidden = NO;
     [self getPosts];
     [self.tableView reloadData];
@@ -109,11 +110,9 @@ static NSString *const reuseIdentifier = @"Cell";
     cell.postObj = post;
     
     //Check if user likes the post
-    __block BOOL canSkip = NO;
     [self containsUser:post relationType:@"likers" block: ^(BOOL contains, NSError *error) {
         if (contains) {
             [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
-            canSkip = YES;
         }
     }];
     
@@ -133,6 +132,20 @@ static NSString *const reuseIdentifier = @"Cell";
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return _companyObj[@"name"];
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, tableView.frame.size.width, 20)];
+    label.textAlignment = NSTextAlignmentCenter;
+    [label setFont:[UIFont boldSystemFontOfSize:20]];
+    NSString *string = _companyObj[@"name"];
+
+    [label setText:string];
+    [view addSubview:label];
+    [view setBackgroundColor:[UIColor colorWithRed:206/255.0 green:217/255.0 blue:226/255.0 alpha:1.0]];
+    return view;
 }
 
 #pragma mark - Navigation
@@ -185,6 +198,14 @@ static NSString *const reuseIdentifier = @"Cell";
     query.limit = 30;
     _myPosts = [query findObjects];
     [self.tableView reloadData];
+}
+
+- (void) hideSearchBar{
+    CGRect newBounds = self.tableView.bounds;
+    if (self.tableView.bounds.origin.y < 44) {
+        newBounds.origin.y = newBounds.origin.y + self.searchController.searchBar.bounds.size.height;
+        self.tableView.bounds = newBounds;
+    }
 }
 
 @end

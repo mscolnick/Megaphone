@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *profileBackgroundView;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
 @end
 
@@ -42,6 +43,7 @@
     _profileBackgroundView.backgroundColor = [UIColor colorWithRed:.6 green:.3 blue:.1 alpha:.5];
     
     _nameLabel.text = user[@"name"];
+    _scoreLabel.text = [user[@"karma"] stringValue];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
