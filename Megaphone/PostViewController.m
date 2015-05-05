@@ -44,6 +44,7 @@ static NSString *const reuseIdentifier = @"Cell";
     _titleLabel.text = _postObj[@"title"];
     _descriptionLabel.text = _postObj[@"description"];
     PFUser *author = _postObj[@"user"];
+    [author fetchIfNeeded];
     _authorLabel.text = author[@"name"];
 
     // Circular Image
