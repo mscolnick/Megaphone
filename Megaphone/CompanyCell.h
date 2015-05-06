@@ -10,4 +10,6 @@
 
 @interface CompanyCell : UICollectionViewCell
 
+@property (nonatomic, retain) UIImageView *imageView;
+
 @end

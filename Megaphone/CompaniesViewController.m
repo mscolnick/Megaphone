@@ -84,21 +84,15 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CompanyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    imgView.clipsToBounds = YES;
-    
+
     PFObject *post = [_myCompanies objectAtIndex:indexPath.row];
     [post fetchIfNeeded]; //maybe take out
     PFFile *imageFile = post[@"image"];
     [imageFile getDataInBackgroundWithBlock: ^(NSData *imageData, NSError *error) {
         if (!error) {
-            imgView.image = [UIImage imageWithData:imageData];
-            imgView.contentMode = UIViewContentModeScaleAspectFit;
+            cell.imageView.image = [UIImage imageWithData:imageData];
         }
     }];
-    
-    [cell addSubview:imgView];
     
     return cell;
 }

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
-@interface PostCell : UITableViewCell
+@interface PostCell : PFTableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *numLikesLabel;
 @property (strong, nonatomic) PFObject *postObj;
