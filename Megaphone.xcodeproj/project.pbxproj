@@ -38,6 +38,7 @@
 		A376E0901AD886DB008757E8 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A376E08D1AD886DB008757E8 /* ParseFacebookUtils.framework */; };
 		A3A311531AD371DE00EF2A51 /* CompanyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A311521AD371DE00EF2A51 /* CompanyCollectionViewController.m */; };
 		F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30587751AD1F3D40058E103 /* CompanyCell.m */; };
+		F332FB4A1AF9821300058F3A /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F332FB491AF9821300058F3A /* ParseUI.framework */; };
 		F347561D1ADCA4B90053FF4C /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F347561C1ADCA4B90053FF4C /* PostViewController.m */; };
 		F35559D91AD38804001A0FCA /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559D81AD38804001A0FCA /* MoreTableViewController.m */; };
 		F35559DD1AD39349001A0FCA /* ProfilePostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559DC1AD39349001A0FCA /* ProfilePostsTableViewController.m */; };
@@ -107,6 +108,7 @@
 		A3A311521AD371DE00EF2A51 /* CompanyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCollectionViewController.m; sourceTree = "<group>"; };
 		F30587741AD1F3D40058E103 /* CompanyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCell.h; sourceTree = "<group>"; };
 		F30587751AD1F3D40058E103 /* CompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCell.m; sourceTree = "<group>"; };
+		F332FB491AF9821300058F3A /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		F347561B1ADCA4B90053FF4C /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		F347561C1ADCA4B90053FF4C /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		F35559D71AD38804001A0FCA /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				A35550DD1AD887D4002D2663 /* FBSDKLoginKit.framework in Frameworks */,
 				A35550DC1AD887D4002D2663 /* FBSDKCoreKit.framework in Frameworks */,
 				A376E0811AD8833D008757E8 /* QuartzCore.framework in Frameworks */,
+				F332FB4A1AF9821300058F3A /* ParseUI.framework in Frameworks */,
 				A35550E71AD887E0002D2663 /* FBSDKMessengerShareKit.framework in Frameworks */,
 				A35550E51AD887E0002D2663 /* Bolts.framework in Frameworks */,
 				A35550E61AD887E0002D2663 /* FBAudienceNetwork.framework in Frameworks */,
@@ -210,6 +213,7 @@
 				A376E0671AD8833D008757E8 /* CoreGraphics.framework */,
 				A376E0681AD8833D008757E8 /* CoreLocation.framework */,
 				A376E0691AD8833D008757E8 /* libz.dylib */,
+				F332FB491AF9821300058F3A /* ParseUI.framework */,
 				A376E06A1AD8833D008757E8 /* MobileCoreServices.framework */,
 				A376E06B1AD8833D008757E8 /* StoreKit.framework */,
 			);

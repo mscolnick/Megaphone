@@ -162,7 +162,6 @@ static NSString *const reuseIdentifier = @"Cell";
 
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    
     if (searchText.length > 0) {
         [self getCompaniesWithText:searchText];
     }else{

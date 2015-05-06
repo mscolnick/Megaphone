@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 typedef enum {
     MyPostsTable,
@@ -19,7 +20,7 @@ typedef enum {
 #define tableQuery(enum) [@[@"user", @"followers", @"commenters"] objectAtIndex: enum]
 
 
-@interface ProfilePostsTableViewController : UITableViewController
+@interface ProfilePostsTableViewController : PFQueryTableViewController
 
 @property (strong, nonatomic) NSArray *myPosts;
 @property TableType tableType;

@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
-@interface PostsTableViewController : UITableViewController
+@interface PostsTableViewController : PFQueryTableViewController
 
 @property PFObject *companyObj;
 @property (strong, nonatomic) NSArray *myPosts;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segControlOutlet;
 - (IBAction)segmentSwitch:(id)sender;
 
 @end

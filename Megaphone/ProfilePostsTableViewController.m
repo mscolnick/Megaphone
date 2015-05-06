@@ -24,6 +24,39 @@
 
 static NSString *const reuseIdentifier = @"Cell";
 
+- (PFQuery *)queryForTable {
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    [query includeKey:@"user"];
+    [query whereKey:tableQuery(_tableType) equalTo:currentUser];
+    if (selectedSegment == 0) {
+        [query orderByDescending:@"createdAt"];
+    } else if (selectedSegment == 1) {
+        [query orderByDescending:@"numLikes"];
+    }
+    
+    NSString *searchString = self.searchController.searchBar.text;
+    if(searchString.length  > 0){
+        NSString *xx = [NSString stringWithFormat:@"^%@", searchString];
+        [query whereKey:@"title" matchesRegex:xx modifiers:@"i"];
+        
+        long scopeType = self.searchController.searchBar.selectedScopeButtonIndex;
+        if(scopeType != 0){
+            [query whereKey:@"type" equalTo:searchScopes(scopeType)];
+        }
+    }
+    
+    // If no objects are loaded in memory, we look to the cache
+    // first to fill the table and then subsequently do a query
+    // against the network.
+    if ([self.objects count] == 0) {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    
+    return query;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Uncomment the following line to preserve selection between presentations.
@@ -36,7 +69,6 @@ static NSString *const reuseIdentifier = @"Cell";
 
     _myPosts = [[NSMutableArray alloc] init];
     selectedSegment = 0;
-    //[self getPosts];
     
     
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
@@ -49,27 +81,12 @@ static NSString *const reuseIdentifier = @"Cell";
 
     self.definesPresentationContext = YES;
     [self.searchController.searchBar sizeToFit];
-    [self getPosts];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self hideSearchBar];
     self.tabBarController.tabBar.hidden = NO;
-}
-
-- (void)getPosts {
-    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-    if (selectedSegment == 0) {
-        [query orderByDescending:@"createdAt"];
-    } else if (selectedSegment == 1) {
-        [query orderByDescending:@"numLikes"];
-    }
-    PFUser *currentUser = [PFUser currentUser];
-    [query whereKey:tableQuery(_tableType) equalTo:currentUser];
-    
-    query.limit = 30;
-    _myPosts = [query findObjects];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,32 +96,20 @@ static NSString *const reuseIdentifier = @"Cell";
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return [_myPosts count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+                        object:(PFObject *)object {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                               reuseIdentifier:reuseIdentifier];
     }
     
-    // Configure the cell...
-    PFObject *post = [_myPosts objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = post[@"title"];
-    cell.detailTextLabel.text = [post[@"company"] uppercaseString];
-    
-    return cell;
-}
+    cell.textLabel.text = object[@"title"];
+    cell.detailTextLabel.text = [object[@"company"] uppercaseString];
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return cell;
 }
 
 #pragma mark - Navigation
@@ -127,30 +132,13 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
-    NSString *searchString = searchController.searchBar.text;
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-    if (selectedSegment == 0) {
-        [query orderByDescending:@"createdAt"];
-    } else if (selectedSegment == 1) {
-        [query orderByDescending:@"numLikes"];
-    }
-    PFUser *currentUser = [PFUser currentUser];
-    [query whereKey:tableQuery(_tableType) equalTo:currentUser];
-    long scopeType = searchController.searchBar.selectedScopeButtonIndex;
-    NSString *xx = [NSString stringWithFormat:@"^%@", searchString];
-    [query whereKey:searchScopes(scopeType) matchesRegex:xx modifiers:@"i"];
-    
-    query.limit = 30;
-    _myPosts = [query findObjects];
-    [self.tableView reloadData];
+    [self loadObjects];
 }
 
 - (IBAction)segmentSwitch:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     selectedSegment = (int) segmentedControl.selectedSegmentIndex;
-    [self getPosts];
-    [self.tableView reloadData];
+    [self loadObjects];
 }
 
 - (void) hideSearchBar{
