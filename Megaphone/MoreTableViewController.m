@@ -82,9 +82,8 @@
     [FBSession setActiveSession:nil];
     [PFUser logOut];
     
-    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
-    UIViewController* loginController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"loginViewControllerID"];
-    appDelegateTemp.window.rootViewController = loginController;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate login];
 
 }
 

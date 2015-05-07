@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <ParseUI/ParseUI.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @end
 
@@ -19,25 +20,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    // Override point for customization after application launch.
     [Parse setApplicationId:@"Vr9N0uG67wnATYRFpxJZsGTsBsGiLr7HofeQ0lAW"
                   clientKey:@"zVeZXoZQSbnRQNLaHj8H7Zan49lLcOflViOpRIhY"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     // Initialize Parse's Facebook Utilities singleton. This uses the FacebookAppID we specified in our App bundle's plist.
     [PFFacebookUtils initializeFacebook];
     
+    [self login];
     
-    if ([PFUser currentUser]) {
-        NSLog(@"Logged in");
-        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-    } else {
-        NSLog(@"Not logged in");
-
-        UIViewController* loginController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"loginViewControllerID"];
-        self.window.rootViewController = loginController;
-        
-    }
-
     //System Wide configs
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
                                                            NSFontAttributeName: [UIFont fontWithName:@"Copperplate" size:18.0f]}];
@@ -79,6 +69,84 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [[PFFacebookUtils session] close];
+}
+
+#pragma mark - PFLoginDelegate
+
+// Sent to the delegate to determine whether the log in request should be submitted to the server.
+- (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password {
+    // Check if both fields are completed
+    if (username && password && username.length != 0 && password.length != 0) {
+        return YES; // Begin login process
+    }
+    
+    [[[UIAlertView alloc] initWithTitle:@"Missing Information"
+                                message:@"Make sure you fill out all of the information!"
+                               delegate:nil
+                      cancelButtonTitle:@"ok"
+                      otherButtonTitles:nil] show];
+    return NO; // Interrupt login process
+}
+
+// Sent to the delegate when a PFUser is logged in.
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    NSLog(@"didLogInUser");
+
+    if (user.isNew) {
+        NSLog(@"User signed up and logged in with facebook!");
+        FBRequest *request = [FBRequest requestForMe];
+        [request startWithCompletionHandler: ^(FBRequestConnection *connection, id result, NSError *error) {
+            if (!error) {
+                // result is a dictionary with the user's Facebook data
+                NSDictionary *userData = (NSDictionary *)result;
+                NSString *facebookID = userData[@"id"];
+                NSString *name = userData[@"name"];
+                NSString *first_name = userData[@"first_name"];
+                NSString *last_name = userData[@"last_name"];
+                
+                NSString *picURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID];
+                
+                PFUser *currentUser = [PFUser currentUser];
+                currentUser[@"name"] = name;
+                currentUser[@"id"] = facebookID;
+                currentUser[@"imageLink"] = picURL;
+                currentUser[@"first_name"] = first_name;
+                currentUser[@"last_name"] = last_name;
+                [currentUser saveInBackground];
+            }
+        }];
+    }
+    NSLog(@"Main view controller");
+
+    self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+}
+
+// Sent to the delegate when the log in attempt fails.
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    NSLog(@"Failed to log in...");
+}
+
+- (void)login{
+    
+    if ([PFUser currentUser]) {
+        NSLog(@"Logged in");
+        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    } else {
+        NSLog(@"Not logged in");
+        
+        // Create the log in view controller
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        
+        [logInViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        [logInViewController setFacebookPermissions:[NSArray arrayWithObjects:@"public_profile", nil]];
+        [logInViewController setFields: PFLogInFieldsTwitter | PFLogInFieldsFacebook];
+
+        [logInViewController.logInView setLogo:[[UIImageView alloc] initWithImage:nil]];
+        //[logInViewController.logInView setBackgroundColor:[UIColor blueColor]];
+                
+        self.window.rootViewController = logInViewController;
+    }
 }
 
 @end

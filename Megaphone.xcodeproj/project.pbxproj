@@ -19,7 +19,6 @@
 		A35550E71AD887E0002D2663 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A35550E21AD887E0002D2663 /* FBSDKMessengerShareKit.framework */; };
 		A35550E81AD887E1002D2663 /* FBAudienceNetwork.README.txt in Resources */ = {isa = PBXBuildFile; fileRef = A35550E31AD887E0002D2663 /* FBAudienceNetwork.README.txt */; };
 		A35550E91AD887E1002D2663 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A35550E41AD887E0002D2663 /* LICENSE */; };
-		A376DF8A1AD868FC008757E8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A376DF891AD868FC008757E8 /* LoginViewController.m */; };
 		A376E07C1AD8833D008757E8 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A376E05F1AD8833D008757E8 /* libicucore.dylib */; };
 		A376E07D1AD8833D008757E8 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A376E0601AD8833D008757E8 /* libc++.dylib */; };
 		A376E07E1AD8833D008757E8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A376E0611AD8833D008757E8 /* CFNetwork.framework */; };
@@ -36,7 +35,6 @@
 		A376E08A1AD8839B008757E8 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A376E0891AD8839B008757E8 /* libsqlite3.dylib */; };
 		A376E08F1AD886DB008757E8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A376E08C1AD886DB008757E8 /* Parse.framework */; };
 		A376E0901AD886DB008757E8 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A376E08D1AD886DB008757E8 /* ParseFacebookUtils.framework */; };
-		A3A311531AD371DE00EF2A51 /* CompanyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A311521AD371DE00EF2A51 /* CompanyCollectionViewController.m */; };
 		F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30587751AD1F3D40058E103 /* CompanyCell.m */; };
 		F332FB4A1AF9821300058F3A /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F332FB491AF9821300058F3A /* ParseUI.framework */; };
 		F347561D1ADCA4B90053FF4C /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F347561C1ADCA4B90053FF4C /* PostViewController.m */; };
@@ -45,6 +43,7 @@
 		F35559ED1AD393FA001A0FCA /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559EC1AD393FA001A0FCA /* PostCell.m */; };
 		F36328611ADCD54F00226397 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36328601ADCD54F00226397 /* ProfileTableViewController.m */; };
 		F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3642BE41AD50B71007C5034 /* PostsTableViewController.m */; };
+		F381D97A1AFB1D3C00B7CB2F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F381D9791AFB1D3C00B7CB2F /* Social.framework */; };
 		F3A6B3061AD1EDE400955521 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B3051AD1EDE400955521 /* main.m */; };
 		F3A6B3091AD1EDE400955521 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B3081AD1EDE400955521 /* AppDelegate.m */; };
 		F3A6B30F1AD1EDE400955521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B30D1AD1EDE400955521 /* Main.storyboard */; };
@@ -86,8 +85,6 @@
 		A35550E21AD887E0002D2663 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
 		A35550E31AD887E0002D2663 /* FBAudienceNetwork.README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FBAudienceNetwork.README.txt; sourceTree = "<group>"; };
 		A35550E41AD887E0002D2663 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		A376DF881AD868FC008757E8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		A376DF891AD868FC008757E8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A376E05F1AD8833D008757E8 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		A376E0601AD8833D008757E8 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		A376E0611AD8833D008757E8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -104,8 +101,6 @@
 		A376E0891AD8839B008757E8 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A376E08C1AD886DB008757E8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A376E08D1AD886DB008757E8 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		A3A311511AD371DE00EF2A51 /* CompanyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCollectionViewController.h; sourceTree = "<group>"; };
-		A3A311521AD371DE00EF2A51 /* CompanyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCollectionViewController.m; sourceTree = "<group>"; };
 		F30587741AD1F3D40058E103 /* CompanyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCell.h; sourceTree = "<group>"; };
 		F30587751AD1F3D40058E103 /* CompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCell.m; sourceTree = "<group>"; };
 		F332FB491AF9821300058F3A /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -121,6 +116,7 @@
 		F36328601ADCD54F00226397 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 		F3642BE31AD50B71007C5034 /* PostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsTableViewController.h; sourceTree = "<group>"; };
 		F3642BE41AD50B71007C5034 /* PostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsTableViewController.m; sourceTree = "<group>"; };
+		F381D9791AFB1D3C00B7CB2F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		F3A6B3001AD1EDE400955521 /* Megaphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Megaphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A6B3041AD1EDE400955521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3A6B3051AD1EDE400955521 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -149,6 +145,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F381D97A1AFB1D3C00B7CB2F /* Social.framework in Frameworks */,
+				A376E0821AD8833D008757E8 /* Accounts.framework in Frameworks */,
 				A376E08A1AD8839B008757E8 /* libsqlite3.dylib in Frameworks */,
 				A35550DF1AD887D4002D2663 /* FacebookSDK.framework in Frameworks */,
 				A376E07F1AD8833D008757E8 /* Security.framework in Frameworks */,
@@ -163,7 +161,6 @@
 				A376E07E1AD8833D008757E8 /* CFNetwork.framework in Frameworks */,
 				A376E0801AD8833D008757E8 /* SystemConfiguration.framework in Frameworks */,
 				A376E0841AD8833D008757E8 /* CoreGraphics.framework in Frameworks */,
-				A376E0821AD8833D008757E8 /* Accounts.framework in Frameworks */,
 				A376E0861AD8833D008757E8 /* libz.dylib in Frameworks */,
 				A376E07D1AD8833D008757E8 /* libc++.dylib in Frameworks */,
 				A35550DE1AD887D4002D2663 /* FBSDKShareKit.framework in Frameworks */,
@@ -189,6 +186,7 @@
 		A376DF661AD867ED008757E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F381D9791AFB1D3C00B7CB2F /* Social.framework */,
 				A35550E01AD887E0002D2663 /* Bolts.framework */,
 				A35550E11AD887E0002D2663 /* FBAudienceNetwork.framework */,
 				A35550E21AD887E0002D2663 /* FBSDKMessengerShareKit.framework */,
@@ -220,20 +218,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A376DF871AD868F2008757E8 /* Setup */ = {
-			isa = PBXGroup;
-			children = (
-				A376DF881AD868FC008757E8 /* LoginViewController.h */,
-				A376DF891AD868FC008757E8 /* LoginViewController.m */,
-			);
-			name = Setup;
-			sourceTree = "<group>";
-		};
 		A3A311501AD36DE000EF2A51 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				F347561E1ADCA4BD0053FF4C /* Company */,
-				A376DF871AD868F2008757E8 /* Setup */,
 				F35559DA1AD39312001A0FCA /* Me */,
 				F35559D71AD38804001A0FCA /* MoreTableViewController.h */,
 				F35559D81AD38804001A0FCA /* MoreTableViewController.m */,
@@ -248,8 +236,6 @@
 				F3C353A11AD88E7400455F72 /* NewPostViewController.m */,
 				F3642BE31AD50B71007C5034 /* PostsTableViewController.h */,
 				F3642BE41AD50B71007C5034 /* PostsTableViewController.m */,
-				A3A311511AD371DE00EF2A51 /* CompanyCollectionViewController.h */,
-				A3A311521AD371DE00EF2A51 /* CompanyCollectionViewController.m */,
 				F347561B1ADCA4B90053FF4C /* PostViewController.h */,
 				F347561C1ADCA4B90053FF4C /* PostViewController.m */,
 				A3318D561AF85FC900651A20 /* CompaniesViewController.h */,
@@ -477,10 +463,8 @@
 			files = (
 				F3C353A21AD88E7400455F72 /* NewPostViewController.m in Sources */,
 				F3B842F71AF47CBA0002BFD0 /* CommentTableView.m in Sources */,
-				A3A311531AD371DE00EF2A51 /* CompanyCollectionViewController.m in Sources */,
 				F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */,
 				A31820611AF36E4A0008BE21 /* CommentTableViewCell.m in Sources */,
-				A376DF8A1AD868FC008757E8 /* LoginViewController.m in Sources */,
 				F35559ED1AD393FA001A0FCA /* PostCell.m in Sources */,
 				A3318D581AF85FC900651A20 /* CompaniesViewController.m in Sources */,
 				F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */,
