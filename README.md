@@ -13,10 +13,12 @@ Running from souce
 
 		git clone https://github.com/mscolnick/Megaphone.git
 
-	- If you don't have git, download `git` throught `brew`. In ternminal, run:
+	- If you don't have git, download `git` through `brew`. In terminal, run:
 
 		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+		
 		brew install git
+		
 		git clone https://github.com/mscolnick/Megaphone.git
 
 3. Open the project in Xcode
@@ -25,6 +27,6 @@ Running from souce
 
 4. Run
 
-	- Click the 'play' arrow to run and make sure its targeted for iPhone 6. 
+	- Click the *PLAY* arrow to run and make sure its targeted for iPhone 6. 
 	
-	- If the simulator is too large, chance the scale to %50. Key-board shortcut `command + 3`
+	- If the simulator is too large, change the scale to %50. Key-board shortcut `command + 3`
