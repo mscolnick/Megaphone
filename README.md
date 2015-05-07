@@ -1,6 +1,6 @@
 # Megaphone
 
-Running from souce
+Running from source
 ------------------
 
 1. Download Xcode
