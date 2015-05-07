@@ -172,6 +172,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="0X7-xf-wKv" kind="push" identifier="toMyComments" id="NbW-QV-VTx"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="kRz-t3-6uX" rowHeight="50" style="IBUITableViewCellStyleDefault" id="EPA-XC-iS0">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1041,7 +1044,7 @@
         <image name="ios7-star" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kFV-8g-1nL"/>
+        <segue reference="NbW-QV-VTx"/>
         <segue reference="lQG-Xy-ZYB"/>
     </inferredMetricsTieBreakers>
 </document>

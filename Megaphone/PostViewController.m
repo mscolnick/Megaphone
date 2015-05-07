@@ -193,8 +193,11 @@ static NSString *const reuseIdentifier = @"Cell";
     [currentUser fetchIfNeeded];
     comment[@"usernameId"] = currentUser.objectId;
     comment[@"username"] = currentUser[@"username"];
+    
     [comment saveInBackground];
     
+    PFRelation *relation = [_postObj relationForKey:@"commenters"];
+    [relation addObject:[PFUser currentUser]];
     [_postObj incrementKey:@"numComments" byAmount:[NSNumber numberWithInt:1]];
     [_postObj saveInBackground];
     

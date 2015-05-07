@@ -63,11 +63,11 @@
         ProfilePostsTableViewController *postVC = [segue destinationViewController];
         postVC.tableType = MyPostsTable;
     }
-    if ([segue.identifier isEqualToString:@"toFollowing"]) {
+    else if ([segue.identifier isEqualToString:@"toFollowing"]) {
         ProfilePostsTableViewController *postVC = [segue destinationViewController];
         postVC.tableType = FollowingTable;
     }
-    if ([segue.identifier isEqualToString:@"toMyComments"]) {
+    else if ([segue.identifier isEqualToString:@"toMyComments"]) {
         ProfilePostsTableViewController *postVC = [segue destinationViewController];
         postVC.tableType = MyCommentsTable;
     }
