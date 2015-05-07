@@ -55,7 +55,7 @@ static NSString *const reuseIdentifier = @"Cell";
     _authorImageView.layer.masksToBounds = YES;
     _authorImageView.layer.borderWidth = 0;
     [_authorImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [_authorImageView.layer setBorderWidth: 2.0];
+    [_authorImageView.layer setBorderWidth: 1.0];
     
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %@ %@", [_postObj[@"type"] uppercaseString], @"For", [_postObj[@"company"] uppercaseString]];
 
@@ -74,11 +74,9 @@ static NSString *const reuseIdentifier = @"Cell";
     _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
     
     //Check if user likes the post
-    __block BOOL canSkip = NO;
     [self containsUser:_postObj relationType:@"likers" block: ^(BOOL contains, NSError *error) {
         if (contains) {
             [_upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
-            canSkip = YES;
         }
     }];
     
@@ -201,7 +199,6 @@ static NSString *const reuseIdentifier = @"Cell";
     [_postObj incrementKey:@"numComments" byAmount:[NSNumber numberWithInt:1]];
     [_postObj saveInBackground];
     
-//    comments = _postObj[@"comments"];
     [self getComments];
     [self.commentTableView setNeedsDisplay];
     [_commentTableView reloadData];
@@ -241,11 +238,12 @@ static NSString *const reuseIdentifier = @"Cell";
     PFQuery *query = [relation query];
     [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
     BOOL following = [query countObjects] > 0;
+    BOOL isAuthor = [[PFUser currentUser].objectId isEqualToString:_postObj[@"usernameId"]];
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"What would you like to do?"
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:@"Report"
+                                               destructiveButtonTitle:(isAuthor ? @"Delete" : @"Report")
                                                     otherButtonTitles:(following ? @"Un-follow" : @"Follow"), @"Share", nil];
     [actionSheet showInView:self.view];
 }
@@ -253,7 +251,7 @@ static NSString *const reuseIdentifier = @"Cell";
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
-            [self reportPost];
+            [self reportOrDeletePost];
             break;
         case 1:
             [self followPost];
@@ -268,11 +266,17 @@ static NSString *const reuseIdentifier = @"Cell";
     }
 }
 
-- (void)reportPost {
-    [_postObj incrementKey:@"numReports" byAmount:[NSNumber numberWithInt:1]];
-    [_postObj save];
-    if ([_postObj[@"numLikes"] integerValue] >= MAX_REPORTS) {
-        _postObj[@"reported"] = [NSNumber numberWithBool:YES];
+- (void)reportOrDeletePost {
+    BOOL isAuthor = [[PFUser currentUser].objectId isEqualToString:_postObj[@"usernameId"]];
+    
+    if(isAuthor){
+        [_postObj deleteInBackground];
+    }else{
+        [_postObj incrementKey:@"numReports" byAmount:[NSNumber numberWithInt:1]];
+        [_postObj save];
+        if ([_postObj[@"numReports"] integerValue] >= MAX_REPORTS) {
+            [_postObj deleteInBackground];
+        }
     }
 }
 
@@ -291,6 +295,7 @@ static NSString *const reuseIdentifier = @"Cell";
         [_postObj incrementKey:@"numFollowers" byAmount:[NSNumber numberWithInt:1]];
     }
     [_postObj save];
+    _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
 }
 
 - (void)sharePost {

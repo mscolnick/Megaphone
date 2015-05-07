@@ -43,12 +43,12 @@
     _profileBackgroundView.backgroundColor = [UIColor colorWithRed:.6 green:.3 blue:.1 alpha:.5];
     
     _nameLabel.text = user[@"name"];
-    _scoreLabel.text = [user[@"karma"] stringValue];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
+    self.navigationItem.title = @"Me";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,6 +79,24 @@
             self.navigationController.navigationBar.frame.size.height -
             self.tabBarController.tabBar.frame.size.height -
             [UIApplication sharedApplication].statusBarFrame.size.height)/3;
+}
+
+
+- (IBAction)noiseLevelButton:(id)sender {
+    
+    CATransition *transitionAnimation = [CATransition animation];
+    [transitionAnimation setType:kCATransitionFade];
+    [transitionAnimation setDuration:0.3f];
+    [transitionAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [transitionAnimation setFillMode:kCAFillModeBoth];
+    [_scoreLabel.layer addAnimation:transitionAnimation forKey:@"fadeAnimation"];
+    
+    if (_scoreLabel.text.length == 0){
+        _scoreLabel.text = [NSString stringWithFormat:@"Noise Level %@", [[PFUser currentUser][@"karma"] stringValue]];
+    }else{
+        _scoreLabel.text = @"";
+    }
+
 }
 
 @end

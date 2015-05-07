@@ -131,6 +131,8 @@ static NSString *const reuseIdentifier = @"Cell";
     [self containsUser:object relationType:@"likers" block: ^(BOOL contains, NSError *error) {
         if (contains) {
             [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
+        }else {
+            [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up"] forState:UIControlStateNormal];
         }
     }];
     
