@@ -29,4 +29,4 @@ Running from souce
 
 	- Click the *PLAY* arrow to run and make sure its targeted for iPhone 6. 
 	
-	- If the simulator is too large, change the scale to %50. Key-board shortcut `command + 3`
+	- If the simulator is too large, change the scale to 50%. Key-board shortcut `command + 3`
