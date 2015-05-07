@@ -263,7 +263,7 @@ static NSString *const reuseIdentifier = @"Cell";
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:(isAuthor ? @"Delete" : @"Report")
-                                                    otherButtonTitles:(following ? @"Un-follow" : @"Follow"), @"Share", nil];
+                                                    otherButtonTitles:@"Share", nil];
     [actionSheet showInView:self.view];
 }
 
@@ -273,9 +273,6 @@ static NSString *const reuseIdentifier = @"Cell";
             [self reportOrDeletePost];
             break;
         case 1:
-            [self followPost];
-            break;
-        case 2:
             [self sharePost];
             break;
         case 3:
@@ -290,31 +287,38 @@ static NSString *const reuseIdentifier = @"Cell";
     
     if(isAuthor){
         [_postObj deleteInBackground];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post Deleted"
+                                                        message:@"Your post was successfully deleted."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }else{
-        [_postObj incrementKey:@"numReports" byAmount:[NSNumber numberWithInt:1]];
-        [_postObj save];
-        if ([_postObj[@"numReports"] integerValue] >= MAX_REPORTS) {
-            [_postObj deleteInBackground];
-        }
+        [self containsUser:_postObj relationType:@"likers" block: ^(BOOL contains, NSError *error) {
+            if (contains) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post Reported"
+                                                                message:@"You have already reported this post."
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            } else {
+                PFRelation *relation = [_postObj relationForKey:@"reporters"];
+                [relation addObject:[PFUser currentUser]];
+                [_postObj incrementKey:@"numReports" byAmount:[NSNumber numberWithInt:1]];
+                [_postObj save];
+                if ([_postObj[@"numReports"] integerValue] >= MAX_REPORTS) {
+                    [_postObj deleteInBackground];
+                }
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post Reported"
+                                                                message:@"This post was successfully reported."
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
     }
-}
-
-- (void)followPost {
-    PFRelation *relation = [_postObj relationForKey:@"followers"];
-    PFQuery *query = [relation query];
-    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
-    BOOL following = [query countObjects] > 0;
-    
-    if (following) {
-        [relation removeObject:[PFUser currentUser]];
-        [_postObj incrementKey:@"numFollowers" byAmount:[NSNumber numberWithInt:-1]];
-    }
-    else {
-        [relation addObject:[PFUser currentUser]];
-        [_postObj incrementKey:@"numFollowers" byAmount:[NSNumber numberWithInt:1]];
-    }
-    [_postObj save];
-    _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
 }
 
 - (void)sharePost {
