@@ -29,6 +29,8 @@
 - (IBAction)postComment:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *commentTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *authorImageView;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButtonOutlet;
+- (IBAction)favorite:(id)sender;
 
 @end
 
@@ -58,6 +60,14 @@ static NSString *const reuseIdentifier = @"Cell";
     [_authorImageView.layer setBorderWidth: 1.0];
     
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %@ %@", [_postObj[@"type"] uppercaseString], @"For", [_postObj[@"company"] uppercaseString]];
+    
+    [self containsUser:_postObj relationType:@"followers" block: ^(BOOL contains, NSError *error) {
+        if (contains) {
+            [_favoriteButtonOutlet setImage:[UIImage imageNamed:@"ios7-star-1"] forState:UIControlStateNormal];
+        }else {
+            [_favoriteButtonOutlet setImage:[UIImage imageNamed:@"ios7-star-outline-1"] forState:UIControlStateNormal];
+        }
+    }];
 
     _commentTableView.dataSource = self;
     _commentTableView.delegate = self;
@@ -356,4 +366,33 @@ static NSString *const reuseIdentifier = @"Cell";
     comments = [NSMutableArray arrayWithArray:[query findObjects]];
 }
 
+- (IBAction)favorite:(id)sender {
+    [self containsUser:_postObj relationType:@"followers" block: ^(BOOL contains, NSError *error) {
+        if (contains) {
+            [self changeToUnfollowed];
+        } else {
+            [self changeToFollowed];
+        }
+    }];
+}
+
+- (void)changeToFollowed {
+    [_favoriteButtonOutlet setImage:[UIImage imageNamed:@"ios7-star-1"] forState:UIControlStateNormal];
+    PFRelation *relation = [_postObj relationForKey:@"followers"];
+    [relation addObject:[PFUser currentUser]];
+    
+    [_postObj incrementKey:@"numFollowers" byAmount:[NSNumber numberWithInt:1]];
+    [_postObj save];
+    _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
+}
+
+- (void)changeToUnfollowed {
+    [_favoriteButtonOutlet setImage:[UIImage imageNamed:@"ios7-star-outline-1"] forState:UIControlStateNormal];
+    PFRelation *relation = [_postObj relationForKey:@"followers"];
+    [relation removeObject:[PFUser currentUser]];
+    
+    [_postObj incrementKey:@"numFollowers" byAmount:[NSNumber numberWithInt:-1]];
+    [_postObj save];
+    _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
+}
 @end
