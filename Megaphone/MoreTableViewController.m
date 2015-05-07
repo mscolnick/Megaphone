@@ -7,6 +7,9 @@
 //
 
 #import "MoreTableViewController.h"
+#import <Parse/Parse.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
+#import "AppDelegate.h"
 
 @interface MoreTableViewController ()
 
@@ -57,8 +60,7 @@
         [self presentViewController:activityViewController animated:YES completion:nil];
     }
     else if ([identifier isEqual:@"Logout"]) {
-        NSLog(@"Logout");
-        //TODO: Log out of facebook
+        [self logout];
     }
     else if ([identifier isEqual:@"Policy"]) {
         NSLog(@"Policy");
@@ -69,6 +71,21 @@
     
     // so cell wont stay highlighted
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void) logout{
+    NSLog(@"Logout");
+    [[PFFacebookUtils session] closeAndClearTokenInformation];
+    [[PFFacebookUtils session] close];
+    [[FBSession activeSession] closeAndClearTokenInformation];
+    [[FBSession activeSession] close];
+    [FBSession setActiveSession:nil];
+    [PFUser logOut];
+    
+    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+    UIViewController* loginController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"loginViewControllerID"];
+    appDelegateTemp.window.rootViewController = loginController;
+
 }
 
 @end

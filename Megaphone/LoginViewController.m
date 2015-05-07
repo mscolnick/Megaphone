@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 
@@ -87,10 +88,8 @@
             else {
                 NSLog(@"User logged in with facebook!");
             }
-            
-            UITabBarController *obj = [self.storyboard instantiateViewControllerWithIdentifier:@"tabBarControllerID"];
-            obj.selectedIndex = 0;
-            [self presentModalViewController:obj animated:YES];
+            AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+            appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
         }
     }];
 }

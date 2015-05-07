@@ -26,21 +26,16 @@
     // Initialize Parse's Facebook Utilities singleton. This uses the FacebookAppID we specified in our App bundle's plist.
     [PFFacebookUtils initializeFacebook];
     
-    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if ([PFUser currentUser]) {
         NSLog(@"Logged in");
-        UITabBarController *viewController =[storyboard instantiateViewControllerWithIdentifier:@"tabBarControllerID"];
-        viewController.selectedIndex = 0;
-        self.window.rootViewController = viewController;
-        [self.window makeKeyAndVisible];
+        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
     } else {
         NSLog(@"Not logged in");
-        UIViewController *viewController=[storyboard instantiateViewControllerWithIdentifier:@"loginViewControllerID"];
-        self.window.rootViewController = viewController;
-        [self.window makeKeyAndVisible];
+
+        UIViewController* loginController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"loginViewControllerID"];
+        self.window.rootViewController = loginController;
+        
     }
 
     //System Wide configs
