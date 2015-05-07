@@ -11,15 +11,15 @@ Running from souce
 
 	- In terminal, run:
 
-		git clone https://github.com/mscolnick/Megaphone.git
+			git clone https://github.com/mscolnick/Megaphone.git
 
 	- If you don't have git, download `git` through `brew`. In terminal, run:
 
-		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+			ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 		
-		brew install git
+			brew install git
 		
-		git clone https://github.com/mscolnick/Megaphone.git
+			git clone https://github.com/mscolnick/Megaphone.git
 
 3. Open the project in Xcode
 
