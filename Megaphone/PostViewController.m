@@ -63,7 +63,6 @@ static NSString *const reuseIdentifier = @"Cell";
     _commentTableView.delegate = self;
     _commentTextField.delegate = self;
     _commentTextField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//    comments = _postObj[@"comments"];
     [self getComments];
     
     self.navigationController.navigationBar.topItem.title = @"";

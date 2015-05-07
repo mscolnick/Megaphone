@@ -22,7 +22,6 @@ typedef enum {
 
 @interface ProfilePostsTableViewController : PFQueryTableViewController
 
-@property (strong, nonatomic) NSArray *myPosts;
 @property TableType tableType;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segControlOutlet;
 - (IBAction)segmentSwitch:(id)sender;

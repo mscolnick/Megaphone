@@ -13,7 +13,6 @@
 @interface PostsTableViewController : PFQueryTableViewController
 
 @property PFObject *companyObj;
-@property (strong, nonatomic) NSArray *myPosts;
 - (IBAction)segmentSwitch:(id)sender;
 
 @end

@@ -12,7 +12,6 @@
 #define searchScopes(int) [@[@"title", @"company"] objectAtIndex: int]
 
 @interface ProfilePostsTableViewController () <UISearchBarDelegate, UISearchResultsUpdating> {
-    PFObject *postObject;
     int selectedSegment;
 }
 
@@ -23,6 +22,17 @@
 @implementation ProfilePostsTableViewController
 
 static NSString *const reuseIdentifier = @"Cell";
+
+- (id)initWithStyle:(UITableViewStyle)style {
+    self = [super initWithStyle:style];
+    if (self) {
+        // This table displays items in the Todo class
+        self.pullToRefreshEnabled = YES;
+        self.paginationEnabled = YES;
+        self.objectsPerPage = 25;
+    }
+    return self;
+}
 
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
@@ -67,9 +77,7 @@ static NSString *const reuseIdentifier = @"Cell";
     
     self.navigationController.navigationBar.topItem.title = @"";
 
-    _myPosts = [[NSMutableArray alloc] init];
     selectedSegment = 0;
-    
     
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
@@ -118,7 +126,7 @@ static NSString *const reuseIdentifier = @"Cell";
     if ([segue.identifier isEqualToString:@"viewPost"]) {
         PostViewController *postVC = [segue destinationViewController];
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-        postObject = [_myPosts objectAtIndex:path.row];
+        PFObject *postObject = [self.objects objectAtIndex:path.row];
         postVC.postObj = postObject;
     }
 }

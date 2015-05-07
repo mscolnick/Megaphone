@@ -16,7 +16,6 @@
 
 
 @interface PostsTableViewController () <UISearchBarDelegate, UISearchResultsUpdating> {
-    PFObject *postObject;
     int selectedSegment;
 }
 
@@ -41,7 +40,7 @@ static NSString *const reuseIdentifier = @"Cell";
     if (self) {
         // This table displays items in the Todo class
         self.pullToRefreshEnabled = YES;
-        self.paginationEnabled = NO;
+        self.paginationEnabled = YES;
         self.objectsPerPage = 25;
     }
     return self;
@@ -86,7 +85,6 @@ static NSString *const reuseIdentifier = @"Cell";
     
     self.navigationController.navigationBar.topItem.title = @"";
 
-    _myPosts = [[NSMutableArray alloc] init];
     selectedSegment = 0;
     
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
@@ -174,10 +172,10 @@ static NSString *const reuseIdentifier = @"Cell";
     if ([segue.identifier isEqualToString:@"viewPost"]) {
         PostViewController *postVC = [segue destinationViewController];
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-        postObject = [_myPosts objectAtIndex:path.row];
+        PFObject *postObject = [self.objects objectAtIndex:path.row];
         postVC.postObj = postObject;
     }
-    if ([segue.identifier isEqualToString:@"createPost"]) {
+    else if ([segue.identifier isEqualToString:@"createPost"]) {
         NewPostViewController *postVC = [segue destinationViewController];
         postVC.companyObj = _companyObj;
     }

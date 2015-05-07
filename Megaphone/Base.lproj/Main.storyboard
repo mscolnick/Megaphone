@@ -653,7 +653,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="vlh-YR-9ks" detailTextLabel="R3s-Jv-OLR" rowHeight="53" style="IBUITableViewCellStyleSubtitle" id="x6b-dV-oRW">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="vlh-YR-9ks" detailTextLabel="R3s-Jv-OLR" rowHeight="53" style="IBUITableViewCellStyleSubtitle" id="x6b-dV-oRW" customClass="PFTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x6b-dV-oRW" id="Xgu-db-Tvn">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -1042,6 +1042,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kFV-8g-1nL"/>
-        <segue reference="fXc-jz-UUo"/>
+        <segue reference="lQG-Xy-ZYB"/>
     </inferredMetricsTieBreakers>
 </document>
