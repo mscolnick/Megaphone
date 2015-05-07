@@ -1007,8 +1007,8 @@
                             <rect key="frame" x="180" y="7" width="240" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="Recent"/>
                                 <segment title="Trending"/>
+                                <segment title="Alphabetical"/>
                             </segments>
                             <connections>
                                 <action selector="segmentSwitch:" destination="uTq-rd-8wr" eventType="valueChanged" id="957-JT-V9M"/>
