@@ -167,7 +167,16 @@ static NSString *const reuseIdentifier = @"Cell";
     cell.nameLabel.text = author[@"name"];
     cell.commentLabel.text = comment[@"comment"];
     cell.timeLabel.text = comment[@"timeStamp"];
-    
+    cell.commentObj = comment;
+    //Check if user likes the post
+    [self containsUser:comment relationType:@"likers" block: ^(BOOL contains, NSError *error) {
+        if (contains) {
+            [cell.likeButtonOutlet setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
+        }else {
+            [cell.likeButtonOutlet setImage:[UIImage imageNamed:@"ios7-arrow-up"] forState:UIControlStateNormal];
+        }
+    }];
+    cell.numLikesLabelOutlet.text = [comment[@"numLikes"] stringValue];
     return cell;
 }
 
