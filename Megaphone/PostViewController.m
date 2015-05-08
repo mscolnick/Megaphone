@@ -89,9 +89,9 @@ static NSString *const reuseIdentifier = @"Cell";
         }
     }];
     
-    self.tabBarController.tabBar.hidden = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(liftMainViewWhenKeybordAppears:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnMainViewToInitialposition:) name:UIKeyboardWillHideNotification object:nil];
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void) viewWillDisappear:(BOOL)animated{

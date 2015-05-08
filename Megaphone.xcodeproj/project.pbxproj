@@ -44,6 +44,7 @@
 		F36328611ADCD54F00226397 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36328601ADCD54F00226397 /* ProfileTableViewController.m */; };
 		F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3642BE41AD50B71007C5034 /* PostsTableViewController.m */; };
 		F36C28A91AFC647700949F5B /* ProfileImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F36C28A81AFC647700949F5B /* ProfileImageView.m */; };
+		F36C28AD1AFC71AF00949F5B /* MLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36C28AC1AFC71AF00949F5B /* MLoginViewController.m */; };
 		F381D97A1AFB1D3C00B7CB2F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F381D9791AFB1D3C00B7CB2F /* Social.framework */; };
 		F3A6B3061AD1EDE400955521 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B3051AD1EDE400955521 /* main.m */; };
 		F3A6B3091AD1EDE400955521 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B3081AD1EDE400955521 /* AppDelegate.m */; };
@@ -119,6 +120,8 @@
 		F3642BE41AD50B71007C5034 /* PostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsTableViewController.m; sourceTree = "<group>"; };
 		F36C28A71AFC647700949F5B /* ProfileImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileImageView.h; sourceTree = "<group>"; };
 		F36C28A81AFC647700949F5B /* ProfileImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileImageView.m; sourceTree = "<group>"; };
+		F36C28AB1AFC71AF00949F5B /* MLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLoginViewController.h; sourceTree = "<group>"; };
+		F36C28AC1AFC71AF00949F5B /* MLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLoginViewController.m; sourceTree = "<group>"; };
 		F381D9791AFB1D3C00B7CB2F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		F3A6B3001AD1EDE400955521 /* Megaphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Megaphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A6B3041AD1EDE400955521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -224,6 +227,7 @@
 		A3A311501AD36DE000EF2A51 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F36C28AA1AFC714C00949F5B /* Login */,
 				F347561B1ADCA4B90053FF4C /* PostViewController.h */,
 				F347561C1ADCA4B90053FF4C /* PostViewController.m */,
 				F347561E1ADCA4BD0053FF4C /* CompanyTab */,
@@ -297,6 +301,15 @@
 				F36C28A81AFC647700949F5B /* ProfileImageView.m */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		F36C28AA1AFC714C00949F5B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F36C28AB1AFC71AF00949F5B /* MLoginViewController.h */,
+				F36C28AC1AFC71AF00949F5B /* MLoginViewController.m */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		F3A6B2F71AD1EDE400955521 = {
@@ -486,6 +499,7 @@
 				F3B842F71AF47CBA0002BFD0 /* CommentTableView.m in Sources */,
 				F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */,
 				A31820611AF36E4A0008BE21 /* CommentTableViewCell.m in Sources */,
+				F36C28AD1AFC71AF00949F5B /* MLoginViewController.m in Sources */,
 				F35559ED1AD393FA001A0FCA /* PostCell.m in Sources */,
 				A3318D581AF85FC900651A20 /* CompaniesViewController.m in Sources */,
 				F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */,

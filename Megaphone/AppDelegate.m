@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <ParseUI/ParseUI.h>
+#import "MLoginViewController.h"
 
 @interface AppDelegate () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
@@ -135,7 +136,7 @@
         NSLog(@"Not logged in");
         
         // Create the log in view controller
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        MLoginViewController *logInViewController = [[MLoginViewController alloc] init];
         
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
         
