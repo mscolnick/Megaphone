@@ -85,14 +85,11 @@ static NSString *const reuseIdentifier = @"Cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CompanyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
-    PFObject *post = [_myCompanies objectAtIndex:indexPath.row];
-    [post fetchIfNeeded]; //maybe take out
-    PFFile *imageFile = post[@"image"];
-    [imageFile getDataInBackgroundWithBlock: ^(NSData *imageData, NSError *error) {
-        if (!error) {
-            cell.imageView.image = [UIImage imageWithData:imageData];
-        }
-    }];
+    PFObject *company = [_myCompanies objectAtIndex:indexPath.row];
+    [company fetchIfNeeded]; //maybe take out
+    cell.imageView.image = [UIImage imageNamed:@"ios7-briefcase"]; // placeholder image
+    cell.imageView.file = (PFFile *)company[@"image"]; // remote image
+    [cell.imageView loadInBackground];
     
     return cell;
 }

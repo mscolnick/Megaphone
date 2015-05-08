@@ -35,18 +35,7 @@ static NSString *const reuseIdentifier = @"Cell";
     // Configure the cell...
     PFObject *comment = [_comments objectAtIndex:indexPath.row];
     
-    PFUser *author = comment[@"user"];
-    
-    // Circular Image
-    NSURL *profileLink = [NSURL URLWithString:author[@"imageLink"]];
-    UIImage *profileImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:profileLink]];
-    cell.profileImageView.image = profileImage;
-    cell.profileImageView.contentMode = UIViewContentModeScaleAspectFit;
-    cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.height / 2;
-    cell.profileImageView.layer.masksToBounds = YES;
-    cell.profileImageView.layer.borderWidth = 0;
-    [cell.profileImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [cell.profileImageView.layer setBorderWidth: 2.0];
+    [cell.profileImageView setImageWithLink:comment[@"user"][@"imageLink"]];
     
     cell.nameLabel.text = comment[@"name"];
     cell.commentLabel.text = comment[@"comment"];

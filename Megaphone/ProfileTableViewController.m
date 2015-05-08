@@ -8,9 +8,10 @@
 
 #import "ProfileTableViewController.h"
 #import "ProfilePostsTableViewController.h"
+#import "ProfileImageView.h"
 
 @interface ProfileTableViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (strong, nonatomic) IBOutlet ProfileImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *profileBackgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
@@ -21,27 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
     PFUser *user = [PFUser currentUser];
-    NSURL *profileLink = [NSURL URLWithString:user[@"imageLink"]];
-    UIImage *profileImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:profileLink]];
-    
-    // Circular Image
-    _profileImageView.image = profileImage;
-    _profileImageView.contentMode = UIViewContentModeScaleAspectFit;
-    _profileImageView.layer.cornerRadius = _profileImageView.frame.size.height / 2;
-    _profileImageView.layer.masksToBounds = YES;
-    _profileImageView.layer.borderWidth = 0;
-    [_profileImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [_profileImageView.layer setBorderWidth: 2.0];
-    
-    _profileBackgroundView.backgroundColor = [UIColor colorWithRed:.6 green:.3 blue:.1 alpha:.5];
-    
+    [_profileImageView setImageWithLink: user[@"imageLink"]];
     _nameLabel.text = user[@"name"];
 }
 

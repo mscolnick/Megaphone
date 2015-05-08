@@ -14,7 +14,7 @@
 {
     self = [super initWithFrame:aRect];
     {
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        _imageView = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
         _imageView.clipsToBounds = YES;
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
         

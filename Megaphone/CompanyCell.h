@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ParseUI/ParseUI.h>
 
 @interface CompanyCell : UICollectionViewCell
 
-@property (nonatomic, retain) UIImageView *imageView;
+@property (nonatomic, retain) PFImageView *imageView;
 
 @end

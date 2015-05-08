@@ -9,6 +9,7 @@
 #import "PostViewController.h"
 #import "PostCell.h"
 #import "CommentTableViewCell.h"
+#import "ProfileImageView.h"
 
 #define MIN_LIKES -3
 #define MAX_REPORTS 5
@@ -29,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *postButton;
 - (IBAction)postComment:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *commentTextField;
-@property (weak, nonatomic) IBOutlet UIImageView *authorImageView;
+@property (weak, nonatomic) IBOutlet ProfileImageView *authorImageView;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButtonOutlet;
 - (IBAction)favorite:(id)sender;
 
@@ -49,16 +50,7 @@ static NSString *const reuseIdentifier = @"Cell";
     [author fetchIfNeeded];
     _authorLabel.text = author[@"name"];
 
-    // Circular Image
-    NSURL *profileLink = [NSURL URLWithString:author[@"imageLink"]];
-    UIImage *profileImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:profileLink]];
-    _authorImageView.image = profileImage;
-    _authorImageView.contentMode = UIViewContentModeScaleAspectFit;
-    _authorImageView.layer.cornerRadius = _authorImageView.frame.size.height / 2;
-    _authorImageView.layer.masksToBounds = YES;
-    _authorImageView.layer.borderWidth = 0;
-    [_authorImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [_authorImageView.layer setBorderWidth: 1.0];
+    [_authorImageView setImageWithLink:author[@"imageLink"]];
     
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %@ %@", [_postObj[@"type"] uppercaseString], @"For", [_postObj[@"company"] uppercaseString]];
     

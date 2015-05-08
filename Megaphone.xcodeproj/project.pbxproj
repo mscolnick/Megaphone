@@ -43,6 +43,7 @@
 		F35559ED1AD393FA001A0FCA /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559EC1AD393FA001A0FCA /* PostCell.m */; };
 		F36328611ADCD54F00226397 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36328601ADCD54F00226397 /* ProfileTableViewController.m */; };
 		F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3642BE41AD50B71007C5034 /* PostsTableViewController.m */; };
+		F36C28A91AFC647700949F5B /* ProfileImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F36C28A81AFC647700949F5B /* ProfileImageView.m */; };
 		F381D97A1AFB1D3C00B7CB2F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F381D9791AFB1D3C00B7CB2F /* Social.framework */; };
 		F3A6B3061AD1EDE400955521 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B3051AD1EDE400955521 /* main.m */; };
 		F3A6B3091AD1EDE400955521 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B3081AD1EDE400955521 /* AppDelegate.m */; };
@@ -116,6 +117,8 @@
 		F36328601ADCD54F00226397 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 		F3642BE31AD50B71007C5034 /* PostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsTableViewController.h; sourceTree = "<group>"; };
 		F3642BE41AD50B71007C5034 /* PostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsTableViewController.m; sourceTree = "<group>"; };
+		F36C28A71AFC647700949F5B /* ProfileImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileImageView.h; sourceTree = "<group>"; };
+		F36C28A81AFC647700949F5B /* ProfileImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileImageView.m; sourceTree = "<group>"; };
 		F381D9791AFB1D3C00B7CB2F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		F3A6B3001AD1EDE400955521 /* Megaphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Megaphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A6B3041AD1EDE400955521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -218,43 +221,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A3A311501AD36DE000EF2A51 /* View Controllers */ = {
+		A3A311501AD36DE000EF2A51 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F347561E1ADCA4BD0053FF4C /* Company */,
-				F35559DA1AD39312001A0FCA /* Me */,
-				F35559D71AD38804001A0FCA /* MoreTableViewController.h */,
-				F35559D81AD38804001A0FCA /* MoreTableViewController.m */,
+				F347561B1ADCA4B90053FF4C /* PostViewController.h */,
+				F347561C1ADCA4B90053FF4C /* PostViewController.m */,
+				F347561E1ADCA4BD0053FF4C /* CompanyTab */,
+				F35559DA1AD39312001A0FCA /* MeTab */,
+				F36C28A51AFC641A00949F5B /* MoreTab */,
 			);
-			name = "View Controllers";
+			name = Controllers;
 			sourceTree = "<group>";
 		};
-		F347561E1ADCA4BD0053FF4C /* Company */ = {
+		F347561E1ADCA4BD0053FF4C /* CompanyTab */ = {
 			isa = PBXGroup;
 			children = (
 				F3C353A01AD88E7400455F72 /* NewPostViewController.h */,
 				F3C353A11AD88E7400455F72 /* NewPostViewController.m */,
 				F3642BE31AD50B71007C5034 /* PostsTableViewController.h */,
 				F3642BE41AD50B71007C5034 /* PostsTableViewController.m */,
-				F347561B1ADCA4B90053FF4C /* PostViewController.h */,
-				F347561C1ADCA4B90053FF4C /* PostViewController.m */,
 				A3318D561AF85FC900651A20 /* CompaniesViewController.h */,
 				A3318D571AF85FC900651A20 /* CompaniesViewController.m */,
 			);
-			name = Company;
+			name = CompanyTab;
 			sourceTree = "<group>";
 		};
-		F35559DA1AD39312001A0FCA /* Me */ = {
+		F35559DA1AD39312001A0FCA /* MeTab */ = {
 			isa = PBXGroup;
 			children = (
 				F363285F1ADCD54F00226397 /* ProfileTableViewController.h */,
 				F36328601ADCD54F00226397 /* ProfileTableViewController.m */,
-				F363285B1ADCD49200226397 /* Subviews */,
+				F35559DB1AD39349001A0FCA /* ProfilePostsTableViewController.h */,
+				F35559DC1AD39349001A0FCA /* ProfilePostsTableViewController.m */,
 			);
-			name = Me;
+			name = MeTab;
 			sourceTree = "<group>";
 		};
-		F35559E71AD393C4001A0FCA /* CustomCells */ = {
+		F35559E71AD393C4001A0FCA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				F35559EB1AD393FA001A0FCA /* PostCell.h */,
@@ -264,16 +267,36 @@
 				A318205F1AF36E4A0008BE21 /* CommentTableViewCell.h */,
 				A31820601AF36E4A0008BE21 /* CommentTableViewCell.m */,
 			);
-			name = CustomCells;
+			name = Cells;
 			sourceTree = "<group>";
 		};
-		F363285B1ADCD49200226397 /* Subviews */ = {
+		F36C28A41AFC63D000949F5B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F35559DB1AD39349001A0FCA /* ProfilePostsTableViewController.h */,
-				F35559DC1AD39349001A0FCA /* ProfilePostsTableViewController.m */,
+				F36C28A61AFC643F00949F5B /* Images */,
+				F35559E71AD393C4001A0FCA /* Cells */,
+				F3B842F51AF47CBA0002BFD0 /* CommentTableView.h */,
+				F3B842F61AF47CBA0002BFD0 /* CommentTableView.m */,
 			);
-			name = Subviews;
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F36C28A51AFC641A00949F5B /* MoreTab */ = {
+			isa = PBXGroup;
+			children = (
+				F35559D71AD38804001A0FCA /* MoreTableViewController.h */,
+				F35559D81AD38804001A0FCA /* MoreTableViewController.m */,
+			);
+			name = MoreTab;
+			sourceTree = "<group>";
+		};
+		F36C28A61AFC643F00949F5B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F36C28A71AFC647700949F5B /* ProfileImageView.h */,
+				F36C28A81AFC647700949F5B /* ProfileImageView.m */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		F3A6B2F71AD1EDE400955521 = {
@@ -301,10 +324,8 @@
 				F3A6B3071AD1EDE400955521 /* AppDelegate.h */,
 				F3A6B3081AD1EDE400955521 /* AppDelegate.m */,
 				F3A6B30D1AD1EDE400955521 /* Main.storyboard */,
-				F3B842F51AF47CBA0002BFD0 /* CommentTableView.h */,
-				F3B842F61AF47CBA0002BFD0 /* CommentTableView.m */,
-				F35559E71AD393C4001A0FCA /* CustomCells */,
-				A3A311501AD36DE000EF2A51 /* View Controllers */,
+				F36C28A41AFC63D000949F5B /* Views */,
+				A3A311501AD36DE000EF2A51 /* Controllers */,
 				F3A6B3101AD1EDE400955521 /* Images.xcassets */,
 				F3A6B3121AD1EDE400955521 /* LaunchScreen.xib */,
 				F3E951971AEDA7CE0071D28E /* Fonts */,
@@ -473,6 +494,7 @@
 				F3A6B3091AD1EDE400955521 /* AppDelegate.m in Sources */,
 				F3A6B3061AD1EDE400955521 /* main.m in Sources */,
 				F35559DD1AD39349001A0FCA /* ProfilePostsTableViewController.m in Sources */,
+				F36C28A91AFC647700949F5B /* ProfileImageView.m in Sources */,
 				F347561D1ADCA4B90053FF4C /* PostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
