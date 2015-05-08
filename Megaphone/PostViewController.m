@@ -15,6 +15,7 @@
 
 @interface PostViewController () {
     NSMutableArray *comments;
+    PFObject *pressed_comment;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -68,6 +69,12 @@ static NSString *const reuseIdentifier = @"Cell";
             [_favoriteButtonOutlet setImage:[UIImage imageNamed:@"ios7-star-outline-1"] forState:UIControlStateNormal];
         }
     }];
+    
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 1.0; //seconds
+    lpgr.delegate = self;
+    [_commentTableView addGestureRecognizer:lpgr];
 
     _commentTableView.dataSource = self;
     _commentTableView.delegate = self;
@@ -294,7 +301,7 @@ static NSString *const reuseIdentifier = @"Cell";
                                               otherButtonTitles:nil];
         [alert show];
     }else{
-        [self containsUser:_postObj relationType:@"likers" block: ^(BOOL contains, NSError *error) {
+        [self containsUser:_postObj relationType:@"reporters" block: ^(BOOL contains, NSError *error) {
             if (contains) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post Reported"
                                                                 message:@"You have already reported this post."
@@ -399,4 +406,112 @@ static NSString *const reuseIdentifier = @"Cell";
     [_postObj save];
     _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
 }
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        
+        CGPoint p = [gestureRecognizer locationInView:_commentTableView];
+        
+        NSIndexPath *indexPath = [_commentTableView indexPathForRowAtPoint:p];
+        if (indexPath == nil) {
+            NSLog(@"long press on table view but not on a row");
+        } else {
+//            UITableViewCell *cell = [_commentTableView cellForRowAtIndexPath:indexPath];
+//            if (cell.isHighlighted) {
+//                NSLog(@"long press on table view at section %d row %d", indexPath.section, indexPath.row);
+//            }
+            NSLog(@"Long press on table cell");
+            pressed_comment = [comments objectAtIndex:indexPath.row];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Report this comment?"
+                                                            message:@"Is this comment innapropriate or against our guidelines?"
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"Report", nil];
+            alert.tag = 100;
+            [alert show];
+        }
+    }
+//    CGPoint p = [gestureRecognizer locationInView:_commentTableView];
+//    
+//    NSIndexPath *indexPath = [_commentTableView indexPathForRowAtPoint:p];
+//    if (indexPath == nil) {
+//        NSLog(@"long press on table view but not on a row");
+//    } else if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+//        NSLog(@"long press on table view at row %ld", (long)indexPath.row);
+//        pressed_comment = [comments objectAtIndex:indexPath.row];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Report this comment?"
+//                                                        message:@"Is this comment innapropriate or against our guidelines?"
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"Cancel"
+//                                              otherButtonTitles:@"Report", nil];
+//        alert.tag = 100;
+//        [alert show];
+//    } else {
+//        NSLog(@"else case");
+//        NSLog(@"gestureRecognizer.state = %ld", (long)gestureRecognizer.state);
+//    }
+}
+
+//- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+//    // the user clicked Report
+//    NSLog(@"Inside Method");
+//    if (buttonIndex == 0) {
+//        NSLog(@"HERE");
+//        [self containsUser:pressed_comment relationType:@"reporters" block: ^(BOOL contains, NSError *error) {
+//            if (contains) {
+//                NSLog(@"user already reported this comment");
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post Reported"
+//                                                                message:@"You have already reported this post."
+//                                                               delegate:self
+//                                                      cancelButtonTitle:@"OK"
+//                                                      otherButtonTitles:nil];
+//                [alert show];
+//            } else {
+//                NSLog(@"user reported this comment");
+//                PFRelation *relation = [pressed_comment relationForKey:@"reporters"];
+//                [relation addObject:[PFUser currentUser]];
+//                [pressed_comment incrementKey:@"numReports" byAmount:[NSNumber numberWithInt:1]];
+//                [pressed_comment save];
+//                if ([pressed_comment[@"numReports"] integerValue] >= MAX_REPORTS) {
+//                    [pressed_comment deleteInBackground];
+//                }
+//            }
+//        }];
+//    }
+//}
+
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"Inside method");
+    if (alertView.tag == 100) {
+        NSLog(@"HERE");
+        if (buttonIndex == 0) {// 1st Other Button
+            NSLog(@"First Button");
+            [self containsUser:pressed_comment relationType:@"reporters" block: ^(BOOL contains, NSError *error) {
+                if (contains) {
+                    NSLog(@"user already reported this comment");
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post Reported"
+                                                                    message:@"You have already reported this post."
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                    [alert show];
+                } else {
+                    NSLog(@"user reported this comment");
+                    PFRelation *relation = [pressed_comment relationForKey:@"reporters"];
+                    [relation addObject:[PFUser currentUser]];
+                    [pressed_comment incrementKey:@"numReports" byAmount:[NSNumber numberWithInt:1]];
+                    [pressed_comment save];
+                    if ([pressed_comment[@"numReports"] integerValue] >= MAX_REPORTS) {
+                        [pressed_comment deleteInBackground];
+                    }
+                }
+            }];
+        } else if (buttonIndex == 1) {
+            NSLog(@"Second Button");
+        }
+    }
+}
+
 @end
