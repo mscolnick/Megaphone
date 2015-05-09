@@ -125,6 +125,7 @@ static NSString *const reuseIdentifier = @"Cell";
     
     cell.textLabel.text = object[@"title"];
     cell.numLikesLabel.text = [object[@"numLikes"] stringValue];
+    cell.numCommentsLabel.text = [object[@"numComments"] stringValue];
     cell.postObj = object;
     
     //Check if user likes the post

@@ -34,6 +34,7 @@ static NSString *const reuseIdentifier = @"Cell";
     _myCompanies = [[NSMutableArray alloc] init];
     
     [self getCompanies];
+    [self customizeCollectionView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -160,5 +161,14 @@ static NSString *const reuseIdentifier = @"Cell";
     }
     [self.collectionView reloadData];
 }
+
+- (void)customizeCollectionView{
+
+    self.collectionView.backgroundColor = [UIColor colorWithWhite:0.25f alpha:1.0f];
+    UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
+    flow.sectionInset = UIEdgeInsetsMake(15.f, 15.f, 15.f, 15.f);
+    flow.itemSize = CGSizeMake(100, 100);
+}
+
 
 @end

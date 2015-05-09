@@ -10,6 +10,11 @@
 		<string>Sarpanch-Regular.ttf</string>
 		<string>Sarpanch-Medium.ttf</string>
 		<string>Sarpanch-SemiBold.ttf</string>
+		<string>ADAM.CG PRO.otf</string>
+		<string>SourceSansPro-Light.otf</string>
+		<string>SourceSansPro-Regular.otf</string>
+		<string>SourceSansPro-Medium.otf</string>
+		<string>SourceSansPro-Semibold.otf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

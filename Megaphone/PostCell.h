@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *numLikesLabel;
 @property (strong, nonatomic) PFObject *postObj;
 @property (strong, nonatomic) IBOutlet UIButton *upButton;
+@property (weak, nonatomic) IBOutlet UILabel *numCommentsLabel;
 
 - (void)changeToLiked;
 

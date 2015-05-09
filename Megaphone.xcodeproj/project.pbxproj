@@ -52,6 +52,19 @@
 		F3A6B3111AD1EDE400955521 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3101AD1EDE400955521 /* Images.xcassets */; };
 		F3A6B3141AD1EDE400955521 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A6B3121AD1EDE400955521 /* LaunchScreen.xib */; };
 		F3A6B3201AD1EDE400955521 /* MegaphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */; };
+		F3A9E67F1AFDC32100C2A5F3 /* SourceSansPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E6721AFDC1CA00C2A5F3 /* SourceSansPro-Black.otf */; };
+		F3A9E6801AFDC32100C2A5F3 /* SourceSansPro-BlackIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E6731AFDC1CA00C2A5F3 /* SourceSansPro-BlackIt.otf */; };
+		F3A9E6811AFDC32100C2A5F3 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E6741AFDC1CA00C2A5F3 /* SourceSansPro-Bold.otf */; };
+		F3A9E6821AFDC32100C2A5F3 /* SourceSansPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E6751AFDC1CA00C2A5F3 /* SourceSansPro-BoldIt.otf */; };
+		F3A9E6831AFDC32100C2A5F3 /* SourceSansPro-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E6761AFDC1CA00C2A5F3 /* SourceSansPro-ExtraLight.otf */; };
+		F3A9E6841AFDC32100C2A5F3 /* SourceSansPro-ExtraLightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E6771AFDC1CA00C2A5F3 /* SourceSansPro-ExtraLightIt.otf */; };
+		F3A9E6851AFDC32100C2A5F3 /* SourceSansPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E6781AFDC1CA00C2A5F3 /* SourceSansPro-It.otf */; };
+		F3A9E6861AFDC32100C2A5F3 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E6791AFDC1CA00C2A5F3 /* SourceSansPro-Light.otf */; };
+		F3A9E6871AFDC32100C2A5F3 /* SourceSansPro-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E67A1AFDC1CA00C2A5F3 /* SourceSansPro-LightIt.otf */; };
+		F3A9E6881AFDC32100C2A5F3 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E67B1AFDC1CA00C2A5F3 /* SourceSansPro-Regular.otf */; };
+		F3A9E6891AFDC32100C2A5F3 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E67C1AFDC1CA00C2A5F3 /* SourceSansPro-Semibold.otf */; };
+		F3A9E68A1AFDC32100C2A5F3 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E67D1AFDC1CA00C2A5F3 /* SourceSansPro-SemiboldIt.otf */; };
+		F3A9E68B1AFDC32100C2A5F3 /* ADAM.CG PRO.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E67E1AFDC1E700C2A5F3 /* ADAM.CG PRO.otf */; };
 		F3B842F71AF47CBA0002BFD0 /* CommentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B842F61AF47CBA0002BFD0 /* CommentTableView.m */; };
 		F3C353A21AD88E7400455F72 /* NewPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C353A11AD88E7400455F72 /* NewPostViewController.m */; };
 		F3E9519E1AEDA8C50071D28E /* Sarpanch-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E951981AEDA8C50071D28E /* Sarpanch-Black.ttf */; };
@@ -136,6 +149,19 @@
 		F3A6B3191AD1EDE400955521 /* MegaphoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MegaphoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A6B31E1AD1EDE400955521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3A6B31F1AD1EDE400955521 /* MegaphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MegaphoneTests.m; sourceTree = "<group>"; };
+		F3A9E6721AFDC1CA00C2A5F3 /* SourceSansPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.otf"; sourceTree = "<group>"; };
+		F3A9E6731AFDC1CA00C2A5F3 /* SourceSansPro-BlackIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BlackIt.otf"; sourceTree = "<group>"; };
+		F3A9E6741AFDC1CA00C2A5F3 /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
+		F3A9E6751AFDC1CA00C2A5F3 /* SourceSansPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BoldIt.otf"; sourceTree = "<group>"; };
+		F3A9E6761AFDC1CA00C2A5F3 /* SourceSansPro-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLight.otf"; sourceTree = "<group>"; };
+		F3A9E6771AFDC1CA00C2A5F3 /* SourceSansPro-ExtraLightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLightIt.otf"; sourceTree = "<group>"; };
+		F3A9E6781AFDC1CA00C2A5F3 /* SourceSansPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-It.otf"; sourceTree = "<group>"; };
+		F3A9E6791AFDC1CA00C2A5F3 /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
+		F3A9E67A1AFDC1CA00C2A5F3 /* SourceSansPro-LightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightIt.otf"; sourceTree = "<group>"; };
+		F3A9E67B1AFDC1CA00C2A5F3 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
+		F3A9E67C1AFDC1CA00C2A5F3 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
+		F3A9E67D1AFDC1CA00C2A5F3 /* SourceSansPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiboldIt.otf"; sourceTree = "<group>"; };
+		F3A9E67E1AFDC1E700C2A5F3 /* ADAM.CG PRO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ADAM.CG PRO.otf"; sourceTree = "<group>"; };
 		F3B842F51AF47CBA0002BFD0 /* CommentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableView.h; sourceTree = "<group>"; };
 		F3B842F61AF47CBA0002BFD0 /* CommentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableView.m; sourceTree = "<group>"; };
 		F3C353A01AD88E7400455F72 /* NewPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPostViewController.h; sourceTree = "<group>"; };
@@ -388,6 +414,19 @@
 		F3E951971AEDA7CE0071D28E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F3A9E6721AFDC1CA00C2A5F3 /* SourceSansPro-Black.otf */,
+				F3A9E6731AFDC1CA00C2A5F3 /* SourceSansPro-BlackIt.otf */,
+				F3A9E6741AFDC1CA00C2A5F3 /* SourceSansPro-Bold.otf */,
+				F3A9E6751AFDC1CA00C2A5F3 /* SourceSansPro-BoldIt.otf */,
+				F3A9E6761AFDC1CA00C2A5F3 /* SourceSansPro-ExtraLight.otf */,
+				F3A9E6771AFDC1CA00C2A5F3 /* SourceSansPro-ExtraLightIt.otf */,
+				F3A9E6781AFDC1CA00C2A5F3 /* SourceSansPro-It.otf */,
+				F3A9E6791AFDC1CA00C2A5F3 /* SourceSansPro-Light.otf */,
+				F3A9E67A1AFDC1CA00C2A5F3 /* SourceSansPro-LightIt.otf */,
+				F3A9E67B1AFDC1CA00C2A5F3 /* SourceSansPro-Regular.otf */,
+				F3A9E67C1AFDC1CA00C2A5F3 /* SourceSansPro-Semibold.otf */,
+				F3A9E67D1AFDC1CA00C2A5F3 /* SourceSansPro-SemiboldIt.otf */,
+				F3A9E67E1AFDC1E700C2A5F3 /* ADAM.CG PRO.otf */,
 				F3E951981AEDA8C50071D28E /* Sarpanch-Black.ttf */,
 				F3E951991AEDA8C50071D28E /* Sarpanch-Bold.ttf */,
 				F3E9519A1AEDA8C50071D28E /* Sarpanch-ExtraBold.ttf */,
@@ -480,6 +519,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3A9E67F1AFDC32100C2A5F3 /* SourceSansPro-Black.otf in Resources */,
+				F3A9E6801AFDC32100C2A5F3 /* SourceSansPro-BlackIt.otf in Resources */,
+				F3A9E6811AFDC32100C2A5F3 /* SourceSansPro-Bold.otf in Resources */,
+				F3A9E6821AFDC32100C2A5F3 /* SourceSansPro-BoldIt.otf in Resources */,
+				F3A9E6831AFDC32100C2A5F3 /* SourceSansPro-ExtraLight.otf in Resources */,
+				F3A9E6841AFDC32100C2A5F3 /* SourceSansPro-ExtraLightIt.otf in Resources */,
+				F3A9E6851AFDC32100C2A5F3 /* SourceSansPro-It.otf in Resources */,
+				F3A9E6861AFDC32100C2A5F3 /* SourceSansPro-Light.otf in Resources */,
+				F3A9E6871AFDC32100C2A5F3 /* SourceSansPro-LightIt.otf in Resources */,
+				F3A9E6881AFDC32100C2A5F3 /* SourceSansPro-Regular.otf in Resources */,
+				F3A9E6891AFDC32100C2A5F3 /* SourceSansPro-Semibold.otf in Resources */,
+				F3A9E68A1AFDC32100C2A5F3 /* SourceSansPro-SemiboldIt.otf in Resources */,
+				F3A9E68B1AFDC32100C2A5F3 /* ADAM.CG PRO.otf in Resources */,
 				A35550E81AD887E1002D2663 /* FBAudienceNetwork.README.txt in Resources */,
 				F3E951A31AEDA8C50071D28E /* Sarpanch-SemiBold.ttf in Resources */,
 				F3A6B30F1AD1EDE400955521 /* Main.storyboard in Resources */,
