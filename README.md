@@ -23,7 +23,7 @@ Running from source
 
 3. Open the project in Xcode
 
-	Find the project in Finder and double-click `Megaphone.xcodeproj`.
+	Find the project in Finder and double-click `Megaphone.xcworkspace`.
 
 4. Run
 
