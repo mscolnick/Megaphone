@@ -209,6 +209,14 @@ static NSString *const reuseIdentifier = @"Cell";
     [self loadObjects];
 }
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    self.navigationController.scrollNavigationBar.scrollView = nil;
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    self.navigationController.scrollNavigationBar.scrollView = self.tableView;
+}
+
 - (void) hideSearchBar{
     CGRect newBounds = self.tableView.bounds;
     if (self.tableView.bounds.origin.y < 44) {

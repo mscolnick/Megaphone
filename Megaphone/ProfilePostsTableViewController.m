@@ -150,6 +150,14 @@ static NSString *const reuseIdentifier = @"Cell";
     [self loadObjects];
 }
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    self.navigationController.scrollNavigationBar.scrollView = nil;
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    self.navigationController.scrollNavigationBar.scrollView = self.tableView;
+}
+
 - (IBAction)segmentSwitch:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     selectedSegment = (int) segmentedControl.selectedSegmentIndex;
