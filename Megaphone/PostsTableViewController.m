@@ -10,6 +10,7 @@
 #import "NewPostViewController.h"
 #import "PostViewController.h"
 #import "PostCell.h"
+#import "GTScrollNavigationBar.h"
 
 #define tableTitles(enum) [@[@"My Posts", @"Following", @"My Comments"] objectAtIndex: enum]
 #define searchScopes(int) [@[@"all", @"feature", @"bug", @"idea",  @"other"] objectAtIndex: int]
@@ -104,6 +105,12 @@ static NSString *const reuseIdentifier = @"Cell";
     [super viewWillAppear:animated];
     [self hideSearchBar];
     self.tabBarController.tabBar.hidden = NO;
+    self.navigationController.scrollNavigationBar.scrollView = self.tableView;
+}
+
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView
+{
+    [self.navigationController.scrollNavigationBar resetToDefaultPositionWithAnimation:NO];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -12,3 +12,9 @@
 #define COCOAPODS_VERSION_MINOR_Canvas 1
 #define COCOAPODS_VERSION_PATCH_Canvas 2
 
+// GTScrollNavigationBar
+#define COCOAPODS_POD_AVAILABLE_GTScrollNavigationBar
+#define COCOAPODS_VERSION_MAJOR_GTScrollNavigationBar 0
+#define COCOAPODS_VERSION_MINOR_GTScrollNavigationBar 1
+#define COCOAPODS_VERSION_PATCH_GTScrollNavigationBar 3
+

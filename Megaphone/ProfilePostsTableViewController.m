@@ -8,6 +8,7 @@
 
 #import "ProfilePostsTableViewController.h"
 #import "PostViewController.h"
+#import "GTScrollNavigationBar.h"
 
 #define searchScopes(int) [@[@"title", @"company"] objectAtIndex: int]
 
@@ -93,8 +94,14 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.scrollNavigationBar.scrollView = self.tableView;
     [self hideSearchBar];
     self.tabBarController.tabBar.hidden = NO;
+}
+
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView
+{
+    [self.navigationController.scrollNavigationBar resetToDefaultPositionWithAnimation:NO];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,6 +10,7 @@
 #import "PostCell.h"
 #import "CommentTableViewCell.h"
 #import "ProfileImageView.h"
+#import "GTScrollNavigationBar.h"
 
 #define MIN_LIKES -3
 #define MAX_REPORTS 5
@@ -79,6 +80,8 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController.scrollNavigationBar resetToDefaultPositionWithAnimation:NO];
+    
     _countLabel.text = [_postObj[@"numLikes"] stringValue];
     _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
     

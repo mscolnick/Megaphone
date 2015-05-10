@@ -92,7 +92,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cLi-d6-fQd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Me" image="ios7-person-outline" id="TTQ-MO-QvH"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wqs-gm-1uQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wqs-gm-1uQ" customClass="GTScrollNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1217,7 +1217,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9oQ-LX-LxX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Companies" image="ios7-briefcase" id="Ses-VL-WZo"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qm9-70-rJJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qm9-70-rJJ" customClass="GTScrollNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

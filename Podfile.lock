@@ -1,10 +1,13 @@
 PODS:
   - Canvas (0.1.2)
+  - GTScrollNavigationBar (0.1.3)
 
 DEPENDENCIES:
   - Canvas (~> 0.1.2)
+  - GTScrollNavigationBar
 
 SPEC CHECKSUMS:
   Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
+  GTScrollNavigationBar: 2fee3124c458393eca1d6d68ebf759051280f475
 
 COCOAPODS: 0.37.1
