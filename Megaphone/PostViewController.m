@@ -408,6 +408,7 @@ static NSString *const reuseIdentifier = @"Cell";
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        [_postObj incrementKey:@"numComments" byAmount:[NSNumber numberWithInt:-1]];
         [self.commentTableView setNeedsDisplay];
     }else{
         [MegaphoneUtility containsUserInBackground:pressed_comment relationType:@"reporters" block: ^(BOOL contains, NSError *error) {
