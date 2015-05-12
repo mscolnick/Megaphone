@@ -46,10 +46,10 @@ static NSString *const reuseIdentifier = @"Cell";
     _titleLabel.text = _postObj[@"title"];
     _descriptionLabel.text = _postObj[@"description"];
     PFUser *author = _postObj[@"user"];
-    [author fetchIfNeeded];
-    _authorLabel.text = author[@"name"];
-
-    [_authorImageView setImageWithLink:author[@"imageLink"]];
+    [author fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        _authorLabel.text = author[@"name"];
+        [_authorImageView setImageWithLink:author[@"imageLink"]];
+    }];
     
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %@ %@", [_postObj[@"type"] uppercaseString], @"For", [_postObj[@"company"] uppercaseString]];
     
@@ -161,32 +161,27 @@ static NSString *const reuseIdentifier = @"Cell";
     
     // Configure the cell...
     PFObject *comment = [comments objectAtIndex:indexPath.row];
-    [comment fetchIfNeeded];
-    
     PFUser *author = comment[@"user"];
     
-    // Circular Image
-    NSURL *profileLink = [NSURL URLWithString:author[@"imageLink"]];
-    UIImage *profileImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:profileLink]];
-    cell.profileImageView.image = profileImage;
-    cell.profileImageView.contentMode = UIViewContentModeScaleAspectFit;
-    cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.height / 2;
-    cell.profileImageView.layer.masksToBounds = YES;
-    cell.profileImageView.layer.borderWidth = 0;
-    
+    [cell.profileImageView setImageWithLink:author[@"imageLink"]];
+
     cell.nameLabel.text = author[@"name"];
     cell.commentLabel.text = comment[@"comment"];
     cell.timeLabel.text = comment[@"timeStamp"];
     cell.commentObj = comment;
     //Check if user likes the post
+    [cell.likeButtonOutlet setImage:nil forState:UIControlStateNormal];
+    cell.likeButtonOutlet.userInteractionEnabled = NO;
     [MegaphoneUtility containsUserInBackground:comment relationType:@"likers" block: ^(BOOL contains, NSError *error) {
         if (contains) {
             [cell.likeButtonOutlet setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
         }else {
             [cell.likeButtonOutlet setImage:[UIImage imageNamed:@"ios7-arrow-up"] forState:UIControlStateNormal];
         }
+        cell.likeButtonOutlet.userInteractionEnabled = YES;
     }];
     cell.numLikesLabelOutlet.text = [comment[@"numLikes"] stringValue];
+    
     return cell;
 }
 
@@ -207,20 +202,19 @@ static NSString *const reuseIdentifier = @"Cell";
     comment[@"timeStamp"] = date_String;
     
     PFUser *currentUser = [PFUser currentUser];
-    [currentUser fetchIfNeeded];
     comment[@"usernameId"] = currentUser.objectId;
     comment[@"username"] = currentUser[@"username"];
     
-    [comment saveInBackground];
+    [comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [self getComments];
+    }];
     
     PFRelation *relation = [_postObj relationForKey:@"commenters"];
     [relation addObject:[PFUser currentUser]];
     [_postObj incrementKey:@"numComments" byAmount:[NSNumber numberWithInt:1]];
     [_postObj saveInBackground];
     
-    [self getComments];
     [self.commentTableView setNeedsDisplay];
-    [_commentTableView reloadData];
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     
@@ -329,7 +323,6 @@ static NSString *const reuseIdentifier = @"Cell";
                                               otherButtonTitles:nil];
         [alert show];
     } else {
-        NSLog(@"upload to parse called");
         [self uploadCommentToParse];
     }
 }
@@ -339,7 +332,10 @@ static NSString *const reuseIdentifier = @"Cell";
     [query includeKey:@"user"];
     [query whereKey:@"post" equalTo:_postObj];
     query.limit = 30;
-    comments = [NSMutableArray arrayWithArray:[query findObjects]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        comments = [NSMutableArray arrayWithArray:objects];
+        [_commentTableView reloadData];
+    }];
 }
 
 - (IBAction)favorite:(id)sender {
@@ -403,16 +399,16 @@ static NSString *const reuseIdentifier = @"Cell";
     BOOL isAuthor = [[PFUser currentUser].objectId isEqualToString:pressed_comment[@"usernameId"]];
     
     if(isAuthor){
-        [pressed_comment deleteInBackground];
+        [pressed_comment deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [self getComments];
+        }];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Comment Deleted"
                                                         message:@"Your comment was successfully deleted."
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-        [self getComments];
         [self.commentTableView setNeedsDisplay];
-        [_commentTableView reloadData];
     }else{
         [MegaphoneUtility containsUserInBackground:pressed_comment relationType:@"reporters" block: ^(BOOL contains, NSError *error) {
             if (contains) {

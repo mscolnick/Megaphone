@@ -93,8 +93,6 @@
 
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    NSLog(@"didLogInUser");
-
     if (user.isNew) {
         NSLog(@"User signed up and logged in with facebook!");
         FBRequest *request = [FBRequest requestForMe];

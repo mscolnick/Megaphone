@@ -74,7 +74,6 @@
 }
 
 -(void) logout{
-    NSLog(@"Logout");
     [[PFFacebookUtils session] closeAndClearTokenInformation];
     [[PFFacebookUtils session] close];
     [[FBSession activeSession] closeAndClearTokenInformation];

@@ -50,7 +50,10 @@ static NSString *const reuseIdentifier = @"Cell";
         [query orderByAscending:@"name"];
     }
     query.limit = 30;
-    _myCompanies = [NSMutableArray arrayWithArray:[query findObjects]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        _myCompanies = [NSMutableArray arrayWithArray:objects];
+        [self.collectionView reloadData];
+    }];
 }
 
 - (void)getCompaniesWithText:(NSString *)text {
@@ -65,8 +68,10 @@ static NSString *const reuseIdentifier = @"Cell";
     [query whereKey:@"name" matchesRegex:xx modifiers:@"i"];
     
     query.limit = 30;
-    _myCompanies = [NSMutableArray arrayWithArray:[query findObjects]];
-}
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        _myCompanies = [NSMutableArray arrayWithArray:objects];
+        [self.collectionView reloadData];
+    }];}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -87,11 +92,12 @@ static NSString *const reuseIdentifier = @"Cell";
     CompanyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
     PFObject *company = [_myCompanies objectAtIndex:indexPath.row];
-    [company fetchIfNeeded]; //maybe take out
     cell.imageView.image = [UIImage imageNamed:@"ios7-briefcase"]; // placeholder image
-    cell.imageView.file = (PFFile *)company[@"image"]; // remote image
-    [cell.imageView loadInBackground];
-    
+    [company fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        cell.imageView.file = (PFFile *)company[@"image"]; // remote image
+        [cell.imageView loadInBackground];
+    }];
+
     return cell;
 }
 
@@ -149,7 +155,6 @@ static NSString *const reuseIdentifier = @"Cell";
     }else{
         [self getCompanies];
     }
-    [self.collectionView reloadData];
 }
 
 
@@ -159,7 +164,6 @@ static NSString *const reuseIdentifier = @"Cell";
     }else{
         [self getCompanies];
     }
-    [self.collectionView reloadData];
 }
 
 - (void)customizeCollectionView{

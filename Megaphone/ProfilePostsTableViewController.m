@@ -27,7 +27,6 @@ static NSString *const reuseIdentifier = @"Cell";
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        // This table displays items in the Todo class
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 25;

@@ -66,7 +66,6 @@
 		F3A9E6891AFDC32100C2A5F3 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E67C1AFDC1CA00C2A5F3 /* SourceSansPro-Semibold.otf */; };
 		F3A9E68A1AFDC32100C2A5F3 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E67D1AFDC1CA00C2A5F3 /* SourceSansPro-SemiboldIt.otf */; };
 		F3A9E68B1AFDC32100C2A5F3 /* ADAM.CG PRO.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3A9E67E1AFDC1E700C2A5F3 /* ADAM.CG PRO.otf */; };
-		F3B842F71AF47CBA0002BFD0 /* CommentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B842F61AF47CBA0002BFD0 /* CommentTableView.m */; };
 		F3C353A21AD88E7400455F72 /* NewPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C353A11AD88E7400455F72 /* NewPostViewController.m */; };
 		F3E9519E1AEDA8C50071D28E /* Sarpanch-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E951981AEDA8C50071D28E /* Sarpanch-Black.ttf */; };
 		F3E9519F1AEDA8C50071D28E /* Sarpanch-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E951991AEDA8C50071D28E /* Sarpanch-Bold.ttf */; };
@@ -165,8 +164,6 @@
 		F3A9E67C1AFDC1CA00C2A5F3 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
 		F3A9E67D1AFDC1CA00C2A5F3 /* SourceSansPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiboldIt.otf"; sourceTree = "<group>"; };
 		F3A9E67E1AFDC1E700C2A5F3 /* ADAM.CG PRO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ADAM.CG PRO.otf"; sourceTree = "<group>"; };
-		F3B842F51AF47CBA0002BFD0 /* CommentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableView.h; sourceTree = "<group>"; };
-		F3B842F61AF47CBA0002BFD0 /* CommentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableView.m; sourceTree = "<group>"; };
 		F3C353A01AD88E7400455F72 /* NewPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPostViewController.h; sourceTree = "<group>"; };
 		F3C353A11AD88E7400455F72 /* NewPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostViewController.m; sourceTree = "<group>"; };
 		F3E951981AEDA8C50071D28E /* Sarpanch-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarpanch-Black.ttf"; sourceTree = "<group>"; };
@@ -319,8 +316,6 @@
 			children = (
 				F36C28A61AFC643F00949F5B /* Images */,
 				F35559E71AD393C4001A0FCA /* Cells */,
-				F3B842F51AF47CBA0002BFD0 /* CommentTableView.h */,
-				F3B842F61AF47CBA0002BFD0 /* CommentTableView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -600,7 +595,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C353A21AD88E7400455F72 /* NewPostViewController.m in Sources */,
-				F3B842F71AF47CBA0002BFD0 /* CommentTableView.m in Sources */,
 				F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */,
 				A31820611AF36E4A0008BE21 /* CommentTableViewCell.m in Sources */,
 				F35412E61B01D87D0033B9FD /* PostViewController.m in Sources */,

@@ -40,7 +40,6 @@ static NSString *const reuseIdentifier = @"Cell";
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        // This table displays items in the Todo class
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 25;
@@ -138,11 +137,16 @@ static NSString *const reuseIdentifier = @"Cell";
     cell.postObj = object;
     
     //Check if user likes the post
-    if ([MegaphoneUtility containsUser:object relationType:@"likers"]) {
-        [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
-    }else {
-        [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up"] forState:UIControlStateNormal];
-    }
+    [cell.upButton setImage:nil forState:UIControlStateNormal];
+    cell.upButton.userInteractionEnabled = NO;
+    [MegaphoneUtility containsUserInBackground:object relationType:@"likers" block:^(BOOL contains, NSError *error) {
+        if (contains) {
+            [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
+        }else {
+            [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up"] forState:UIControlStateNormal];
+        }
+        cell.upButton.userInteractionEnabled = YES;
+    }];
     
     return cell;
 }

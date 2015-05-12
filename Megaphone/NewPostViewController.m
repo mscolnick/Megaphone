@@ -69,7 +69,6 @@
 }
 
 - (void)uploadPostToParse {
-    NSLog(@"Uploading to parse...");
     PFObject *post = [PFObject objectWithClassName:@"Posts"];
     post[@"numLikes"] = [NSNumber numberWithInt:0];
     post[@"numReports"] = [NSNumber numberWithInt:0];
@@ -126,8 +125,6 @@
 }
 
 - (IBAction)savePressed:(id)sender {
-    //TODO: Add the post to parse
-    NSLog(@"Sumbite Button Clicked");
     if ([_titleField.text isEqual:@""] || [_descriptionField.text isEqual:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing post or title"
                                                         message:@"Please enter a title and description."
@@ -137,7 +134,6 @@
         [alert show];
     }
     else {
-        NSLog(@"upload to parse called");
         [self uploadPostToParse];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
