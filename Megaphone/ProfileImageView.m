@@ -23,7 +23,13 @@
 }
 
 - (void)setImageWithLink: (NSString *)string{
-    UIImage *profileImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:string]]];
+    UIImage *profileImage;
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:string]];
+    if (imageData) {
+        profileImage = [UIImage imageWithData:imageData];
+    } else {
+        profileImage = [UIImage imageNamed:@"defaultUser"];
+    }
     [self setImage:profileImage];
 }
 

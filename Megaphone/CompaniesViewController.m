@@ -92,7 +92,7 @@ static NSString *const reuseIdentifier = @"Cell";
     CompanyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
     PFObject *company = [_myCompanies objectAtIndex:indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:@"ios7-briefcase"]; // placeholder image
+//    cell.imageView.image = [UIImage imageNamed:@"ios7-briefcase"]; // placeholder image
     [company fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         cell.imageView.file = (PFFile *)company[@"image"]; // remote image
         [cell.imageView loadInBackground];
