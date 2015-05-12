@@ -11,9 +11,7 @@
 #import "CommentTableViewCell.h"
 #import "ProfileImageView.h"
 #import "GTScrollNavigationBar.h"
-
-#define MIN_LIKES -3
-#define MAX_REPORTS 5
+#import "MegaphoneUtility.h"
 
 @interface PostViewController () {
     NSMutableArray *comments;
@@ -55,7 +53,7 @@ static NSString *const reuseIdentifier = @"Cell";
     
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %@ %@", [_postObj[@"type"] uppercaseString], @"For", [_postObj[@"company"] uppercaseString]];
     
-    [self containsUser:_postObj relationType:@"followers" block: ^(BOOL contains, NSError *error) {
+    [MegaphoneUtility containsUserInBackground:_postObj relationType:@"followers" block: ^(BOOL contains, NSError *error) {
         if (contains) {
             [_favoriteButtonOutlet setImage:[UIImage imageNamed:@"ios7-star-1"] forState:UIControlStateNormal];
         }else {
@@ -86,7 +84,7 @@ static NSString *const reuseIdentifier = @"Cell";
     _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
     
     //Check if user likes the post
-    [self containsUser:_postObj relationType:@"likers" block: ^(BOOL contains, NSError *error) {
+    [MegaphoneUtility containsUserInBackground:_postObj relationType:@"likers" block: ^(BOOL contains, NSError *error) {
         if (contains) {
             [_upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
         }
@@ -181,7 +179,7 @@ static NSString *const reuseIdentifier = @"Cell";
     cell.timeLabel.text = comment[@"timeStamp"];
     cell.commentObj = comment;
     //Check if user likes the post
-    [self containsUser:comment relationType:@"likers" block: ^(BOOL contains, NSError *error) {
+    [MegaphoneUtility containsUserInBackground:comment relationType:@"likers" block: ^(BOOL contains, NSError *error) {
         if (contains) {
             [cell.likeButtonOutlet setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
         }else {
@@ -234,18 +232,8 @@ static NSString *const reuseIdentifier = @"Cell";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)containsUser:(PFObject *)myObject relationType:(NSString *)relationType block:(void (^)(BOOL, NSError *))completionBlock {
-    PFRelation *relation = [myObject relationForKey:relationType];
-    PFQuery *query = [relation query];
-    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
-    [query countObjectsInBackgroundWithBlock: ^(int count, NSError *error) {
-        completionBlock(count > 0, error);
-    }];
-}
-
 - (IBAction)upButtonPressed:(id)sender {
-    
-    [self containsUser:_postObj relationType:@"likers" block: ^(BOOL contains, NSError *error) {
+    [MegaphoneUtility containsUserInBackground:_postObj relationType:@"likers" block: ^(BOOL contains, NSError *error) {
         if (contains) {
             [self changeToUnliked];
         } else {
@@ -255,9 +243,6 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (IBAction)actionSheetPressed:(id)sender {
-    PFRelation *relation = [_postObj relationForKey:@"followers"];
-    PFQuery *query = [relation query];
-    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
     BOOL isAuthor = [[PFUser currentUser].objectId isEqualToString:_postObj[@"usernameId"]];
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"What would you like to do?"
@@ -295,7 +280,7 @@ static NSString *const reuseIdentifier = @"Cell";
                                               otherButtonTitles:nil];
         [alert show];
     }else{
-        [self containsUser:_postObj relationType:@"reporters" block: ^(BOOL contains, NSError *error) {
+        [MegaphoneUtility containsUserInBackground:_postObj relationType:@"reporters" block: ^(BOOL contains, NSError *error) {
             if (contains) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post Reported"
                                                                 message:@"You have already reported this post."
@@ -304,13 +289,7 @@ static NSString *const reuseIdentifier = @"Cell";
                                                       otherButtonTitles:nil];
                 [alert show];
             } else {
-                PFRelation *relation = [_postObj relationForKey:@"reporters"];
-                [relation addObject:[PFUser currentUser]];
-                [_postObj incrementKey:@"numReports" byAmount:[NSNumber numberWithInt:1]];
-                [_postObj save];
-                if ([_postObj[@"numReports"] integerValue] >= MAX_REPORTS) {
-                    [_postObj deleteInBackground];
-                }
+                [MegaphoneUtility reportPostInBackground:_postObj block:nil];
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post Reported"
                                                                 message:@"This post was successfully reported."
                                                                delegate:self
@@ -328,24 +307,16 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (void)changeToLiked {
     [_upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
-    PFRelation *relation = [_postObj relationForKey:@"likers"];
-    [relation addObject:[PFUser currentUser]];
-    
-    [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
-    [_postObj save];
-    _countLabel.text = [_postObj[@"numLikes"] stringValue];
-    NSLog(@"change to liked");
+    [MegaphoneUtility likePostInBackground:_postObj block:^(BOOL succeeded, NSError *error) {
+        _countLabel.text = [_postObj[@"numLikes"] stringValue];
+    }];
 }
 
 - (void)changeToUnliked {
     [_upButton setImage:[UIImage imageNamed:@"ios7-arrow-up"] forState:UIControlStateNormal];
-    PFRelation *relation = [_postObj relationForKey:@"likers"];
-    [relation removeObject:[PFUser currentUser]];
-    
-    [_postObj incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:-1]];
-    [_postObj save];
-    _countLabel.text = [_postObj[@"numLikes"] stringValue];
-    NSLog(@"change to liked");
+    [MegaphoneUtility unlikePostInBackground:_postObj block:^(BOOL succeeded, NSError *error) {
+        _countLabel.text = [_postObj[@"numLikes"] stringValue];
+    }];
 }
 
 - (IBAction)postComment:(id)sender {
@@ -372,7 +343,7 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (IBAction)favorite:(id)sender {
-    [self containsUser:_postObj relationType:@"followers" block: ^(BOOL contains, NSError *error) {
+    [MegaphoneUtility containsUserInBackground:_postObj relationType:@"followers" block: ^(BOOL contains, NSError *error) {
         if (contains) {
             [self changeToUnfollowed];
         } else {
@@ -383,22 +354,16 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (void)changeToFollowed {
     [_favoriteButtonOutlet setImage:[UIImage imageNamed:@"ios7-star-1"] forState:UIControlStateNormal];
-    PFRelation *relation = [_postObj relationForKey:@"followers"];
-    [relation addObject:[PFUser currentUser]];
-    
-    [_postObj incrementKey:@"numFollowers" byAmount:[NSNumber numberWithInt:1]];
-    [_postObj save];
-    _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
+    [MegaphoneUtility followPostInBackground:_postObj block:^(BOOL succeeded, NSError *error) {
+        _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
+    }];
 }
 
 - (void)changeToUnfollowed {
     [_favoriteButtonOutlet setImage:[UIImage imageNamed:@"ios7-star-outline-1"] forState:UIControlStateNormal];
-    PFRelation *relation = [_postObj relationForKey:@"followers"];
-    [relation removeObject:[PFUser currentUser]];
-    
-    [_postObj incrementKey:@"numFollowers" byAmount:[NSNumber numberWithInt:-1]];
-    [_postObj save];
-    _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
+    [MegaphoneUtility unfollowPostInBackground:_postObj block:^(BOOL succeeded, NSError *error) {
+        _followersCountLabel.text = [_postObj[@"numFollowers"] stringValue];
+    }];
 }
 
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
@@ -449,7 +414,7 @@ static NSString *const reuseIdentifier = @"Cell";
         [self.commentTableView setNeedsDisplay];
         [_commentTableView reloadData];
     }else{
-        [self containsUser:pressed_comment relationType:@"reporters" block: ^(BOOL contains, NSError *error) {
+        [MegaphoneUtility containsUserInBackground:pressed_comment relationType:@"reporters" block: ^(BOOL contains, NSError *error) {
             if (contains) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Comment Reported"
                                                                 message:@"You have already reported this comment."
@@ -458,13 +423,7 @@ static NSString *const reuseIdentifier = @"Cell";
                                                       otherButtonTitles:nil];
                 [alert show];
             } else {
-                PFRelation *relation = [pressed_comment relationForKey:@"reporters"];
-                [relation addObject:[PFUser currentUser]];
-                [pressed_comment incrementKey:@"numReports" byAmount:[NSNumber numberWithInt:1]];
-                [pressed_comment save];
-                if ([pressed_comment[@"numReports"] integerValue] >= MAX_REPORTS) {
-                    [pressed_comment deleteInBackground];
-                }
+                [MegaphoneUtility reportCommentInBackground:pressed_comment block:nil];
             }
         }];
     }
@@ -484,6 +443,5 @@ static NSString *const reuseIdentifier = @"Cell";
         }
     }
 }
-
 
 @end

@@ -41,7 +41,6 @@ static NSString *const reuseIdentifier = @"Cell";
     cell.commentLabel.text = comment[@"comment"];
     cell.timeLabel.text = comment[@"timeStamp"];
     
-    
     return cell;
 }
 

@@ -30,7 +30,6 @@
         [self.layer setShadowRadius:3];
         [self.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
         
-        
         [self addSubview:_imageView];
     }
     return self;

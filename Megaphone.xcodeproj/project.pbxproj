@@ -37,7 +37,8 @@
 		A376E0901AD886DB008757E8 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A376E08D1AD886DB008757E8 /* ParseFacebookUtils.framework */; };
 		F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30587751AD1F3D40058E103 /* CompanyCell.m */; };
 		F332FB4A1AF9821300058F3A /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F332FB491AF9821300058F3A /* ParseUI.framework */; };
-		F347561D1ADCA4B90053FF4C /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F347561C1ADCA4B90053FF4C /* PostViewController.m */; };
+		F35412E41B01D0070033B9FD /* MegaphoneUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = F35412E31B01D0070033B9FD /* MegaphoneUtility.m */; };
+		F35412E61B01D87D0033B9FD /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35412E51B01D87D0033B9FD /* PostViewController.m */; };
 		F35559D91AD38804001A0FCA /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559D81AD38804001A0FCA /* MoreTableViewController.m */; };
 		F35559DD1AD39349001A0FCA /* ProfilePostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559DC1AD39349001A0FCA /* ProfilePostsTableViewController.m */; };
 		F35559ED1AD393FA001A0FCA /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559EC1AD393FA001A0FCA /* PostCell.m */; };
@@ -122,7 +123,9 @@
 		F30587751AD1F3D40058E103 /* CompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCell.m; sourceTree = "<group>"; };
 		F332FB491AF9821300058F3A /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		F347561B1ADCA4B90053FF4C /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
-		F347561C1ADCA4B90053FF4C /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		F35412E21B01D0070033B9FD /* MegaphoneUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MegaphoneUtility.h; sourceTree = "<group>"; };
+		F35412E31B01D0070033B9FD /* MegaphoneUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MegaphoneUtility.m; sourceTree = "<group>"; };
+		F35412E51B01D87D0033B9FD /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		F35559D71AD38804001A0FCA /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		F35559D81AD38804001A0FCA /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		F35559DB1AD39349001A0FCA /* ProfilePostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePostsTableViewController.h; sourceTree = "<group>"; };
@@ -266,7 +269,7 @@
 			children = (
 				F36C28AA1AFC714C00949F5B /* Login */,
 				F347561B1ADCA4B90053FF4C /* PostViewController.h */,
-				F347561C1ADCA4B90053FF4C /* PostViewController.m */,
+				F35412E51B01D87D0033B9FD /* PostViewController.m */,
 				F347561E1ADCA4BD0053FF4C /* CompanyTab */,
 				F35559DA1AD39312001A0FCA /* MeTab */,
 				F36C28A51AFC641A00949F5B /* MoreTab */,
@@ -372,6 +375,8 @@
 		F3A6B3021AD1EDE400955521 /* Megaphone */ = {
 			isa = PBXGroup;
 			children = (
+				F35412E21B01D0070033B9FD /* MegaphoneUtility.h */,
+				F35412E31B01D0070033B9FD /* MegaphoneUtility.m */,
 				F3A6B3071AD1EDE400955521 /* AppDelegate.h */,
 				F3A6B3081AD1EDE400955521 /* AppDelegate.m */,
 				F3A6B30D1AD1EDE400955521 /* Main.storyboard */,
@@ -598,7 +603,9 @@
 				F3B842F71AF47CBA0002BFD0 /* CommentTableView.m in Sources */,
 				F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */,
 				A31820611AF36E4A0008BE21 /* CommentTableViewCell.m in Sources */,
+				F35412E61B01D87D0033B9FD /* PostViewController.m in Sources */,
 				F36C28AD1AFC71AF00949F5B /* MLoginViewController.m in Sources */,
+				F35412E41B01D0070033B9FD /* MegaphoneUtility.m in Sources */,
 				F35559ED1AD393FA001A0FCA /* PostCell.m in Sources */,
 				A3318D581AF85FC900651A20 /* CompaniesViewController.m in Sources */,
 				F30587761AD1F3D40058E103 /* CompanyCell.m in Sources */,
@@ -608,7 +615,6 @@
 				F3A6B3061AD1EDE400955521 /* main.m in Sources */,
 				F35559DD1AD39349001A0FCA /* ProfilePostsTableViewController.m in Sources */,
 				F36C28A91AFC647700949F5B /* ProfileImageView.m in Sources */,
-				F347561D1ADCA4B90053FF4C /* PostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

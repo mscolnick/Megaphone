@@ -11,6 +11,7 @@
 #import "PostViewController.h"
 #import "PostCell.h"
 #import "GTScrollNavigationBar.h"
+#import "MegaphoneUtility.h"
 
 #define tableTitles(enum) [@[@"My Posts", @"Following", @"My Comments"] objectAtIndex: enum]
 #define searchScopes(int) [@[@"all", @"feature", @"bug", @"idea",  @"other"] objectAtIndex: int]
@@ -98,6 +99,7 @@ static NSString *const reuseIdentifier = @"Cell";
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
     [self.searchController.searchBar sizeToFit];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 
@@ -136,25 +138,13 @@ static NSString *const reuseIdentifier = @"Cell";
     cell.postObj = object;
     
     //Check if user likes the post
-    [self containsUser:object relationType:@"likers" block: ^(BOOL contains, NSError *error) {
-        if (contains) {
-            [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
-        }else {
-            [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up"] forState:UIControlStateNormal];
-        }
-    }];
+    if ([MegaphoneUtility containsUser:object relationType:@"likers"]) {
+        [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
+    }else {
+        [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up"] forState:UIControlStateNormal];
+    }
     
     return cell;
-}
-
-
-- (void)containsUser:(PFObject *)myObject relationType:(NSString *)relationType block:(void (^)(BOOL, NSError *))completionBlock {
-    PFRelation *relation = [myObject relationForKey:relationType];
-    PFQuery *query = [relation query];
-    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
-    [query countObjectsInBackgroundWithBlock: ^(int count, NSError *error) {
-        completionBlock(count > 0, error);
-    }];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

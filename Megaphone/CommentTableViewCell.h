@@ -17,7 +17,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *commentLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeButtonOutlet;
-- (IBAction)like:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *numLikesLabelOutlet;
 @property (strong, nonatomic) PFObject *commentObj;
 

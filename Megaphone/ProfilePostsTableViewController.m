@@ -70,12 +70,7 @@ static NSString *const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+
     self.navigationController.navigationBar.topItem.title = @"";
 
     selectedSegment = 0;
@@ -90,6 +85,7 @@ static NSString *const reuseIdentifier = @"Cell";
 
     self.definesPresentationContext = YES;
     [self.searchController.searchBar sizeToFit];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
