@@ -296,7 +296,13 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (void)sharePost {
-    //TODO: share
+    NSString *type = [_postObj[@"type"] isEqualToString: @"other"] ? @"Post" : _postObj[@"type"];
+    
+    NSString *message = [NSString stringWithFormat:@"Help me support this %@: %@ for %@", type, _postObj[@"title"], _postObj[@"company"]];
+    NSURL *site = [NSURL URLWithString:@"https://www.google.com/search?q=megaphone"];
+    
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[message, site] applicationActivities:nil];
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 - (void)changeToLiked {

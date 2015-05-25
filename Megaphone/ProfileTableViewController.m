@@ -26,6 +26,7 @@
     PFUser *user = [PFUser currentUser];
     [_profileImageView setImageWithLink: user[@"imageLink"]];
     _nameLabel.text = user[@"name"];
+    self.tableView.scrollEnabled = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -64,7 +64,7 @@ static NSString *const reuseIdentifier = @"Cell";
         [query orderByAscending:@"name"];
     }
     
-    NSString *xx = [NSString stringWithFormat:@"^%@", text];
+    NSString *xx = [NSString stringWithFormat:@"%@", text];
     [query whereKey:@"name" matchesRegex:xx modifiers:@"i"];
     
     query.limit = 30;

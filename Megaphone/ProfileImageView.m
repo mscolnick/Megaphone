@@ -12,7 +12,7 @@
 
 - (void)setImage:(UIImage *)image{
     [super setImage:image];
-    self.contentMode = UIViewContentModeScaleAspectFit;
+    self.contentMode = UIViewContentModeScaleAspectFill;
     self.layer.cornerRadius = self.frame.size.height / 2;
     self.layer.masksToBounds = YES;
     self.layer.borderWidth = 0;

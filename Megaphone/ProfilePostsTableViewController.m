@@ -48,13 +48,9 @@ static NSString *const reuseIdentifier = @"Cell";
     
     NSString *searchString = self.searchController.searchBar.text;
     if(searchString.length  > 0){
-        NSString *xx = [NSString stringWithFormat:@"^%@", searchString];
-        [query whereKey:@"title" matchesRegex:xx modifiers:@"i"];
-        
+        NSString *xx = [NSString stringWithFormat:@"%@", searchString];
         long scopeType = self.searchController.searchBar.selectedScopeButtonIndex;
-        if(scopeType != 0){
-            [query whereKey:@"type" equalTo:searchScopes(scopeType)];
-        }
+        [query whereKey:searchScopes(scopeType) matchesRegex:xx modifiers:@"i"];
     }
     
     // If no objects are loaded in memory, we look to the cache
