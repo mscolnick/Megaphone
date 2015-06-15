@@ -3,7 +3,7 @@
 //  Megaphone
 //
 //  Created by Myles Scolnick on 4/10/15.
-//  Copyright (c) 2015 Dropbox. All rights reserved.
+//  Copyright (c) 2015 Scolnick. All rights reserved.
 //
 
 #import "NewPostViewController.h"
@@ -69,30 +69,31 @@
 }
 
 - (void)uploadPostToParse {
-    PFObject *post = [PFObject objectWithClassName:@"Posts"];
-    post[@"numLikes"] = [NSNumber numberWithInt:0];
-    post[@"numReports"] = [NSNumber numberWithInt:0];
-    post[@"numFollowers"] = [NSNumber numberWithInt:0];
-    post[@"numComments"] = [NSNumber numberWithInt:0];
-    post[@"title"] = _titleField.text;
-    post[@"description"] = _descriptionField.text;
-    post[@"company"] = _companyObj[@"name"];
-    post[@"reported"] = [NSNumber numberWithBool:NO];
-    post[@"type"] = postType;
+    PFObject *post = [PFObject objectWithClassName:kPostsClassKey];
+    post[kPostsNumLikesKey] = [NSNumber numberWithInt:0];
+    post[kPostsNumReportsKey] = [NSNumber numberWithInt:0];
+    post[kPostsNumFollowersKey] = [NSNumber numberWithInt:0];
+    post[kPostsNumCommentsKey] = [NSNumber numberWithInt:0];
+    post[kPostsTitleKey] = _titleField.text;
+    post[kPostsDescriptionKey] = _descriptionField.text;
+    post[kPostsCompanyKey] = _companyObj[@"name"];
+    post[kPostsCompanyIdKey] = _companyObj.objectId;
+    post[kPostsReportedKey] = [NSNumber numberWithBool:NO];
+    post[kPostsTypeKey] = postType;
     
     PFUser *currentUser = [PFUser currentUser];
-    post[@"user"] = currentUser;
-    post[@"usernameId"] = currentUser.objectId;
-    post[@"username"] = currentUser[@"username"];
-    NSNumber *num = currentUser[@"numPosts"];
+    post[kUserKey] = currentUser;
+    post[kUsernameIdKey] = currentUser.objectId;
+    post[kUsernameKey] = currentUser[@"username"];
+    NSNumber *num = currentUser[kCompanyNumPostsKey];
     post[@"number"] = [NSNumber numberWithInt:[num intValue] + 1];
-    post[@"first_name"] = currentUser[@"first_name"];
-    post[@"last_name"] = currentUser[@"last_name"];
+    post[kPostsFirstNameKey] = currentUser[kPostsFirstNameKey];
+    post[kPostsLastNameKey] = currentUser[kPostsLastNameKey];
     
     [post saveInBackground];
     
-    [_companyObj incrementKey:@"numPosts" byAmount:[NSNumber numberWithInt:1]];
-    [_companyObj addObject:post forKey:@"posts"];
+    [_companyObj incrementKey:kCompanyNumPostsKey];
+    [_companyObj addObject:post forKey:kPostsClassKey];
     [_companyObj saveInBackground];
     
     [currentUser incrementKey:@"numQuestions"];

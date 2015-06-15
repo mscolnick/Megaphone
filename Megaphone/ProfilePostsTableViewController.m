@@ -3,14 +3,14 @@
 //  Megaphone
 //
 //  Created by Myles Scolnick on 4/6/15.
-//  Copyright (c) 2015 Dropbox. All rights reserved.
+//  Copyright (c) 2015 Scolnick. All rights reserved.
 //
 
 #import "ProfilePostsTableViewController.h"
 #import "PostViewController.h"
 #import "GTScrollNavigationBar.h"
 
-#define searchScopes(int) [@[@"title", @"company"] objectAtIndex: int]
+#define searchScopes(int) [@[kPostsTitleKey, @"company"] objectAtIndex: int]
 
 @interface ProfilePostsTableViewController () <UISearchBarDelegate, UISearchResultsUpdating> {
     int selectedSegment;
@@ -35,13 +35,13 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (PFQuery *)queryForTable {
-    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    PFQuery *query = [PFQuery queryWithClassName:kPostsClassKey];
     
     PFUser *currentUser = [PFUser currentUser];
-    [query includeKey:@"user"];
+    [query includeKey:kUserKey];
     [query whereKey:tableQuery(_tableType) equalTo:currentUser];
     if (selectedSegment == 0) {
-        [query orderByDescending:@"createdAt"];
+        [query orderByDescending:kCreatedAtKey];
     } else if (selectedSegment == 1) {
         [query orderByDescending:@"numLikes"];
     }
@@ -112,7 +112,7 @@ static NSString *const reuseIdentifier = @"Cell";
                                reuseIdentifier:reuseIdentifier];
     }
     
-    cell.textLabel.text = object[@"title"];
+    cell.textLabel.text = object[kPostsTitleKey];
     cell.detailTextLabel.text = [object[@"company"] uppercaseString];
 
     return cell;

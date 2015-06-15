@@ -3,7 +3,7 @@
 //  Megaphone
 //
 //  Created by Myles Scolnick on 4/8/15.
-//  Copyright (c) 2015 Dropbox. All rights reserved.
+//  Copyright (c) 2015 Scolnick. All rights reserved.
 //
 
 #import "PostsTableViewController.h"
@@ -48,13 +48,13 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (PFQuery *)queryForTable {
-    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    PFQuery *query = [PFQuery queryWithClassName:kPostsClassKey];
     
     NSString *companyName = _companyObj[@"name"];
-    [query includeKey:@"user"];
+    [query includeKey:kUserKey];
     [query whereKey:@"company" equalTo:companyName];
     if (selectedSegment == 0) {
-        [query orderByDescending:@"createdAt"];
+        [query orderByDescending:kCreatedAtKey];
     } else if (selectedSegment == 1) {
         [query orderByDescending:@"numLikes"];
     }
@@ -62,11 +62,11 @@ static NSString *const reuseIdentifier = @"Cell";
     NSString *searchString = self.searchController.searchBar.text;
     if(searchString.length  > 0){
         NSString *xx = [NSString stringWithFormat:@"%@", searchString];
-        [query whereKey:@"title" matchesRegex:xx modifiers:@"i"];
+        [query whereKey:kPostsTitleKey matchesRegex:xx modifiers:@"i"];
     }
     long scopeType = self.searchController.searchBar.selectedScopeButtonIndex;
     if(scopeType != 0){
-        [query whereKey:@"type" equalTo:searchScopes(scopeType)];
+        [query whereKey:kPostsTypeKey equalTo:searchScopes(scopeType)];
     }
     
     // If no objects are loaded in memory, we look to the cache
@@ -130,13 +130,13 @@ static NSString *const reuseIdentifier = @"Cell";
                                       reuseIdentifier:reuseIdentifier];
     }
     
-    cell.textLabel.text = object[@"title"];
+    cell.textLabel.text = object[kPostsTitleKey];
     cell.numLikesLabel.text = [object[@"numLikes"] stringValue];
     cell.numCommentsLabel.text = [object[@"numComments"] stringValue];
     cell.postObj = object;
     
     //Check if user likes the post
-    BOOL contains = [MegaphoneUtility containsUser:object relationType:@"likers"];
+    BOOL contains = [MegaphoneUtility containsUser:object relationType:kRelationLikers];
     if (contains) {
         [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
     }else {
@@ -161,7 +161,7 @@ static NSString *const reuseIdentifier = @"Cell";
 
     [label setText:string];
     [view addSubview:label];
-    [view setBackgroundColor:[UIColor colorWithRed:206/255.0 green:217/255.0 blue:226/255.0 alpha:1.0]];
+    [view setBackgroundColor:[UIColor lightColor]];
     return view;
 }
 

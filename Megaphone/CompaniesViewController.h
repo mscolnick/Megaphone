@@ -3,12 +3,13 @@
 //  Megaphone
 //
 //  Created by Hriday Kemburu on 5/4/15.
-//  Copyright (c) 2015 Dropbox. All rights reserved.
+//  Copyright (c) 2015 Scolnick. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "CompanyCell.h"
 #import <Parse/Parse.h>
+#import "MegaphoneConstants.h"
 
 @interface CompaniesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 

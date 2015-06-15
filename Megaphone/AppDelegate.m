@@ -3,7 +3,7 @@
 //  Megaphone
 //
 //  Created by Myles Scolnick on 4/5/15.
-//  Copyright (c) 2015 Dropbox. All rights reserved.
+//  Copyright (c) 2015 Scolnick. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -11,6 +11,10 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <ParseUI/ParseUI.h>
 #import "MLoginViewController.h"
+#import "CompaniesViewController.h"
+#import "PostsTableViewController.h"
+#import "MegaphoneUtility.h"
+#import "PostViewController.h"
 
 @interface AppDelegate () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
@@ -30,10 +34,10 @@
     [self login];
     
     //System Wide configs
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor lightColor],
                                                            NSFontAttributeName: [UIFont fontWithName:@"Copperplate" size:18.0f]}];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]]; // this will change the back button tint
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0 green:.494 blue:.898 alpha:1]]; // #007ee5
+    [[UINavigationBar appearance] setTintColor:[UIColor secondaryColor]]; // this will change the back button tint
+    [[UINavigationBar appearance] setBarTintColor:[UIColor mainColor]]; // #007ee5
         
 
 
@@ -44,6 +48,41 @@
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
+    
+    if([[url host] isEqualToString:@"company"]){
+        [tabController setSelectedIndex:0];
+        UINavigationController *nav = (UINavigationController*) tabController.selectedViewController;
+        PFObject *companyObj = [MegaphoneUtility getCompanyObject:[url path]];
+        if(companyObj){
+            PostsTableViewController *postTableVC= [storyboard instantiateViewControllerWithIdentifier:@"postTableViewController"];
+            postTableVC.companyObj = companyObj;
+            [nav pushViewController:postTableVC animated:YES];
+        }
+        return YES;
+    } else if([[url host] isEqualToString:@"post"]){
+        [tabController setSelectedIndex:0];
+        UINavigationController *nav = (UINavigationController*) tabController.selectedViewController;
+        PFObject *postObj = [MegaphoneUtility getPostObject:[url path]];
+        if(postObj){
+            PFObject *companyObj = [MegaphoneUtility getCompanyObject:postObj[kPostsCompanyIdKey]];
+            PostsTableViewController *postTableVC= [storyboard instantiateViewControllerWithIdentifier:@"postTableViewController"];
+            postTableVC.companyObj = companyObj;
+            [nav pushViewController:postTableVC animated:YES];
+            PostViewController *postVC = [storyboard instantiateViewControllerWithIdentifier:@"postViewController"];
+            postVC.postObj = postObj;
+            [nav pushViewController:postVC animated:YES];
+        }
+        return YES;
+    } else {
+        if([[url host] isEqualToString:@"profile"]){
+            [tabController setSelectedIndex:1];
+            return YES;
+        }
+    }
+    
     return [FBAppCall handleOpenURL:url
                   sourceApplication:sourceApplication
                         withSession:[PFFacebookUtils session]];
@@ -102,8 +141,8 @@
                 NSDictionary *userData = (NSDictionary *)result;
                 NSString *facebookID = userData[@"id"];
                 NSString *name = userData[@"name"];
-                NSString *first_name = userData[@"first_name"];
-                NSString *last_name = userData[@"last_name"];
+                NSString *first_name = userData[kPostsFirstNameKey];
+                NSString *last_name = userData[kPostsLastNameKey];
                 
                 NSString *picURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID];
                 
@@ -111,8 +150,8 @@
                 currentUser[@"name"] = name;
                 currentUser[@"id"] = facebookID;
                 currentUser[@"imageLink"] = picURL;
-                currentUser[@"first_name"] = first_name;
-                currentUser[@"last_name"] = last_name;
+                currentUser[kPostsFirstNameKey] = first_name;
+                currentUser[kPostsLastNameKey] = last_name;
                 [currentUser saveInBackground];
             }
         }];
@@ -132,6 +171,7 @@
     if ([PFUser currentUser]) {
         NSLog(@"Logged in");
         self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+//        NSLog([[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController]);
     } else {
         NSLog(@"Not logged in");
         
@@ -144,7 +184,7 @@
         [logInViewController setFields: PFLogInFieldsTwitter | PFLogInFieldsFacebook];
 
         [logInViewController.logInView setLogo:[[UIImageView alloc] initWithImage:nil]];
-        //[logInViewController.logInView setBackgroundColor:[UIColor blueColor]];
+        //[logInViewController.logInView setBackgroundColor:[UIColor mainColor]];
                 
         self.window.rootViewController = logInViewController;
     }

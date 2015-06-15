@@ -3,9 +3,10 @@
 //  Megaphone
 //
 //  Created by Myles Scolnick on 5/11/15.
-//  Copyright (c) 2015 Dropbox. All rights reserved.
+//  Copyright (c) 2015 Scolnick. All rights reserved.
 //
 
+#import "MegaphoneConstants.h"
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
@@ -30,5 +31,8 @@
 
 + (void)followPostInBackground:(PFObject *)post block:(void (^)(BOOL succeeded, NSError *error))completionBlock;
 + (void)unfollowPostInBackground:(PFObject *)post block:(void (^)(BOOL succeeded, NSError *error))completionBlock;
+
++ (PFObject *)getCompanyObject:(NSString *)objectId;
++ (PFObject *)getPostObject:(NSString *)objectId;
 
 @end

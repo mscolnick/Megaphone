@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eJU-35-JG3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eJU-35-JG3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -466,7 +466,7 @@
         <!--Posts Table View Controller-->
         <scene sceneID="xJ6-Su-Y82">
             <objects>
-                <tableViewController id="JLm-wE-FP6" customClass="PostsTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="postTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JLm-wE-FP6" customClass="PostsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="30" sectionFooterHeight="30" id="sbI-gU-F0e">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -507,7 +507,7 @@
                                                 <constraint firstAttribute="height" constant="13" id="v64-BQ-0Zy"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -571,7 +571,7 @@
         <!--Post View Controller-->
         <scene sceneID="MKd-eC-BLo">
             <objects>
-                <viewController id="lhx-Zh-b8U" customClass="PostViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="postViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lhx-Zh-b8U" customClass="PostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N3Y-Ji-2Le"/>
                         <viewControllerLayoutGuide type="bottom" id="ftu-kY-0V8"/>
@@ -687,7 +687,7 @@
                                                         <constraint firstAttribute="width" constant="42" id="Q7s-cj-ByY"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -1236,7 +1236,7 @@
         <!--Companies View Controller-->
         <scene sceneID="SzJ-8n-SNC">
             <objects>
-                <viewController id="uTq-rd-8wr" customClass="CompaniesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="companyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uTq-rd-8wr" customClass="CompaniesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jec-jY-vOS"/>
                         <viewControllerLayoutGuide type="bottom" id="Did-pg-h0I"/>

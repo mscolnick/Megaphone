@@ -3,7 +3,7 @@
 //  Megaphone
 //
 //  Created by Hriday Kemburu on 5/4/15.
-//  Copyright (c) 2015 Dropbox. All rights reserved.
+//  Copyright (c) 2015 Scolnick. All rights reserved.
 //
 
 #import "CompaniesViewController.h"
@@ -43,9 +43,9 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (void)getCompanies {
-    PFQuery *query = [PFQuery queryWithClassName:@"Company"];
+    PFQuery *query = [PFQuery queryWithClassName:kCompanyClassKey];
     if (selectedSegment == 0) {
-        [query orderByDescending:@"numPosts"];
+        [query orderByDescending:kCompanyNumPostsKey];
     } else if (selectedSegment == 1) {
         [query orderByAscending:@"name"];
     }
@@ -57,9 +57,9 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 
 - (void)getCompaniesWithText:(NSString *)text {
-    PFQuery *query = [PFQuery queryWithClassName:@"Company"];
+    PFQuery *query = [PFQuery queryWithClassName:kCompanyClassKey];
     if (selectedSegment == 0) {
-        [query orderByDescending:@"numPosts"];
+        [query orderByDescending:kCompanyNumPostsKey];
     } else if (selectedSegment == 1) {
         [query orderByAscending:@"name"];
     }

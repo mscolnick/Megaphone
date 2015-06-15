@@ -3,7 +3,7 @@
 //  Megaphone
 //
 //  Created by Myles Scolnick on 5/7/15.
-//  Copyright (c) 2015 Dropbox. All rights reserved.
+//  Copyright (c) 2015 Scolnick. All rights reserved.
 //
 
 #import "ProfileImageView.h"
@@ -16,9 +16,9 @@
     self.layer.cornerRadius = self.frame.size.height / 2;
     self.layer.masksToBounds = YES;
     self.layer.borderWidth = 0;
-    [self.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [self.layer setBorderColor: [[UIColor lightColor] CGColor]];
     [self.layer setBorderWidth: 1.5];
-    self.backgroundColor = [UIColor colorWithRed:.6 green:.3 blue:.1 alpha:.5];
+    self.backgroundColor = [UIColor lightColor];
     [self setNeedsLayout];
 }
 

@@ -44,6 +44,7 @@
 		F35559ED1AD393FA001A0FCA /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F35559EC1AD393FA001A0FCA /* PostCell.m */; };
 		F36328611ADCD54F00226397 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36328601ADCD54F00226397 /* ProfileTableViewController.m */; };
 		F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3642BE41AD50B71007C5034 /* PostsTableViewController.m */; };
+		F3654E561B26BDD60011624A /* MegaphoneConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F3654E551B26BDD60011624A /* MegaphoneConstants.m */; };
 		F36C28A91AFC647700949F5B /* ProfileImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F36C28A81AFC647700949F5B /* ProfileImageView.m */; };
 		F36C28AD1AFC71AF00949F5B /* MLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36C28AC1AFC71AF00949F5B /* MLoginViewController.m */; };
 		F381D97A1AFB1D3C00B7CB2F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F381D9791AFB1D3C00B7CB2F /* Social.framework */; };
@@ -89,7 +90,7 @@
 		97A9268E3DAB890FACD07576 /* libPods-Megaphone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Megaphone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13ED946CEF9EB1F94BCC007 /* Pods-Megaphone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Megaphone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Megaphone/Pods-Megaphone.release.xcconfig"; sourceTree = "<group>"; };
 		A318205F1AF36E4A0008BE21 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
-		A31820601AF36E4A0008BE21 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
+		A31820601AF36E4A0008BE21 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CommentTableViewCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A3318D561AF85FC900651A20 /* CompaniesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompaniesViewController.h; sourceTree = "<group>"; };
 		A3318D571AF85FC900651A20 /* CompaniesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompaniesViewController.m; sourceTree = "<group>"; };
 		A35550D61AD887D4002D2663 /* FacebookSDK.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = FacebookSDK.strings; sourceTree = "<group>"; };
@@ -123,18 +124,20 @@
 		F332FB491AF9821300058F3A /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		F347561B1ADCA4B90053FF4C /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		F35412E21B01D0070033B9FD /* MegaphoneUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MegaphoneUtility.h; sourceTree = "<group>"; };
-		F35412E31B01D0070033B9FD /* MegaphoneUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MegaphoneUtility.m; sourceTree = "<group>"; };
-		F35412E51B01D87D0033B9FD /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		F35412E31B01D0070033B9FD /* MegaphoneUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MegaphoneUtility.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F35412E51B01D87D0033B9FD /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PostViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F35559D71AD38804001A0FCA /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		F35559D81AD38804001A0FCA /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		F35559DB1AD39349001A0FCA /* ProfilePostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePostsTableViewController.h; sourceTree = "<group>"; };
 		F35559DC1AD39349001A0FCA /* ProfilePostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePostsTableViewController.m; sourceTree = "<group>"; };
 		F35559EB1AD393FA001A0FCA /* PostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
-		F35559EC1AD393FA001A0FCA /* PostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
+		F35559EC1AD393FA001A0FCA /* PostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PostCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F363285F1ADCD54F00226397 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
 		F36328601ADCD54F00226397 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 		F3642BE31AD50B71007C5034 /* PostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsTableViewController.h; sourceTree = "<group>"; };
-		F3642BE41AD50B71007C5034 /* PostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsTableViewController.m; sourceTree = "<group>"; };
+		F3642BE41AD50B71007C5034 /* PostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PostsTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F3654E541B26BDD60011624A /* MegaphoneConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MegaphoneConstants.h; sourceTree = "<group>"; };
+		F3654E551B26BDD60011624A /* MegaphoneConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MegaphoneConstants.m; sourceTree = "<group>"; };
 		F36C28A71AFC647700949F5B /* ProfileImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileImageView.h; sourceTree = "<group>"; };
 		F36C28A81AFC647700949F5B /* ProfileImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileImageView.m; sourceTree = "<group>"; };
 		F36C28AB1AFC71AF00949F5B /* MLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLoginViewController.h; sourceTree = "<group>"; };
@@ -268,7 +271,7 @@
 				F347561B1ADCA4B90053FF4C /* PostViewController.h */,
 				F35412E51B01D87D0033B9FD /* PostViewController.m */,
 				F347561E1ADCA4BD0053FF4C /* CompanyTab */,
-				F35559DA1AD39312001A0FCA /* MeTab */,
+				F35559DA1AD39312001A0FCA /* ProfileTab */,
 				F36C28A51AFC641A00949F5B /* MoreTab */,
 			);
 			name = Controllers;
@@ -287,7 +290,7 @@
 			name = CompanyTab;
 			sourceTree = "<group>";
 		};
-		F35559DA1AD39312001A0FCA /* MeTab */ = {
+		F35559DA1AD39312001A0FCA /* ProfileTab */ = {
 			isa = PBXGroup;
 			children = (
 				F363285F1ADCD54F00226397 /* ProfileTableViewController.h */,
@@ -295,7 +298,7 @@
 				F35559DB1AD39349001A0FCA /* ProfilePostsTableViewController.h */,
 				F35559DC1AD39349001A0FCA /* ProfilePostsTableViewController.m */,
 			);
-			name = MeTab;
+			name = ProfileTab;
 			sourceTree = "<group>";
 		};
 		F35559E71AD393C4001A0FCA /* Cells */ = {
@@ -370,6 +373,8 @@
 		F3A6B3021AD1EDE400955521 /* Megaphone */ = {
 			isa = PBXGroup;
 			children = (
+				F3654E541B26BDD60011624A /* MegaphoneConstants.h */,
+				F3654E551B26BDD60011624A /* MegaphoneConstants.m */,
 				F35412E21B01D0070033B9FD /* MegaphoneUtility.h */,
 				F35412E31B01D0070033B9FD /* MegaphoneUtility.m */,
 				F3A6B3071AD1EDE400955521 /* AppDelegate.h */,
@@ -594,6 +599,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3654E561B26BDD60011624A /* MegaphoneConstants.m in Sources */,
 				F3C353A21AD88E7400455F72 /* NewPostViewController.m in Sources */,
 				F3642BE51AD50B71007C5034 /* PostsTableViewController.m in Sources */,
 				A31820611AF36E4A0008BE21 /* CommentTableViewCell.m in Sources */,

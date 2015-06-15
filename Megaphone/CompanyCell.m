@@ -3,7 +3,7 @@
 //  Megaphone
 //
 //  Created by Myles Scolnick on 4/5/15.
-//  Copyright (c) 2015 Dropbox. All rights reserved.
+//  Copyright (c) 2015 Scolnick. All rights reserved.
 //
 
 #import "CompanyCell.h"
@@ -19,13 +19,13 @@
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
         [_imageView.layer setCornerRadius:5.f];
         // border
-        [_imageView.layer setBorderColor:[UIColor whiteColor].CGColor];
+        [_imageView.layer setBorderColor:[UIColor lightColor].CGColor];
         [_imageView.layer setBorderWidth:1.f];
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor lightColor];
         [self.layer setCornerRadius:5.f];
         
         // shadow
-        [self.layer setShadowColor:[UIColor blackColor].CGColor];
+        [self.layer setShadowColor:[UIColor darkColor].CGColor];
         [self.layer setShadowOpacity:0.8];
         [self.layer setShadowRadius:3];
         [self.layer setShadowOffset:CGSizeMake(2.0, 2.0)];

@@ -3,7 +3,7 @@
 //  Megaphone
 //
 //  Created by Hriday Kemburu on 5/1/15.
-//  Copyright (c) 2015 Dropbox. All rights reserved.
+//  Copyright (c) 2015 Scolnick. All rights reserved.
 //
 
 #import "CommentTableViewCell.h"
@@ -22,7 +22,7 @@
 }
 
 - (IBAction)like:(id)sender {
-    [MegaphoneUtility containsUserInBackground:_commentObj relationType:@"likers" block: ^(BOOL contains, NSError *error) {
+    [MegaphoneUtility containsUserInBackground:_commentObj relationType:kRelationLikers block: ^(BOOL contains, NSError *error) {
         if (contains) {
             [self changeToUnliked];
         } else {
