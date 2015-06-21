@@ -35,14 +35,14 @@
 + (void) likePost:(PFObject *)post{
     PFRelation *relation = [post relationForKey:kRelationLikers];
     [relation addObject:[PFUser currentUser]];
-    [post incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
+    [post incrementKey:@"numLikes" byAmount:@1];
     [post save];
 }
 
 + (void) likePostInBackground:(PFObject *)post block:(void (^)(BOOL succeeded, NSError *error))completionBlock{
     PFRelation *relation = [post relationForKey:kRelationLikers];
     [relation addObject:[PFUser currentUser]];
-    [post incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
+    [post incrementKey:@"numLikes" byAmount:@1];
     [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completionBlock(succeeded, error);
     }];
@@ -51,14 +51,14 @@
 + (void) unlikePost:(PFObject *)post{
     PFRelation *relation = [post relationForKey:kRelationLikers];
     [relation removeObject:[PFUser currentUser]];
-    [post incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:1]];
+    [post incrementKey:@"numLikes" byAmount:@1];
     [post save];
 }
 
 + (void) unlikePostInBackground:(PFObject *)post block:(void (^)(BOOL succeeded, NSError *error))completionBlock{
     PFRelation *relation = [post relationForKey:kRelationLikers];
     [relation removeObject:[PFUser currentUser]];
-    [post incrementKey:@"numLikes" byAmount:[NSNumber numberWithInt:-1]];
+    [post incrementKey:@"numLikes" byAmount:@-1];
     [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completionBlock(succeeded, error);
     }];
@@ -67,7 +67,7 @@
 + (void) reportPostInBackground:(PFObject *)post block:(void (^)(BOOL, NSError *))completionBlock{
     PFRelation *relation = [post relationForKey:kRelationReporters];
     [relation addObject:[PFUser currentUser]];
-    [post incrementKey:@"numReports" byAmount:[NSNumber numberWithInt:1]];
+    [post incrementKey:@"numReports" byAmount:@1];
     [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if([post[@"numReports"] integerValue] >= MAX_REPORTS){
             [post deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -107,7 +107,7 @@
 + (void) followPostInBackground:(PFObject *)post block:(void (^)(BOOL succeeded, NSError *error))completionBlock{
     PFRelation *relation = [post relationForKey:kRelationFollowers];
     [relation addObject:[PFUser currentUser]];
-    [post incrementKey:kPostsNumFollowersKey byAmount:[NSNumber numberWithInt:1]];
+    [post incrementKey:kPostsNumFollowersKey byAmount:@1];
     [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completionBlock(succeeded, error);
     }];
@@ -116,7 +116,7 @@
 + (void) unfollowPostInBackground:(PFObject *)post block:(void (^)(BOOL succeeded, NSError *error))completionBlock{
     PFRelation *relation = [post relationForKey:kRelationFollowers];
     [relation removeObject:[PFUser currentUser]];
-    [post incrementKey:kPostsNumFollowersKey byAmount:[NSNumber numberWithInt:-1]];
+    [post incrementKey:kPostsNumFollowersKey byAmount:@-1];
     [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completionBlock(succeeded, error);
     }];

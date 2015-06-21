@@ -180,7 +180,7 @@
         
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
         
-        [logInViewController setFacebookPermissions:[NSArray arrayWithObjects:@"public_profile", nil]];
+        [logInViewController setFacebookPermissions:@[@"public_profile"]];
         [logInViewController setFields: PFLogInFieldsTwitter | PFLogInFieldsFacebook];
 
         [logInViewController.logInView setLogo:[[UIImageView alloc] initWithImage:nil]];

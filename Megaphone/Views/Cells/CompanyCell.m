@@ -10,7 +10,7 @@
 
 @implementation CompanyCell
 
-- (id)initWithFrame:(CGRect)aRect
+- (instancetype)initWithFrame:(CGRect)aRect
 {
     self = [super initWithFrame:aRect];
     {

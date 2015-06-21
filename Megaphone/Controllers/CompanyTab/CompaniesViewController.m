@@ -91,7 +91,7 @@ static NSString *const reuseIdentifier = @"Cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CompanyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
-    PFObject *company = [_myCompanies objectAtIndex:indexPath.row];
+    PFObject *company = _myCompanies[indexPath.row];
 //    cell.imageView.image = [UIImage imageNamed:@"ios7-briefcase"]; // placeholder image
     [company fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         cell.imageView.file = (PFFile *)company[@"image"]; // remote image
@@ -133,7 +133,7 @@ static NSString *const reuseIdentifier = @"Cell";
  */
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    companyObject = [_myCompanies objectAtIndex:indexPath.row];
+    companyObject = _myCompanies[indexPath.row];
     [self performSegueWithIdentifier:@"companyToPosts" sender:self];
 }
 

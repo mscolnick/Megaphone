@@ -115,9 +115,9 @@ static NSString *const reuseIdentifier = @"Cell";
     NSTimeInterval animationDuration;
     UIViewAnimationCurve animationCurve;
     CGRect keyboardFrame;
-    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
-    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
-    [[userInfo objectForKey:UIKeyboardBoundsUserInfoKey] getValue:&keyboardFrame];
+    [userInfo[UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [userInfo[UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [userInfo[UIKeyboardBoundsUserInfoKey] getValue:&keyboardFrame];
     
     // Animate up or down
     [UIView beginAnimations:nil context:nil];
@@ -160,7 +160,7 @@ static NSString *const reuseIdentifier = @"Cell";
     }
     
     // Configure the cell...
-    PFObject *comment = [comments objectAtIndex:indexPath.row];
+    PFObject *comment = comments[indexPath.row];
     PFUser *author = comment[kUserKey];
     
     [cell.profileImageView setImageWithLink:author[@"imageLink"]];
@@ -188,13 +188,13 @@ static NSString *const reuseIdentifier = @"Cell";
 -(void)uploadCommentToParse
 {
     PFObject *comment = [PFObject objectWithClassName:kCommentsClassKey];
-    [comment setObject:_commentTextField.text forKey:kCommentsCommentKey];
-    comment[@"numLikes"] = [NSNumber numberWithInt:0];
-    comment[@"numReports"] = [NSNumber numberWithInt:0];
+    comment[kCommentsCommentKey] = _commentTextField.text;
+    comment[@"numLikes"] = @0;
+    comment[@"numReports"] = @0;
     comment[@"company"] = _postObj[@"company"];
-    [comment setObject:[NSNumber numberWithBool:NO] forKey:@"reported"];
-    [comment setObject:[PFUser currentUser] forKey:kUserKey];
-    [comment setObject:_postObj forKey:kCommentsPostKey];
+    comment[@"reported"] = @NO;
+    comment[kUserKey] = [PFUser currentUser];
+    comment[kCommentsPostKey] = _postObj;
 
     NSDateFormatter *dateformater=[[NSDateFormatter alloc]init];
     [dateformater setDateFormat:@"MM/dd/YYYY"];
@@ -211,7 +211,7 @@ static NSString *const reuseIdentifier = @"Cell";
     
     PFRelation *relation = [_postObj relationForKey:kRelationCommenters];
     [relation addObject:[PFUser currentUser]];
-    [_postObj incrementKey:@"numComments" byAmount:[NSNumber numberWithInt:1]];
+    [_postObj incrementKey:@"numComments" byAmount:@1];
     [_postObj saveInBackground];
     
     [self.commentTableView setNeedsDisplay];
@@ -377,7 +377,7 @@ static NSString *const reuseIdentifier = @"Cell";
         
         if (indexPath) {
             UIAlertView *alert;
-            pressed_comment = [comments objectAtIndex:indexPath.row];
+            pressed_comment = comments[indexPath.row];
             BOOL isAuthor = [[PFUser currentUser].objectId isEqualToString:pressed_comment[@"usernameId"]];
 
             if (isAuthor){
@@ -414,7 +414,7 @@ static NSString *const reuseIdentifier = @"Cell";
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-        [_postObj incrementKey:@"numComments" byAmount:[NSNumber numberWithInt:-1]];
+        [_postObj incrementKey:@"numComments" byAmount:@-1];
         [_postObj saveInBackground];
         [self.commentTableView setNeedsDisplay];
     }else{

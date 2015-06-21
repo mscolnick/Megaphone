@@ -70,3 +70,4 @@ Carthage/Build
 .Trashes
 ehthumbs.db
 Thumbs.db
+infer-out/

@@ -11,11 +11,11 @@
 #import <ParseUI/ParseUI.h>
 #import "MegaphoneConstants.h"
 
-typedef enum {
+typedef NS_ENUM(unsigned int, TableType) {
     MyPostsTable,
     FollowingTable,
     MyCommentsTable
-} TableType;
+};
 
 #define tableTitles(enum) [@[@"My Posts", @"Following", @"My Comments"] objectAtIndex: enum]
 #define tableQuery(enum) [@[@"user", @"followers", @"commenters"] objectAtIndex: enum]

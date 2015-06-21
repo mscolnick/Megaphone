@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef enum {
+typedef NS_ENUM(unsigned int, TabBarControllerViewControllerIndex) {
     CompanyTabBarItemIndex = 0,
     ProfileTabBarItemIndex = 1,
     MoreTabBarItemIndex = 2
-} TabBarControllerViewControllerIndex;
+};
 
 #pragma mark - Launch URLs
 

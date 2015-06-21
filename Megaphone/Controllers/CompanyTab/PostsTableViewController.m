@@ -1,30 +1,43 @@
 //
-//  MyPostsTableViewController.m
+//  PostsTableViewController.m
 //  Megaphone
 //
-//  Created by Myles Scolnick on 4/6/15.
+//  Created by Myles Scolnick on 4/8/15.
 //  Copyright (c) 2015 Scolnick. All rights reserved.
 //
 
-#import "ProfilePostsTableViewController.h"
+#import "PostsTableViewController.h"
+#import "NewPostViewController.h"
 #import "PostViewController.h"
+#import "PostCell.h"
 #import "GTScrollNavigationBar.h"
+#import "MegaphoneUtility.h"
 
-#define searchScopes(int) [@[kPostsTitleKey, @"company"] objectAtIndex: int]
+#define tableTitles(enum) [@[@"My Posts", @"Following", @"My Comments"] objectAtIndex: enum]
+#define searchScopes(int) [@[@"all", @"feature", @"bug", @"idea",  @"other"] objectAtIndex: int]
 
-@interface ProfilePostsTableViewController () <UISearchBarDelegate, UISearchResultsUpdating> {
+
+@interface PostsTableViewController () <UISearchBarDelegate, UISearchResultsUpdating> {
     int selectedSegment;
 }
 
 @property (strong, nonatomic) UISearchController *searchController;
 
+typedef NS_ENUM(NSInteger, PostsSearchScope)
+{
+    searchScopeAll = 0,
+    searchScopeBug = 1,
+    searchScopeFeature = 2,
+    searchScopeOther = 3,
+};
+
 @end
 
-@implementation ProfilePostsTableViewController
+@implementation PostsTableViewController
 
 static NSString *const reuseIdentifier = @"Cell";
 
-- (id)initWithStyle:(UITableViewStyle)style {
+- (instancetype)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         self.pullToRefreshEnabled = YES;
@@ -37,9 +50,9 @@ static NSString *const reuseIdentifier = @"Cell";
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:kPostsClassKey];
     
-    PFUser *currentUser = [PFUser currentUser];
+    NSString *companyName = _companyObj[@"name"];
     [query includeKey:kUserKey];
-    [query whereKey:tableQuery(_tableType) equalTo:currentUser];
+    [query whereKey:@"company" equalTo:companyName];
     if (selectedSegment == 0) {
         [query orderByDescending:kCreatedAtKey];
     } else if (selectedSegment == 1) {
@@ -49,8 +62,11 @@ static NSString *const reuseIdentifier = @"Cell";
     NSString *searchString = self.searchController.searchBar.text;
     if(searchString.length  > 0){
         NSString *xx = [NSString stringWithFormat:@"%@", searchString];
-        long scopeType = self.searchController.searchBar.selectedScopeButtonIndex;
-        [query whereKey:searchScopes(scopeType) matchesRegex:xx modifiers:@"i"];
+        [query whereKey:kPostsTitleKey matchesRegex:xx modifiers:@"i"];
+    }
+    long scopeType = self.searchController.searchBar.selectedScopeButtonIndex;
+    if(scopeType != 0){
+        [query whereKey:kPostsTypeKey equalTo:searchScopes(scopeType)];
     }
     
     // If no objects are loaded in memory, we look to the cache
@@ -63,9 +79,10 @@ static NSString *const reuseIdentifier = @"Cell";
     return query;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.navigationController.navigationBar.topItem.title = @"";
 
     selectedSegment = 0;
@@ -73,21 +90,22 @@ static NSString *const reuseIdentifier = @"Cell";
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
     self.searchController.dimsBackgroundDuringPresentation = NO;
-    self.searchController.searchBar.scopeButtonTitles = @[@"Title", @"Company"];
-    self.searchController.searchBar.delegate = self;
-    
-    self.tableView.tableHeaderView = self.searchController.searchBar;
 
+    self.searchController.searchBar.scopeButtonTitles = @[@"All", @"Feature", @"Bug", @"Idea", @"Other"];
+    self.searchController.searchBar.delegate = self;
+
+    self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
     [self.searchController.searchBar sizeToFit];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.scrollNavigationBar.scrollView = self.tableView;
     [self hideSearchBar];
     self.tabBarController.tabBar.hidden = NO;
+    self.navigationController.scrollNavigationBar.scrollView = self.tableView;
 }
 
 - (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView
@@ -106,16 +124,45 @@ static NSString *const reuseIdentifier = @"Cell";
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
                         object:(PFObject *)object {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                               reuseIdentifier:reuseIdentifier];
+        cell = [[PostCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:reuseIdentifier];
     }
     
     cell.textLabel.text = object[kPostsTitleKey];
-    cell.detailTextLabel.text = [object[@"company"] uppercaseString];
-
+    cell.numLikesLabel.text = [object[@"numLikes"] stringValue];
+    cell.numCommentsLabel.text = [object[@"numComments"] stringValue];
+    cell.postObj = object;
+    
+    //Check if user likes the post
+    BOOL contains = [MegaphoneUtility containsUser:object relationType:kRelationLikers];
+    if (contains) {
+        [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up-green"] forState:UIControlStateNormal];
+    }else {
+        [cell.upButton setImage:[UIImage imageNamed:@"ios7-arrow-up"] forState:UIControlStateNormal];
+    }
+    
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return _companyObj[@"name"];
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, tableView.frame.size.width, 20)];
+    label.textAlignment = NSTextAlignmentCenter;
+    [label setFont:[UIFont boldSystemFontOfSize:20]];
+    NSString *string = _companyObj[@"name"];
+
+    [label setText:string];
+    [view addSubview:label];
+    [view setBackgroundColor:[UIColor lightColor]];
+    return view;
 }
 
 #pragma mark - Navigation
@@ -124,9 +171,19 @@ static NSString *const reuseIdentifier = @"Cell";
     if ([segue.identifier isEqualToString:@"viewPost"]) {
         PostViewController *postVC = [segue destinationViewController];
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-        PFObject *postObject = [self.objects objectAtIndex:path.row];
+        PFObject *postObject = (self.objects)[path.row];
         postVC.postObj = postObject;
     }
+    else if ([segue.identifier isEqualToString:@"createPost"]) {
+        NewPostViewController *postVC = [segue destinationViewController];
+        postVC.companyObj = _companyObj;
+    }
+}
+
+- (IBAction)segmentSwitch:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    selectedSegment = (int) segmentedControl.selectedSegmentIndex;
+    [self loadObjects];
 }
 
 #pragma mark - UISearchResultsUpdating
@@ -149,12 +206,6 @@ static NSString *const reuseIdentifier = @"Cell";
     self.navigationController.scrollNavigationBar.scrollView = self.tableView;
 }
 
-- (IBAction)segmentSwitch:(id)sender {
-    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
-    selectedSegment = (int) segmentedControl.selectedSegmentIndex;
-    [self loadObjects];
-}
-
 - (void) hideSearchBar{
     CGRect newBounds = self.tableView.bounds;
     if (self.tableView.bounds.origin.y < 44) {
@@ -162,4 +213,5 @@ static NSString *const reuseIdentifier = @"Cell";
         self.tableView.bounds = newBounds;
     }
 }
+
 @end
