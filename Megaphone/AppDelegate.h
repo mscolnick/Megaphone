@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MegaphoneConstants.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder<UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property(strong, nonatomic) UIWindow *window;
 
--(void) login;
+- (void)login;
 
 @end
-

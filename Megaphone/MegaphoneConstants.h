@@ -10,9 +10,9 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(unsigned int, TabBarControllerViewControllerIndex) {
-    CompanyTabBarItemIndex = 0,
-    ProfileTabBarItemIndex = 1,
-    MoreTabBarItemIndex = 2
+  CompanyTabBarItemIndex = 0,
+  ProfileTabBarItemIndex = 1,
+  MoreTabBarItemIndex = 2
 };
 
 #pragma mark - Launch URLs
@@ -32,13 +32,11 @@ extern NSString *const kRelationLikers;
 extern NSString *const kRelationCommenters;
 extern NSString *const kRelationReporters;
 
-
 #pragma mark - Installation Class
 
 // Field keys
 extern NSString *const kUserKey;
 extern NSString *const kCreatedAtKey;
-
 
 #pragma mark - Posts Class
 // Class key
@@ -82,7 +80,7 @@ extern NSString *const kCommentsNumReportsKey;
 extern NSString *const kCommentsReportedKey;
 extern NSString *const kCommentsTimeStampKey;
 
-//Pointers
+// Pointers
 extern NSString *const kCommentsPostKey;
 
 #pragma mark - Company Class
@@ -96,7 +94,6 @@ extern NSString *const kCompanyNumPostsKey;
 extern NSString *const kCompanyPostsKey;
 extern NSString *const kCompanyRankKey;
 
-
 #pragma mark - Cached Posts Attributes
 // keys
 extern NSString *const kCacheIsLikedByCurrentUserKey;
@@ -105,9 +102,7 @@ extern NSString *const kCacheLikersKey;
 extern NSString *const kCacheCommentCountKey;
 extern NSString *const kCacheCommentersKey;
 
-
 #pragma mark - Cached User Attributes
-
 
 #pragma mark - Push Notification Payload Keys
 
@@ -127,14 +122,13 @@ extern NSString *const kPushPayloadFromUserObjectIdKey;
 extern NSString *const kPushPayloadToUserObjectIdKey;
 extern NSString *const kPushPayloadPostObjectIdKey;
 
-
 #pragma mark - Colors
 
 @interface UIColor (Megaphone)
 
-+(UIColor *) mainColor;
-+(UIColor *) secondaryColor;
-+(UIColor *) darkColor;
-+(UIColor *) lightColor;
++ (UIColor *)mainColor;
++ (UIColor *)secondaryColor;
++ (UIColor *)darkColor;
++ (UIColor *)lightColor;
 
 @end

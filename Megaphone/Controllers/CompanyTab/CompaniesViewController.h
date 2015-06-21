@@ -11,12 +11,14 @@
 #import <Parse/Parse.h>
 #import "MegaphoneConstants.h"
 
-@interface CompaniesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
+@interface CompaniesViewController
+    : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate,
+                       UISearchBarDelegate>
 
-@property (strong, nonatomic) NSMutableArray *myCompanies;
+@property(strong, nonatomic) NSMutableArray *myCompanies;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segControlOutlet;
+@property(weak, nonatomic) IBOutlet UISegmentedControl *segControlOutlet;
 - (IBAction)segmentSwitch:(id)sender;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property(weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

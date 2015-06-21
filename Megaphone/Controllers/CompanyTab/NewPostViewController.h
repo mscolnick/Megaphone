@@ -10,8 +10,9 @@
 #import <Parse/Parse.h>
 #import "MegaphoneConstants.h"
 
-@interface NewPostViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
+@interface NewPostViewController
+    : UIViewController<UITextFieldDelegate, UITextViewDelegate>
 
-@property (strong, nonatomic) PFObject *companyObj;
+@property(strong, nonatomic) PFObject *companyObj;
 
 @end
