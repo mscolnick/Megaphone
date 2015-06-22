@@ -7,393 +7,487 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03E57EF4770FC43290B83580 /* Pods-Megaphone-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A14F5AE9B33EDA3D4BC3DA /* Pods-Megaphone-dummy.m */; };
-		0FDE76A19237B837636D091C /* CSNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = B63D1F3833729D05DDF0DB27 /* CSNavigationController.h */; };
-		10950DEBD7E75F57D2FC2A13 /* UINavigationBar+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA358D859A4919CD7D79FC /* UINavigationBar+TCCustomFont.m */; };
-		1F61E54D01A796A22D633428 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF17C541A4FFDBC8DAF6C0E3 /* Foundation.framework */; };
-		32C5BEF71D0CF263D5749DD3 /* Pods-Megaphone-Canvas-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89530CD0EA03CD603176357A /* Pods-Megaphone-Canvas-dummy.m */; };
-		3DCE6B143E59ACD056708187 /* Pods-Megaphone-GTScrollNavigationBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0874A3719B202B806D7C7BB7 /* Pods-Megaphone-GTScrollNavigationBar-dummy.m */; };
-		423624766D5FB599B8528E56 /* CSAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F899DC85947B81FA65715CDA /* CSAnimation.m */; };
-		476522AFCB3C413362224F6C /* UILabel+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA6691B9B468AC26CCB8ABD /* UILabel+TCCustomFont.m */; };
-		4F253B806E28D72D585C853C /* CSAnimationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 968D1DA651CC58053C0F011F /* CSAnimationView.h */; };
-		5C59F914E3CFCF805E829806 /* UITextField+PlaceholderColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C0EA2C2554F7F2E235C9670 /* UITextField+PlaceholderColor.h */; };
-		5C5A96A7F1BC2438CB88ECF5 /* HexColor.h in Headers */ = {isa = PBXBuildFile; fileRef = DF251F4C0D4CB33024D7DC3F /* HexColor.h */; };
-		68990591E844806C30FC4EC5 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4E7FB32EC5D27FD397A3C0 /* HexColor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		68FCC1382E26E0D4632BA70F /* Pods-Megaphone-HexColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26621B690CDC33FD3A317701 /* Pods-Megaphone-HexColors-dummy.m */; };
-		725A786939984FCBA2584211 /* GTScrollNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 076BDD757B8553CF1B902CD2 /* GTScrollNavigationBar.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		76A8AB9615B6B1E0FC2DB5F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF17C541A4FFDBC8DAF6C0E3 /* Foundation.framework */; };
-		78292471BC9E6D691A07A2EE /* Canvas.h in Headers */ = {isa = PBXBuildFile; fileRef = 775DC17FA588515F00979F7A /* Canvas.h */; };
-		7A4388C7CAA5B4260D7F01DB /* CSAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A48A9ED14A80BC39E915445 /* CSAnimationView.m */; };
-		804FD870C1D3E5FE1145CCE6 /* CSBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D0E5880B65C7B76A409639B /* CSBlurView.h */; };
-		8995FA0CB4F23110A2A3F4FF /* UIButton+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 4941D94111BC6A8E83005708 /* UIButton+TCCustomFont.m */; };
-		A446253E0FC507C0039ED846 /* UITextField+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F3C6BDAA6C09385E8A6B112 /* UITextField+TCCustomFont.h */; };
-		B32A076C81C404BC33243A1F /* UITextView+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = DF752FF1F30941CE7AA674C2 /* UITextView+TCCustomFont.m */; };
-		BA10D024D3F7A106E2208D39 /* UIButton+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 00B45D0E7C5F44209D46EE48 /* UIButton+TCCustomFont.h */; };
-		BB7D1076F9FE0B620C16E666 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF17C541A4FFDBC8DAF6C0E3 /* Foundation.framework */; };
-		BDCEC815FEBCAE94E658251A /* CSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB4C12E8F9E98DCA782A6B4 /* CSBlurView.m */; };
-		C08FE369F90F5583C0FE948E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF17C541A4FFDBC8DAF6C0E3 /* Foundation.framework */; };
-		C1662D44123BBC737D212762 /* CSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B44FD91E63E9C38EC4F4891 /* CSNavigationController.m */; };
-		C2CED7481B747DA716CB5A27 /* UITextField+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 1530B81F53CFCF45865E5CDB /* UITextField+TCCustomFont.m */; };
-		D244B8EA49A2099C4282BFC1 /* UITextView+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D1C0F996B5F67651B96B521 /* UITextView+TCCustomFont.h */; };
-		E26E48C2888B872D0D0E80B3 /* GTScrollNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB9605300CB8C7322D7C1E3 /* GTScrollNavigationBar.h */; };
-		E89C9141906D4A5303E7641D /* UITextField+PlaceholderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C90B2729442D05F5AD06658F /* UITextField+PlaceholderColor.m */; };
-		E8BDBEE5D88C99FF2E7F08E2 /* UILabel+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 42B6F4B7331CC0EEF8DC70E6 /* UILabel+TCCustomFont.h */; };
-		F65F1E8ECC9B61F28FC9FBB8 /* CSAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A4C517388A65F017F8DDD482 /* CSAnimation.h */; };
-		FA4526934ECDF5CDD93A8AA4 /* UINavigationBar+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DAB93AAB4197C710B97EAD /* UINavigationBar+TCCustomFont.h */; };
+		0140B3A43DA2A7C673D1C9D6 /* Pods-Megaphone-FontAwesomeIconFactory-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4625622C3E55839E05852A0B /* Pods-Megaphone-FontAwesomeIconFactory-dummy.m */; };
+		055299E6F0AC0F1354F066AF /* NIKFontAwesomeTabBarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 369F28714F85A5265257BEC1 /* NIKFontAwesomeTabBarItem.h */; };
+		086633E05F570714F4A17542 /* Canvas.h in Headers */ = {isa = PBXBuildFile; fileRef = 70B02BBD6C52575EF6394FE7 /* Canvas.h */; };
+		1D8AED35062AFDFF6ABB3948 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CBDB583743A60B6CFFAE7D /* Foundation.framework */; };
+		266D248D524F9000BE9E5099 /* NIKFontAwesomeIconFactory+iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B83AC04E23C8F8FE24808F /* NIKFontAwesomeIconFactory+iOS.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		302E7650D7903AC8BAD76A00 /* NIKFontAwesomeIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = C7EF0FA1DB3A7056632246FD /* NIKFontAwesomeIcon.h */; };
+		3203B419045FE976588F621B /* UILabel+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = C635FFF73CF4D9D4F91527A4 /* UILabel+TCCustomFont.m */; };
+		3E32657F376D4BD7CDC364E5 /* CSAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F259A94A2C105A6CBC4A62 /* CSAnimation.m */; };
+		40BBB02316F34C0406505FA7 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD70391FDC73339635CD1FD /* CoreText.framework */; };
+		44EA05527F3DF644C1252839 /* NIKFontAwesomePathFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A701CDCE3B37E3714BD91 /* NIKFontAwesomePathFactory.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		46B762D7559D6D8438BEE7F0 /* UITextField+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2FAA23F4BF72458A3ECF93 /* UITextField+TCCustomFont.m */; };
+		4CE494D93CED1EBFE9533BC7 /* CSAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 997017D5E206AEC544A448A9 /* CSAnimationView.m */; };
+		4F88ACB5F49FD1C73D9DC66D /* UITextView+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D60B0050AF92FE02AEA90E8 /* UITextView+TCCustomFont.m */; };
+		4F9607E711EA3EE9020DA0B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CBDB583743A60B6CFFAE7D /* Foundation.framework */; };
+		5A9F598AF3A92D15B0643AD7 /* FontAwesomeIconFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA9D8B32954C28698C556EE /* FontAwesomeIconFactory.h */; };
+		5B912E1D6AE2DC6C23344C88 /* CSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C61CC3E17548C3F92591B4F /* CSBlurView.m */; };
+		5B92BB4BD502DE8A7C32D7C2 /* NIKFontAwesomePathRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E689ACB04A79A116A0C5DB /* NIKFontAwesomePathRenderer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5C2B088D989BCA8A765770A9 /* UINavigationBar+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 67842536E7800761433B6387 /* UINavigationBar+TCCustomFont.h */; };
+		637FE31FA8B70D7A50D0541F /* Pods-Megaphone-HexColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAEA2D02EE898DBE4F09C87 /* Pods-Megaphone-HexColors-dummy.m */; };
+		65A049F0113490B18AEB3FDF /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B577E06647A0D46E0ECFA8B2 /* HexColor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		67DAFFC6020AE528B60FD883 /* Pods-Megaphone-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3348BF4A3C7B8FB8D6F25969 /* Pods-Megaphone-dummy.m */; };
+		78DEF65CF6BF0404CF5C7EE7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545EF6AEC887468E1A1D3C29 /* CoreGraphics.framework */; };
+		81F49D33DD5BB84200BE96BB /* UINavigationBar+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9EE4C9D723256A14C87DF /* UINavigationBar+TCCustomFont.m */; };
+		835C27E9046F4CAD80727E96 /* UITextField+PlaceholderColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BFF832DB32F1F50A62508E /* UITextField+PlaceholderColor.h */; };
+		87BD45006D08DB8A74D72F3A /* NIKFontAwesomeImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 628C17AA5275A580E1B0785F /* NIKFontAwesomeImageView.h */; };
+		8CEF66E0542D7C942B70A121 /* NIKFontAwesomeIconFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 035AC2085180F8165BD075B4 /* NIKFontAwesomeIconFactory.h */; };
+		8D1B601DBBCEF33A9892CF3C /* NIKFontAwesomeIconFactory+iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C10EEBC9DB2E4A6777D173A /* NIKFontAwesomeIconFactory+iOS.h */; };
+		8F4D789AA93756505DD03AFD /* CSAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = DD8E49114364BDF25DFF51AC /* CSAnimation.h */; };
+		975B1C4FB0ABB1E59DCB25C3 /* Pods-Megaphone-GTScrollNavigationBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F74A4FEEFCC4B8F6EF1BB24 /* Pods-Megaphone-GTScrollNavigationBar-dummy.m */; };
+		9C46C88CEB39831D32CFFBB3 /* CSAnimationView.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDCF6CB3645C6B473BE6B42 /* CSAnimationView.h */; };
+		A2534F8B1C234BE451ED9EB8 /* Pods-Megaphone-Canvas-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AAE01256B16D446BC1B188 /* Pods-Megaphone-Canvas-dummy.m */; };
+		A7A07936A6C5F1DD9B08F3EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CBDB583743A60B6CFFAE7D /* Foundation.framework */; };
+		AB08AA958972A50EABE59EFC /* UITextField+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 5132A914B78EEF69C935FD70 /* UITextField+TCCustomFont.h */; };
+		AB6C8B5338047529BD42E994 /* NIKFontAwesomeButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D9A9FA083822D64148BA6DD /* NIKFontAwesomeButton.h */; };
+		AEA4313F49DB0792BB26D392 /* HexColor.h in Headers */ = {isa = PBXBuildFile; fileRef = A372392C7E816FF348CF86C4 /* HexColor.h */; };
+		B2185970A91FA13BFF39B2CE /* CSNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F7769D29028A6527A15FFE6 /* CSNavigationController.h */; };
+		B2A9AF8E61646011522AE50B /* CSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA35228D58E68B5D415E649D /* CSNavigationController.m */; };
+		B7EBBF802C7BE83CE4E65812 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CBDB583743A60B6CFFAE7D /* Foundation.framework */; };
+		BBD109B018AB1C6546839AD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CBDB583743A60B6CFFAE7D /* Foundation.framework */; };
+		C50EF733DAFC90320C3379C9 /* NIKFontAwesomeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53464DEB082BAEB6F4225B07 /* NIKFontAwesomeImageView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C60505A13105C40BA3BB1413 /* UIButton+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AC40D209AF70835511E67E /* UIButton+TCCustomFont.m */; };
+		C8ACC472E347B5A12586A1A9 /* NIKFontAwesomeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF546FCD722B56ACAF815DC /* NIKFontAwesomeButton.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CE63161FEA4D25652BC1F788 /* UILabel+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 557A76CA479F471784096D4C /* UILabel+TCCustomFont.h */; };
+		D3BE3C970A176A86D3674F26 /* CSBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 12B406272F175CE0E3DF86AA /* CSBlurView.h */; };
+		E1CD5764DE2C646E3A688386 /* NIKFontAwesomeIconFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A7611B76E37E2046574D45D2 /* NIKFontAwesomeIconFactory.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		ECAE1AED952321F6A7CCF8F0 /* UITextField+PlaceholderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A9C523A9B0EF1C1BCAB92D /* UITextField+PlaceholderColor.m */; };
+		EECA1741CCF3BBF96F7467A9 /* NIKFontAwesomePathRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 41B42249643F8B4BF749F76F /* NIKFontAwesomePathRenderer.h */; };
+		F01C3C4C2718284BD512E320 /* NIKFontAwesomePathFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DBB1AD9C59F1860F2DB22F8B /* NIKFontAwesomePathFactory.h */; };
+		F88032209859A7C1A68530F7 /* NIKFontAwesomeIconTraits.h in Headers */ = {isa = PBXBuildFile; fileRef = EBE30B93D54072ACB0FE58C3 /* NIKFontAwesomeIconTraits.h */; };
+		FA49ECE3EA39460079532DAC /* NIKFontAwesomeTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E843CF36DEA945AFF16739B /* NIKFontAwesomeTabBarItem.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FB6A2750355D4A89DA829BC2 /* GTScrollNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90315C4ABAA1BC7CAC91AB /* GTScrollNavigationBar.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FE3C744FD42FDE391D2F3068 /* UITextView+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 865E26CA82A2FA4BC3A63EFD /* UITextView+TCCustomFont.h */; };
+		FE86FFFEBD4AAAEC611188EC /* GTScrollNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 26CCE62E230A622C3EE810A2 /* GTScrollNavigationBar.h */; };
+		FE9709473F5CDE139C1459A7 /* UIButton+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 07530DD2696488EB374B03D4 /* UIButton+TCCustomFont.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3B416DD642015AD7E9EFD3AC /* PBXContainerItemProxy */ = {
+		540B6C9C1C77DADC9DE90002 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4047CC53B0B70B76D2895684 /* Project object */;
+			containerPortal = 1D7669F7402E6133A296D9CD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EB183AFC3DDD5C0DB2671A83;
-			remoteInfo = "Pods-Megaphone-HexColors";
-		};
-		5DDF4585386415DEC63B5FDF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4047CC53B0B70B76D2895684 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E9C6936E37A572CDFCE353A3;
+			remoteGlobalIDString = 18F1C64BFA5C887C6DB87BC1;
 			remoteInfo = "Pods-Megaphone-GTScrollNavigationBar";
 		};
-		78C3BB5F1FC30B490B123D4A /* PBXContainerItemProxy */ = {
+		96F4C497253483F98A22DAF4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4047CC53B0B70B76D2895684 /* Project object */;
+			containerPortal = 1D7669F7402E6133A296D9CD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1A5ABAF9FBBFD4A1F9B46878;
+			remoteGlobalIDString = 7CEB854DC7E98DD930E47C66;
+			remoteInfo = "Pods-Megaphone-FontAwesomeIconFactory";
+		};
+		C04B6CE2396C58525BFA6E5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D7669F7402E6133A296D9CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D71542B64A8D9C0CD4D1C8A8;
 			remoteInfo = "Pods-Megaphone-Canvas";
+		};
+		FD73DA7DB563636E78BC98A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D7669F7402E6133A296D9CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F0AFB61473BA3EF26ED883A;
+			remoteInfo = "Pods-Megaphone-HexColors";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00B45D0E7C5F44209D46EE48 /* UIButton+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+TCCustomFont.h"; path = "CanvasLibrary/UIButton+TCCustomFont.h"; sourceTree = "<group>"; };
-		076BDD757B8553CF1B902CD2 /* GTScrollNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTScrollNavigationBar.m; path = GTScrollNavigationBar/GTScrollNavigationBar.m; sourceTree = "<group>"; };
-		07DAB93AAB4197C710B97EAD /* UINavigationBar+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+TCCustomFont.h"; path = "CanvasLibrary/UINavigationBar+TCCustomFont.h"; sourceTree = "<group>"; };
-		0874A3719B202B806D7C7BB7 /* Pods-Megaphone-GTScrollNavigationBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Megaphone-GTScrollNavigationBar-dummy.m"; sourceTree = "<group>"; };
-		0DB9605300CB8C7322D7C1E3 /* GTScrollNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTScrollNavigationBar.h; path = GTScrollNavigationBar/GTScrollNavigationBar.h; sourceTree = "<group>"; };
-		0F3C6BDAA6C09385E8A6B112 /* UITextField+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+TCCustomFont.h"; path = "CanvasLibrary/UITextField+TCCustomFont.h"; sourceTree = "<group>"; };
-		1530B81F53CFCF45865E5CDB /* UITextField+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+TCCustomFont.m"; path = "CanvasLibrary/UITextField+TCCustomFont.m"; sourceTree = "<group>"; };
-		153EABFB19B04A7D2CECBC3D /* Pods-Megaphone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone.release.xcconfig"; sourceTree = "<group>"; };
-		17EB9788015B8B2A2FE3A6B0 /* Pods-Megaphone-GTScrollNavigationBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-GTScrollNavigationBar.xcconfig"; sourceTree = "<group>"; };
-		24A14F5AE9B33EDA3D4BC3DA /* Pods-Megaphone-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Megaphone-dummy.m"; sourceTree = "<group>"; };
-		26621B690CDC33FD3A317701 /* Pods-Megaphone-HexColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Megaphone-HexColors-dummy.m"; sourceTree = "<group>"; };
-		42B6F4B7331CC0EEF8DC70E6 /* UILabel+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+TCCustomFont.h"; path = "CanvasLibrary/UILabel+TCCustomFont.h"; sourceTree = "<group>"; };
-		4941D94111BC6A8E83005708 /* UIButton+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+TCCustomFont.m"; path = "CanvasLibrary/UIButton+TCCustomFont.m"; sourceTree = "<group>"; };
-		4B3D6348E5BB0C4B42C4BBD0 /* Pods-Megaphone-HexColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Megaphone-HexColors-prefix.pch"; sourceTree = "<group>"; };
-		4BC92F36FAD849C2EFDCABC7 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		5BB4C12E8F9E98DCA782A6B4 /* CSBlurView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSBlurView.m; path = CanvasLibrary/CSBlurView.m; sourceTree = "<group>"; };
-		5CCBB771811E262B36F01AEB /* libPods-Megaphone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Megaphone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CD3C6DD8F66B8C70BBB0520 /* Pods-Megaphone-GTScrollNavigationBar-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-GTScrollNavigationBar-Private.xcconfig"; sourceTree = "<group>"; };
-		6A48A9ED14A80BC39E915445 /* CSAnimationView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSAnimationView.m; path = CanvasLibrary/CSAnimationView.m; sourceTree = "<group>"; };
-		6C0EA2C2554F7F2E235C9670 /* UITextField+PlaceholderColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+PlaceholderColor.h"; path = "CanvasLibrary/UITextField+PlaceholderColor.h"; sourceTree = "<group>"; };
-		6DD344184A12CA9FFC64DF3E /* libPods-Megaphone-HexColors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Megaphone-HexColors.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E5E3A857882709FED65771C /* Pods-Megaphone-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Megaphone-environment.h"; sourceTree = "<group>"; };
-		775DC17FA588515F00979F7A /* Canvas.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Canvas.h; path = CanvasLibrary/Canvas.h; sourceTree = "<group>"; };
-		7D1C0F996B5F67651B96B521 /* UITextView+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+TCCustomFont.h"; path = "CanvasLibrary/UITextView+TCCustomFont.h"; sourceTree = "<group>"; };
-		89530CD0EA03CD603176357A /* Pods-Megaphone-Canvas-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Megaphone-Canvas-dummy.m"; sourceTree = "<group>"; };
-		8B44FD91E63E9C38EC4F4891 /* CSNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSNavigationController.m; path = CanvasLibrary/CSNavigationController.m; sourceTree = "<group>"; };
-		8D0E5880B65C7B76A409639B /* CSBlurView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSBlurView.h; path = CanvasLibrary/CSBlurView.h; sourceTree = "<group>"; };
-		8F4E7FB32EC5D27FD397A3C0 /* HexColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HexColor.m; path = Classes/HexColor.m; sourceTree = "<group>"; };
-		968D1DA651CC58053C0F011F /* CSAnimationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSAnimationView.h; path = CanvasLibrary/CSAnimationView.h; sourceTree = "<group>"; };
-		9AA7B24C35845DCFAB5D10B3 /* libPods-Megaphone-Canvas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Megaphone-Canvas.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CF583CB6470FD552930F6FA /* Pods-Megaphone-Canvas.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-Canvas.xcconfig"; sourceTree = "<group>"; };
-		A0C3710D944ECE593E157AE6 /* Pods-Megaphone-HexColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-HexColors.xcconfig"; sourceTree = "<group>"; };
-		A4C517388A65F017F8DDD482 /* CSAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSAnimation.h; path = CanvasLibrary/CSAnimation.h; sourceTree = "<group>"; };
-		AD309C0C113E497E70876D79 /* Pods-Megaphone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone.debug.xcconfig"; sourceTree = "<group>"; };
-		B472DF7FC545BDFA19E05816 /* Pods-Megaphone-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Megaphone-resources.sh"; sourceTree = "<group>"; };
-		B63D1F3833729D05DDF0DB27 /* CSNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSNavigationController.h; path = CanvasLibrary/CSNavigationController.h; sourceTree = "<group>"; };
-		BD2A6DB7225AB97C9F34D5C3 /* libPods-Megaphone-GTScrollNavigationBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Megaphone-GTScrollNavigationBar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5C950727E4A1CCFD367A7F1 /* Pods-Megaphone-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Megaphone-acknowledgements.plist"; sourceTree = "<group>"; };
-		C90B2729442D05F5AD06658F /* UITextField+PlaceholderColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+PlaceholderColor.m"; path = "CanvasLibrary/UITextField+PlaceholderColor.m"; sourceTree = "<group>"; };
-		C9F374C69B14ED7A017AF094 /* Pods-Megaphone-Canvas-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Megaphone-Canvas-prefix.pch"; sourceTree = "<group>"; };
-		CBAA358D859A4919CD7D79FC /* UINavigationBar+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+TCCustomFont.m"; path = "CanvasLibrary/UINavigationBar+TCCustomFont.m"; sourceTree = "<group>"; };
-		CDA6691B9B468AC26CCB8ABD /* UILabel+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+TCCustomFont.m"; path = "CanvasLibrary/UILabel+TCCustomFont.m"; sourceTree = "<group>"; };
-		D10383CF2F2FE223AB6527A0 /* Pods-Megaphone-Canvas-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-Canvas-Private.xcconfig"; sourceTree = "<group>"; };
-		D27317F1B2238C71A65271A4 /* Pods-Megaphone-HexColors-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-HexColors-Private.xcconfig"; sourceTree = "<group>"; };
-		DF251F4C0D4CB33024D7DC3F /* HexColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HexColor.h; path = Classes/HexColor.h; sourceTree = "<group>"; };
-		DF752FF1F30941CE7AA674C2 /* UITextView+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+TCCustomFont.m"; path = "CanvasLibrary/UITextView+TCCustomFont.m"; sourceTree = "<group>"; };
-		EB171DF331FCA697484C4910 /* Pods-Megaphone-GTScrollNavigationBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Megaphone-GTScrollNavigationBar-prefix.pch"; sourceTree = "<group>"; };
-		EF17C541A4FFDBC8DAF6C0E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F266A882C35DFDF0202A243B /* Pods-Megaphone-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Megaphone-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F899DC85947B81FA65715CDA /* CSAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSAnimation.m; path = CanvasLibrary/CSAnimation.m; sourceTree = "<group>"; };
+		035AC2085180F8165BD075B4 /* NIKFontAwesomeIconFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NIKFontAwesomeIconFactory.h; sourceTree = "<group>"; };
+		07530DD2696488EB374B03D4 /* UIButton+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+TCCustomFont.h"; path = "CanvasLibrary/UIButton+TCCustomFont.h"; sourceTree = "<group>"; };
+		0DEF351457F701FBCE1FBC47 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0E12FFEFC7211E3A1FD9E3AB /* Pods-Megaphone-HexColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Megaphone-HexColors-prefix.pch"; sourceTree = "<group>"; };
+		0F7769D29028A6527A15FFE6 /* CSNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSNavigationController.h; path = CanvasLibrary/CSNavigationController.h; sourceTree = "<group>"; };
+		12B406272F175CE0E3DF86AA /* CSBlurView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSBlurView.h; path = CanvasLibrary/CSBlurView.h; sourceTree = "<group>"; };
+		16A9C523A9B0EF1C1BCAB92D /* UITextField+PlaceholderColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+PlaceholderColor.m"; path = "CanvasLibrary/UITextField+PlaceholderColor.m"; sourceTree = "<group>"; };
+		16BFF832DB32F1F50A62508E /* UITextField+PlaceholderColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+PlaceholderColor.h"; path = "CanvasLibrary/UITextField+PlaceholderColor.h"; sourceTree = "<group>"; };
+		21CBDB583743A60B6CFFAE7D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		26CCE62E230A622C3EE810A2 /* GTScrollNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTScrollNavigationBar.h; path = GTScrollNavigationBar/GTScrollNavigationBar.h; sourceTree = "<group>"; };
+		2D2A701CDCE3B37E3714BD91 /* NIKFontAwesomePathFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NIKFontAwesomePathFactory.m; sourceTree = "<group>"; };
+		2D60B0050AF92FE02AEA90E8 /* UITextView+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+TCCustomFont.m"; path = "CanvasLibrary/UITextView+TCCustomFont.m"; sourceTree = "<group>"; };
+		3348BF4A3C7B8FB8D6F25969 /* Pods-Megaphone-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Megaphone-dummy.m"; sourceTree = "<group>"; };
+		358614DE83FDE88156DDBA35 /* Pods-Megaphone-FontAwesomeIconFactory.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-FontAwesomeIconFactory.xcconfig"; sourceTree = "<group>"; };
+		369F28714F85A5265257BEC1 /* NIKFontAwesomeTabBarItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIKFontAwesomeTabBarItem.h; path = iOS/NIKFontAwesomeTabBarItem.h; sourceTree = "<group>"; };
+		3AAFD980540D2553C896E4A2 /* Pods-Megaphone-Canvas.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-Canvas.xcconfig"; sourceTree = "<group>"; };
+		3B1F4E49FC98D44227D9A42B /* Pods-Megaphone-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Megaphone-environment.h"; sourceTree = "<group>"; };
+		3C10EEBC9DB2E4A6777D173A /* NIKFontAwesomeIconFactory+iOS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NIKFontAwesomeIconFactory+iOS.h"; sourceTree = "<group>"; };
+		3C61CC3E17548C3F92591B4F /* CSBlurView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSBlurView.m; path = CanvasLibrary/CSBlurView.m; sourceTree = "<group>"; };
+		3F74A4FEEFCC4B8F6EF1BB24 /* Pods-Megaphone-GTScrollNavigationBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Megaphone-GTScrollNavigationBar-dummy.m"; sourceTree = "<group>"; };
+		3F7784253CA304D7D75EB1A3 /* Pods-Megaphone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone.debug.xcconfig"; sourceTree = "<group>"; };
+		414C992AED361A0B7DECF3BD /* libPods-Megaphone-Canvas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Megaphone-Canvas.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41B42249643F8B4BF749F76F /* NIKFontAwesomePathRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NIKFontAwesomePathRenderer.h; sourceTree = "<group>"; };
+		4625622C3E55839E05852A0B /* Pods-Megaphone-FontAwesomeIconFactory-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Megaphone-FontAwesomeIconFactory-dummy.m"; sourceTree = "<group>"; };
+		4CF546FCD722B56ACAF815DC /* NIKFontAwesomeButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIKFontAwesomeButton.m; path = iOS/NIKFontAwesomeButton.m; sourceTree = "<group>"; };
+		5132A914B78EEF69C935FD70 /* UITextField+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+TCCustomFont.h"; path = "CanvasLibrary/UITextField+TCCustomFont.h"; sourceTree = "<group>"; };
+		53464DEB082BAEB6F4225B07 /* NIKFontAwesomeImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIKFontAwesomeImageView.m; path = iOS/NIKFontAwesomeImageView.m; sourceTree = "<group>"; };
+		545EF6AEC887468E1A1D3C29 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		557A76CA479F471784096D4C /* UILabel+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+TCCustomFont.h"; path = "CanvasLibrary/UILabel+TCCustomFont.h"; sourceTree = "<group>"; };
+		56AAE01256B16D446BC1B188 /* Pods-Megaphone-Canvas-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Megaphone-Canvas-dummy.m"; sourceTree = "<group>"; };
+		59A897BB76A0329535CD19FD /* Pods-Megaphone-HexColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-HexColors.xcconfig"; sourceTree = "<group>"; };
+		5BE9EE4C9D723256A14C87DF /* UINavigationBar+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+TCCustomFont.m"; path = "CanvasLibrary/UINavigationBar+TCCustomFont.m"; sourceTree = "<group>"; };
+		5E1AD40AAFC4398697FDF5C0 /* Pods-Megaphone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone.release.xcconfig"; sourceTree = "<group>"; };
+		5E2FAA23F4BF72458A3ECF93 /* UITextField+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+TCCustomFont.m"; path = "CanvasLibrary/UITextField+TCCustomFont.m"; sourceTree = "<group>"; };
+		5E843CF36DEA945AFF16739B /* NIKFontAwesomeTabBarItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIKFontAwesomeTabBarItem.m; path = iOS/NIKFontAwesomeTabBarItem.m; sourceTree = "<group>"; };
+		628C17AA5275A580E1B0785F /* NIKFontAwesomeImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIKFontAwesomeImageView.h; path = iOS/NIKFontAwesomeImageView.h; sourceTree = "<group>"; };
+		6469F3DBE801395325AE3E92 /* Pods-Megaphone-GTScrollNavigationBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-GTScrollNavigationBar.xcconfig"; sourceTree = "<group>"; };
+		64B83AC04E23C8F8FE24808F /* NIKFontAwesomeIconFactory+iOS.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NIKFontAwesomeIconFactory+iOS.m"; sourceTree = "<group>"; };
+		67842536E7800761433B6387 /* UINavigationBar+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+TCCustomFont.h"; path = "CanvasLibrary/UINavigationBar+TCCustomFont.h"; sourceTree = "<group>"; };
+		6ED137C372394B185161A53E /* libPods-Megaphone-GTScrollNavigationBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Megaphone-GTScrollNavigationBar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		70B02BBD6C52575EF6394FE7 /* Canvas.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Canvas.h; path = CanvasLibrary/Canvas.h; sourceTree = "<group>"; };
+		7475416090CA8D894AE6EB61 /* Pods-Megaphone-GTScrollNavigationBar-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-GTScrollNavigationBar-Private.xcconfig"; sourceTree = "<group>"; };
+		7DFE9B9E0CE10572C9A4EB8C /* Pods-Megaphone-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Megaphone-acknowledgements.markdown"; sourceTree = "<group>"; };
+		83FFCCB2EF90A21B45DDC742 /* FontAwesome.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesome.otf; path = "Font-Awesome/fonts/FontAwesome.otf"; sourceTree = "<group>"; };
+		865E26CA82A2FA4BC3A63EFD /* UITextView+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+TCCustomFont.h"; path = "CanvasLibrary/UITextView+TCCustomFont.h"; sourceTree = "<group>"; };
+		86F259A94A2C105A6CBC4A62 /* CSAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSAnimation.m; path = CanvasLibrary/CSAnimation.m; sourceTree = "<group>"; };
+		91131C38A6842099E8DC620D /* Pods-Megaphone-Canvas-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-Canvas-Private.xcconfig"; sourceTree = "<group>"; };
+		997017D5E206AEC544A448A9 /* CSAnimationView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSAnimationView.m; path = CanvasLibrary/CSAnimationView.m; sourceTree = "<group>"; };
+		9D9A9FA083822D64148BA6DD /* NIKFontAwesomeButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIKFontAwesomeButton.h; path = iOS/NIKFontAwesomeButton.h; sourceTree = "<group>"; };
+		9E90315C4ABAA1BC7CAC91AB /* GTScrollNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTScrollNavigationBar.m; path = GTScrollNavigationBar/GTScrollNavigationBar.m; sourceTree = "<group>"; };
+		A372392C7E816FF348CF86C4 /* HexColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HexColor.h; path = Classes/HexColor.h; sourceTree = "<group>"; };
+		A5D7C0E648DA4FD1FC6A36BE /* Pods-Megaphone-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Megaphone-acknowledgements.plist"; sourceTree = "<group>"; };
+		A6D9E7CB96083C94C41B20B2 /* Pods-Megaphone-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Megaphone-resources.sh"; sourceTree = "<group>"; };
+		A7611B76E37E2046574D45D2 /* NIKFontAwesomeIconFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NIKFontAwesomeIconFactory.m; sourceTree = "<group>"; };
+		A826F64221604B617F16D9A6 /* libPods-Megaphone-FontAwesomeIconFactory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Megaphone-FontAwesomeIconFactory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B07AAA0350DA9793539490F0 /* Pods-Megaphone-HexColors-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-HexColors-Private.xcconfig"; sourceTree = "<group>"; };
+		B2E5FE59C33C8BD749D9628B /* Pods-Megaphone-FontAwesomeIconFactory-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Megaphone-FontAwesomeIconFactory-Private.xcconfig"; sourceTree = "<group>"; };
+		B577E06647A0D46E0ECFA8B2 /* HexColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HexColor.m; path = Classes/HexColor.m; sourceTree = "<group>"; };
+		BA35228D58E68B5D415E649D /* CSNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSNavigationController.m; path = CanvasLibrary/CSNavigationController.m; sourceTree = "<group>"; };
+		C07A7638066A56D2FF676CCA /* Pods-Megaphone-FontAwesomeIconFactory-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Megaphone-FontAwesomeIconFactory-prefix.pch"; sourceTree = "<group>"; };
+		C187E3E4E12CC2D9FB8F9187 /* libPods-Megaphone-HexColors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Megaphone-HexColors.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C635FFF73CF4D9D4F91527A4 /* UILabel+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+TCCustomFont.m"; path = "CanvasLibrary/UILabel+TCCustomFont.m"; sourceTree = "<group>"; };
+		C7EF0FA1DB3A7056632246FD /* NIKFontAwesomeIcon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NIKFontAwesomeIcon.h; sourceTree = "<group>"; };
+		CC219ECFF7D5284585125B56 /* libPods-Megaphone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Megaphone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB1F1E5E165C43FE75440DC /* Pods-Megaphone-Canvas-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Megaphone-Canvas-prefix.pch"; sourceTree = "<group>"; };
+		D413E197DB084794C3F31D92 /* Pods-Megaphone-GTScrollNavigationBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Megaphone-GTScrollNavigationBar-prefix.pch"; sourceTree = "<group>"; };
+		DAA9D8B32954C28698C556EE /* FontAwesomeIconFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FontAwesomeIconFactory.h; sourceTree = "<group>"; };
+		DAD70391FDC73339635CD1FD /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		DBB1AD9C59F1860F2DB22F8B /* NIKFontAwesomePathFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NIKFontAwesomePathFactory.h; sourceTree = "<group>"; };
+		DD8E49114364BDF25DFF51AC /* CSAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSAnimation.h; path = CanvasLibrary/CSAnimation.h; sourceTree = "<group>"; };
+		DDAEA2D02EE898DBE4F09C87 /* Pods-Megaphone-HexColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Megaphone-HexColors-dummy.m"; sourceTree = "<group>"; };
+		E0E689ACB04A79A116A0C5DB /* NIKFontAwesomePathRenderer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NIKFontAwesomePathRenderer.m; sourceTree = "<group>"; };
+		E8AC40D209AF70835511E67E /* UIButton+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+TCCustomFont.m"; path = "CanvasLibrary/UIButton+TCCustomFont.m"; sourceTree = "<group>"; };
+		EBE30B93D54072ACB0FE58C3 /* NIKFontAwesomeIconTraits.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NIKFontAwesomeIconTraits.h; sourceTree = "<group>"; };
+		FCDCF6CB3645C6B473BE6B42 /* CSAnimationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSAnimationView.h; path = CanvasLibrary/CSAnimationView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1A5B95FAD3E1F9E82419DBD6 /* Frameworks */ = {
+		3AE9E9674FC62F8EC901912B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76A8AB9615B6B1E0FC2DB5F8 /* Foundation.framework in Frameworks */,
+				1D8AED35062AFDFF6ABB3948 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2289EDC37274BC94843127F4 /* Frameworks */ = {
+		4169F8FEAB65C80D7B152F19 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB7D1076F9FE0B620C16E666 /* Foundation.framework in Frameworks */,
+				BBD109B018AB1C6546839AD4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9231B20B8A0E442392E3E66C /* Frameworks */ = {
+		A3E5C044EF3323D53D066053 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C08FE369F90F5583C0FE948E /* Foundation.framework in Frameworks */,
+				78DEF65CF6BF0404CF5C7EE7 /* CoreGraphics.framework in Frameworks */,
+				40BBB02316F34C0406505FA7 /* CoreText.framework in Frameworks */,
+				A7A07936A6C5F1DD9B08F3EA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF0D45C725BECEE58F221788 /* Frameworks */ = {
+		C8C9C9D5BD2F573536242105 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F61E54D01A796A22D633428 /* Foundation.framework in Frameworks */,
+				4F9607E711EA3EE9020DA0B0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD5CBDC01541DAA6E9511947 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7EBBF802C7BE83CE4E65812 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1E283B51FC6FBBA07B170A63 /* HexColors */ = {
+		15392A26B91DFE4AA1F8D656 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
-				DF251F4C0D4CB33024D7DC3F /* HexColor.h */,
-				8F4E7FB32EC5D27FD397A3C0 /* HexColor.m */,
-				7A00671426846A459BD9B328 /* Support Files */,
+				DD8E49114364BDF25DFF51AC /* CSAnimation.h */,
+				86F259A94A2C105A6CBC4A62 /* CSAnimation.m */,
+				FCDCF6CB3645C6B473BE6B42 /* CSAnimationView.h */,
+				997017D5E206AEC544A448A9 /* CSAnimationView.m */,
+				12B406272F175CE0E3DF86AA /* CSBlurView.h */,
+				3C61CC3E17548C3F92591B4F /* CSBlurView.m */,
+				0F7769D29028A6527A15FFE6 /* CSNavigationController.h */,
+				BA35228D58E68B5D415E649D /* CSNavigationController.m */,
+				70B02BBD6C52575EF6394FE7 /* Canvas.h */,
+				07530DD2696488EB374B03D4 /* UIButton+TCCustomFont.h */,
+				E8AC40D209AF70835511E67E /* UIButton+TCCustomFont.m */,
+				557A76CA479F471784096D4C /* UILabel+TCCustomFont.h */,
+				C635FFF73CF4D9D4F91527A4 /* UILabel+TCCustomFont.m */,
+				67842536E7800761433B6387 /* UINavigationBar+TCCustomFont.h */,
+				5BE9EE4C9D723256A14C87DF /* UINavigationBar+TCCustomFont.m */,
+				16BFF832DB32F1F50A62508E /* UITextField+PlaceholderColor.h */,
+				16A9C523A9B0EF1C1BCAB92D /* UITextField+PlaceholderColor.m */,
+				5132A914B78EEF69C935FD70 /* UITextField+TCCustomFont.h */,
+				5E2FAA23F4BF72458A3ECF93 /* UITextField+TCCustomFont.m */,
+				865E26CA82A2FA4BC3A63EFD /* UITextView+TCCustomFont.h */,
+				2D60B0050AF92FE02AEA90E8 /* UITextView+TCCustomFont.m */,
+				1E74426ABA5C6EDE99721835 /* Support Files */,
 			);
-			path = HexColors;
+			path = Canvas;
 			sourceTree = "<group>";
 		};
-		2DC254414DECD931D9C117BA /* Products */ = {
+		18C814A10F9100A11F5AEE32 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5CCBB771811E262B36F01AEB /* libPods-Megaphone.a */,
-				9AA7B24C35845DCFAB5D10B3 /* libPods-Megaphone-Canvas.a */,
-				BD2A6DB7225AB97C9F34D5C3 /* libPods-Megaphone-GTScrollNavigationBar.a */,
-				6DD344184A12CA9FFC64DF3E /* libPods-Megaphone-HexColors.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		7A00671426846A459BD9B328 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				A0C3710D944ECE593E157AE6 /* Pods-Megaphone-HexColors.xcconfig */,
-				D27317F1B2238C71A65271A4 /* Pods-Megaphone-HexColors-Private.xcconfig */,
-				26621B690CDC33FD3A317701 /* Pods-Megaphone-HexColors-dummy.m */,
-				4B3D6348E5BB0C4B42C4BBD0 /* Pods-Megaphone-HexColors-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-Megaphone-HexColors";
-			sourceTree = "<group>";
-		};
-		8059C38A0EA186D3ED4BF869 /* GTScrollNavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				0DB9605300CB8C7322D7C1E3 /* GTScrollNavigationBar.h */,
-				076BDD757B8553CF1B902CD2 /* GTScrollNavigationBar.m */,
-				A003DF74927910C5C0E53944 /* Support Files */,
-			);
-			path = GTScrollNavigationBar;
-			sourceTree = "<group>";
-		};
-		8E13AD580C7BA82E325F092B /* Pods-Megaphone */ = {
-			isa = PBXGroup;
-			children = (
-				F266A882C35DFDF0202A243B /* Pods-Megaphone-acknowledgements.markdown */,
-				C5C950727E4A1CCFD367A7F1 /* Pods-Megaphone-acknowledgements.plist */,
-				24A14F5AE9B33EDA3D4BC3DA /* Pods-Megaphone-dummy.m */,
-				6E5E3A857882709FED65771C /* Pods-Megaphone-environment.h */,
-				B472DF7FC545BDFA19E05816 /* Pods-Megaphone-resources.sh */,
-				AD309C0C113E497E70876D79 /* Pods-Megaphone.debug.xcconfig */,
-				153EABFB19B04A7D2CECBC3D /* Pods-Megaphone.release.xcconfig */,
-			);
-			name = "Pods-Megaphone";
-			path = "Target Support Files/Pods-Megaphone";
-			sourceTree = "<group>";
-		};
-		91B4A4E3B4B9F9DBA77B60FF /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				EF17C541A4FFDBC8DAF6C0E3 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		A003DF74927910C5C0E53944 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				17EB9788015B8B2A2FE3A6B0 /* Pods-Megaphone-GTScrollNavigationBar.xcconfig */,
-				5CD3C6DD8F66B8C70BBB0520 /* Pods-Megaphone-GTScrollNavigationBar-Private.xcconfig */,
-				0874A3719B202B806D7C7BB7 /* Pods-Megaphone-GTScrollNavigationBar-dummy.m */,
-				EB171DF331FCA697484C4910 /* Pods-Megaphone-GTScrollNavigationBar-prefix.pch */,
+				358614DE83FDE88156DDBA35 /* Pods-Megaphone-FontAwesomeIconFactory.xcconfig */,
+				B2E5FE59C33C8BD749D9628B /* Pods-Megaphone-FontAwesomeIconFactory-Private.xcconfig */,
+				4625622C3E55839E05852A0B /* Pods-Megaphone-FontAwesomeIconFactory-dummy.m */,
+				C07A7638066A56D2FF676CCA /* Pods-Megaphone-FontAwesomeIconFactory-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Pods-Megaphone-GTScrollNavigationBar";
+			path = "../Target Support Files/Pods-Megaphone-FontAwesomeIconFactory";
 			sourceTree = "<group>";
 		};
-		A6555D7323BEC2E75640953F /* Support Files */ = {
+		1E74426ABA5C6EDE99721835 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9CF583CB6470FD552930F6FA /* Pods-Megaphone-Canvas.xcconfig */,
-				D10383CF2F2FE223AB6527A0 /* Pods-Megaphone-Canvas-Private.xcconfig */,
-				89530CD0EA03CD603176357A /* Pods-Megaphone-Canvas-dummy.m */,
-				C9F374C69B14ED7A017AF094 /* Pods-Megaphone-Canvas-prefix.pch */,
+				3AAFD980540D2553C896E4A2 /* Pods-Megaphone-Canvas.xcconfig */,
+				91131C38A6842099E8DC620D /* Pods-Megaphone-Canvas-Private.xcconfig */,
+				56AAE01256B16D446BC1B188 /* Pods-Megaphone-Canvas-dummy.m */,
+				CEB1F1E5E165C43FE75440DC /* Pods-Megaphone-Canvas-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-Megaphone-Canvas";
 			sourceTree = "<group>";
 		};
-		AA96ABDC7AC29277F4BC37F5 /* Frameworks */ = {
+		2648F3E26EE3993041419E7E /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				91B4A4E3B4B9F9DBA77B60FF /* iOS */,
+				545EF6AEC887468E1A1D3C29 /* CoreGraphics.framework */,
+				DAD70391FDC73339635CD1FD /* CoreText.framework */,
+				21CBDB583743A60B6CFFAE7D /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		379E4B55860C074C3A65020A /* Pods-Megaphone */ = {
+			isa = PBXGroup;
+			children = (
+				7DFE9B9E0CE10572C9A4EB8C /* Pods-Megaphone-acknowledgements.markdown */,
+				A5D7C0E648DA4FD1FC6A36BE /* Pods-Megaphone-acknowledgements.plist */,
+				3348BF4A3C7B8FB8D6F25969 /* Pods-Megaphone-dummy.m */,
+				3B1F4E49FC98D44227D9A42B /* Pods-Megaphone-environment.h */,
+				A6D9E7CB96083C94C41B20B2 /* Pods-Megaphone-resources.sh */,
+				3F7784253CA304D7D75EB1A3 /* Pods-Megaphone.debug.xcconfig */,
+				5E1AD40AAFC4398697FDF5C0 /* Pods-Megaphone.release.xcconfig */,
+			);
+			name = "Pods-Megaphone";
+			path = "Target Support Files/Pods-Megaphone";
+			sourceTree = "<group>";
+		};
+		6D5FCE339F6E7C814E057976 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				59A897BB76A0329535CD19FD /* Pods-Megaphone-HexColors.xcconfig */,
+				B07AAA0350DA9793539490F0 /* Pods-Megaphone-HexColors-Private.xcconfig */,
+				DDAEA2D02EE898DBE4F09C87 /* Pods-Megaphone-HexColors-dummy.m */,
+				0E12FFEFC7211E3A1FD9E3AB /* Pods-Megaphone-HexColors-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Megaphone-HexColors";
+			sourceTree = "<group>";
+		};
+		6FA0155847EA595FF45B7249 /* HexColors */ = {
+			isa = PBXGroup;
+			children = (
+				A372392C7E816FF348CF86C4 /* HexColor.h */,
+				B577E06647A0D46E0ECFA8B2 /* HexColor.m */,
+				6D5FCE339F6E7C814E057976 /* Support Files */,
+			);
+			path = HexColors;
+			sourceTree = "<group>";
+		};
+		74CBB23C6650BDD4D7221895 = {
+			isa = PBXGroup;
+			children = (
+				0DEF351457F701FBCE1FBC47 /* Podfile */,
+				7B19DF9B2C450DEF9F9DF8F7 /* Frameworks */,
+				D8653203BDA776A405F1E9DC /* Pods */,
+				84004C041F460FDAA1717200 /* Products */,
+				A5DC394BFD4B1EC290DAD99E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7B19DF9B2C450DEF9F9DF8F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2648F3E26EE3993041419E7E /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C1B4A5A26B482CE380B34B5B = {
+		84004C041F460FDAA1717200 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4BC92F36FAD849C2EFDCABC7 /* Podfile */,
-				AA96ABDC7AC29277F4BC37F5 /* Frameworks */,
-				F9A43DEA5874FBC47AB78465 /* Pods */,
-				2DC254414DECD931D9C117BA /* Products */,
-				E4E5C2B8B0E5E4513DA8F627 /* Targets Support Files */,
+				CC219ECFF7D5284585125B56 /* libPods-Megaphone.a */,
+				414C992AED361A0B7DECF3BD /* libPods-Megaphone-Canvas.a */,
+				A826F64221604B617F16D9A6 /* libPods-Megaphone-FontAwesomeIconFactory.a */,
+				6ED137C372394B185161A53E /* libPods-Megaphone-GTScrollNavigationBar.a */,
+				C187E3E4E12CC2D9FB8F9187 /* libPods-Megaphone-HexColors.a */,
 			);
+			name = Products;
 			sourceTree = "<group>";
 		};
-		E4E5C2B8B0E5E4513DA8F627 /* Targets Support Files */ = {
+		8FDDE88907644C0E0F818B4E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				8E13AD580C7BA82E325F092B /* Pods-Megaphone */,
+				6469F3DBE801395325AE3E92 /* Pods-Megaphone-GTScrollNavigationBar.xcconfig */,
+				7475416090CA8D894AE6EB61 /* Pods-Megaphone-GTScrollNavigationBar-Private.xcconfig */,
+				3F74A4FEEFCC4B8F6EF1BB24 /* Pods-Megaphone-GTScrollNavigationBar-dummy.m */,
+				D413E197DB084794C3F31D92 /* Pods-Megaphone-GTScrollNavigationBar-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Megaphone-GTScrollNavigationBar";
+			sourceTree = "<group>";
+		};
+		A0A43E792917395779BA3BC4 /* GTScrollNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				26CCE62E230A622C3EE810A2 /* GTScrollNavigationBar.h */,
+				9E90315C4ABAA1BC7CAC91AB /* GTScrollNavigationBar.m */,
+				8FDDE88907644C0E0F818B4E /* Support Files */,
+			);
+			path = GTScrollNavigationBar;
+			sourceTree = "<group>";
+		};
+		A5DC394BFD4B1EC290DAD99E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				379E4B55860C074C3A65020A /* Pods-Megaphone */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		ED6538D327471B6E5AD3B5F9 /* Canvas */ = {
+		B0430B6A81802765F95C5E5F /* FontAwesomeIconFactory */ = {
 			isa = PBXGroup;
 			children = (
-				A4C517388A65F017F8DDD482 /* CSAnimation.h */,
-				F899DC85947B81FA65715CDA /* CSAnimation.m */,
-				968D1DA651CC58053C0F011F /* CSAnimationView.h */,
-				6A48A9ED14A80BC39E915445 /* CSAnimationView.m */,
-				8D0E5880B65C7B76A409639B /* CSBlurView.h */,
-				5BB4C12E8F9E98DCA782A6B4 /* CSBlurView.m */,
-				B63D1F3833729D05DDF0DB27 /* CSNavigationController.h */,
-				8B44FD91E63E9C38EC4F4891 /* CSNavigationController.m */,
-				775DC17FA588515F00979F7A /* Canvas.h */,
-				00B45D0E7C5F44209D46EE48 /* UIButton+TCCustomFont.h */,
-				4941D94111BC6A8E83005708 /* UIButton+TCCustomFont.m */,
-				42B6F4B7331CC0EEF8DC70E6 /* UILabel+TCCustomFont.h */,
-				CDA6691B9B468AC26CCB8ABD /* UILabel+TCCustomFont.m */,
-				07DAB93AAB4197C710B97EAD /* UINavigationBar+TCCustomFont.h */,
-				CBAA358D859A4919CD7D79FC /* UINavigationBar+TCCustomFont.m */,
-				6C0EA2C2554F7F2E235C9670 /* UITextField+PlaceholderColor.h */,
-				C90B2729442D05F5AD06658F /* UITextField+PlaceholderColor.m */,
-				0F3C6BDAA6C09385E8A6B112 /* UITextField+TCCustomFont.h */,
-				1530B81F53CFCF45865E5CDB /* UITextField+TCCustomFont.m */,
-				7D1C0F996B5F67651B96B521 /* UITextView+TCCustomFont.h */,
-				DF752FF1F30941CE7AA674C2 /* UITextView+TCCustomFont.m */,
-				A6555D7323BEC2E75640953F /* Support Files */,
+				DAA9D8B32954C28698C556EE /* FontAwesomeIconFactory.h */,
+				9D9A9FA083822D64148BA6DD /* NIKFontAwesomeButton.h */,
+				4CF546FCD722B56ACAF815DC /* NIKFontAwesomeButton.m */,
+				C7EF0FA1DB3A7056632246FD /* NIKFontAwesomeIcon.h */,
+				035AC2085180F8165BD075B4 /* NIKFontAwesomeIconFactory.h */,
+				A7611B76E37E2046574D45D2 /* NIKFontAwesomeIconFactory.m */,
+				3C10EEBC9DB2E4A6777D173A /* NIKFontAwesomeIconFactory+iOS.h */,
+				64B83AC04E23C8F8FE24808F /* NIKFontAwesomeIconFactory+iOS.m */,
+				EBE30B93D54072ACB0FE58C3 /* NIKFontAwesomeIconTraits.h */,
+				628C17AA5275A580E1B0785F /* NIKFontAwesomeImageView.h */,
+				53464DEB082BAEB6F4225B07 /* NIKFontAwesomeImageView.m */,
+				DBB1AD9C59F1860F2DB22F8B /* NIKFontAwesomePathFactory.h */,
+				2D2A701CDCE3B37E3714BD91 /* NIKFontAwesomePathFactory.m */,
+				41B42249643F8B4BF749F76F /* NIKFontAwesomePathRenderer.h */,
+				E0E689ACB04A79A116A0C5DB /* NIKFontAwesomePathRenderer.m */,
+				369F28714F85A5265257BEC1 /* NIKFontAwesomeTabBarItem.h */,
+				5E843CF36DEA945AFF16739B /* NIKFontAwesomeTabBarItem.m */,
+				EF3C4D4177FD6672E02C343F /* Resources */,
+				18C814A10F9100A11F5AEE32 /* Support Files */,
 			);
-			path = Canvas;
+			path = FontAwesomeIconFactory;
 			sourceTree = "<group>";
 		};
-		F9A43DEA5874FBC47AB78465 /* Pods */ = {
+		D8653203BDA776A405F1E9DC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				ED6538D327471B6E5AD3B5F9 /* Canvas */,
-				8059C38A0EA186D3ED4BF869 /* GTScrollNavigationBar */,
-				1E283B51FC6FBBA07B170A63 /* HexColors */,
+				15392A26B91DFE4AA1F8D656 /* Canvas */,
+				B0430B6A81802765F95C5E5F /* FontAwesomeIconFactory */,
+				A0A43E792917395779BA3BC4 /* GTScrollNavigationBar */,
+				6FA0155847EA595FF45B7249 /* HexColors */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EF3C4D4177FD6672E02C343F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				83FFCCB2EF90A21B45DDC742 /* FontAwesome.otf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5546412D55F5E22259C240B9 /* Headers */ = {
+		0545B6B58F7227B47E4767B1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F65F1E8ECC9B61F28FC9FBB8 /* CSAnimation.h in Headers */,
-				4F253B806E28D72D585C853C /* CSAnimationView.h in Headers */,
-				804FD870C1D3E5FE1145CCE6 /* CSBlurView.h in Headers */,
-				0FDE76A19237B837636D091C /* CSNavigationController.h in Headers */,
-				78292471BC9E6D691A07A2EE /* Canvas.h in Headers */,
-				BA10D024D3F7A106E2208D39 /* UIButton+TCCustomFont.h in Headers */,
-				E8BDBEE5D88C99FF2E7F08E2 /* UILabel+TCCustomFont.h in Headers */,
-				FA4526934ECDF5CDD93A8AA4 /* UINavigationBar+TCCustomFont.h in Headers */,
-				5C59F914E3CFCF805E829806 /* UITextField+PlaceholderColor.h in Headers */,
-				A446253E0FC507C0039ED846 /* UITextField+TCCustomFont.h in Headers */,
-				D244B8EA49A2099C4282BFC1 /* UITextView+TCCustomFont.h in Headers */,
+				8F4D789AA93756505DD03AFD /* CSAnimation.h in Headers */,
+				9C46C88CEB39831D32CFFBB3 /* CSAnimationView.h in Headers */,
+				D3BE3C970A176A86D3674F26 /* CSBlurView.h in Headers */,
+				B2185970A91FA13BFF39B2CE /* CSNavigationController.h in Headers */,
+				086633E05F570714F4A17542 /* Canvas.h in Headers */,
+				FE9709473F5CDE139C1459A7 /* UIButton+TCCustomFont.h in Headers */,
+				CE63161FEA4D25652BC1F788 /* UILabel+TCCustomFont.h in Headers */,
+				5C2B088D989BCA8A765770A9 /* UINavigationBar+TCCustomFont.h in Headers */,
+				835C27E9046F4CAD80727E96 /* UITextField+PlaceholderColor.h in Headers */,
+				AB08AA958972A50EABE59EFC /* UITextField+TCCustomFont.h in Headers */,
+				FE3C744FD42FDE391D2F3068 /* UITextView+TCCustomFont.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		62D34F0BCBA62017304A9EBF /* Headers */ = {
+		0E9CD656923DF2B352340906 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C5A96A7F1BC2438CB88ECF5 /* HexColor.h in Headers */,
+				5A9F598AF3A92D15B0643AD7 /* FontAwesomeIconFactory.h in Headers */,
+				AB6C8B5338047529BD42E994 /* NIKFontAwesomeButton.h in Headers */,
+				302E7650D7903AC8BAD76A00 /* NIKFontAwesomeIcon.h in Headers */,
+				8D1B601DBBCEF33A9892CF3C /* NIKFontAwesomeIconFactory+iOS.h in Headers */,
+				8CEF66E0542D7C942B70A121 /* NIKFontAwesomeIconFactory.h in Headers */,
+				F88032209859A7C1A68530F7 /* NIKFontAwesomeIconTraits.h in Headers */,
+				87BD45006D08DB8A74D72F3A /* NIKFontAwesomeImageView.h in Headers */,
+				F01C3C4C2718284BD512E320 /* NIKFontAwesomePathFactory.h in Headers */,
+				EECA1741CCF3BBF96F7467A9 /* NIKFontAwesomePathRenderer.h in Headers */,
+				055299E6F0AC0F1354F066AF /* NIKFontAwesomeTabBarItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		64245164514667C343F65483 /* Headers */ = {
+		226148188084E46F490725EF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E26E48C2888B872D0D0E80B3 /* GTScrollNavigationBar.h in Headers */,
+				AEA4313F49DB0792BB26D392 /* HexColor.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59CED2F4E1C539C8880B9EC0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE86FFFEBD4AAAEC611188EC /* GTScrollNavigationBar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1A5ABAF9FBBFD4A1F9B46878 /* Pods-Megaphone-Canvas */ = {
+		18F1C64BFA5C887C6DB87BC1 /* Pods-Megaphone-GTScrollNavigationBar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F35D0242847FD70C8A0EAF63 /* Build configuration list for PBXNativeTarget "Pods-Megaphone-Canvas" */;
+			buildConfigurationList = 94F2418B2B225DF8AD8387E3 /* Build configuration list for PBXNativeTarget "Pods-Megaphone-GTScrollNavigationBar" */;
 			buildPhases = (
-				9899A121A8AE833C8BB50EB2 /* Sources */,
-				BF0D45C725BECEE58F221788 /* Frameworks */,
-				5546412D55F5E22259C240B9 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Megaphone-Canvas";
-			productName = "Pods-Megaphone-Canvas";
-			productReference = 9AA7B24C35845DCFAB5D10B3 /* libPods-Megaphone-Canvas.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		D257636284CD0D6C03C89D5A /* Pods-Megaphone */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A40F6E78E9C7119E296DC78B /* Build configuration list for PBXNativeTarget "Pods-Megaphone" */;
-			buildPhases = (
-				4273AAC4FA127138732CE616 /* Sources */,
-				1A5B95FAD3E1F9E82419DBD6 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E13CE6514A18D5C42A08AB34 /* PBXTargetDependency */,
-				BF7E5A07E6B9BC631BD63DC0 /* PBXTargetDependency */,
-				89C34F193E20CE04CBC36984 /* PBXTargetDependency */,
-			);
-			name = "Pods-Megaphone";
-			productName = "Pods-Megaphone";
-			productReference = 5CCBB771811E262B36F01AEB /* libPods-Megaphone.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		E9C6936E37A572CDFCE353A3 /* Pods-Megaphone-GTScrollNavigationBar */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5D46890283FB4A6407DEA787 /* Build configuration list for PBXNativeTarget "Pods-Megaphone-GTScrollNavigationBar" */;
-			buildPhases = (
-				DCAD0A0BF9736CA6D47C1B12 /* Sources */,
-				9231B20B8A0E442392E3E66C /* Frameworks */,
-				64245164514667C343F65483 /* Headers */,
+				7B4B5C4C0292E53049BEF8D4 /* Sources */,
+				4169F8FEAB65C80D7B152F19 /* Frameworks */,
+				59CED2F4E1C539C8880B9EC0 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -401,16 +495,16 @@
 			);
 			name = "Pods-Megaphone-GTScrollNavigationBar";
 			productName = "Pods-Megaphone-GTScrollNavigationBar";
-			productReference = BD2A6DB7225AB97C9F34D5C3 /* libPods-Megaphone-GTScrollNavigationBar.a */;
+			productReference = 6ED137C372394B185161A53E /* libPods-Megaphone-GTScrollNavigationBar.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		EB183AFC3DDD5C0DB2671A83 /* Pods-Megaphone-HexColors */ = {
+		5F0AFB61473BA3EF26ED883A /* Pods-Megaphone-HexColors */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4DF6A79456400713B6854606 /* Build configuration list for PBXNativeTarget "Pods-Megaphone-HexColors" */;
+			buildConfigurationList = 09F6F259B6ED7C496B8A9305 /* Build configuration list for PBXNativeTarget "Pods-Megaphone-HexColors" */;
 			buildPhases = (
-				6820DA3D6D1E8D60CAA0301E /* Sources */,
-				2289EDC37274BC94843127F4 /* Frameworks */,
-				62D34F0BCBA62017304A9EBF /* Headers */,
+				2C064247CCACFEC6EB362AC5 /* Sources */,
+				FD5CBDC01541DAA6E9511947 /* Frameworks */,
+				226148188084E46F490725EF /* Headers */,
 			);
 			buildRules = (
 			);
@@ -418,187 +512,183 @@
 			);
 			name = "Pods-Megaphone-HexColors";
 			productName = "Pods-Megaphone-HexColors";
-			productReference = 6DD344184A12CA9FFC64DF3E /* libPods-Megaphone-HexColors.a */;
+			productReference = C187E3E4E12CC2D9FB8F9187 /* libPods-Megaphone-HexColors.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7CEB854DC7E98DD930E47C66 /* Pods-Megaphone-FontAwesomeIconFactory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94E19D45A5B180789DE11FE9 /* Build configuration list for PBXNativeTarget "Pods-Megaphone-FontAwesomeIconFactory" */;
+			buildPhases = (
+				62D438CB5EDC72B5AF0AD76F /* Sources */,
+				A3E5C044EF3323D53D066053 /* Frameworks */,
+				0E9CD656923DF2B352340906 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Megaphone-FontAwesomeIconFactory";
+			productName = "Pods-Megaphone-FontAwesomeIconFactory";
+			productReference = A826F64221604B617F16D9A6 /* libPods-Megaphone-FontAwesomeIconFactory.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BC0921B011B0F703F2723E0D /* Pods-Megaphone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9A6D90F8E342C62002884A9 /* Build configuration list for PBXNativeTarget "Pods-Megaphone" */;
+			buildPhases = (
+				550DBFD09ABA042737B80ACB /* Sources */,
+				3AE9E9674FC62F8EC901912B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6F1EE00D65FAE88EF9BF0E91 /* PBXTargetDependency */,
+				4F98B645013CEA3F9C6A1BBF /* PBXTargetDependency */,
+				87F471727418B88CA2DCC000 /* PBXTargetDependency */,
+				10A981DCB801836342D4EB7E /* PBXTargetDependency */,
+			);
+			name = "Pods-Megaphone";
+			productName = "Pods-Megaphone";
+			productReference = CC219ECFF7D5284585125B56 /* libPods-Megaphone.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D71542B64A8D9C0CD4D1C8A8 /* Pods-Megaphone-Canvas */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 462926BCA4D029725716B49D /* Build configuration list for PBXNativeTarget "Pods-Megaphone-Canvas" */;
+			buildPhases = (
+				59A802B5F3AAFD1D34C0B191 /* Sources */,
+				C8C9C9D5BD2F573536242105 /* Frameworks */,
+				0545B6B58F7227B47E4767B1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Megaphone-Canvas";
+			productName = "Pods-Megaphone-Canvas";
+			productReference = 414C992AED361A0B7DECF3BD /* libPods-Megaphone-Canvas.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4047CC53B0B70B76D2895684 /* Project object */ = {
+		1D7669F7402E6133A296D9CD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 8680F83AB51C86C6C24A178A /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = DDEC9742C0E3E5D97CD76484 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = C1B4A5A26B482CE380B34B5B;
-			productRefGroup = 2DC254414DECD931D9C117BA /* Products */;
+			mainGroup = 74CBB23C6650BDD4D7221895;
+			productRefGroup = 84004C041F460FDAA1717200 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D257636284CD0D6C03C89D5A /* Pods-Megaphone */,
-				1A5ABAF9FBBFD4A1F9B46878 /* Pods-Megaphone-Canvas */,
-				E9C6936E37A572CDFCE353A3 /* Pods-Megaphone-GTScrollNavigationBar */,
-				EB183AFC3DDD5C0DB2671A83 /* Pods-Megaphone-HexColors */,
+				BC0921B011B0F703F2723E0D /* Pods-Megaphone */,
+				D71542B64A8D9C0CD4D1C8A8 /* Pods-Megaphone-Canvas */,
+				7CEB854DC7E98DD930E47C66 /* Pods-Megaphone-FontAwesomeIconFactory */,
+				18F1C64BFA5C887C6DB87BC1 /* Pods-Megaphone-GTScrollNavigationBar */,
+				5F0AFB61473BA3EF26ED883A /* Pods-Megaphone-HexColors */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4273AAC4FA127138732CE616 /* Sources */ = {
+		2C064247CCACFEC6EB362AC5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03E57EF4770FC43290B83580 /* Pods-Megaphone-dummy.m in Sources */,
+				65A049F0113490B18AEB3FDF /* HexColor.m in Sources */,
+				637FE31FA8B70D7A50D0541F /* Pods-Megaphone-HexColors-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6820DA3D6D1E8D60CAA0301E /* Sources */ = {
+		550DBFD09ABA042737B80ACB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68990591E844806C30FC4EC5 /* HexColor.m in Sources */,
-				68FCC1382E26E0D4632BA70F /* Pods-Megaphone-HexColors-dummy.m in Sources */,
+				67DAFFC6020AE528B60FD883 /* Pods-Megaphone-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9899A121A8AE833C8BB50EB2 /* Sources */ = {
+		59A802B5F3AAFD1D34C0B191 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				423624766D5FB599B8528E56 /* CSAnimation.m in Sources */,
-				7A4388C7CAA5B4260D7F01DB /* CSAnimationView.m in Sources */,
-				BDCEC815FEBCAE94E658251A /* CSBlurView.m in Sources */,
-				C1662D44123BBC737D212762 /* CSNavigationController.m in Sources */,
-				32C5BEF71D0CF263D5749DD3 /* Pods-Megaphone-Canvas-dummy.m in Sources */,
-				8995FA0CB4F23110A2A3F4FF /* UIButton+TCCustomFont.m in Sources */,
-				476522AFCB3C413362224F6C /* UILabel+TCCustomFont.m in Sources */,
-				10950DEBD7E75F57D2FC2A13 /* UINavigationBar+TCCustomFont.m in Sources */,
-				E89C9141906D4A5303E7641D /* UITextField+PlaceholderColor.m in Sources */,
-				C2CED7481B747DA716CB5A27 /* UITextField+TCCustomFont.m in Sources */,
-				B32A076C81C404BC33243A1F /* UITextView+TCCustomFont.m in Sources */,
+				3E32657F376D4BD7CDC364E5 /* CSAnimation.m in Sources */,
+				4CE494D93CED1EBFE9533BC7 /* CSAnimationView.m in Sources */,
+				5B912E1D6AE2DC6C23344C88 /* CSBlurView.m in Sources */,
+				B2A9AF8E61646011522AE50B /* CSNavigationController.m in Sources */,
+				A2534F8B1C234BE451ED9EB8 /* Pods-Megaphone-Canvas-dummy.m in Sources */,
+				C60505A13105C40BA3BB1413 /* UIButton+TCCustomFont.m in Sources */,
+				3203B419045FE976588F621B /* UILabel+TCCustomFont.m in Sources */,
+				81F49D33DD5BB84200BE96BB /* UINavigationBar+TCCustomFont.m in Sources */,
+				ECAE1AED952321F6A7CCF8F0 /* UITextField+PlaceholderColor.m in Sources */,
+				46B762D7559D6D8438BEE7F0 /* UITextField+TCCustomFont.m in Sources */,
+				4F88ACB5F49FD1C73D9DC66D /* UITextView+TCCustomFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DCAD0A0BF9736CA6D47C1B12 /* Sources */ = {
+		62D438CB5EDC72B5AF0AD76F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				725A786939984FCBA2584211 /* GTScrollNavigationBar.m in Sources */,
-				3DCE6B143E59ACD056708187 /* Pods-Megaphone-GTScrollNavigationBar-dummy.m in Sources */,
+				C8ACC472E347B5A12586A1A9 /* NIKFontAwesomeButton.m in Sources */,
+				266D248D524F9000BE9E5099 /* NIKFontAwesomeIconFactory+iOS.m in Sources */,
+				E1CD5764DE2C646E3A688386 /* NIKFontAwesomeIconFactory.m in Sources */,
+				C50EF733DAFC90320C3379C9 /* NIKFontAwesomeImageView.m in Sources */,
+				44EA05527F3DF644C1252839 /* NIKFontAwesomePathFactory.m in Sources */,
+				5B92BB4BD502DE8A7C32D7C2 /* NIKFontAwesomePathRenderer.m in Sources */,
+				FA49ECE3EA39460079532DAC /* NIKFontAwesomeTabBarItem.m in Sources */,
+				0140B3A43DA2A7C673D1C9D6 /* Pods-Megaphone-FontAwesomeIconFactory-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B4B5C4C0292E53049BEF8D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB6A2750355D4A89DA829BC2 /* GTScrollNavigationBar.m in Sources */,
+				975B1C4FB0ABB1E59DCB25C3 /* Pods-Megaphone-GTScrollNavigationBar-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		89C34F193E20CE04CBC36984 /* PBXTargetDependency */ = {
+		10A981DCB801836342D4EB7E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Megaphone-HexColors";
-			target = EB183AFC3DDD5C0DB2671A83 /* Pods-Megaphone-HexColors */;
-			targetProxy = 3B416DD642015AD7E9EFD3AC /* PBXContainerItemProxy */;
+			target = 5F0AFB61473BA3EF26ED883A /* Pods-Megaphone-HexColors */;
+			targetProxy = FD73DA7DB563636E78BC98A5 /* PBXContainerItemProxy */;
 		};
-		BF7E5A07E6B9BC631BD63DC0 /* PBXTargetDependency */ = {
+		4F98B645013CEA3F9C6A1BBF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Megaphone-GTScrollNavigationBar";
-			target = E9C6936E37A572CDFCE353A3 /* Pods-Megaphone-GTScrollNavigationBar */;
-			targetProxy = 5DDF4585386415DEC63B5FDF /* PBXContainerItemProxy */;
+			name = "Pods-Megaphone-FontAwesomeIconFactory";
+			target = 7CEB854DC7E98DD930E47C66 /* Pods-Megaphone-FontAwesomeIconFactory */;
+			targetProxy = 96F4C497253483F98A22DAF4 /* PBXContainerItemProxy */;
 		};
-		E13CE6514A18D5C42A08AB34 /* PBXTargetDependency */ = {
+		6F1EE00D65FAE88EF9BF0E91 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Megaphone-Canvas";
-			target = 1A5ABAF9FBBFD4A1F9B46878 /* Pods-Megaphone-Canvas */;
-			targetProxy = 78C3BB5F1FC30B490B123D4A /* PBXContainerItemProxy */;
+			target = D71542B64A8D9C0CD4D1C8A8 /* Pods-Megaphone-Canvas */;
+			targetProxy = C04B6CE2396C58525BFA6E5F /* PBXContainerItemProxy */;
+		};
+		87F471727418B88CA2DCC000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Megaphone-GTScrollNavigationBar";
+			target = 18F1C64BFA5C887C6DB87BC1 /* Pods-Megaphone-GTScrollNavigationBar */;
+			targetProxy = 540B6C9C1C77DADC9DE90002 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		142E0CF4403A28CA140987DA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CD3C6DD8F66B8C70BBB0520 /* Pods-Megaphone-GTScrollNavigationBar-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Megaphone-GTScrollNavigationBar/Pods-Megaphone-GTScrollNavigationBar-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		184708EDE1860D20776155DD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D10383CF2F2FE223AB6527A0 /* Pods-Megaphone-Canvas-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Megaphone-Canvas/Pods-Megaphone-Canvas-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		2AA347F972F81D8829EA41AD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD309C0C113E497E70876D79 /* Pods-Megaphone.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		33CB5A0FF3D95FD685E1ABB3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 153EABFB19B04A7D2CECBC3D /* Pods-Megaphone.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		34A85E307843570F3F773404 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CD3C6DD8F66B8C70BBB0520 /* Pods-Megaphone-GTScrollNavigationBar-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Megaphone-GTScrollNavigationBar/Pods-Megaphone-GTScrollNavigationBar-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		3CB50482474F0A6268F776C1 /* Release */ = {
+		0D19335E9E9242F1874C6709 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -632,7 +722,23 @@
 			};
 			name = Release;
 		};
-		534F300BECA3C5628EF3B035 /* Debug */ = {
+		1965161A1CE4C165BBA57D7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91131C38A6842099E8DC620D /* Pods-Megaphone-Canvas-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Megaphone-Canvas/Pods-Megaphone-Canvas-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1B64456B37B14E5651E76957 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -671,29 +777,61 @@
 			};
 			name = Debug;
 		};
-		66D2286D515F4C3146C3612E /* Debug */ = {
+		254669F7F2354DCAB46BDD80 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D27317F1B2238C71A65271A4 /* Pods-Megaphone-HexColors-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Megaphone-HexColors/Pods-Megaphone-HexColors-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		85F7DC55267F5A58D34F4699 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D10383CF2F2FE223AB6527A0 /* Pods-Megaphone-Canvas-Private.xcconfig */;
+			baseConfigurationReference = 91131C38A6842099E8DC620D /* Pods-Megaphone-Canvas-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Megaphone-Canvas/Pods-Megaphone-Canvas-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3E74F2D3DB7DF37F9648CEDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7475416090CA8D894AE6EB61 /* Pods-Megaphone-GTScrollNavigationBar-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Megaphone-GTScrollNavigationBar/Pods-Megaphone-GTScrollNavigationBar-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4AA90C1D98D66A0C26C2AF86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F7784253CA304D7D75EB1A3 /* Pods-Megaphone.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5593647944AEE23DF6A9062D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7475416090CA8D894AE6EB61 /* Pods-Megaphone-GTScrollNavigationBar-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Megaphone-GTScrollNavigationBar/Pods-Megaphone-GTScrollNavigationBar-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -703,9 +841,25 @@
 			};
 			name = Debug;
 		};
-		FFD0A3E8266ACD96D0E85CE8 /* Release */ = {
+		8E1CC38E4BDFC6EC6409D159 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D27317F1B2238C71A65271A4 /* Pods-Megaphone-HexColors-Private.xcconfig */;
+			baseConfigurationReference = 5E1AD40AAFC4398697FDF5C0 /* Pods-Megaphone.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8F9DE8A5875D2023BFA26D94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B07AAA0350DA9793539490F0 /* Pods-Megaphone-HexColors-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Megaphone-HexColors/Pods-Megaphone-HexColors-prefix.pch";
@@ -719,55 +873,112 @@
 			};
 			name = Release;
 		};
+		DD8F55C90AC7AAF131916B51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2E5FE59C33C8BD749D9628B /* Pods-Megaphone-FontAwesomeIconFactory-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Megaphone-FontAwesomeIconFactory/Pods-Megaphone-FontAwesomeIconFactory-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E32F10CF9CCAE5983111DEA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B07AAA0350DA9793539490F0 /* Pods-Megaphone-HexColors-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Megaphone-HexColors/Pods-Megaphone-HexColors-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E84E70B31F8EAB2D68B979E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2E5FE59C33C8BD749D9628B /* Pods-Megaphone-FontAwesomeIconFactory-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Megaphone-FontAwesomeIconFactory/Pods-Megaphone-FontAwesomeIconFactory-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4DF6A79456400713B6854606 /* Build configuration list for PBXNativeTarget "Pods-Megaphone-HexColors" */ = {
+		09F6F259B6ED7C496B8A9305 /* Build configuration list for PBXNativeTarget "Pods-Megaphone-HexColors" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				66D2286D515F4C3146C3612E /* Debug */,
-				FFD0A3E8266ACD96D0E85CE8 /* Release */,
+				E32F10CF9CCAE5983111DEA2 /* Debug */,
+				8F9DE8A5875D2023BFA26D94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5D46890283FB4A6407DEA787 /* Build configuration list for PBXNativeTarget "Pods-Megaphone-GTScrollNavigationBar" */ = {
+		462926BCA4D029725716B49D /* Build configuration list for PBXNativeTarget "Pods-Megaphone-Canvas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				142E0CF4403A28CA140987DA /* Debug */,
-				34A85E307843570F3F773404 /* Release */,
+				1965161A1CE4C165BBA57D7A /* Debug */,
+				254669F7F2354DCAB46BDD80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8680F83AB51C86C6C24A178A /* Build configuration list for PBXProject "Pods" */ = {
+		94E19D45A5B180789DE11FE9 /* Build configuration list for PBXNativeTarget "Pods-Megaphone-FontAwesomeIconFactory" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				534F300BECA3C5628EF3B035 /* Debug */,
-				3CB50482474F0A6268F776C1 /* Release */,
+				DD8F55C90AC7AAF131916B51 /* Debug */,
+				E84E70B31F8EAB2D68B979E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A40F6E78E9C7119E296DC78B /* Build configuration list for PBXNativeTarget "Pods-Megaphone" */ = {
+		94F2418B2B225DF8AD8387E3 /* Build configuration list for PBXNativeTarget "Pods-Megaphone-GTScrollNavigationBar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2AA347F972F81D8829EA41AD /* Debug */,
-				33CB5A0FF3D95FD685E1ABB3 /* Release */,
+				5593647944AEE23DF6A9062D /* Debug */,
+				3E74F2D3DB7DF37F9648CEDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F35D0242847FD70C8A0EAF63 /* Build configuration list for PBXNativeTarget "Pods-Megaphone-Canvas" */ = {
+		C9A6D90F8E342C62002884A9 /* Build configuration list for PBXNativeTarget "Pods-Megaphone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				85F7DC55267F5A58D34F4699 /* Debug */,
-				184708EDE1860D20776155DD /* Release */,
+				4AA90C1D98D66A0C26C2AF86 /* Debug */,
+				8E1CC38E4BDFC6EC6409D159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDEC9742C0E3E5D97CD76484 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B64456B37B14E5651E76957 /* Debug */,
+				0D19335E9E9242F1874C6709 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4047CC53B0B70B76D2895684 /* Project object */;
+	rootObject = 1D7669F7402E6133A296D9CD /* Project object */;
 }

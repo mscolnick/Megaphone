@@ -167,26 +167,24 @@
         // result is a dictionary with the user's Facebook data
         NSDictionary *userData = (NSDictionary *)result;
         NSString *facebookID = userData[@"id"];
-        NSString *name = userData[@"name"];
-        NSString *first_name = userData[kPostsFirstNameKey];
-        NSString *last_name = userData[kPostsLastNameKey];
-
         NSString *picURL = [NSString
             stringWithFormat:@"https://graph.facebook.com/%@/"
                              @"picture?type=large&return_ssl_resources=1",
                              facebookID];
 
         PFUser *currentUser = [PFUser currentUser];
-        currentUser[@"name"] = name;
+        currentUser[@"name"] = userData[@"name"];
         currentUser[@"id"] = facebookID;
         currentUser[@"imageLink"] = picURL;
-        currentUser[kPostsFirstNameKey] = first_name;
-        currentUser[kPostsLastNameKey] = last_name;
+        currentUser[kPostsFirstNameKey] = userData[@"first_name"];
+        currentUser[kPostsLastNameKey] = userData[@"last_name"];
+        currentUser[@"gender"] = userData[@"gender"];
+        currentUser[@"email"] = userData[@"email"];
+        currentUser[@"hometown"] = userData[@"hometown"][@"name"];
         [currentUser saveInBackground];
       }
     }];
   }
-  NSLog(@"Main view controller");
 
   self.window.rootViewController = [[UIStoryboard
       storyboardWithName:@"Main"
@@ -219,9 +217,10 @@
 
     [logInViewController setDelegate:self];  // Set ourselves as the delegate
 
-    [logInViewController setFacebookPermissions:@[ @"public_profile" ]];
     [logInViewController
-        setFields:PFLogInFieldsTwitter | PFLogInFieldsFacebook];
+        setFacebookPermissions:
+            @[ @"public_profile", @"email", @"user_hometown" ]];
+    [logInViewController setFields:PFLogInFieldsFacebook];
 
     [logInViewController.logInView
         setLogo:[[UIImageView alloc] initWithImage:nil]];

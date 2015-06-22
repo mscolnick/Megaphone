@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_Canvas 1
 #define COCOAPODS_VERSION_PATCH_Canvas 2
 
+// FontAwesomeIconFactory
+#define COCOAPODS_POD_AVAILABLE_FontAwesomeIconFactory
+#define COCOAPODS_VERSION_MAJOR_FontAwesomeIconFactory 2
+#define COCOAPODS_VERSION_MINOR_FontAwesomeIconFactory 0
+#define COCOAPODS_VERSION_PATCH_FontAwesomeIconFactory 0
+
 // GTScrollNavigationBar
 #define COCOAPODS_POD_AVAILABLE_GTScrollNavigationBar
 #define COCOAPODS_VERSION_MAJOR_GTScrollNavigationBar 0

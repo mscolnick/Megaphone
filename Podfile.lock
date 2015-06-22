@@ -1,15 +1,18 @@
 PODS:
   - Canvas (0.1.2)
+  - FontAwesomeIconFactory (2.0)
   - GTScrollNavigationBar (0.1.3)
   - HexColors (2.2.1)
 
 DEPENDENCIES:
   - Canvas (~> 0.1.2)
+  - FontAwesomeIconFactory
   - GTScrollNavigationBar
   - HexColors
 
 SPEC CHECKSUMS:
   Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
+  FontAwesomeIconFactory: d161a1832f8220d764033e0fcc4f4a8388495ab7
   GTScrollNavigationBar: 2fee3124c458393eca1d6d68ebf759051280f475
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
 
