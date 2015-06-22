@@ -7,6 +7,7 @@
 //
 
 #import "CompanyCell.h"
+#import "UIColor+Megaphone.h"
 
 @implementation CompanyCell
 
@@ -19,13 +20,13 @@
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
         [_imageView.layer setCornerRadius:5.f];
         // border
-        [_imageView.layer setBorderColor:[UIColor lightColor].CGColor];
+        [_imageView.layer setBorderColor:[UIColor meg_lightGreyColor].CGColor];
         [_imageView.layer setBorderWidth:1.f];
-        self.backgroundColor = [UIColor lightColor];
+        self.backgroundColor = [UIColor meg_lightGreyColor];
         [self.layer setCornerRadius:5.f];
         
         // shadow
-        [self.layer setShadowColor:[UIColor darkColor].CGColor];
+        [self.layer setShadowColor:[UIColor meg_darkGreyColor].CGColor];
         [self.layer setShadowOpacity:0.8];
         [self.layer setShadowRadius:3];
         [self.layer setShadowOffset:CGSizeMake(2.0, 2.0)];

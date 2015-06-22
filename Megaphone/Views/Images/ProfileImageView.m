@@ -7,6 +7,7 @@
 //
 
 #import "ProfileImageView.h"
+#import "UIColor+Megaphone.h"
 
 @implementation ProfileImageView
 
@@ -16,9 +17,9 @@
     self.layer.cornerRadius = self.frame.size.height / 2;
     self.layer.masksToBounds = YES;
     self.layer.borderWidth = 0;
-    [self.layer setBorderColor: [[UIColor lightColor] CGColor]];
+    [self.layer setBorderColor: [[UIColor meg_lightGreyColor] CGColor]];
     [self.layer setBorderWidth: 1.5];
-    self.backgroundColor = [UIColor lightColor];
+    self.backgroundColor = [UIColor meg_lightGreyColor];
     [self setNeedsLayout];
 }
 

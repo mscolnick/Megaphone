@@ -12,6 +12,7 @@
 #import "PostCell.h"
 #import "GTScrollNavigationBar.h"
 #import "MegaphoneUtility.h"
+#import "UIColor+Megaphone.h"
 
 #define tableTitles(enum) \
   [@[ @"My Posts", @"Following", @"My Comments" ] objectAtIndex:enum]
@@ -167,7 +168,7 @@ titleForHeaderInSection:(NSInteger)section {
 
   [label setText:string];
   [view addSubview:label];
-  [view setBackgroundColor:[UIColor lightColor]];
+  [view setBackgroundColor:[UIColor meg_composeGreyBackgroundColor]];
   return view;
 }
 

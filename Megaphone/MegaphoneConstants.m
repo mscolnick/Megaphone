@@ -7,6 +7,7 @@
 //
 
 #import "MegaphoneConstants.h"
+#import "HexColor.h"
 
 #pragma mark - Launch URLs
 
@@ -115,34 +116,3 @@ NSString *const kPushPayloadActivityFollowKey = @"f";
 NSString *const kPushPayloadFromUserObjectIdKey = @"fu";
 NSString *const kPushPayloadToUserObjectIdKey = @"tu";
 NSString *const kPushPayloadPostObjectIdKey = @"pid";
-
-#pragma mark - Colors
-
-@implementation UIColor (ProjectName)
-
-+ (UIColor *)mainColor {
-  return [UIColor colorWithRed:52.0 / 255.0
-                         green:73.0 / 255.0
-                          blue:94.0 / 255.0
-                         alpha:1.0];
-}
-+ (UIColor *)secondaryColor {
-  return [UIColor colorWithRed:183.0 / 255.0
-                         green:228.0 / 255.0
-                          blue:242.0 / 255.0
-                         alpha:1.0];
-}
-+ (UIColor *)darkColor {
-  return [UIColor colorWithRed:45.0 / 255.0
-                         green:62.0 / 255.0
-                          blue:79.0 / 255.0
-                         alpha:1.0];
-}
-+ (UIColor *)lightColor {
-  return [UIColor colorWithRed:236.0 / 255.0
-                         green:240.0 / 255.0
-                          blue:241.0 / 255.0
-                         alpha:1.0];
-}
-
-@end

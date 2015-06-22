@@ -15,6 +15,7 @@
 #import "PostsTableViewController.h"
 #import "MegaphoneUtility.h"
 #import "PostViewController.h"
+#import "UIColor+Megaphone.h"
 
 @interface AppDelegate ()<PFLogInViewControllerDelegate,
                           PFSignUpViewControllerDelegate>
@@ -37,14 +38,12 @@
 
   // System Wide configs
   [[UINavigationBar appearance] setTitleTextAttributes:@{
-    NSForegroundColorAttributeName : [UIColor lightColor],
+    NSForegroundColorAttributeName : [UIColor meg_lightGreyColor],
     NSFontAttributeName : [UIFont fontWithName:@"Copperplate" size:18.0f]
   }];
+  [[UINavigationBar appearance] setTintColor:[UIColor meg_superLightGreyColor]];
   [[UINavigationBar appearance]
-      setTintColor:[UIColor secondaryColor]];  // this will change the back
-                                               // button tint
-  [[UINavigationBar appearance]
-      setBarTintColor:[UIColor mainColor]];  // #007ee5
+      setBarTintColor:[UIColor meg_megaphoneBlueColor]];
 
   return YES;
 }

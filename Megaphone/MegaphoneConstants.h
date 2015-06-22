@@ -121,14 +121,3 @@ extern NSString *const kPushPayloadActivityFollowKey;
 extern NSString *const kPushPayloadFromUserObjectIdKey;
 extern NSString *const kPushPayloadToUserObjectIdKey;
 extern NSString *const kPushPayloadPostObjectIdKey;
-
-#pragma mark - Colors
-
-@interface UIColor (Megaphone)
-
-+ (UIColor *)mainColor;
-+ (UIColor *)secondaryColor;
-+ (UIColor *)darkColor;
-+ (UIColor *)lightColor;
-
-@end
